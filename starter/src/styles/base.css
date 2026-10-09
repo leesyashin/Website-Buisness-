@@ -1,0 +1,327 @@
+/* Grundlage: Reset, Typografie, Raster, Zustände für Bewegung */
+
+/* Farbwelten (motion/colorway.js): als Farben registriert, damit sie per CSS-Übergang gleiten */
+@property --cw-bg {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #ffffff;
+}
+
+@property --cw-ink {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #111111;
+}
+
+@property --cw-soft {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #666666;
+}
+
+@property --cw-accent {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #111111;
+}
+
+@property --cw-line {
+  syntax: '<color>';
+  inherits: true;
+  initial-value: #dddddd;
+}
+
+:root {
+  --ease-signature: cubic-bezier(0.65, 0.05, 0, 1);
+  transition:
+    --cw-bg 0.9s var(--ease-signature),
+    --cw-ink 0.9s var(--ease-signature),
+    --cw-soft 0.9s var(--ease-signature),
+    --cw-accent 0.9s var(--ease-signature),
+    --cw-line 0.9s var(--ease-signature);
+}
+
+html:not(.colorway-live) body [data-colorway] {
+  background: var(--cw-bg);
+  color: var(--cw-ink);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  --header-h: 4.5rem;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  scroll-padding-top: var(--header-h);
+}
+
+body {
+  margin: 0;
+  background: var(--c-bg);
+  color: var(--c-ink);
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  font-optical-sizing: auto;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+img,
+video,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+h1,
+h2,
+h3,
+p,
+figure,
+ul,
+ol {
+  margin: 0;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 400;
+  line-height: 1.02;
+  letter-spacing: -0.02em;
+  text-wrap: balance;
+}
+
+p {
+  text-wrap: pretty;
+  max-width: 62ch;
+}
+
+a {
+  color: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+
+:focus-visible {
+  outline: 2px solid var(--c-accent);
+  outline-offset: 3px;
+}
+
+.display {
+  font-family: var(--font-display);
+  font-size: var(--step-5);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
+}
+
+.display em {
+  font-style: italic;
+  color: var(--c-accent);
+}
+
+.eyebrow {
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--c-ink-soft);
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--max));
+  margin-inline: auto;
+}
+
+/* hidden muss gewinnen, auch gegen display: grid/flex aus Komponenten */
+[hidden] {
+  display: none !important;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: var(--gutter);
+  top: -4rem;
+  z-index: 100;
+  padding: var(--space-2xs) var(--space-s);
+  background: var(--c-ink);
+  color: var(--c-bg);
+}
+
+.skip-link:focus {
+  top: var(--space-2xs);
+}
+
+/* Knöpfe */
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.95em 1.5em;
+  border-radius: 999px;
+  background: var(--c-ink);
+  color: var(--c-bg);
+  font-weight: 500;
+  text-decoration: none;
+  transition:
+    background-color var(--dur-fast) var(--ease-out),
+    color var(--dur-fast) var(--ease-out);
+}
+
+.button:hover {
+  background: var(--c-accent);
+  color: var(--c-on-accent);
+}
+
+.button--ghost {
+  background: transparent;
+  color: inherit;
+  box-shadow: inset 0 0 0 1px currentColor;
+}
+
+/* Bewegung: Startzustände nur, solange das Motion-Skript lädt (Klasse setzt das Inline-Skript im <head>).
+   Ohne JS oder bei reduzierter Bewegung wird nichts versteckt. */
+.motion-pending [data-reveal],
+.motion-pending [data-reveal-stagger] > *,
+.motion-pending [data-split] {
+  visibility: hidden;
+}
+
+/* Zeilenmasken von [data-split]: Platz für Unterlängen (g, p) und kursive Überhänge, ohne den Zeilenabstand zu ändern */
+.split-line-mask {
+  padding: 0 0.08em 0.14em 0;
+  margin: 0 -0.08em -0.14em 0;
+}
+
+/* Markierung [data-highlight]: wischt mit JS beim Hereinscrollen hinein, ohne JS steht sie */
+[data-highlight] {
+  padding-inline: 0.12em;
+  margin-inline: -0.12em;
+  background: linear-gradient(var(--c-highlight, var(--c-accent)), var(--c-highlight, var(--c-accent))) no-repeat 0 100% / 100% 100%;
+  color: var(--c-on-highlight, inherit);
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+  transition:
+    background-size 0.9s var(--ease-signature),
+    color 0.5s var(--ease-signature);
+}
+
+.motion-ready [data-highlight]:not(.is-on) {
+  background-size: 0% 100%;
+  color: inherit;
+}
+
+/* Hover-Rollen [data-roll]: Text rollt hoch, Kopie rollt nach */
+.roll {
+  display: inline-grid;
+  overflow: hidden;
+  vertical-align: top;
+}
+
+.roll > span {
+  grid-area: 1 / 1;
+  transition: transform 0.6s var(--ease-signature);
+}
+
+.roll__b {
+  transform: translateY(110%);
+}
+
+:is(a, button):hover .roll__a,
+:is(a, button):focus-visible .roll__a {
+  transform: translateY(-110%);
+}
+
+:is(a, button):hover .roll__b,
+:is(a, button):focus-visible .roll__b {
+  transform: translateY(0);
+}
+
+/* Gestapelte Slides [data-stack]: jede Slide klebt, die nächste schiebt sich darüber */
+[data-stack] > * {
+  position: sticky;
+  top: 0;
+  overflow: clip;
+}
+
+.stack-shade {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Laufband: zwei identische Reihen nebeneinander */
+[data-marquee] {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+[data-marquee] > * {
+  flex-shrink: 0;
+}
+
+/* Seitenwechsel mit View Transitions (Chrome, Edge, Safari 18.2+); andere Browser wechseln normal */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 450ms;
+  animation-timing-function: var(--ease-in-out);
+}
+
+::view-transition-group(*) {
+  animation-duration: 650ms;
+  animation-timing-function: var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  @view-transition {
+    navigation: none;
+  }
+}
+
+/* Lenis-Grundregeln (entspricht lenis/dist/lenis.css, das das Paket nicht exportiert) */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+
+.lenis:not(.lenis-autoToggle).lenis-stopped {
+  overflow: clip;
+}
+
+.lenis [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
+}

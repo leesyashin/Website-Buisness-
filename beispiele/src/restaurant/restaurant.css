@@ -1,0 +1,596 @@
+/* Mara – Restaurant. Raster: große Schrift, Karte wie gedruckt (Gericht, Beschreibung, Preis), Reservierung als Arbeitsfläche. */
+:root {
+  --font-sans: 'Hanken Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Fraunces Variable', ui-serif, Georgia, serif;
+  --font-mono: 'Hanken Grotesk Variable', ui-sans-serif, sans-serif;
+  --radius: 0.9rem;
+}
+
+/* ---------- Colorways: Mittag (Pistazie, Tinte, Ochsenblut) und Abend (Aubergine, Kerzengold) ---------- */
+html[data-colorway='mittag'] {
+  --cw-bg: #dde7cf;
+  --cw-ink: #1f3324;
+  --cw-soft: #56685a;
+  --cw-accent: #7a1f2b;
+  --cw-line: #1f332426;
+  --cw-card: #eef3e6;
+}
+
+html[data-colorway='abend'] {
+  --cw-bg: #1d1216;
+  --cw-ink: #f1e7d7;
+  --cw-soft: #a8988a;
+  --cw-accent: #d9b26a;
+  --cw-line: #f1e7d71f;
+  --cw-card: #2a1b20;
+}
+
+/* Inhalte je Tageszeit */
+html[data-colorway='mittag'] [data-when='abend'],
+html[data-colorway='abend'] [data-when='mittag'] {
+  display: none;
+}
+
+/* ---------- Typo ---------- */
+.brand {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-2);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
+
+.r-name {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 300;
+  font-size: clamp(7rem, 2rem + 24vw, 26rem);
+  font-variation-settings: 'SOFT' 100, 'WONK' 1, 'opsz' 144;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+}
+
+.r-title {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: clamp(2.6rem, 1.4rem + 4.5vw, 6rem);
+  font-variation-settings: 'SOFT' 50, 'opsz' 144;
+  letter-spacing: -0.02em;
+  line-height: 0.95;
+}
+
+.r-tagline {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.2;
+  max-width: 26ch;
+}
+
+.r-tagline em {
+  color: var(--cw-accent);
+}
+
+.button {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.button:hover {
+  background: var(--cw-accent);
+  color: var(--cw-bg);
+}
+
+/* Umschalter Mittag/Abend */
+.r-service {
+  display: inline-flex;
+  padding: 0.25rem;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+}
+
+.r-service button {
+  padding: 0.45em 1em;
+  border: 0;
+  border-radius: 999px;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  font-size: var(--step--1);
+  cursor: pointer;
+  transition:
+    background-color 0.5s var(--ease-signature),
+    color 0.5s var(--ease-signature);
+}
+
+.r-service button[aria-pressed='true'] {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.site-header .r-service {
+  margin-inline: auto;
+}
+
+/* ---------- Hero ---------- */
+.r-hero {
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.r-hero__inner {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  grid-template-areas:
+    'status status'
+    'name   name'
+    'tag    table';
+  gap: var(--space-m) var(--space-xl);
+  align-items: end;
+}
+
+.r-status {
+  grid-area: status;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  justify-self: start;
+  padding: 0.4em 0.9em;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+  font-size: var(--step--1);
+}
+
+.r-status::before {
+  content: '';
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--cw-soft);
+}
+
+.r-status.is-open::before {
+  background: #3fae6a;
+  box-shadow: 0 0 0 0.25em #3fae6a33;
+}
+
+.r-name {
+  grid-area: name;
+}
+
+.r-tagline {
+  grid-area: tag;
+}
+
+.r-table {
+  grid-area: table;
+  width: 100%;
+  max-width: 26rem;
+  justify-self: end;
+  color: var(--cw-ink);
+}
+
+/* Laufband */
+.r-marquee {
+  padding-block: var(--space-s);
+  border-block: 1px solid var(--cw-line);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-2);
+}
+
+.r-marquee p {
+  max-width: none;
+  padding-right: 0.3em;
+}
+
+/* ---------- Karte ---------- */
+.r-menu {
+  display: grid;
+  gap: var(--space-l);
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.r-menu__head {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: var(--space-s);
+}
+
+.r-meta {
+  color: var(--cw-soft);
+}
+
+.r-courses {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-l);
+}
+
+.r-course h3 {
+  padding-bottom: var(--space-xs);
+  border-bottom: 1px solid var(--cw-ink);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-1);
+}
+
+.r-course ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.r-course li {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.15rem var(--space-s);
+  padding-block: var(--space-s);
+  border-bottom: 1px solid var(--cw-line);
+}
+
+.r-dish {
+  font-weight: 600;
+}
+
+.r-dish i {
+  margin-left: 0.4em;
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+  font-weight: 400;
+}
+
+.r-desc {
+  grid-column: 1;
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.r-price {
+  grid-row: 1;
+  grid-column: 2;
+  font-variant-numeric: tabular-nums;
+}
+
+.r-menu__note {
+  grid-column: 1 / -1;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-1);
+  color: var(--cw-accent);
+}
+
+/* ---------- Reservierung ---------- */
+.r-book {
+  padding-block: var(--space-2xl);
+  border-top: 1px solid var(--cw-line);
+}
+
+.r-book__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.r-book__intro {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-m));
+  display: grid;
+  gap: var(--space-m);
+}
+
+.r-phone {
+  font-weight: 600;
+  white-space: nowrap;
+  user-select: all;
+}
+
+.r-booking {
+  display: grid;
+  gap: var(--space-l);
+  padding: var(--space-l);
+  border-radius: var(--radius);
+  background: var(--cw-card);
+}
+
+.r-field {
+  display: grid;
+  gap: var(--space-s);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.r-field legend {
+  margin-bottom: var(--space-xs);
+  font-size: var(--step--1);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--cw-soft);
+}
+
+.r-field--row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-s);
+}
+
+.r-days {
+  display: flex;
+  gap: var(--space-2xs);
+  overflow-x: auto;
+  padding-bottom: var(--space-2xs);
+  scroll-snap-type: x proximity;
+  scrollbar-width: thin;
+}
+
+.r-day,
+.r-slot,
+.r-stepper button {
+  border: 0;
+  border-radius: calc(var(--radius) * 0.7);
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+  cursor: pointer;
+  transition:
+    background-color 0.4s var(--ease-signature),
+    color 0.4s var(--ease-signature),
+    box-shadow 0.4s var(--ease-signature);
+}
+
+.r-day {
+  display: grid;
+  flex: 0 0 4.4rem;
+  gap: 0.1rem;
+  padding: 0.6rem 0.4rem;
+  scroll-snap-align: start;
+  text-align: center;
+}
+
+.r-day span,
+.r-day small {
+  font-size: 0.75rem;
+  color: var(--cw-soft);
+}
+
+.r-day strong {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 400;
+  line-height: 1;
+}
+
+.r-day:hover:not(:disabled),
+.r-slot:hover:not(:disabled),
+.r-stepper button:hover {
+  box-shadow: inset 0 0 0 1.5px var(--cw-ink);
+}
+
+.r-day[aria-pressed='true'],
+.r-slot[aria-pressed='true'] {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.r-day[aria-pressed='true'] span,
+.r-day[aria-pressed='true'] small,
+.r-slot[aria-pressed='true'] small {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.r-day:disabled,
+.r-slot:disabled {
+  cursor: not-allowed;
+  opacity: 0.4;
+}
+
+.r-slot:disabled strong {
+  text-decoration: line-through;
+}
+
+.r-stepper {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.r-stepper button {
+  width: 2.6rem;
+  height: 2.6rem;
+  font-size: var(--step-1);
+}
+
+.r-stepper output {
+  min-width: 2ch;
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.r-slots {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(5.6rem, 1fr));
+  gap: var(--space-2xs);
+}
+
+.r-slot {
+  display: grid;
+  gap: 0.1rem;
+  padding: 0.7rem 0.5rem;
+  text-align: center;
+}
+
+.r-slot strong {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+}
+
+.r-slot small {
+  font-size: 0.72rem;
+  color: var(--cw-soft);
+}
+
+.r-hint {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.r-link {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--cw-accent);
+  font: inherit;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.r-summary {
+  display: grid;
+  gap: var(--space-m);
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--cw-line);
+}
+
+.r-summary__line {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  line-height: 1.15;
+  max-width: none;
+}
+
+.r-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-s);
+}
+
+.r-inputs label {
+  display: grid;
+  gap: 0.3rem;
+  font-size: var(--step--1);
+  color: var(--cw-soft);
+}
+
+.r-inputs__wide {
+  grid-column: 1 / -1;
+}
+
+.r-inputs input {
+  padding: 0.8em 0.9em;
+  border: 0;
+  border-radius: calc(var(--radius) * 0.6);
+  background: var(--cw-bg);
+  color: var(--cw-ink);
+  font: inherit;
+  font-size: var(--step-0);
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+}
+
+.r-inputs input:focus-visible {
+  outline: 2px solid var(--cw-accent);
+  outline-offset: 1px;
+}
+
+.r-error {
+  color: var(--cw-accent);
+  font-weight: 600;
+}
+
+.r-summary .button {
+  justify-self: start;
+}
+
+.r-done {
+  display: grid;
+  gap: var(--space-s);
+  justify-items: start;
+  color: var(--cw-ink);
+}
+
+.r-done svg {
+  color: var(--cw-accent);
+}
+
+.r-done__title {
+  font-family: var(--font-display);
+  font-size: var(--step-3);
+  line-height: 1;
+}
+
+/* ---------- Öffnungszeiten ---------- */
+.r-info {
+  display: grid;
+  gap: var(--space-l);
+  padding-block: var(--space-2xl);
+}
+
+.r-hours {
+  width: 100%;
+  max-width: 40rem;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.r-hours th,
+.r-hours td {
+  padding: 0.7rem 0;
+  border-bottom: 1px solid var(--cw-line);
+  text-align: left;
+  font-weight: 400;
+}
+
+.r-hours tr.is-today {
+  color: var(--cw-accent);
+  font-weight: 600;
+}
+
+.r-hours tr.is-today th::after {
+  content: ' · heute';
+  font-weight: 400;
+}
+
+.r-address {
+  font-style: normal;
+  color: var(--cw-soft);
+}
+
+/* ---------- Handy ---------- */
+@media (max-width: 899px) {
+  .site-header .r-service {
+    display: none;
+  }
+
+  .r-hero__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'status' 'name' 'tag' 'table';
+  }
+
+  .r-table {
+    justify-self: start;
+  }
+
+  .r-courses,
+  .r-book__inner {
+    grid-template-columns: 1fr;
+  }
+
+  .r-book__intro {
+    position: static;
+  }
+
+  .r-booking {
+    padding: var(--space-m);
+  }
+
+  .r-inputs {
+    grid-template-columns: 1fr;
+  }
+}

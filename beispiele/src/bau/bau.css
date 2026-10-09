@@ -1,0 +1,418 @@
+/* Ruland Bau. Raster: Textspalte links (46 %), rechts steht das Gebäude. Schmale, hohe Versalien wie auf Bauschildern. */
+:root {
+  --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+  --radius: 2px;
+}
+
+/* ---------- Colorways ---------- */
+html[data-colorway='beton'],
+html:not(.colorway-live) [data-colorway='beton'] {
+  --cw-bg: #dcd9d3;
+  --cw-ink: #1b1c1e;
+  --cw-soft: #5b5c5e;
+  --cw-accent: #f2c200;
+  --cw-line: #1b1c1e2e;
+}
+
+html[data-colorway='bauplan'],
+html:not(.colorway-live) [data-colorway='bauplan'] {
+  --cw-bg: #142a4c;
+  --cw-ink: #dbe8f5;
+  --cw-soft: #8ea7c4;
+  --cw-accent: #6fd3ff;
+  --cw-line: #dbe8f533;
+}
+
+html[data-colorway='abend'],
+html:not(.colorway-live) [data-colorway='abend'] {
+  --cw-bg: #121214;
+  --cw-ink: #ece8df;
+  --cw-soft: #8c877c;
+  --cw-accent: #ffcf70;
+  --cw-line: #ece8df22;
+}
+
+[data-highlight] {
+  --c-on-highlight: #1b1c1e;
+}
+
+/* ---------- Typo ---------- */
+.b-display {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 1rem + 8vw, 10rem);
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 0.88;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.b-display--m {
+  font-size: clamp(2.6rem, 1rem + 5vw, 6.5rem);
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-stretch: 62%;
+  font-size: var(--step-1);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.brand span {
+  margin-left: 0.25em;
+  font-weight: 400;
+  color: var(--cw-soft);
+}
+
+.mono {
+  color: var(--cw-soft);
+}
+
+.b-lead {
+  font-size: var(--step-1);
+  line-height: 1.4;
+  max-width: 38ch;
+}
+
+.button {
+  border-radius: var(--radius);
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.button:hover {
+  background: var(--cw-accent);
+  color: #1b1c1e;
+}
+
+.button--big {
+  font-size: var(--step-0);
+  padding: 1.2em 2em;
+}
+
+/* ---------- Kapitel ---------- */
+.b-hero,
+.b-services,
+.b-plan,
+.b-process,
+.b-contact {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  align-items: center;
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.b-hero__inner,
+.b-services__inner,
+.b-plan__text,
+.b-process__inner,
+.b-contact__inner {
+  display: grid;
+  gap: var(--space-m);
+  align-content: start;
+  justify-items: start;
+  width: min(44%, 44rem);
+  margin-inline: max(var(--gutter), (100% - var(--max)) / 2) auto;
+}
+
+.b-plan__inner .b-plan__text {
+  margin-inline: 0;
+}
+
+.b-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  width: 100%;
+  margin: var(--space-l) 0 0;
+}
+
+.b-stats div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-2xs);
+  padding-top: var(--space-xs);
+  border-top: 3px solid var(--cw-ink);
+}
+
+.b-stats dd {
+  margin: 0;
+  font-size: var(--step-4);
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+
+.b-stats dt {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+/* Leistungen als Liste mit Linien */
+.b-list {
+  display: grid;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: none;
+}
+
+.b-list li {
+  display: grid;
+  grid-template-columns: 3rem 1fr;
+  gap: var(--space-2xs) var(--space-s);
+  padding-block: var(--space-m);
+  border-top: 1px solid var(--cw-line);
+}
+
+.b-list li:last-child {
+  border-bottom: 1px solid var(--cw-line);
+}
+
+.b-list h3 {
+  font-size: var(--step-2);
+  font-weight: 700;
+  font-stretch: 75%;
+  text-transform: uppercase;
+}
+
+.b-list p {
+  grid-column: 2;
+  color: var(--cw-soft);
+}
+
+.b-list [data-highlight] {
+  color: var(--cw-ink);
+}
+
+/* Bauplan */
+.b-plan__inner {
+  display: grid;
+  gap: var(--space-l);
+}
+
+.b-plan__facts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs) var(--space-l);
+  padding: var(--space-s) 0 0;
+  border-top: 1px solid var(--cw-line);
+  list-style: none;
+}
+
+.b-plan__drawing {
+  width: min(44%, 44rem);
+  height: auto;
+  color: var(--cw-accent);
+}
+
+.b-plan__labels {
+  opacity: 0.8;
+}
+
+/* Projekte */
+.b-projects {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: var(--space-l);
+  min-height: 100svh;
+  padding-block: var(--space-xl);
+  overflow: hidden;
+}
+
+.b-projects__head {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+.b-track {
+  display: flex;
+  gap: var(--space-m);
+  width: max-content;
+  margin: 0;
+  padding: 0 var(--gutter);
+  list-style: none;
+}
+
+.b-card {
+  display: grid;
+  gap: var(--space-xs);
+  width: clamp(16rem, 26vw, 24rem);
+  padding: var(--space-s);
+  background: var(--cw-bg);
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+}
+
+/* Planpapier statt Foto: Raster, große Projektnummer */
+.b-card__plan {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  background:
+    linear-gradient(var(--cw-line) 1px, transparent 1px) 0 0 / 24px 24px,
+    linear-gradient(90deg, var(--cw-line) 1px, transparent 1px) 0 0 / 24px 24px,
+    color-mix(in oklch, var(--cw-ink) 6%, var(--cw-bg));
+}
+
+.b-card__plan::after {
+  content: var(--n);
+  position: absolute;
+  right: var(--space-xs);
+  bottom: -0.1em;
+  font-size: clamp(4rem, 8vw, 7rem);
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 1;
+  color: var(--cw-ink);
+}
+
+.b-card h3 {
+  font-size: var(--step-1);
+  font-weight: 700;
+  font-stretch: 75%;
+  text-transform: uppercase;
+}
+
+.b-card dl {
+  display: grid;
+  gap: 0.2rem;
+  margin: 0;
+}
+
+.b-card dl div {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid var(--cw-line);
+  padding-top: 0.2rem;
+}
+
+.b-card dd {
+  margin: 0;
+  color: var(--cw-ink);
+}
+
+/* Ablauf: Linie zeichnet sich beim Scrollen, Schritte daneben */
+.b-steps {
+  position: relative;
+  width: 100%;
+}
+
+.b-steps__line {
+  position: absolute;
+  left: 0.45rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 4px;
+  height: calc(100% - 1rem);
+  color: var(--cw-accent);
+}
+
+.b-steps ol {
+  display: grid;
+  gap: var(--space-l);
+  margin: 0;
+  padding: 0 0 0 2.5rem;
+  list-style: none;
+}
+
+.b-steps li {
+  position: relative;
+  display: grid;
+  gap: 0.3rem;
+}
+
+.b-steps li::before {
+  content: '';
+  position: absolute;
+  left: -2.5rem;
+  top: 0.35rem;
+  width: 1.1rem;
+  height: 1.1rem;
+  background: var(--cw-bg);
+  box-shadow: inset 0 0 0 3px var(--cw-ink);
+}
+
+.b-steps h3 {
+  font-size: var(--step-2);
+  font-weight: 700;
+  font-stretch: 75%;
+  text-transform: uppercase;
+}
+
+.b-steps li > p:last-child {
+  color: var(--cw-soft);
+}
+
+/* Kontakt am Abend */
+.b-contact__ways {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-m) var(--space-xl);
+  font-size: var(--step-1);
+}
+
+.b-contact__ways strong {
+  font-weight: 600;
+  user-select: all;
+}
+
+.no-webgl .stage {
+  display: none;
+}
+
+/* ---------- Handy: Gebäude oben, Text darunter auf Abschnittsfarbe ---------- */
+@media (max-width: 899px) {
+  .b-hero,
+  .b-services,
+  .b-plan,
+  .b-process,
+  .b-contact {
+    align-items: start;
+    padding-top: 50svh;
+    background: linear-gradient(to bottom, transparent calc(50svh - 5rem), var(--cw-bg) calc(50svh - 1rem));
+  }
+
+  .b-hero__inner,
+  .b-services__inner,
+  .b-plan__text,
+  .b-process__inner,
+  .b-contact__inner,
+  .b-plan__drawing {
+    width: auto;
+    margin-inline: var(--gutter);
+  }
+
+  .b-plan__inner .b-plan__text,
+  .b-plan__drawing {
+    width: 100%;
+    margin-inline: 0;
+  }
+
+  .b-projects {
+    min-height: auto;
+    background: var(--cw-bg);
+  }
+
+  .b-track {
+    width: auto;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  .b-card {
+    flex-shrink: 0;
+    width: 78vw;
+    scroll-snap-align: start;
+  }
+}
