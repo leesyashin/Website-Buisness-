@@ -1,7 +1,10 @@
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { SplitText } from 'gsap/SplitText';
-import { media } from './config.js';
+import { ScrambleTextPlugin } from 'gsap/ScrambleTextPlugin';
+import { DrawSVGPlugin } from 'gsap/DrawSVGPlugin';
+import { CustomEase } from 'gsap/CustomEase';
+import { media, signatureCurve } from './config.js';
 import { initSmoothScroll } from './smooth-scroll.js';
 import { initReveal } from './reveal.js';
 import { initSplit } from './split.js';
@@ -12,15 +15,25 @@ import { initMarquee } from './marquee.js';
 import { initMagnetic } from './magnetic.js';
 import { initCounter } from './counter.js';
 import { initHeader } from './header.js';
+import { initColorway } from './colorway.js';
+import { initScramble } from './scramble.js';
+import { initDraw } from './draw.js';
+import { initHighlight } from './highlight.js';
+import { initRoll } from './roll.js';
+import { initStack } from './stack.js';
 
-gsap.registerPlugin(ScrollTrigger, SplitText);
+gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, CustomEase);
+CustomEase.create('signature', signatureCurve);
 
 // Grundregel: Das HTML ist ohne JavaScript und bei „Bewegung reduzieren“ vollständig und lesbar.
 // Bewegung kommt nur obendrauf. gsap.matchMedia räumt alles automatisch auf, sobald eine Bedingung
 // wegfällt (z. B. Fenster schmaler als Desktop oder Systemeinstellung geändert).
 export function initMotion() {
   const html = document.documentElement;
+  // Unabhängig von „Bewegung reduzieren“: Zustände, keine Bewegung (Übergänge schaltet base.css dann ab)
   initHeader();
+  initColorway();
+  initRoll();
 
   const mm = gsap.matchMedia();
   mm.add(media, (ctx) => {
@@ -35,6 +48,10 @@ export function initMotion() {
     initReveal();
     initParallax();
     initCounter();
+    initScramble();
+    initDraw();
+    initHighlight();
+    initStack();
     if (desktop) initHorizontal();
     if (finePointer) cleanups.push(initMagnetic());
 

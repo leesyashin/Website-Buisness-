@@ -40,6 +40,13 @@ Jedes Muster hängt an einem `data-`-Attribut im HTML. Ohne JavaScript oder bei 
 | `data-magnetic="0.3"` | Knopf folgt der Maus (nur feiner Zeiger) | `motion/magnetic.js` |
 | `data-count-to="98"` · `data-count-decimals` | Zahl zählt hoch | `motion/counter.js` |
 | `data-header` | Kopfzeile versteckt sich beim Runterscrollen | `motion/header.js` |
+| `data-reveal="wipe"` · `data-reveal-delay="0.4"` | wischt von links herein (Balken, Linien) · Verzögerung | `motion/reveal.js` |
+| `data-colorway="name"` (auf Abschnitten) | Farbwelt: die ganze Seite färbt sich beim Hereinscrollen um, Ereignis `colorway` für 3D & Co. | `motion/colorway.js` |
+| `data-scramble` · `="hover"` | Text entschlüsselt sich (technische Labels, Kennzahlen) | `motion/scramble.js` |
+| `data-draw` · `="scrub"` | Linien einer SVG zeichnen sich (Pläne, Illustrationen, Zeitstrahl) | `motion/draw.js` |
+| `data-highlight` | Markierung wischt hinter Wörter | `motion/highlight.js` |
+| `data-roll` | Link-/Knopftext rollt beim Hover nach oben, Kopie rollt nach | `motion/roll.js` |
+| `data-stack` (Behälter) | Slides kleben übereinander, die vorige tritt kleiner und dunkler zurück | `motion/stack.js` |
 | `style="view-transition-name: x"` auf zwei Seiten | Element fliegt beim Seitenwechsel von A nach B | `styles/base.css` |
 
 Neue Muster: eigene Datei unter `src/motion/`, in `motion/index.js` innerhalb von `gsap.matchMedia()` registrieren, eine Zeile in diese Tabelle.
@@ -47,12 +54,27 @@ Neue Muster: eigene Datei unter `src/motion/`, in `motion/index.js` innerhalb vo
 ### Regeln, damit es hochwertig wirkt (und nicht nach Template)
 
 1. **Jede Bewegung hat einen Grund:** Blick lenken, Zusammenhang zeigen (Bild fliegt in die Detailseite), Rückmeldung geben. Fünf gute Momente schlagen zwanzig Effekte.
-2. **Eine Bewegungssprache pro Projekt:** zwei Kurven (`ease.out` zum Ankommen, `ease.inOut` für Wechsel), drei Dauern. Stehen in `motion/config.js` und `tokens.css`.
+2. **Eine Bewegungssprache pro Projekt:** wenige Kurven, drei Dauern. Stehen in `motion/config.js` und `tokens.css`. Die Signatur-Kurve `signature` = `cubic-bezier(0.65, 0.05, 0, 1)` (schneller Start, langes weiches Ende, gesehen auf landonorris.com) trägt Farbwechsel, Hover und Übergänge.
 3. **Nur `transform` und `opacity` animieren** (dazu `clip-path` für Masken). Nie `top/left/width/height`, keine Filter beim Scrollen.
 4. **Scroll-gekoppelt (`scrub`) für Erzählung, zeitbasiert für Ankommen.** Text-Reveals laufen einmal (`once: true`) und nicht rückwärts.
 5. **Reduzierte Bewegung ist Pflicht:** `gsap.matchMedia` schaltet alles ab, Inhalte stehen statisch und vollständig da, Videos pausieren.
 6. **Mobil ist eigene Regie,** kein geschrumpfter Desktop: keine Pins mit Seitwärtsfahrt, stattdessen Wischleisten; kein Magnet-Cursor.
 7. **Kein Layout-Springen:** Startzustände nur über die Klasse `motion-pending` (Inline-Skript im `<head>`), mit Sicherheitsnetz nach 3 s.
+
+### Farbwelten (Colorways)
+
+Jede Farbwelt ist ein CSS-Block mit fünf Variablen (`--cw-bg`, `--cw-ink`, `--cw-soft`, `--cw-accent`, `--cw-line`), z. B. in `beispiele/src/dose/dose.css`. Abschnitte bekommen `data-colorway="…"`. Die Variablen sind per `@property` registriert und gleiten deshalb rein per CSS. 3D-Szenen hören auf das Ereignis `colorway` (Dose wechselt das Etikett, Gebäude wird zur Zeichnung oder leuchtet). Ohne JavaScript malt jeder Abschnitt seine eigene Farbe.
+
+### 3D im Browser (three.js)
+
+Beispiele in `beispiele/src/dose/scene.js` (Produkt) und `beispiele/src/bau/building.js` (Gebäude). Muster:
+
+- **Bühne fest hinter dem Inhalt** (`.stage`), Inhalt scrollt darüber; Haltung pro Kapitel als Tabelle (`POSES`), Übergänge per ScrollTrigger mit `scrub`.
+- **three.js nachladen** (`import()`), damit Text und Layout sofort stehen. ~150 KB gzip.
+- **Spiegelungen statt vieler Lichter:** `RoomEnvironment` als Umgebung + ein Streiflicht. Kontaktschatten als weicher Verlauf statt echter Schatten (Produkt) oder Schatten mit `ShadowMaterial` (Gebäude).
+- **Etiketten/Texturen auf Canvas malen** (`label.js`): eine Quelle für Website und Video.
+- **Fallback:** ohne WebGL ein gerendertes Standbild (Remotion `CanStill`), bei reduzierter Bewegung eine feste Haltung.
+- **Mobil:** Objekt in der oberen Bildhälfte, Text gleitet darunter über eine Farbfläche.
 
 ### Wann mehr als GSAP?
 
@@ -71,6 +93,8 @@ Neue Muster: eigene Datei unter `src/motion/`, in `motion/index.js` innerhalb vo
 |---|---|---|
 | `HeroLoop` | 1920 × 1080, 8 s, nahtlos | Hintergrundvideo für den Website-Hero (`starter/public/media/hero-loop.mp4`) |
 | `SocialReel` | 1080 × 1920, 9 s | Reel mit Kinetic Type, Texte per Props austauschbar |
+| `CanReel` | 1080 × 1920, 14,5 s | Produkt-Reel mit der 3D-Dose der Website (`@remotion/three`), drei Sorten + Schlusskarte |
+| `CanStill` | 900 × 1200, PNG transparent | freigestellte Dose je Sorte (`--props='{"flavor":"minze"}'`) |
 
 ### Befehle
 
@@ -81,6 +105,8 @@ npm run studio          # Remotion Studio im Browser: Vorschau, Zeitleiste, Prop
 npm run render:hero     # → out/hero-loop.mp4 + out/hero-poster.jpg
 npm run publish:hero    # rendern und in den Starter kopieren
 npm run render:reel     # → out/social-reel.mp4
+npm run render:can      # → out/can-reel.mp4 (3D, braucht --gl=swangle in der Cloud, steht im Skript)
+npm run render:can-stills  # → out/can-yuzu.png, can-hibiskus.png, can-minze.png
 
 # Reel für einen Kunden
 npx remotion render SocialReel out/weingut.mp4 \

@@ -6,7 +6,7 @@ Dieses Dokument ist der Bauplan für jede Kundenseite. Teil A (Gemeinsamkeiten d
 
 ## A. Was unsere Referenzen gemeinsam haben
 
-> **Stand: noch offen.** Die Referenz-Domains sind in dieser Umgebung noch nicht freigeschaltet. Sobald sie in `referenzen/sites.txt` stehen und erreichbar sind:
+> **Stand: begonnen.** landonorris.com ist als HTML ausgewertet ([Notizen](../referenzen/landonorris.com/notizen.md)); Signatur-Kurve, Markierungs-Reveal, Text-Hover und an Abschnitte gekoppelte 3D-Farbwechsel sind bereits im Starter. igloo.inc und die Asset-Domains von landonorris.com sind in dieser Umgebung noch gesperrt. Sobald sie in `referenzen/sites.txt` stehen und erreichbar sind:
 > `cd tools/analyze && npm install && node analyze.mjs && node summarize.mjs`, dann pro Seite das [Raster](REFERENZ-RASTER.md) ausfüllen und hier zusammenfassen.
 
 Geplante Gliederung:

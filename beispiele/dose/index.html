@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="de" data-colorway="yuzu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>perle · Spritzige Limonade</title>
+    <meta name="description" content="Beispielseite Produkt: spritzige Limonade in drei Sorten, mit 3D-Dose und Farbwelten je Sorte." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/dose/main.js"></script>
+  </head>
+  <body class="dose">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="#inhalt" aria-label="perle, zum Anfang">perle</a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="#sorten" data-roll>Sorten</a></li>
+            <li><a href="#perlage" data-roll>Perlage</a></li>
+            <li><a href="#probierpaket" data-roll>Probierpaket</a></li>
+          </ul>
+        </nav>
+        <a class="button button--small" href="#probierpaket" data-roll>12 Dosen · 24,90 €</a>
+      </div>
+    </header>
+
+    <!-- 3D-Bühne: die Dose (src/dose/scene.js). Rein dekorativ, alle Inhalte stehen im HTML. -->
+    <div class="stage" data-stage aria-hidden="true"></div>
+    <img class="can-fallback" src="/media/can-yuzu.webp" alt="" width="442" height="702" />
+
+    <main id="inhalt" class="stage-content" tabindex="-1">
+      <section class="d-hero" data-colorway="yuzu" data-can="hero" aria-labelledby="hero-title">
+        <div class="wrap d-hero__inner">
+          <p class="eyebrow" data-reveal="fade">Spritzige Limonade aus Leipzig</p>
+          <h1 id="hero-title" class="d-display" data-split data-split-now>Prickelt.<br />Ohne Zucker&shy;zusatz.</h1>
+          <p class="d-lead" data-reveal data-reveal-delay="0.5">
+            Drei Sorten aus echtem Fruchtsaft, kräftig gesprudelt und kalt abgefüllt. 4 kcal pro 100 ml.
+          </p>
+          <div class="d-actions" data-reveal data-reveal-delay="0.6">
+            <a class="button" href="#sorten" data-roll>Sorten entdecken</a>
+            <a class="button button--ghost" href="#probierpaket" data-roll>Probierpaket</a>
+          </div>
+          <ul class="d-specs mono" aria-label="Kennzahlen">
+            <li data-scramble>4 kcal / 100 ml</li>
+            <li data-scramble>8 % Fruchtsaft</li>
+            <li data-scramble>CO₂ 4,2 g/l</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="d-story" data-colorway="kreide" data-can="story" aria-labelledby="story-title">
+        <div class="wrap d-story__inner">
+          <p class="eyebrow" id="story-title">Warum perle</p>
+          <p class="d-statement" data-scrub-text>
+            Limonade war uns immer zu süß. Also haben wir den Zucker weggelassen, den Saft behalten und die
+            Kohlensäure hochgedreht. Was bleibt, schmeckt nach Frucht und prickelt bis zum letzten Schluck.
+          </p>
+          <dl class="d-facts" data-reveal-stagger>
+            <div><dt>Inhalt</dt><dd><span data-count-to="330">330</span> ml</dd></div>
+            <div><dt>Energie</dt><dd><span data-count-to="4">4</span> kcal</dd></div>
+            <div><dt>Fruchtsaft</dt><dd><span data-count-to="8">8</span> %</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="sorten" class="d-sorten" data-can="sorten" aria-labelledby="sorten-title">
+        <div class="d-sorten__bar wrap">
+          <h2 id="sorten-title" class="eyebrow">Drei Sorten</h2>
+          <nav class="d-tabs" aria-label="Sorten">
+            <a href="#yuzu" data-flavor-link="yuzu" data-roll>Yuzu</a>
+            <a href="#hibiskus" data-flavor-link="hibiskus" data-roll>Hibiskus</a>
+            <a href="#minze" data-flavor-link="minze" data-roll>Minze</a>
+          </nav>
+        </div>
+
+        <article id="yuzu" class="flavor" data-colorway="yuzu" aria-labelledby="f-yuzu">
+          <div class="wrap flavor__inner">
+            <p class="mono">No. 01 / 03</p>
+            <h3 id="f-yuzu" class="d-display d-display--m" data-split>Yuzu &amp; Ingwer</h3>
+            <p>Japanische Zitrusfrucht trifft frischen Ingwer. Spitz, hell, mit Wärme im Abgang. Am besten eiskalt.</p>
+            <dl class="meters">
+              <div><dt>Säure</dt><dd><i data-reveal="wipe" style="--v: 0.8"></i></dd></div>
+              <div><dt>Süße</dt><dd><i data-reveal="wipe" style="--v: 0.35"></i></dd></div>
+              <div><dt>Schärfe</dt><dd><i data-reveal="wipe" style="--v: 0.55"></i></dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article id="hibiskus" class="flavor" data-colorway="hibiskus" aria-labelledby="f-hibiskus">
+          <div class="wrap flavor__inner">
+            <p class="mono">No. 02 / 03</p>
+            <h3 id="f-hibiskus" class="d-display d-display--m" data-split>Hibiskus &amp; Beere</h3>
+            <p>Tiefrot aus Hibiskusblüten, dazu schwarze Johannisbeere. Herb, beerig, fast wie ein Rosé ohne Alkohol.</p>
+            <dl class="meters">
+              <div><dt>Säure</dt><dd><i data-reveal="wipe" style="--v: 0.6"></i></dd></div>
+              <div><dt>Süße</dt><dd><i data-reveal="wipe" style="--v: 0.55"></i></dd></div>
+              <div><dt>Schärfe</dt><dd><i data-reveal="wipe" style="--v: 0.1"></i></dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article id="minze" class="flavor" data-colorway="minze" aria-labelledby="f-minze">
+          <div class="wrap flavor__inner">
+            <p class="mono">No. 03 / 03</p>
+            <h3 id="f-minze" class="d-display d-display--m" data-split>Gurke &amp; Minze</h3>
+            <p>Kühl und grün: Salatgurke, Pfefferminze, ein Spritzer Limette. Die leiseste der drei, perfekt zum Essen.</p>
+            <dl class="meters">
+              <div><dt>Säure</dt><dd><i data-reveal="wipe" style="--v: 0.3"></i></dd></div>
+              <div><dt>Süße</dt><dd><i data-reveal="wipe" style="--v: 0.2"></i></dd></div>
+              <div><dt>Schärfe</dt><dd><i data-reveal="wipe" style="--v: 0.05"></i></dd></div>
+            </dl>
+          </div>
+        </article>
+      </section>
+
+      <section id="perlage" class="d-perlage" data-colorway="nacht" data-can="perlage" aria-labelledby="perlage-title">
+        <div class="wrap d-perlage__inner">
+          <p class="eyebrow">Perlage</p>
+          <h2 id="perlage-title" class="d-display d-display--m" data-split>
+            4,2 Gramm Kohlensäure <span data-highlight>pro Liter.</span>
+          </h2>
+          <ul class="d-labels mono" aria-label="Abfüllung">
+            <li data-scramble>Abfüllung bei 4 °C</li>
+            <li data-scramble>Perlen unter 0,5 mm</li>
+            <li data-scramble>Dose 100 % recycelbar</li>
+          </ul>
+          <p class="d-perlage__text" data-reveal>
+            Kalt abgefüllt hält Wasser mehr Kohlensäure. Deshalb prickelt perle feiner und länger als übliche Limonade,
+            auch eine Stunde nach dem Öffnen.
+          </p>
+        </div>
+      </section>
+
+      <section id="probierpaket" class="d-finale" data-colorway="hibiskus" data-can="finale" aria-labelledby="finale-title">
+        <div class="wrap d-finale__inner">
+          <h2 id="finale-title" class="d-display" data-split>Alle drei probieren.</h2>
+          <p class="d-lead">12 Dosen, vier je Sorte. Versand in 2–3 Werktagen, Pfand inklusive.</p>
+          <p class="d-price"><span data-count-to="24.9" data-count-decimals="2">24,90</span> €</p>
+          <a class="button button--big" href="#probierpaket" data-magnetic data-roll>In den Warenkorb</a>
+          <p class="d-note mono">Beispielseite · kein echter Shop</p>
+        </div>
+        <div class="d-marquee" data-marquee data-marquee-speed="80" aria-hidden="true">
+          <p>Yuzu &amp; Ingwer <span>●</span> Hibiskus &amp; Beere <span>●</span> Gurke &amp; Minze <span>●</span>&nbsp;</p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap stage-content">
+      <p>perle Getränke GmbH · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>

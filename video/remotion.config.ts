@@ -1,3 +1,4 @@
+import path from 'node:path';
 import { Config } from '@remotion/cli/config';
 
 Config.setVideoImageFormat('jpeg');
@@ -9,3 +10,13 @@ Config.setOverwriteOutput(true);
 if (process.env.REMOTION_BROWSER) {
   Config.setBrowserExecutable(process.env.REMOTION_BROWSER);
 }
+
+// Die 3D-Dose kommt aus beispiele/src/dose (gleicher Code wie auf der Website).
+// three immer aus diesem Projekt laden, sonst gäbe es zwei three-Instanzen.
+Config.overrideWebpackConfig((config) => ({
+  ...config,
+  resolve: {
+    ...config.resolve,
+    alias: { ...(config.resolve?.alias ?? {}), three: path.resolve(process.cwd(), 'node_modules/three') },
+  },
+}));

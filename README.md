@@ -8,6 +8,9 @@ Werkstatt für animierte Kunden-Websites: ein Starter mit Bewegungssystem, Video
 # Website-Starter (Demo aller Bewegungsmuster)
 cd starter && npm install && npm run dev        # http://localhost:5173
 
+# Beispielseiten pro Branche (Übersicht + Produkt, Baufirma, Restaurant)
+cd beispiele && npm install && npm run dev      # http://localhost:5173
+
 # Videos aus Code (Remotion Studio)
 cd video && npm install && npm run studio
 
@@ -24,7 +27,8 @@ Für die Analyse am Mac einmalig `npx playwright install chromium` im Ordner `to
 | | |
 |---|---|
 | [`starter/`](starter) | Vite + GSAP (ScrollTrigger, SplitText) + Lenis + View Transitions. Bewegung per `data-`-Attribut, siehe [docs/ANIMATION.md](docs/ANIMATION.md) |
-| [`video/`](video) | Remotion: `HeroLoop` (nahtloser Hintergrund für den Hero) und `SocialReel` (9:16, Texte per Props) |
+| [`beispiele/`](beispiele) | Beispielseiten auf dem Starter: **perle** (Produkt, 3D-Dose, Colorway je Sorte), **Ruland Bau** (3D-Gebäude wächst, Bauplan-Ansicht), **Mara** (Restaurant, Mittag/Abend, Reservierung mit Zeitslots), Übersicht mit gestapelten Slides |
+| [`video/`](video) | Remotion: `HeroLoop`, `SocialReel`, `CanReel` (3D-Dose als Produktvideo), `CanStill` (freigestellte Dose als PNG) |
 | [`referenzen/`](referenzen) | Vorbild-Websites: Liste, Messberichte, Screenshots, Vergleich |
 | [`tools/analyze/`](tools/analyze) | Playwright-Analyse: Technik, Schriften, Farben, Bewegung, Layout, Performance |
 | [`docs/GRUNDLAGE.md`](docs/GRUNDLAGE.md) | Bauplan: Ablauf pro Projekt, Kapitel- und Bewegungsdrehbuch, Qualitätsboden |

@@ -7,7 +7,8 @@ Hier entstehen Websites für Kunden: animiert, schnell, barrierearm, rechtssiche
 | Ordner | Inhalt |
 |---|---|
 | `starter/` | Grundgerüst jeder Kundenseite: Vite, GSAP (ScrollTrigger, SplitText), Lenis, View Transitions, Bewegung per `data-`-Attribut |
-| `video/` | Remotion: Hero-Loops und Reels aus Code, gleiche Tokens wie der Starter |
+| `beispiele/` | Beispielseiten pro Branche (Produkt/3D-Dose, Baufirma/3D-Gebäude, Restaurant/Reservierung), nutzen `@starter/…` direkt |
+| `video/` | Remotion: Hero-Loops, Reels, 3D-Produktvideo (`@remotion/three`, gleicher Dosen-Code wie `beispiele/`) |
 | `projekte/<kunde>/` | Kundenprojekte, jeweils Kopie von `starter/` mit eigener `PRODUCT.md` und `DESIGN.md` |
 | `referenzen/` | vermessene Vorbild-Websites (`sites.txt`, Berichte, `VERGLEICH.md`) |
 | `tools/analyze/` | Referenz-Analyse mit Playwright |
@@ -33,5 +34,6 @@ Herkunft: Impeccable v4.5.0 (Apache-2.0, pbakaus/impeccable) und Taste-Skill v2 
 ## Cloud-Umgebung
 
 - Chromium für Playwright: `/opt/pw-browsers/chromium-1194/chrome-linux/chrome`.
-- Remotion rendern: `REMOTION_BROWSER=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell npm run render:hero`.
+- Remotion rendern: `REMOTION_BROWSER=/opt/pw-browsers/chromium_headless_shell-1194/chrome-linux/headless_shell npm run render:hero`; 3D-Kompositionen mit `--gl=swangle`.
+- WebGL-Screenshots mit Playwright: Chromium mit `--use-gl=angle --use-angle=swiftshader --enable-unsafe-swiftshader` starten.
 - Fremde Domains nur erreichbar, wenn in der Umgebung freigegeben.

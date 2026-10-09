@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Website-Beispiele</title>
+    <meta name="description" content="Drei Branchen, drei Bewegungssprachen: Produkt mit 3D-Dose, Baufirma mit wachsendem Gebäude, Restaurant mit Reservierung." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/hub/main.js"></script>
+  </head>
+  <body class="hub">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <main id="inhalt" tabindex="-1">
+      <section class="h-intro wrap" aria-labelledby="intro-title">
+        <p class="h-kicker" data-scramble>Werkstatt · Beispiele 2026</p>
+        <h1 id="intro-title" class="h-title" data-split data-split-now>Drei Branchen.<br />Drei Bewegungs&shy;sprachen.</h1>
+        <p class="h-lead" data-reveal data-reveal-delay="0.5">
+          Jede Seite hat ihre eigene Farbwelt, Schrift und Art sich zu bewegen. Darunter liegt dasselbe System:
+          schnell, barrierearm und ohne JavaScript vollständig lesbar.
+        </p>
+        <p class="h-scroll" data-reveal="fade" data-reveal-delay="0.8">Scrollen ↓</p>
+      </section>
+
+      <div class="h-stack" data-stack>
+        <!-- 01 Produkt -->
+        <article class="h-slide h-slide--dose" aria-labelledby="s-dose">
+          <div class="h-slide__inner">
+            <div class="h-slide__text">
+              <p class="h-meta"><span>01 / 03</span><span>Produkt · Getränk</span></p>
+              <h2 id="s-dose" class="h-name">perle</h2>
+              <p>Spritzige Limonade in drei Sorten. Die Dose ist echtes 3D im Browser: sie wandert mit, dreht sich beim Sortenwechsel und färbt die ganze Seite um.</p>
+              <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
+                <li>3D-Dose (three.js)</li><li>Colorway je Sorte</li><li>Kohlensäure-Partikel</li><li>Produktvideo (Remotion)</li>
+              </ul>
+              <a class="h-open" href="dose/" data-roll>Beispiel öffnen →</a>
+            </div>
+            <div class="h-visual h-cans" aria-hidden="true">
+              <img src="/media/can-minze.webp" alt="" width="442" height="702" />
+              <img src="/media/can-yuzu.webp" alt="" width="442" height="702" />
+              <img src="/media/can-hibiskus.webp" alt="" width="442" height="702" />
+            </div>
+          </div>
+        </article>
+
+        <!-- 02 Bau -->
+        <article class="h-slide h-slide--bau" aria-labelledby="s-bau">
+          <div class="h-slide__inner">
+            <div class="h-slide__text">
+              <p class="h-meta"><span>02 / 03</span><span>Handwerk · Bau</span></p>
+              <h2 id="s-bau" class="h-name">Ruland Bau</h2>
+              <p>Ein Gebäude wächst beim Scrollen Geschoss für Geschoss. Im Kapitel Planung wird es zur Linienzeichnung, am Ende gehen die Lichter an.</p>
+              <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
+                <li>3D-Gebäude + Kran</li><li>Bauplan-Linien zeichnen sich</li><li>Tag · Plan · Abend</li><li>Seitwärts-Projekte</li>
+              </ul>
+              <a class="h-open" href="bau/" data-roll>Beispiel öffnen →</a>
+            </div>
+            <svg class="h-visual h-iso" data-draw viewBox="0 0 400 420" fill="none" aria-hidden="true">
+              <g stroke="currentColor" stroke-width="2" stroke-linejoin="round">
+                <path d="M200 40 L330 110 L330 330 L200 400 L70 330 L70 110 Z" />
+                <path d="M200 40 L200 260 M70 110 L200 180 L330 110 M200 180 V400" />
+                <path d="M70 154 L200 224 L330 154 M70 198 L200 268 L330 198 M70 242 L200 312 L330 242 M70 286 L200 356 L330 286" />
+                <path d="M92 132 V340 M114 144 V352 M136 156 V364 M158 168 V376 M180 180 V388" opacity="0.5" />
+                <path d="M222 168 V388 M244 156 V376 M266 144 V364 M288 132 V352 M310 120 V340" opacity="0.5" />
+                <path d="M360 400 V20 L380 20 M360 20 H40 M100 20 V60 M95 60 H105 M360 60 L380 20" />
+              </g>
+            </svg>
+          </div>
+        </article>
+
+        <!-- 03 Restaurant -->
+        <article class="h-slide h-slide--resto" aria-labelledby="s-resto">
+          <div class="h-slide__inner">
+            <div class="h-slide__text">
+              <p class="h-meta"><span>03 / 03</span><span>Gastronomie</span></p>
+              <h2 id="s-resto" class="h-name">Mara</h2>
+              <p>Mittags hell, abends dunkel: die Seite wechselt mit der Tageszeit Farbe, Karte und Zeitslots. Reservieren mit Tag, Personen und freier Uhrzeit.</p>
+              <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
+                <li>Mittag/Abend-Colorway</li><li>Zeitslots mit Verfügbarkeit</li><li>Gezeichneter Tisch</li><li>Live-Öffnungsstatus</li>
+              </ul>
+              <a class="h-open" href="restaurant/" data-roll>Beispiel öffnen →</a>
+            </div>
+            <div class="h-visual h-slots" aria-hidden="true">
+              <p class="h-slots__day">Samstag, 11. Oktober · 2 Personen</p>
+              <div class="h-slots__grid">
+                <span>17:30</span><span class="is-off">18:00</span><span>18:30</span><span class="is-on">19:00</span>
+                <span class="is-off">19:30</span><span>20:00</span><span>20:30</span><span>21:00</span>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <section class="h-system wrap" aria-labelledby="system-title">
+        <h2 id="system-title" class="h-title h-title--m" data-split>Was überall drin ist</h2>
+        <dl class="h-system__list" data-reveal-stagger>
+          <div><dt>Farbwelten</dt><dd>Abschnitte färben die Seite um, Navigation und 3D folgen.</dd></div>
+          <div><dt>Bewegung per Attribut</dt><dd>Text-Reveal, Entschlüsseln, Linien zeichnen, Markieren, Stapeln, Laufband.</dd></div>
+          <div><dt>Eine Kurve</dt><dd>Schneller Start, langes weiches Ende. Für alles, damit es zusammengehört.</dd></div>
+          <div><dt>Ruhig, wenn gewünscht</dt><dd>Bei „Bewegung reduzieren“ steht jede Seite still und vollständig.</dd></div>
+        </dl>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>Alle Marken auf diesen Seiten sind erfunden.</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+  </body>
+</html>

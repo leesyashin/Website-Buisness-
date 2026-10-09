@@ -1,0 +1,283 @@
+/* Übersicht. Grafitgrund als neutrale Werkbank; jede Slide trägt die Farben und Schrift ihres Beispiels. */
+:root {
+  --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+  --c-bg: #16171a;
+  --c-ink: #ecebe6;
+  --c-ink-soft: #8d8e92;
+  --c-line: #ecebe61f;
+  --c-accent: #ecebe6;
+}
+
+body {
+  background: var(--c-bg);
+  color: var(--c-ink);
+}
+
+.h-intro {
+  display: grid;
+  align-content: end;
+  gap: var(--space-m);
+  min-height: 92svh;
+  padding-block: var(--space-xl);
+}
+
+.h-kicker,
+.h-scroll,
+.h-meta {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--c-ink-soft);
+}
+
+.h-title {
+  font-size: clamp(2.8rem, 1rem + 6.5vw, 8rem);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.92;
+}
+
+.h-title--m {
+  font-size: clamp(2.2rem, 1rem + 4vw, 5rem);
+}
+
+.h-lead {
+  max-width: 48ch;
+  font-size: var(--step-1);
+  line-height: 1.4;
+  color: var(--c-ink-soft);
+}
+
+/* ---------- Slides ---------- */
+.h-slide {
+  min-height: 100svh;
+  border-top-left-radius: 1.5rem;
+  border-top-right-radius: 1.5rem;
+}
+
+.h-slide__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  align-items: center;
+  min-height: 100svh;
+  padding: var(--space-xl) max(var(--gutter), (100% - var(--max)) / 2);
+  background: var(--s-bg);
+  color: var(--s-ink);
+  border-radius: inherit;
+  transform-origin: 50% 0;
+}
+
+.h-slide__text {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.h-meta {
+  display: flex;
+  gap: var(--space-m);
+  color: inherit;
+  opacity: 0.7;
+}
+
+.h-name {
+  font-size: clamp(3.4rem, 1rem + 8vw, 9rem);
+  line-height: 0.88;
+}
+
+.h-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.h-chips li {
+  padding: 0.35em 0.8em;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--s-ink) 30%, transparent);
+  font-size: var(--step--1);
+}
+
+.h-open {
+  padding: 0.9em 1.5em;
+  border-radius: 999px;
+  background: var(--s-ink);
+  color: var(--s-bg);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.h-visual {
+  justify-self: center;
+  width: 100%;
+  max-width: 34rem;
+}
+
+/* Produkt */
+.h-slide--dose {
+  --s-bg: #f6d9de;
+  --s-ink: #4a0d27;
+}
+
+.h-slide--dose .h-name {
+  font-family: 'Bricolage Grotesque Variable', sans-serif;
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75;
+  letter-spacing: -0.04em;
+}
+
+.h-cans {
+  position: relative;
+  aspect-ratio: 1 / 1;
+}
+
+.h-cans img {
+  position: absolute;
+  bottom: 6%;
+  width: 40%;
+  height: auto;
+  filter: drop-shadow(0 2rem 2rem rgb(74 13 39 / 0.25));
+}
+
+.h-cans img:nth-child(1) {
+  left: 4%;
+  transform: rotate(-12deg) scale(0.86);
+}
+
+.h-cans img:nth-child(2) {
+  left: 30%;
+  bottom: 12%;
+  z-index: 1;
+  transform: rotate(3deg);
+}
+
+.h-cans img:nth-child(3) {
+  right: 4%;
+  transform: rotate(14deg) scale(0.86);
+}
+
+/* Bau */
+.h-slide--bau {
+  --s-bg: #dcd9d3;
+  --s-ink: #1b1c1e;
+}
+
+.h-slide--bau .h-name {
+  font-family: 'Archivo Variable', sans-serif;
+  font-weight: 800;
+  font-stretch: 62%;
+  text-transform: uppercase;
+}
+
+.h-slide--bau .h-open {
+  border-radius: 2px;
+}
+
+.h-iso {
+  color: #1b1c1e;
+}
+
+.h-iso path:last-child {
+  color: #c99d00;
+}
+
+/* Restaurant */
+.h-slide--resto {
+  --s-bg: #1d1216;
+  --s-ink: #f1e7d7;
+}
+
+.h-slide--resto .h-name {
+  font-family: 'Fraunces Variable', serif;
+  font-style: italic;
+  font-weight: 300;
+  font-variation-settings: 'SOFT' 100, 'WONK' 1;
+}
+
+.h-slots {
+  display: grid;
+  gap: var(--space-m);
+  padding: var(--space-l);
+  border-radius: 1rem;
+  background: #2a1b20;
+}
+
+.h-slots__day {
+  font-family: 'Fraunces Variable', serif;
+  font-style: italic;
+  font-size: var(--step-1);
+}
+
+.h-slots__grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.4rem;
+}
+
+.h-slots__grid span {
+  padding: 0.8rem 0;
+  border-radius: 0.6rem;
+  box-shadow: inset 0 0 0 1px #f1e7d71f;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.h-slots__grid .is-off {
+  opacity: 0.35;
+  text-decoration: line-through;
+}
+
+.h-slots__grid .is-on {
+  background: #d9b26a;
+  color: #1d1216;
+  font-weight: 600;
+}
+
+/* ---------- System ---------- */
+.h-system {
+  display: grid;
+  gap: var(--space-l);
+  padding-block: var(--space-2xl);
+}
+
+.h-system__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  gap: var(--space-l);
+  margin: 0;
+}
+
+.h-system__list div {
+  display: grid;
+  gap: var(--space-2xs);
+  align-content: start;
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--c-line);
+}
+
+.h-system__list dt {
+  font-weight: 600;
+}
+
+.h-system__list dd {
+  margin: 0;
+  color: var(--c-ink-soft);
+}
+
+@media (max-width: 899px) {
+  .h-slide__inner {
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+    padding-block: var(--space-l);
+  }
+
+  .h-visual {
+    max-width: 22rem;
+  }
+}

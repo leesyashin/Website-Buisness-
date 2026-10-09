@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="de" data-colorway="mittag">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Mara · Küche &amp; Wein am Kanal</title>
+    <meta name="description" content="Beispielseite Restaurant: Mittag- und Abend-Farbwelt, Karte und Tischreservierung mit Zeitslots." />
+    <script>
+      // Mittag oder Abend schon vor dem ersten Bild wählen (ab 16 Uhr Abend)
+      if (new Date().getHours() >= 16) document.documentElement.dataset.colorway = 'abend';
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/restaurant/main.js"></script>
+  </head>
+  <body class="resto">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="#inhalt">Mara</a>
+        <div class="r-service" role="group" aria-label="Tageszeit">
+          <button type="button" data-service="mittag">Mittag</button>
+          <button type="button" data-service="abend">Abend</button>
+        </div>
+        <a class="button button--small" href="#reservieren" data-roll>Tisch reservieren</a>
+      </div>
+    </header>
+
+    <main id="inhalt" tabindex="-1">
+      <section class="r-hero" aria-labelledby="hero-title">
+        <div class="wrap r-hero__inner">
+          <p class="r-status" data-status data-reveal="fade">Heute geöffnet</p>
+          <h1 id="hero-title" class="r-name" data-split="chars" data-split-now>Mara</h1>
+          <p class="r-tagline" data-reveal data-reveal-delay="0.4">
+            Küche &amp; Wein am Kanal. <em data-when="mittag">Mittags ein Teller, schnell und gut.</em><em data-when="abend">Abends fünf Gänge oder einfach ein Glas.</em>
+          </p>
+          <svg class="r-table" data-draw viewBox="0 0 360 240" fill="none" role="img" aria-label="Zeichnung: gedeckter Tisch mit Teller, Besteck und Weinglas">
+            <g stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <ellipse cx="170" cy="150" rx="92" ry="38" />
+              <ellipse cx="170" cy="148" rx="62" ry="24" />
+              <path d="M150 140 C160 128 186 126 196 140 C188 152 162 154 150 140 Z" />
+              <path d="M58 118 V188 M52 118 V138 C52 146 64 146 64 138 V118" />
+              <path d="M280 116 C292 130 292 150 284 160 V190" />
+              <path d="M310 70 C306 96 312 112 326 114 C340 112 346 96 342 70 Z M326 114 V176 M308 178 H344" />
+              <path d="M312 92 H340" />
+              <path d="M20 205 H340" />
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <div class="r-marquee" data-marquee data-marquee-speed="50" aria-label="Heute auf der Karte">
+        <p>
+          <span data-when="mittag">Linsensuppe mit Speck · Saibling, Gurke, Dill · Kürbis-Gnocchi · Apfel-Crumble ·&nbsp;</span>
+          <span data-when="abend">Rote Bete, Ziegenkäse · Kalbsbäckchen · Zander, Beurre blanc · Zwetschgen, Mohn ·&nbsp;</span>
+        </p>
+      </div>
+
+      <section id="karte" class="r-menu wrap" aria-labelledby="karte-title">
+        <header class="r-menu__head">
+          <h2 id="karte-title" class="r-title" data-reveal>
+            <span data-when="mittag">Mittagskarte</span><span data-when="abend">Abendkarte</span>
+          </h2>
+          <p class="r-meta" data-when="mittag">Di–Fr · 11:30–14:30 · wechselt wöchentlich</p>
+          <p class="r-meta" data-when="abend">Di–Sa · 17:30–23:00 · Küche bis 22:00</p>
+        </header>
+
+        <div class="r-courses" data-when="mittag">
+          <section class="r-course">
+            <h3>Suppe &amp; Salat</h3>
+            <ul data-reveal-stagger>
+              <li><span class="r-dish">Linsensuppe</span><span class="r-desc">Räucherspeck, Majoran, Sauerteigbrot</span><span class="r-price">7,50</span></li>
+              <li><span class="r-dish">Herbstsalat</span><span class="r-desc">Birne, Walnuss, Bergkäse, Senfdressing</span><span class="r-price">9,00</span></li>
+            </ul>
+          </section>
+          <section class="r-course">
+            <h3>Teller</h3>
+            <ul data-reveal-stagger>
+              <li><span class="r-dish">Saibling</span><span class="r-desc">Gurke, Dill, Kartoffelstampf</span><span class="r-price">16,50</span></li>
+              <li><span class="r-dish">Kürbis-Gnocchi <i>vegetarisch</i></span><span class="r-desc">Salbeibutter, Haselnuss, Parmesan</span><span class="r-price">13,50</span></li>
+              <li><span class="r-dish">Rinderroulade</span><span class="r-desc">Rotkohl, Klöße, Bratensoße</span><span class="r-price">17,00</span></li>
+            </ul>
+          </section>
+          <section class="r-course">
+            <h3>Zum Schluss</h3>
+            <ul data-reveal-stagger>
+              <li><span class="r-dish">Apfel-Crumble</span><span class="r-desc">Vanillesoße</span><span class="r-price">6,00</span></li>
+              <li><span class="r-dish">Espresso</span><span class="r-desc">Rösterei am Kanal</span><span class="r-price">2,40</span></li>
+            </ul>
+          </section>
+        </div>
+
+        <div class="r-courses" data-when="abend">
+          <section class="r-course">
+            <h3>Zum Anfang</h3>
+            <ul data-reveal-stagger>
+              <li><span class="r-dish">Rote Bete <i>vegetarisch</i></span><span class="r-desc">Ziegenkäse, Meerrettich, Kresse</span><span class="r-price">12,00</span></li>
+              <li><span class="r-dish">Tatar vom Weiderind</span><span class="r-desc">Eigelb, Kapern, Röstbrot</span><span class="r-price">16,00</span></li>
+            </ul>
+          </section>
+          <section class="r-course">
+            <h3>Hauptgang</h3>
+            <ul data-reveal-stagger>
+              <li><span class="r-dish">Zander</span><span class="r-desc">Beurre blanc, Lauch, Kartoffel</span><span class="r-price">28,00</span></li>
+              <li><span class="r-dish">Kalbsbäckchen</span><span class="r-desc">Sellerie, Petersilienwurzel, Jus</span><span class="r-price">29,00</span></li>
+              <li><span class="r-dish">Pilzrisotto <i>vegetarisch</i></span><span class="r-desc">Steinpilz, Thymian, alter Gouda</span><span class="r-price">22,00</span></li>
+            </ul>
+          </section>
+          <section class="r-course">
+            <h3>Dessert</h3>
+            <ul data-reveal-stagger>
+              <li><span class="r-dish">Zwetschgen</span><span class="r-desc">Mohn, Buttermilch, Zimt</span><span class="r-price">11,00</span></li>
+              <li><span class="r-dish">Käse vom Affineur</span><span class="r-desc">drei Sorten, Quittenbrot</span><span class="r-price">14,00</span></li>
+            </ul>
+          </section>
+          <p class="r-menu__note">Menü in fünf Gängen 68 € · Weinbegleitung 42 €</p>
+        </div>
+      </section>
+
+      <section id="reservieren" class="r-book" tabindex="-1" aria-labelledby="book-title">
+        <div class="wrap r-book__inner">
+          <div class="r-book__intro">
+            <h2 id="book-title" class="r-title" data-split>Tisch reservieren</h2>
+            <p>
+              Wählen Sie Tag, Personen und Uhrzeit. Ab 9 Personen rufen Sie uns bitte an:
+              <span class="r-phone">0341 000 00 00</span>
+            </p>
+          </div>
+
+          <form class="r-booking" data-booking novalidate>
+            <fieldset class="r-field">
+              <legend>Tag</legend>
+              <div class="r-days" data-days></div>
+            </fieldset>
+
+            <fieldset class="r-field r-field--row">
+              <legend>Personen</legend>
+              <div class="r-stepper">
+                <button type="button" data-party="-1" aria-label="Eine Person weniger">−</button>
+                <output data-party-out aria-live="polite">2</output>
+                <button type="button" data-party="1" aria-label="Eine Person mehr">+</button>
+              </div>
+              <div class="r-service r-service--inline" role="group" aria-label="Mittag oder Abend">
+                <button type="button" data-service="mittag">Mittag</button>
+                <button type="button" data-service="abend">Abend</button>
+              </div>
+            </fieldset>
+
+            <fieldset class="r-field">
+              <legend>Uhrzeit</legend>
+              <div class="r-slots" data-slots></div>
+              <p class="r-hint" data-slots-hint></p>
+            </fieldset>
+
+            <div class="r-summary" data-summary hidden>
+              <p class="r-summary__line" data-summary-line></p>
+              <div class="r-inputs">
+                <label>Name <input id="b-name" name="name" autocomplete="name" required /></label>
+                <label>Telefon <input id="b-tel" name="tel" type="tel" autocomplete="tel" required /></label>
+                <label class="r-inputs__wide">Anmerkung <input id="b-note" name="note" placeholder="z. B. Allergien, Kinderstuhl" /></label>
+              </div>
+              <p class="r-error" data-error hidden>Bitte Name und Telefonnummer angeben.</p>
+              <button class="button" type="submit" data-roll>Reservierung anfragen</button>
+            </div>
+
+            <div class="r-done" data-done hidden>
+              <svg viewBox="0 0 52 52" width="52" height="52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="2" /><path d="M15 27 L23 35 L38 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <p class="r-done__title">Anfrage vorgemerkt.</p>
+              <p data-done-line></p>
+              <p class="r-hint">Beispielseite: Es wurde keine echte Reservierung gesendet.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="r-info wrap" aria-labelledby="info-title">
+        <h2 id="info-title" class="r-title" data-split>Öffnungszeiten</h2>
+        <table class="r-hours" data-hours>
+          <tbody>
+            <tr data-day="1"><th scope="row">Montag</th><td>Ruhetag</td><td></td></tr>
+            <tr data-day="2"><th scope="row">Dienstag</th><td>11:30–14:30</td><td>17:30–23:00</td></tr>
+            <tr data-day="3"><th scope="row">Mittwoch</th><td>11:30–14:30</td><td>17:30–23:00</td></tr>
+            <tr data-day="4"><th scope="row">Donnerstag</th><td>11:30–14:30</td><td>17:30–23:00</td></tr>
+            <tr data-day="5"><th scope="row">Freitag</th><td>11:30–14:30</td><td>17:30–23:00</td></tr>
+            <tr data-day="6"><th scope="row">Samstag</th><td>–</td><td>17:30–23:00</td></tr>
+            <tr data-day="0"><th scope="row">Sonntag</th><td>11:30–15:00</td><td>–</td></tr>
+          </tbody>
+        </table>
+        <address class="r-address">Am Kanal 7 · 04109 Leipzig<br />Tram 14, Haltestelle Kanalbrücke · 3 Minuten zu Fuß</address>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>Mara · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>

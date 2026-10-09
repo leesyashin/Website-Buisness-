@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="de" data-colorway="beton">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Ruland Bau · Hoch- und Ingenieurbau</title>
+    <meta name="description" content="Beispielseite Baufirma: 3D-Gebäude wächst beim Scrollen, Bauplan-Ansicht, Ablauf und Referenzen." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/bau/main.js"></script>
+  </head>
+  <body class="bau">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="#inhalt">Ruland<span>Bau</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="#leistungen" data-roll>Leistungen</a></li>
+            <li><a href="#projekte" data-roll>Projekte</a></li>
+            <li><a href="#ablauf" data-roll>Ablauf</a></li>
+          </ul>
+        </nav>
+        <a class="button button--small" href="#kontakt" data-roll>Projekt besprechen</a>
+      </div>
+    </header>
+
+    <!-- 3D-Bühne: Gebäude und Kran (src/bau/building.js) -->
+    <div class="stage" data-stage aria-hidden="true"></div>
+
+    <main id="inhalt" class="stage-content" tabindex="-1">
+      <section class="b-hero" data-colorway="beton" aria-labelledby="hero-title">
+        <div class="wrap b-hero__inner">
+          <p class="mono" data-scramble>Hoch- und Ingenieurbau · Leipzig · seit 1987</p>
+          <h1 id="hero-title" class="b-display" data-split data-split-now>Wir bauen,<br />was bleibt.</h1>
+          <p class="b-lead" data-reveal data-reveal-delay="0.5">
+            Rohbau, schlüsselfertige Gebäude und Sanierung im Bestand. Mit eigener Mannschaft, festen Terminen und einem
+            Ansprechpartner von der ersten Skizze bis zur Übergabe.
+          </p>
+          <dl class="b-stats" data-reveal-stagger>
+            <div><dt>Jahre am Markt</dt><dd data-count-to="38">38</dd></div>
+            <div><dt>fertige Bauprojekte</dt><dd data-count-to="412">412</dd></div>
+            <div><dt>eigene Fachkräfte</dt><dd data-count-to="140">140</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="leistungen" class="b-services" data-colorway="beton" data-build-end aria-labelledby="leistungen-title">
+        <div class="wrap b-services__inner">
+          <h2 id="leistungen-title" class="b-display b-display--m" data-split>Leistungen</h2>
+          <ol class="b-list">
+            <li data-reveal>
+              <span class="mono">01</span>
+              <h3>Rohbau</h3>
+              <p>Ortbeton, Fertigteile, Mauerwerk. <span data-highlight>Eigene Schalung und Krane</span>, kein Warten auf Subunternehmer.</p>
+            </li>
+            <li data-reveal>
+              <span class="mono">02</span>
+              <h3>Schlüsselfertig</h3>
+              <p>Ein Vertrag, ein Festpreis, ein Termin. Wir koordinieren alle Gewerke bis zur Übergabe.</p>
+            </li>
+            <li data-reveal>
+              <span class="mono">03</span>
+              <h3>Sanierung im Bestand</h3>
+              <p>Tragwerksverstärkung, Umnutzung, Aufstockung. Bei laufendem Betrieb, wenn es sein muss.</p>
+            </li>
+            <li data-reveal>
+              <span class="mono">04</span>
+              <h3>Ingenieurbau</h3>
+              <p>Tiefgaragen, Stützwände, Brückenbauwerke bis 40 m Spannweite.</p>
+            </li>
+          </ol>
+        </div>
+      </section>
+
+      <section class="b-plan" data-colorway="bauplan" aria-labelledby="plan-title">
+        <div class="wrap b-plan__inner">
+          <div class="b-plan__text">
+            <p class="mono" data-scramble>Blatt 04 · Grundriss Regelgeschoss · M 1:100</p>
+            <h2 id="plan-title" class="b-display b-display--m" data-split>Erst gerechnet, dann gebaut.</h2>
+            <p>
+              Jedes Projekt entsteht zuerst als Modell: Tragwerk, Leitungen, Bauablauf. Kollisionen finden wir am
+              Bildschirm, nicht auf der Baustelle.
+            </p>
+            <ul class="b-plan__facts mono">
+              <li data-scramble>Achsraster 5,40 m</li>
+              <li data-scramble>OK Attika +31,20 m</li>
+              <li data-scramble>BGF 9.840 m²</li>
+            </ul>
+          </div>
+          <svg class="b-plan__drawing" data-draw="scrub" viewBox="0 0 640 420" fill="none" role="img" aria-label="Grundriss-Zeichnung eines Regelgeschosses">
+            <g stroke="currentColor" stroke-width="2.4">
+              <rect x="40" y="60" width="560" height="300" />
+              <path d="M40 210 H250 M330 210 H600 M250 60 V160 M250 260 V360 M430 60 V150 M430 270 V360 M520 210 V360" />
+              <path d="M330 150 H430 V270 H330 Z" />
+            </g>
+            <g stroke="currentColor" stroke-width="1.2">
+              <path d="M250 160 A50 50 0 0 1 300 210 M430 150 A40 40 0 0 0 470 190 M330 270 A40 40 0 0 1 370 310" />
+              <path d="M345 165 H415 M345 180 H415 M345 195 H415 M345 210 H415 M345 225 H415 M345 240 H415 M345 255 H415" />
+              <path d="M40 30 H600 M40 22 V38 M152 22 V38 M264 22 V38 M376 22 V38 M488 22 V38 M600 22 V38" />
+              <path d="M620 60 V360 M612 60 H628 M612 210 H628 M612 360 H628" />
+            </g>
+            <g stroke="currentColor" stroke-width="1" stroke-dasharray="6 6" opacity="0.6">
+              <path d="M40 390 V400 M152 60 V400 M264 60 V400 M376 60 V400 M488 60 V400" />
+            </g>
+            <g fill="currentColor" font-family="IBM Plex Mono, monospace" font-size="13" class="b-plan__labels">
+              <text x="92" y="18">5,40</text><text x="204" y="18">5,40</text><text x="316" y="18">5,40</text><text x="428" y="18">5,40</text><text x="540" y="18">5,40</text>
+              <text x="120" y="140">Büro 1</text><text x="120" y="290">Büro 2</text><text x="470" y="290">Besprechung</text><text x="490" y="110">Büro 3</text>
+              <text x="338" y="140">Kern</text>
+            </g>
+          </svg>
+        </div>
+      </section>
+
+      <section id="projekte" class="b-projects" data-colorway="beton" data-horizontal aria-labelledby="projekte-title">
+        <div class="wrap b-projects__head">
+          <h2 id="projekte-title" class="b-display b-display--m" data-split>Projekte</h2>
+          <p class="mono"><span class="only-desktop">Scrollen fährt seitwärts</span><span class="only-mobile">Wischen</span></p>
+        </div>
+        <ul class="b-track" data-horizontal-track>
+          <li class="b-card">
+            <div class="b-card__plan" style="--n: '01'"></div>
+            <h3>Wohnquartier am Auwald</h3>
+            <dl class="mono"><div><dt>Ort</dt><dd>Leipzig</dd></div><div><dt>BGF</dt><dd>14.200 m²</dd></div><div><dt>Bauzeit</dt><dd>26 Monate</dd></div></dl>
+          </li>
+          <li class="b-card">
+            <div class="b-card__plan" style="--n: '02'"></div>
+            <h3>Grundschule Nordost</h3>
+            <dl class="mono"><div><dt>Ort</dt><dd>Halle</dd></div><div><dt>BGF</dt><dd>6.800 m²</dd></div><div><dt>Bauzeit</dt><dd>18 Monate</dd></div></dl>
+          </li>
+          <li class="b-card">
+            <div class="b-card__plan" style="--n: '03'"></div>
+            <h3>Aufstockung Kontorhaus</h3>
+            <dl class="mono"><div><dt>Ort</dt><dd>Leipzig</dd></div><div><dt>BGF</dt><dd>2.100 m²</dd></div><div><dt>Bauzeit</dt><dd>11 Monate</dd></div></dl>
+          </li>
+          <li class="b-card">
+            <div class="b-card__plan" style="--n: '04'"></div>
+            <h3>Tiefgarage Marktplatz</h3>
+            <dl class="mono"><div><dt>Ort</dt><dd>Markkleeberg</dd></div><div><dt>Stellplätze</dt><dd>320</dd></div><div><dt>Bauzeit</dt><dd>14 Monate</dd></div></dl>
+          </li>
+          <li class="b-card">
+            <div class="b-card__plan" style="--n: '05'"></div>
+            <h3>Logistikhalle Süd</h3>
+            <dl class="mono"><div><dt>Ort</dt><dd>Schkeuditz</dd></div><div><dt>BGF</dt><dd>21.500 m²</dd></div><div><dt>Bauzeit</dt><dd>9 Monate</dd></div></dl>
+          </li>
+        </ul>
+      </section>
+
+      <section id="ablauf" class="b-process" data-colorway="beton" aria-labelledby="ablauf-title">
+        <div class="wrap b-process__inner">
+          <h2 id="ablauf-title" class="b-display b-display--m" data-split>Ablauf</h2>
+          <div class="b-steps">
+            <svg class="b-steps__line" data-draw="scrub" viewBox="0 0 4 100" preserveAspectRatio="none" aria-hidden="true">
+              <line x1="2" y1="0" x2="2" y2="100" stroke="currentColor" stroke-width="4" vector-effect="non-scaling-stroke" />
+            </svg>
+            <ol>
+              <li data-reveal><p class="mono">Woche 1</p><h3>Erstgespräch vor Ort</h3><p>Grundstück, Bestand, Budget, Termine. Danach wissen Sie, ob und wie es geht.</p></li>
+              <li data-reveal><p class="mono">Woche 2–6</p><h3>Planung und Festpreis</h3><p>Modell, Bauablaufplan und ein Angebot, das nicht nachverhandelt wird.</p></li>
+              <li data-reveal><p class="mono">ab Monat 2</p><h3>Bauen</h3><p>Wöchentlicher Baustellenbericht mit Fotos, ein Bauleiter, eine Telefonnummer.</p></li>
+              <li data-reveal><p class="mono">Übergabe</p><h3>Schlüssel und Dokumentation</h3><p>Abnahme mit Protokoll, Bestandspläne digital, fünf Jahre Gewährleistung.</p></li>
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      <section id="kontakt" class="b-contact" data-colorway="abend" tabindex="-1" aria-labelledby="kontakt-title">
+        <div class="wrap b-contact__inner">
+          <p class="mono" data-scramble>Feierabend auf der Baustelle · 18:42 Uhr</p>
+          <h2 id="kontakt-title" class="b-display" data-split>Erzählen Sie uns von Ihrem Projekt.</h2>
+          <div class="b-contact__ways">
+            <p><span class="mono">Telefon</span><br /><strong>0341 000 00 00</strong></p>
+            <p><span class="mono">E-Mail</span><br /><strong>projekte@ruland-bau.example</strong></p>
+          </div>
+          <a class="button button--big" href="#kontakt" data-magnetic data-roll>Rückruf anfordern</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap stage-content">
+      <p>Ruland Bau GmbH · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>

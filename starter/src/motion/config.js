@@ -2,6 +2,7 @@
 // damit CSS-Übergänge (Hover, Fokus) und GSAP-Szenen gleich „klingen“.
 export const ease = {
   out: 'expo.out', //      ≈ cubic-bezier(0.22, 1, 0.36, 1): Ankommen, Einblenden
+  signature: 'signature', // cubic-bezier(0.65, 0.05, 0, 1): schneller Start, langes weiches Ende (wie landonorris.com)
   inOut: 'power3.inOut', // ≈ cubic-bezier(0.65, 0, 0.35, 1): Wechsel zwischen Zuständen
   none: 'none', //         scroll-gekoppelte Szenen (scrub)
 };
@@ -20,3 +21,6 @@ export const media = {
   desktop: '(min-width: 900px)',
   finePointer: '(hover: hover) and (pointer: fine)',
 };
+
+// Für CustomEase (index.js) und CSS (--ease-signature in base.css)
+export const signatureCurve = '0.65,0.05,0,1';

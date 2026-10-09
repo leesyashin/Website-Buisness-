@@ -1,0 +1,422 @@
+/* perle – Produktseite. Raster: Text auf einer Hälfte, die 3D-Dose auf der anderen; Kapitel je eine Bildschirmhöhe. */
+:root {
+  --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
+  --radius: 999px;
+}
+
+/* ---------- Colorways: drei Sorten + Kreide (ruhig) + Nacht (Perlage) ---------- */
+html[data-colorway='yuzu'],
+html:not(.colorway-live) [data-colorway='yuzu'] {
+  --cw-bg: #1d3a26;
+  --cw-ink: #f1eda4;
+  --cw-soft: #b9c48f;
+  --cw-accent: #e4dc4f;
+  --cw-line: #f1eda433;
+}
+
+html[data-colorway='hibiskus'],
+html:not(.colorway-live) [data-colorway='hibiskus'] {
+  --cw-bg: #f6d9de;
+  --cw-ink: #4a0d27;
+  --cw-soft: #8a4a62;
+  --cw-accent: #8c1d4a;
+  --cw-line: #4a0d2726;
+}
+
+html[data-colorway='minze'],
+html:not(.colorway-live) [data-colorway='minze'] {
+  --cw-bg: #cdeedf;
+  --cw-ink: #10343b;
+  --cw-soft: #43666b;
+  --cw-accent: #173f47;
+  --cw-line: #10343b26;
+}
+
+html[data-colorway='kreide'],
+html:not(.colorway-live) [data-colorway='kreide'] {
+  --cw-bg: #eceeea;
+  --cw-ink: #18201c;
+  --cw-soft: #59625d;
+  --cw-accent: #1d3a26;
+  --cw-line: #18201c22;
+}
+
+html[data-colorway='nacht'],
+html:not(.colorway-live) [data-colorway='nacht'] {
+  --cw-bg: #0c1317;
+  --cw-ink: #e6efec;
+  --cw-soft: #8fa19c;
+  --cw-accent: #cdeedf;
+  --cw-line: #e6efec22;
+}
+
+.dose {
+  font-variation-settings: 'wdth' 100;
+}
+
+/* ---------- Typografie ---------- */
+.d-display {
+  font-family: var(--font-display);
+  font-size: clamp(3.2rem, 1.2rem + 8.5vw, 10.5rem);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75, 'opsz' 96;
+  line-height: 0.86;
+  letter-spacing: -0.035em;
+}
+
+.d-display--m {
+  font-size: clamp(2.6rem, 1.2rem + 5.5vw, 7rem);
+}
+
+.d-lead {
+  font-size: var(--step-1);
+  line-height: 1.35;
+  max-width: 30ch;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: var(--step-2);
+  font-variation-settings: 'wdth' 75;
+  letter-spacing: -0.03em;
+}
+
+.eyebrow {
+  color: var(--cw-soft);
+  font-family: var(--font-mono);
+}
+
+.button {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.button:hover {
+  background: var(--cw-accent);
+  color: var(--cw-bg);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--cw-ink);
+}
+
+.button--big {
+  font-size: var(--step-1);
+  padding: 1.1em 2em;
+}
+
+/* ---------- Kapitel ---------- */
+.d-hero,
+.d-story,
+.flavor,
+.d-perlage,
+.d-finale {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  align-items: center;
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+/* Desktop: Text links, Dose rechts (Story umgekehrt) */
+.d-hero__inner,
+.flavor__inner,
+.d-finale__inner {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+  max-width: min(var(--max), 100% - 2 * var(--gutter));
+}
+
+.d-hero__inner > *,
+.flavor__inner > *,
+.d-finale__inner > * {
+  max-width: 46%;
+}
+
+.d-hero .d-display {
+  max-width: 58%;
+  font-size: clamp(3rem, 0.8rem + 7.2vw, 9.5rem);
+}
+
+.d-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.d-specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-l);
+  margin-top: var(--space-l);
+  padding: var(--space-s) 0 0;
+  border-top: 1px solid var(--cw-line);
+  list-style: none;
+  color: var(--cw-soft);
+}
+
+.d-story__inner {
+  display: grid;
+  gap: var(--space-l);
+  justify-items: end;
+  text-align: left;
+}
+
+.d-story__inner > * {
+  width: min(100%, 44rem);
+}
+
+.d-statement {
+  font-size: var(--step-3);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  font-weight: 600;
+  font-variation-settings: 'wdth' 85;
+  max-width: none;
+}
+
+.d-facts {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  margin: 0;
+}
+
+.d-facts div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-2xs);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--cw-ink);
+}
+
+.d-facts dt {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.d-facts dd {
+  margin: 0;
+  font-size: var(--step-3);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Sorten: Reiterleiste klebt, drei Kapitel scrollen darunter durch */
+.d-sorten__bar {
+  position: sticky;
+  top: var(--header-h);
+  z-index: 2;
+  justify-content: flex-start;
+  background: linear-gradient(to right, var(--cw-bg) 55%, transparent 55%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-l);
+  padding-block: var(--space-s);
+}
+
+.d-tabs {
+  display: flex;
+  gap: var(--space-xs);
+}
+
+.d-tabs a {
+  padding: 0.45em 1em;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+  text-decoration: none;
+  font-size: var(--step--1);
+  transition:
+    background-color 0.5s var(--ease-signature),
+    color 0.5s var(--ease-signature);
+}
+
+.d-tabs a[aria-current] {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.meters {
+  display: grid;
+  gap: var(--space-xs);
+  width: min(100%, 24rem);
+  margin: var(--space-s) 0 0;
+}
+
+.meters div {
+  display: grid;
+  grid-template-columns: 6rem 1fr;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.meters dt {
+  font-size: var(--step--1);
+  color: var(--cw-soft);
+}
+
+.meters dd {
+  height: 0.5rem;
+  margin: 0;
+  border-radius: 999px;
+  background: var(--cw-line);
+  overflow: hidden;
+}
+
+.meters i {
+  display: block;
+  width: calc(var(--v) * 100%);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--cw-ink);
+}
+
+/* Perlage: Text oben und unten, Dose in der Mitte */
+.d-perlage {
+  min-height: 130svh;
+}
+
+/* Perlage: Dose links in den Perlen, Text rechts */
+.d-perlage__inner {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+  padding-left: 50%;
+}
+
+.d-perlage__inner h2 {
+  max-width: 12ch;
+}
+
+.d-labels {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs) var(--space-l);
+  padding: 0;
+  list-style: none;
+  color: var(--cw-soft);
+}
+
+.d-perlage__text {
+  max-width: 44ch;
+  color: var(--cw-soft);
+}
+
+[data-highlight] {
+  --c-on-highlight: var(--cw-bg);
+}
+
+/* Finale */
+.d-finale {
+  grid-template-rows: 1fr auto;
+}
+
+.d-price {
+  font-size: var(--step-4);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75;
+  font-variant-numeric: tabular-nums;
+  line-height: 1;
+}
+
+.d-note {
+  color: var(--cw-soft);
+}
+
+.d-marquee {
+  margin-top: var(--space-xl);
+  padding-block: var(--space-s);
+  border-block: 1px solid var(--cw-line);
+  font-size: var(--step-3);
+  font-weight: 800;
+  font-variation-settings: 'wdth' 75;
+  text-transform: uppercase;
+}
+
+.d-marquee p {
+  max-width: none;
+}
+
+.d-marquee span {
+  margin-inline: 0.6em;
+  color: var(--cw-accent);
+  font-size: 0.5em;
+  vertical-align: middle;
+}
+
+/* Kein WebGL: statt der 3D-Dose ein gerendertes Standbild (aus video/, Komposition CanStill) */
+.can-fallback {
+  display: none;
+}
+
+.no-webgl .stage {
+  display: none;
+}
+
+.no-webgl .can-fallback {
+  position: fixed;
+  right: 8vw;
+  top: 50%;
+  z-index: 0;
+  display: block;
+  width: min(26vw, 22rem);
+  height: auto;
+  transform: translateY(-50%) rotate(8deg);
+}
+
+/* ---------- Handy: Dose oben, Text darunter ---------- */
+@media (max-width: 899px) {
+  .d-hero,
+  .d-story,
+  .flavor,
+  .d-finale {
+    padding-top: 52svh;
+  }
+
+  .d-hero__inner > *,
+  .flavor__inner > *,
+  .d-finale__inner > *,
+  .d-hero .d-display {
+    max-width: 100%;
+  }
+
+  .d-story__inner {
+    justify-items: start;
+  }
+
+  /* Text gleitet über die Dose: unterhalb der Dosen-Zone deckt die Abschnittsfarbe ab */
+  .d-hero,
+  .d-story,
+  .flavor,
+  .d-perlage,
+  .d-finale {
+    align-items: start;
+    background: linear-gradient(to bottom, transparent calc(52svh - 5rem), var(--cw-bg) calc(52svh - 1rem));
+  }
+
+  .d-facts {
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: var(--space-s);
+  }
+
+  .d-sorten__bar {
+    background: var(--cw-bg);
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-2xs);
+  }
+
+  .d-perlage {
+    padding-top: 52svh;
+  }
+
+  .d-perlage__inner {
+    padding-left: 0;
+  }
+}

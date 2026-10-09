@@ -1,6 +1,7 @@
 import { Composition } from 'remotion';
 import { HeroLoop } from './compositions/HeroLoop';
 import { SocialReel, socialReelDefaults } from './compositions/SocialReel';
+import { CanReel, CanStill, SEGMENT, OUTRO } from './compositions/CanReel';
 import './lib/theme';
 
 const FPS = 30;
@@ -19,5 +20,9 @@ export const RemotionRoot: React.FC = () => (
       height={1920}
       defaultProps={socialReelDefaults}
     />
+    {/* Produkt-Reel mit der 3D-Dose der Website (beispiele/src/dose) */}
+    <Composition id="CanReel" component={CanReel} durationInFrames={3 * SEGMENT + OUTRO} fps={FPS} width={1080} height={1920} />
+    {/* Freigestellte Dose als PNG, Sorte per --props='{"flavor":"hibiskus"}' */}
+    <Composition id="CanStill" component={CanStill} durationInFrames={1} fps={FPS} width={900} height={1200} defaultProps={{ flavor: 'yuzu' as const }} />
   </>
 );
