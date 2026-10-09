@@ -1,0 +1,26 @@
+{
+  "name": "website-video",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Remotion: Videos aus Code – Hero-Loops für Websites, Reels, Projekt-Showcases",
+  "scripts": {
+    "studio": "remotion studio",
+    "render:hero": "remotion render HeroLoop out/hero-loop.mp4 --codec=h264 --crf=27 && remotion still HeroLoop out/hero-poster.jpg --frame=0 --image-format=jpeg",
+    "render:reel": "remotion render SocialReel out/social-reel.mp4 --codec=h264",
+    "publish:hero": "npm run render:hero && cp out/hero-loop.mp4 out/hero-poster.jpg ../starter/public/media/",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@remotion/cli": "^4.0.534",
+    "@remotion/fonts": "^4.0.534",
+    "@remotion/player": "^4.0.534",
+    "@remotion/transitions": "^4.0.534",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.534"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "typescript": "^7.0.2"
+  }
+}

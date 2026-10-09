@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Weingut am Hang · Starter</title>
+    <meta name="description" content="Beispiel einer Projektseite mit View Transition vom Kartenbild." />
+    <meta name="theme-color" content="#f7f4ee" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="/">Studio<span aria-hidden="true">.</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="/#arbeiten">Arbeiten</a></li>
+            <li><a href="/#ablauf">Ablauf</a></li>
+            <li><a href="/#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+        <a class="button button--small" href="/#kontakt">Projekt anfragen</a>
+      </div>
+    </header>
+
+    <main id="inhalt" tabindex="-1" class="project">
+      <div class="wrap project__head">
+        <p class="eyebrow" data-reveal="fade">Markenauftritt · 2026</p>
+        <h1 class="display" data-split data-split-now>Weingut am Hang</h1>
+      </div>
+
+      <!-- Gleicher view-transition-name wie das Kartenbild auf der Startseite: das Bild fliegt herüber -->
+      <figure class="project__hero frame" style="--hue: 38; view-transition-name: projekt-bild">
+        <span>Bild 16:9</span>
+      </figure>
+
+      <div class="wrap project__body">
+        <p class="project__lead" data-reveal>
+          Beispielseite für einen Seitenwechsel mit View Transition. Das Kartenbild auf der Startseite
+          und dieses Bild teilen sich einen Namen, der Browser animiert Position und Größe selbst.
+        </p>
+        <p data-reveal>
+          Kein Router, kein Framework: zwei normale HTML-Seiten. Browser ohne Unterstützung wechseln
+          einfach die Seite.
+        </p>
+        <p><a class="button button--ghost" href="/#arbeiten">Zurück zu den Arbeiten</a></p>
+      </div>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>© 2026 Studio</p>
+      <p><a href="/">Startseite</a></p>
+    </footer>
+  </body>
+</html>

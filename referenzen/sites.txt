@@ -1,0 +1,4 @@
+# Referenz-Websites, eine pro Zeile (mit oder ohne https://).
+# Kommentare mit #. Danach: cd tools/analyze && node analyze.mjs && node summarize.mjs
+#
+# Die Domains müssen in der Cloud-Umgebung unter „Network access → Allowed domains“ freigegeben sein.
