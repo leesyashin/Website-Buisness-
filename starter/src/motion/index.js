@@ -21,6 +21,7 @@ import { initDraw } from './draw.js';
 import { initHighlight } from './highlight.js';
 import { initRoll } from './roll.js';
 import { initStack } from './stack.js';
+import { initSnap } from './snap.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, CustomEase);
 CustomEase.create('signature', signatureCurve);
@@ -45,6 +46,7 @@ export function initMotion() {
     }
 
     const cleanups = [initSmoothScroll(), initSplit(), initScrubText(), initMarquee()];
+    cleanups.push(initSnap(window.lenis));
     initReveal();
     initParallax();
     initCounter();

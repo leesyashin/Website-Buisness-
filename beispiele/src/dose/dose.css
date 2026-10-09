@@ -168,7 +168,7 @@ html:not(.colorway-live) [data-colorway='nacht'] {
 }
 
 .d-story__inner > * {
-  width: min(100%, 44rem);
+  width: min(46%, 44rem);
 }
 
 .d-statement {
@@ -214,7 +214,6 @@ html:not(.colorway-live) [data-colorway='nacht'] {
   top: var(--header-h);
   z-index: 2;
   justify-content: flex-start;
-  background: linear-gradient(to right, var(--cw-bg) 55%, transparent 55%);
   display: flex;
   align-items: center;
   gap: var(--space-l);
@@ -390,6 +389,10 @@ html:not(.colorway-live) [data-colorway='nacht'] {
     justify-items: start;
   }
 
+  .d-story__inner > * {
+    width: 100%;
+  }
+
   /* Text gleitet über die Dose: unterhalb der Dosen-Zone deckt die Abschnittsfarbe ab */
   .d-hero,
   .d-story,
@@ -405,8 +408,9 @@ html:not(.colorway-live) [data-colorway='nacht'] {
     gap: var(--space-s);
   }
 
+  /* Mobil klebt die Leiste nicht: sie würde über der Dose im oberen Bildteil liegen */
   .d-sorten__bar {
-    background: var(--cw-bg);
+    position: static;
     flex-direction: column;
     align-items: flex-start;
     gap: var(--space-2xs);

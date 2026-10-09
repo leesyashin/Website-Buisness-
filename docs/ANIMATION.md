@@ -47,6 +47,7 @@ Jedes Muster hängt an einem `data-`-Attribut im HTML. Ohne JavaScript oder bei 
 | `data-highlight` | Markierung wischt hinter Wörter | `motion/highlight.js` |
 | `data-roll` | Link-/Knopftext rollt beim Hover nach oben, Kopie rollt nach | `motion/roll.js` |
 | `data-stack` (Behälter) | Slides kleben übereinander, die vorige tritt kleiner und dunkler zurück | `motion/stack.js` |
+| `data-snap` · `="start end"` · `data-snap-steps="4"` + `<body data-snap-type="mandatory">` | Einrasten: nach dem Scrollen gleitet die Seite in Scrollrichtung zum nächsten Haltepunkt (Anfang/Ende eines Abschnitts, Zwischenhalte in angehefteten Strecken). `mandatory` nur am Desktop, sonst nur in der Nähe eines Haltepunkts | `motion/snap.js` |
 | `style="view-transition-name: x"` auf zwei Seiten | Element fliegt beim Seitenwechsel von A nach B | `styles/base.css` |
 
 Neue Muster: eigene Datei unter `src/motion/`, in `motion/index.js` innerhalb von `gsap.matchMedia()` registrieren, eine Zeile in diese Tabelle.
@@ -70,6 +71,9 @@ Jede Farbwelt ist ein CSS-Block mit fünf Variablen (`--cw-bg`, `--cw-ink`, `--c
 Beispiele in `beispiele/src/dose/scene.js` (Produkt) und `beispiele/src/bau/building.js` (Gebäude). Muster:
 
 - **Bühne fest hinter dem Inhalt** (`.stage`), Inhalt scrollt darüber; Haltung pro Kapitel als Tabelle (`POSES`), Übergänge per ScrollTrigger mit `scrub`.
+- **Haltung endet genau dort, wo die Seite einrastet** (`end: 'top top'` + `data-snap` am Kapitel): kein Zwischenzustand bleibt stehen.
+- **Positionen relativ zur sichtbaren Breite** (x = Anteil der halben Breite), damit Objekte bei jedem Seitenverhältnis in ihrer Hälfte bleiben.
+- **Bei reduzierter Bewegung** springt die Haltung pro Kapitel ohne Übergang um.
 - **three.js nachladen** (`import()`), damit Text und Layout sofort stehen. ~150 KB gzip.
 - **Spiegelungen statt vieler Lichter:** `RoomEnvironment` als Umgebung + ein Streiflicht. Kontaktschatten als weicher Verlauf statt echter Schatten (Produkt) oder Schatten mit `ShadowMaterial` (Gebäude).
 - **Etiketten/Texturen auf Canvas malen** (`label.js`): eine Quelle für Website und Video.

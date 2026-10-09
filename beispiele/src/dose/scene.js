@@ -1,6 +1,7 @@
 import * as THREE from 'three';
 import { RoomEnvironment } from 'three/examples/jsm/environments/RoomEnvironment.js';
 import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { createCan } from './can.js';
 import { drawLabel } from './label.js';
 import { flavors } from './flavors.js';
@@ -11,13 +12,15 @@ import { flavors } from './flavors.js';
 // Kapitel im HTML tragen [data-can="hero|story|sorten|perlage|finale"]. Die Haltung je Kapitel steht unten in POSES.
 // Sortenwechsel kommt über das Colorway-Ereignis: heißt die neue Colorway wie eine Sorte, bekommt die Dose deren Etikett.
 
+// x: Anteil der halben sichtbaren Breite (0,5 = Mitte der rechten Bildhälfte), damit die Dose bei jedem
+// Seitenverhältnis in ihrer Hälfte bleibt und nie in die Textspalte rutscht.
 const POSES = {
   desktop: {
-    hero: { x: 0.9, y: -0.02, s: 1.12, rx: 0.08, ry: 0.05, rz: 0.14 },
-    story: { x: -0.9, y: 0, s: 1, rx: 0.12, ry: 2.3, rz: -0.18 },
-    sorten: { x: 0.85, y: 0, s: 1.12, rx: 0.05, ry: 6.38, rz: 0.08 },
-    perlage: { x: -0.85, y: 0, s: 1.05, rx: 0.3, ry: 9.2, rz: 0.42 },
-    finale: { x: 0.8, y: 0.02, s: 0.95, rx: -0.55, ry: 12.66, rz: 0.22 },
+    hero: { x: 0.5, y: -0.02, s: 1.12, rx: 0.08, ry: 0.05, rz: 0.14 },
+    story: { x: -0.5, y: 0, s: 1, rx: 0.12, ry: 2.3, rz: -0.18 },
+    sorten: { x: 0.48, y: 0, s: 1.12, rx: 0.05, ry: 6.38, rz: 0.08 },
+    perlage: { x: -0.48, y: 0, s: 1.05, rx: 0.3, ry: 9.2, rz: 0.42 },
+    finale: { x: 0.46, y: 0.02, s: 0.95, rx: -0.55, ry: 12.66, rz: 0.22 },
   },
   mobile: {
     hero: { x: 0, y: 0.42, s: 0.72, rx: 0.08, ry: 0.05, rz: 0.12 },
@@ -120,7 +123,7 @@ export async function initCanScene(stage, { reduced }) {
       b.y += b.v * dt * (0.4 + fizz.amount);
       if (b.y > 1.6) b.y = -1.6;
       pos.set(
-        rig.position.x + Math.cos(b.a) * b.r + Math.sin(t * 1.3 + b.wobble) * 0.02,
+        rig.position.x * 0.6 + Math.cos(b.a) * b.r + Math.sin(t * 1.3 + b.wobble) * 0.02,
         b.y,
         Math.sin(b.a) * b.r * 0.6 - 0.2,
       );
@@ -145,8 +148,9 @@ export async function initCanScene(stage, { reduced }) {
 
   // ---------- Haltung je Kapitel, an den Scrollweg gekoppelt
   const pose = { ...POSES.desktop.hero };
+  const halfWidth = () => Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z * camera.aspect;
   const applyPose = () => {
-    rig.position.set(pose.x, pose.y, 0);
+    rig.position.set(pose.x * halfWidth(), pose.y, 0);
     rig.scale.setScalar(pose.s);
     tiltGroup.rotation.set(pose.rx, 0, pose.rz);
     spinGroup.rotation.y = pose.ry + spin.y;
@@ -158,7 +162,18 @@ export async function initCanScene(stage, { reduced }) {
     const set = ctx.conditions.desktop ? POSES.desktop : POSES.mobile;
     const sections = gsap.utils.toArray('[data-can]');
     Object.assign(pose, set[sections[0]?.dataset.can || 'hero']);
-    if (reduced) return;
+    if (reduced) {
+      // Ohne Bewegung: Haltung springt pro Kapitel um, ohne Übergang – die Dose steht nie in der Textspalte
+      sections.forEach((section) =>
+        ScrollTrigger.create({
+          trigger: section,
+          start: 'top 50%',
+          end: 'bottom 50%',
+          onToggle: (self) => self.isActive && Object.assign(pose, set[section.dataset.can]),
+        }),
+      );
+      return;
+    }
 
     sections.slice(1).forEach((section, i) => {
       const from = set[sections[i].dataset.can];
@@ -167,7 +182,8 @@ export async function initCanScene(stage, { reduced }) {
         ...to,
         ease: 'power1.inOut',
         immediateRender: false,
-        scrollTrigger: { trigger: section, start: 'top bottom', end: 'top 15%', scrub: 1.2 },
+        // Haltung ist genau dann erreicht, wenn der Abschnitt oben anliegt – dort rastet die Seite ein (data-snap)
+        scrollTrigger: { trigger: section, start: 'top bottom', end: 'top top', scrub: 0.6 },
       });
     });
 
@@ -225,6 +241,10 @@ export async function initCanScene(stage, { reduced }) {
   let visible = true;
   document.addEventListener('visibilitychange', () => (visible = !document.hidden));
 
+  // Ab dem letzten Kapitel scrollt die Dose mit der Seite nach oben weg, statt über Laufband und Fuß zu stehen
+  const lastChapter = document.querySelector('[data-can="finale"]');
+  const worldPerPx = () => (2 * Math.tan(THREE.MathUtils.degToRad(camera.fov / 2)) * camera.position.z) / innerHeight;
+
   const clock = new THREE.Clock();
   gsap.ticker.add(() => {
     if (!visible) return;
@@ -232,6 +252,7 @@ export async function initCanScene(stage, { reduced }) {
     const t = clock.elapsedTime;
     applyPose();
     rig.position.y += intro.lift + (reduced ? 0 : Math.sin(t * 0.9) * 0.025);
+    if (lastChapter) rig.position.y += Math.max(0, -lastChapter.getBoundingClientRect().top) * worldPerPx();
     tiltGroup.rotation.x += tilt.x;
     tiltGroup.rotation.z += reduced ? 0 : Math.sin(t * 0.6) * 0.015;
     spinGroup.rotation.y += tilt.y;
