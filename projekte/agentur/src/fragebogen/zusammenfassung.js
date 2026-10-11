@@ -23,8 +23,8 @@ export function zusammenfassung(form) {
   ];
   const kontakt = [d.name, d.email, d.telefon].filter(Boolean).join(' · ');
   const text = [
-    ...zeilen.map((z) => `${z.name}: ${z.wert || '–'}`),
-    `Kontakt: ${kontakt || '–'}`,
+    ...zeilen.map((z) => `${z.name}: ${z.wert || 'keine Angabe'}`),
+    `Kontakt: ${kontakt || 'keine Angabe'}`,
     d.nachricht ? `Nachricht: ${d.nachricht}` : '',
   ]
     .filter(Boolean)

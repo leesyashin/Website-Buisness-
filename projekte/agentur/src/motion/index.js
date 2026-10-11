@@ -22,6 +22,14 @@ import { initHighlight } from './highlight.js';
 import { initRoll } from './roll.js';
 import { initStack } from './stack.js';
 import { initSnap } from './snap.js';
+import { initZoom } from './zoom.js';
+// Muster der Agenturseite (nur aktiv, wo ihre Elemente stehen)
+import { initVergleich, initVergleichAuftritt } from './vergleich.js';
+import { initWeiche } from './weiche.js';
+import { initGalerie } from './galerie.js';
+import { initAblauf } from './ablauf.js';
+import { initKarte } from './karte.js';
+import { initSzene } from './szene.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, CustomEase);
 CustomEase.create('signature', signatureCurve);
@@ -35,6 +43,7 @@ export function initMotion() {
   initHeader();
   initColorway();
   initRoll();
+  initVergleich();
 
   const mm = gsap.matchMedia();
   mm.add(media, (ctx) => {
@@ -49,6 +58,7 @@ export function initMotion() {
     cleanups.push(initSnap(window.lenis));
     initReveal();
     initParallax();
+    initZoom();
     initCounter();
     initScramble();
     initDraw();
@@ -56,13 +66,25 @@ export function initMotion() {
     initStack();
     if (desktop) initHorizontal();
     if (finePointer) cleanups.push(initMagnetic());
+    if (desktop) cleanups.push(initSzene());
+    initVergleichAuftritt();
+    cleanups.push(initWeiche({ finePointer }));
+    if (desktop) cleanups.push(initGalerie());
+    initAblauf({ desktop });
+    initKarte();
 
     html.classList.remove('motion-pending');
     html.classList.add('motion-ready');
 
-    // Nach dem Laden von Schriften und Bildern ändern sich Höhen – Szenen neu vermessen
-    document.fonts?.ready.then(() => ScrollTrigger.refresh());
-    window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+    // Nach dem Laden von Schriften und Bildern ändern sich Höhen – Szenen neu vermessen.
+    // sort() bringt alle Auslöser in Seitenreihenfolge: Anheftungen (Pins), die erst später entstehen
+    // (Seitwärts-Strecke, Seiten-Skripte), verschieben dann auch früher erstellte Auslöser darunter richtig.
+    const refresh = () => {
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    };
+    document.fonts?.ready.then(refresh);
+    window.addEventListener('load', refresh, { once: true });
 
     return () => {
       cleanups.forEach((c) => c?.());

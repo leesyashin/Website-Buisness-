@@ -1,4 +1,5 @@
 import { site } from '../../site.config.js';
+import { hakenZeichnen } from '../motion/einblenden.js';
 
 // Formulardaten als Objekt; Mehrfachauswahl wird zur Liste
 export function formDaten(form) {
@@ -73,6 +74,7 @@ export function initAnfrage(form, { betreff, text }) {
       });
       danke.hidden = false;
       danke.focus();
+      hakenZeichnen(danke);
     }
   });
 }

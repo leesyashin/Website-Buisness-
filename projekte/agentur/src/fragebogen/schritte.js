@@ -1,3 +1,5 @@
+import { schrittEin, auftauchen } from '../motion/einblenden.js';
+
 // Fragebogen Schritt für Schritt. Ohne JavaScript ist er ein langes, vollständiges Formular;
 // mit JavaScript zeigt er eine Frage-Gruppe pro Bildschirm, Fortschritt und Zurück/Weiter.
 export function initFragebogen(form, { zusammenfassung }) {
@@ -26,7 +28,7 @@ export function initFragebogen(form, { zusammenfassung }) {
     schritte.forEach((s) => {
       const an = Number(s.dataset.schritt) === n;
       s.hidden = !an;
-      if (an) s.dataset.richtung = richtung;
+      if (an && fokus) schrittEin(s, richtung);
     });
     marken.forEach((m) => {
       const nr = Number(m.dataset.schrittMarke);
@@ -66,7 +68,7 @@ export function initFragebogen(form, { zusammenfassung }) {
     zeilen.forEach((z) => {
       const reihe = document.createElement('div');
       const dt = Object.assign(document.createElement('dt'), { textContent: z.name });
-      const dd = Object.assign(document.createElement('dd'), { textContent: z.wert || '–' });
+      const dd = Object.assign(document.createElement('dd'), { textContent: z.wert || 'keine Angabe' });
       const aendern = Object.assign(document.createElement('button'), { type: 'button', className: 'link', textContent: 'Ändern' });
       aendern.setAttribute('aria-label', `${z.name} ändern`);
       aendern.addEventListener('click', () => zeige(z.schritt));
@@ -75,6 +77,7 @@ export function initFragebogen(form, { zusammenfassung }) {
     });
     ausgabe.append(h, dl);
     ausgabe.hidden = false;
+    auftauchen(dl.children, { stagger: 0.04 });
   }
 
   weiter.addEventListener('click', () => {

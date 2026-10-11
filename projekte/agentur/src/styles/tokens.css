@@ -1,21 +1,21 @@
-/* Design-Tokens der Agenturseite. Ruhige Bühne: Kalkweiß und Marine-Tinte, die beiden Bereiche haben eigene
-   Farbwelten (Neu bauen = Marine, Renovieren = Tannengrün), Messing nur für kleine Auszeichnungen.
-   Farben in OKLCH. */
+/* Design-Tokens der Agenturseite. Ruhige Bühne: Kalkweiß und Marine-Tinte; die beiden Bereiche haben eigene
+   Flächenfarben (Neu bauen = Marine, Renovieren = Tannengrün). Messing ist die einzige Akzentfarbe: alle
+   Hauptknöpfe, Fortschritt, aktive Zustände. Farben in OKLCH. */
 :root {
   /* Grundfarben */
-  --c-kalk: oklch(0.965 0.005 240);
-  --c-kalk-2: oklch(0.93 0.008 240);
-  --c-tinte: oklch(0.24 0.055 263);
-  --c-tinte-soft: oklch(0.46 0.03 263);
+  --c-kalk: oklch(0.968 0.004 240);
+  --c-kalk-2: oklch(0.935 0.007 240);
+  --c-tinte: oklch(0.22 0.045 262);
+  --c-tinte-soft: oklch(0.45 0.025 262);
   --c-marine: oklch(0.29 0.075 264);
-  --c-marine-tief: oklch(0.22 0.06 264);
-  --c-tanne: oklch(0.37 0.075 163);
+  --c-marine-tief: oklch(0.21 0.055 264);
+  --c-tanne: oklch(0.36 0.07 163);
   --c-tanne-tief: oklch(0.27 0.055 163);
-  --c-messing: oklch(0.78 0.085 82);
+  --c-messing: oklch(0.78 0.09 80);
+  --c-messing-hell: oklch(0.84 0.08 84);
   --c-messing-tief: oklch(0.55 0.08 75);
-  --c-hell: oklch(0.97 0.006 240);
-  --c-warn: oklch(0.58 0.15 35);
-  --c-gut: oklch(0.55 0.11 155);
+  --c-hell: oklch(0.975 0.004 240);
+  --c-schatten: oklch(0.2 0.05 263 / 0.28);
 
   /* Rollen (vom Starter erwartet) */
   --c-bg: var(--c-kalk);
@@ -23,15 +23,14 @@
   --c-ink: var(--c-tinte);
   --c-ink-soft: var(--c-tinte-soft);
   --c-line: oklch(0.24 0.055 263 / 0.14);
-  --c-accent: var(--c-marine);
-  --c-on-accent: var(--c-hell);
+  --c-accent: var(--c-messing);
+  --c-on-accent: var(--c-tinte);
   --c-dark: var(--c-marine-tief);
   --c-on-dark: var(--c-hell);
 
-  /* Schrift: Bodoni Moda für Überschriften (optische Größen), Mona Sans für Text und Bedienung */
-  --font-sans: 'Mona Sans Variable', ui-sans-serif, system-ui, sans-serif;
-  --font-display: 'Bodoni Moda Variable', 'Bodoni 72', ui-serif, Georgia, serif;
-  --stretch-label: 112%;
+  /* Schrift: Schibsted Grotesk (selbst gehostet) für Überschriften und Text */
+  --font-sans: 'Schibsted Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: var(--font-sans);
 
   /* Fluide Typo-Skala: min bei 360px, max bei 1440px Viewport */
   --step--2: clamp(0.72rem, 0.7rem + 0.1vw, 0.78rem);
@@ -40,8 +39,8 @@
   --step-1: clamp(1.2rem, 1.1rem + 0.45vw, 1.5rem);
   --step-2: clamp(1.5rem, 1.3rem + 1vw, 2.25rem);
   --step-3: clamp(2rem, 1.5rem + 2.4vw, 3.6rem);
-  --step-4: clamp(2.6rem, 1.6rem + 4.6vw, 6rem);
-  --step-5: clamp(3.2rem, 1.6rem + 7.5vw, 9rem);
+  --step-4: clamp(2.2rem, 1.4rem + 3.4vw, 4.4rem);
+  --step-5: clamp(2.8rem, 1.4rem + 5.6vw, 6.6rem);
 
   /* Abstände */
   --space-3xs: 0.25rem;
@@ -56,8 +55,8 @@
   /* Raster */
   --gutter: clamp(1rem, 0.5rem + 2.5vw, 2.5rem);
   --max: 88rem;
-  --radius: 0.5rem;
-  --radius-l: 1rem;
+  --radius: 6px; /* Knöpfe, Felder, Kacheln zum Anklicken */
+  --radius-l: 14px; /* Bilder, Flächen, Dialoge */
 
   /* Bewegung – dieselben Kurven in CSS und GSAP (motion/config.js) */
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
@@ -93,22 +92,4 @@ html:not(.colorway-live) [data-colorway='renovieren'] {
   --cw-soft: oklch(0.83 0.03 163);
   --cw-accent: var(--c-messing);
   --cw-line: oklch(0.97 0.006 240 / 0.18);
-}
-
-/* Farben der Referenzen (aus den Prototypen in beispiele/, nur für deren Slides und Stil-Skizzen) */
-:root {
-  --c-ref-perle: #1d3a26;
-  --c-ref-perle-ink: #f1eda4;
-  --c-ref-bau: #dcd9d3;
-  --c-ref-bau-ink: #1b1c1e;
-  --c-ref-bau-accent: #f2c200;
-  --c-ref-mara: #dde7cf;
-  --c-ref-mara-ink: #1f3324;
-  --c-ref-mara-accent: #7a1f2b;
-
-  /* Die „alte Seite“ im Vorher/Nachher – absichtlich von gestern */
-  --c-alt-bg: #d4d0c8;
-  --c-alt-ink: #000080;
-  --c-alt-rot: #cc0000;
-  --font-alt: 'Times New Roman', Times, serif;
 }

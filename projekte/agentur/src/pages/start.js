@@ -1,13 +1,15 @@
 import '../main.js';
 import { initPlzCheck } from '../lib/vor-ort.js';
+import { initVorschau } from '../lib/vorschau.js';
 import { normUrl } from '../lib/url.js';
 
 initPlzCheck(document.querySelector('[data-plz-check]'));
+initVorschau();
 
-// Adresse aus der Weiche normalisieren, bevor es zur Renovieren-Seite geht (dort startet die Messung)
+// Adresse aus der Weiche normalisieren, bevor es zur Renovieren-Seite geht
 document.querySelectorAll('.url-feld').forEach((form) => {
+  const input = form.querySelector('input');
   form.addEventListener('submit', (e) => {
-    const input = form.querySelector('input');
     const url = normUrl(input.value);
     if (!url) {
       e.preventDefault();
@@ -17,5 +19,5 @@ document.querySelectorAll('.url-feld').forEach((form) => {
     }
     input.value = url;
   });
-  form.querySelector('input').addEventListener('input', (e) => e.target.setCustomValidity(''));
+  input.addEventListener('input', () => input.setCustomValidity(''));
 });

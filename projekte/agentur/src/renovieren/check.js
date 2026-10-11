@@ -1,8 +1,9 @@
 import { site } from '../../site.config.js';
 import { normUrl, hostOf } from '../lib/url.js';
+import { zeigeWert } from '../motion/messwerte.js';
 
-// Schnell-Check über die Google-PageSpeed-API (mobil). Startet nur auf Klick bzw. wenn die Adresse
-// aus der Weiche der Startseite mitkommt (dort steht derselbe Hinweis).
+// Schnell-Check über die Google-PageSpeed-API (mobil). Startet nur auf Klick, nachdem der Hinweis zu Google
+// sichtbar war. Kommt die Adresse aus der Weiche der Startseite mit, ist sie schon eingetragen.
 const API = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
 const kategorien = ['performance', 'accessibility', 'best-practices', 'seo'];
 
@@ -45,7 +46,8 @@ export function initCheck(form, { ergebnis, uebernahme }) {
     deut.textContent = '';
     ergebnis.querySelectorAll('[data-wert]').forEach((li) => {
       li.dataset.stufe = '';
-      li.querySelector('.werte__zahl').textContent = '–';
+      li.querySelector('.werte__zahl').textContent = '';
+      li.querySelector('circle.wert').style.strokeDashoffset = '';
     });
     if (uebernahme && !uebernahme.value) uebernahme.value = url;
 
@@ -59,11 +61,11 @@ export function initCheck(form, { ergebnis, uebernahme }) {
       const json = await res.json();
       const cats = json.lighthouseResult?.categories || {};
       const werte = {};
-      kategorien.forEach((k) => {
+      kategorien.forEach((k, i) => {
         werte[k] = Math.round((cats[k]?.score ?? 0) * 100);
         const li = ergebnis.querySelector(`[data-wert="${k}"]`);
         li.dataset.stufe = stufe(werte[k]);
-        li.querySelector('.werte__zahl').textContent = werte[k];
+        zeigeWert(li, werte[k], i * 0.12);
       });
       ergebnis.dataset.zustand = 'fertig';
       status.textContent = `Ergebnis für ${hostOf(url)} auf dem Handy (0 bis 100, ab 90 gut):`;
@@ -90,10 +92,14 @@ export function initCheck(form, { ergebnis, uebernahme }) {
   });
   input.addEventListener('input', () => input.setCustomValidity(''));
 
-  // Aus der Weiche der Startseite: /renovieren.html?url=…
+  // Aus der Weiche der Startseite: /renovieren.html?url=… wird eingetragen, der Klick auf „Kostenlos prüfen“
+  // startet die Messung (vorher steht der Hinweis zu Google sichtbar darunter).
   const mitgebracht = normUrl(new URLSearchParams(location.search).get('url'));
   if (mitgebracht) {
     input.value = mitgebracht;
-    pruefen(mitgebracht);
+    if (uebernahme && !uebernahme.value) uebernahme.value = mitgebracht;
+    const hinweis = form.querySelector('[data-check-hinweis]');
+    if (hinweis) hinweis.prepend(Object.assign(document.createElement('strong'), { textContent: 'Ihre Adresse ist eingetragen. Ein Klick auf „Kostenlos prüfen“ startet die Messung. ' }));
+    knopf.focus({ preventScroll: true });
   }
 }

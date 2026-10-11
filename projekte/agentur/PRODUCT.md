@@ -39,12 +39,15 @@ Wir bauen animierte, schnelle, rechtssichere Seiten wie die eigenen Prototypen, 
 
 - Tonalität: Mischung aus nahbar-direkt und ruhig-hochwertig.
 - Farben: ruhig, seriös, vertrauensvoll (Vorbild: Ralph-Lauren-Marineblau, Rolex-Grün). Kein Orange, nichts Knalliges.
-- Design-Richtung „Ruhige Bühne“: Die Agenturseite ist zurückhaltend, die Prototypen bringen die Farbe. Die beiden Bereiche haben eigene Farbwelten.
+- Design-Richtung „Ruhige Bühne“: Die Agenturseite ist zurückhaltend, die Prototypen bringen die Farbe. Die beiden Bereiche haben eigene Farbwelten (Marine, Tannengrün), Messing ist der einzige Akzent.
+- Gestaltung nach Taste-Skill: Sans-Schrift statt Serife, echte Bilder, sparsame Labels (Wunsch von Vincent nach dem ersten Zwischenstand).
 - Viel Bewegung, aber dosiert: 3–4 Signature-Sequenzen, sonst ruhige Reveals. 3D, wo es Sinn ergibt. Keine eingebetteten Videodateien.
 
 ## Evidence on Hand
 
-- Drei Prototypen in `beispiele/` (perle, Ruland Bau, Mara), Screenshots in `public/media/referenzen/`. Alle Marken darin sind erfunden → als **Konzeptarbeit** gekennzeichnet.
+- Sieben Prototypen in `beispiele/` (Hagedorn, Rosenplatz, Achse, Kessler Vogt, Ruland Bau, Mara, perle), Screenshots in `public/media/referenzen/`. Alle Betriebe darin sind erfunden, das steht unter der Galerie.
+- Vorher/Nachher: eine eigens gebaute „alte“ Seite der erfundenen Praxis Rosenplatz (`tools/vorher/`).
+- Köln-Foto: KI-Symbolbild, als solches gekennzeichnet.
 - Keine echten Kundenstimmen, Kundenlogos oder Kennzahlen: nicht erfinden.
 
 ## Product Principles

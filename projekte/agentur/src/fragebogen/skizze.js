@@ -1,7 +1,10 @@
 import { formDaten } from '../lib/anfrage.js';
+import { referenzen } from '../../site.config.js';
+import { auftauchen, puls } from '../motion/einblenden.js';
 
 // Live-Skizze: Neben dem Fragebogen entsteht aus den Antworten eine erste Skizze der Seite.
-// Stil färbt sie ein (data-stil), Funktionen erscheinen als Bausteine, der Name steht in der Navigation.
+// Der gewählte Stil färbt sie in den Farben des Prototyps ein (site.config.js) und gibt ihr dessen Form (data-stil),
+// Funktionen erscheinen als Bausteine, der Name steht in der Navigation.
 // Reines Schaubild (aria-hidden); die Antworten selbst stehen im Formular und in der Zusammenfassung.
 
 const titel = {
@@ -54,6 +57,8 @@ export function initSkizze(form, aside) {
   const el = (k) => aside.querySelector(`[data-skizze-${k}]`);
   const liste = el('bausteine');
   const vorhanden = new Map();
+  const farben = Object.fromEntries(referenzen.map((r) => [r.key, r.farben]));
+  let stilVorher = null;
 
   function cta(d) {
     const f = [].concat(d.funktionen || []);
@@ -71,7 +76,15 @@ export function initSkizze(form, aside) {
     el('branche').textContent = d.branche && d.branche !== 'Etwas anderes' ? d.branche : 'Ihre Branche';
     el('titel').textContent = titel[d.branche] || 'Willkommen bei Ihrem Betrieb';
     el('cta').textContent = cta(d);
-    seite.dataset.stil = d.stil || 'zeitlos';
+    const stil = d.stil || '';
+    seite.dataset.stil = stil;
+    const werte = farben[stil] || [];
+    ['--sz-bg', '--sz-ink', '--sz-accent'].forEach((name, i) => {
+      if (werte[i]) seite.style.setProperty(name, werte[i]);
+      else seite.style.removeProperty(name);
+    });
+    if (stilVorher !== null && stil !== stilVorher) puls(seite);
+    stilVorher = stil;
     seite.dataset.umfang = { 'Eine Seite': '1', 'Bis 5 Seiten': '5', '6 bis 15 Seiten': '15' }[d.umfang] || '';
     seite.classList.toggle('hat-logo', [].concat(d.vorhanden || []).includes('Logo'));
     seite.classList.toggle('hat-fotos', !!d.vorOrt || [].concat(d.vorhanden || []).includes('Fotos'));
@@ -79,14 +92,15 @@ export function initSkizze(form, aside) {
 
     // Bausteine ergänzen/entfernen, ohne vorhandene neu zu bauen (damit später nur Neues einblendet)
     const gewaehlt = new Set([].concat(d.funktionen || []));
+    const neue = [];
     bausteine.forEach(([wert, art, label]) => {
       const da = vorhanden.get(art);
       if (gewaehlt.has(wert) && !da) {
         const b = document.createElement('div');
-        b.className = `sz-baustein sz-baustein--${art} is-neu`;
+        b.className = `sz-baustein sz-baustein--${art}`;
         b.innerHTML = `<p>${label}</p><div class="sz-baustein__inhalt">${innen[art]}</div>`;
         vorhanden.set(art, b);
-        requestAnimationFrame(() => requestAnimationFrame(() => b.classList.remove('is-neu')));
+        neue.push(b);
       } else if (!gewaehlt.has(wert) && da) {
         da.remove();
         vorhanden.delete(art);
@@ -95,6 +109,7 @@ export function initSkizze(form, aside) {
     // Reihenfolge sicherstellen
     bausteine.forEach(([, art]) => vorhanden.has(art) && liste.append(vorhanden.get(art)));
     liste.dataset.anzahl = vorhanden.size;
+    auftauchen(neue);
   }
 
   form.addEventListener('input', render);
