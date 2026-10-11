@@ -1,9 +1,5 @@
 import '@fontsource-variable/bricolage-grotesque/standard.css';
 import '@fontsource-variable/geist-mono';
-import '@starter/styles/tokens.css';
-import '@starter/styles/base.css';
-import '@starter/styles/sections.css';
-import '../shared/example.css';
 import './dose.css';
 import { initMotion } from '@starter/motion/index.js';
 

@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="de" data-colorway="kalk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Achse · Physiotherapie &amp; Training Hamburg</title>
+    <meta name="description" content="Beispielseite Physiotherapie: gezeichnete Figur zeigt beim Scrollen, wie Beweglichkeit zurückkommt, dazu Kursplan mit Tagesfilter." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/physio/main.js"></script>
+  </head>
+  <body class="physio">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="#inhalt">Achse<span>Physiotherapie</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="#leistungen" data-roll>Leistungen</a></li>
+            <li><a href="#kurse" data-roll>Kurse</a></li>
+            <li><a href="#preise" data-roll>Preise</a></li>
+          </ul>
+        </nav>
+        <a class="button button--small" href="#kontakt" data-roll>Termin anfragen</a>
+      </div>
+    </header>
+
+    <main id="inhalt" tabindex="-1">
+      <section class="p-hero" data-colorway="kalk" aria-labelledby="hero-title">
+        <div class="wrap">
+          <h1 id="hero-title" class="p-display" data-split="words" data-split-now>Zurück in Bewegung<span class="p-dot">.</span></h1>
+          <div class="p-hero__row">
+            <div class="p-hero__text">
+              <p class="p-lead" data-reveal data-reveal-delay="0.35">
+                Physiotherapie mit eigener Trainingsfläche in Ottensen. Termine schon ab 7 Uhr und abends bis 21 Uhr.
+              </p>
+              <div class="p-actions" data-reveal data-reveal-delay="0.5">
+                <a class="button" href="#kontakt" data-roll>Termin anfragen</a>
+                <a class="button button--ghost" href="#kurse" data-roll>Kursplan</a>
+              </div>
+              <p class="p-status" data-status data-reveal="fade" data-reveal-delay="0.6">Mo–Fr 7–21 Uhr · Sa 9–13 Uhr</p>
+            </div>
+            <figure class="p-hero__img" data-reveal="clip">
+              <img src="/media/physio/training.webp" srcset="/media/physio/training-800.webp 800w, /media/physio/training.webp 1600w" sizes="(min-width: 900px) 62vw, 100vw" width="1600" height="900" alt="Helle Trainingsfläche in einer alten Hafenhalle mit Sprossenwand, Kabelzug und Kettlebells" fetchpriority="high" decoding="async" />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Bewegungsfigur: am Desktop angeheftet, der Arm hebt sich beim Scrollen. Ohne Bewegung: drei Armstellungen nebeneinander -->
+      <section class="p-range" data-colorway="nacht" data-range data-snap="start end" data-snap-steps="2" aria-labelledby="range-title">
+        <div class="wrap p-range__inner">
+          <div class="p-range__head">
+            <h2 id="range-title" class="p-title" data-split>Beweglichkeit kommt Grad für Grad zurück.</h2>
+            <p class="p-range__case">Beispiel: Schulter nach Operation, acht Wochen Therapie.</p>
+          </div>
+          <svg class="p-figure" viewBox="0 0 420 500" fill="none" role="img" aria-label="Strichfigur hebt den linken Arm seitlich an, in Woche 1 bis 60 Grad, in Woche 4 bis 120 Grad, in Woche 8 bis 170 Grad">
+            <path class="p-figure__arc" data-range-arc d="M250 260 A120 120 0 0 0 270.8 21.8" />
+            <g class="p-figure__body" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="200" cy="74" r="30" />
+              <path d="M200 106 V272 M150 142 H250 M172 272 H228" />
+              <path d="M150 142 L138 222 L132 298" />
+              <path d="M180 272 L176 372 L172 470 M220 272 L224 372 L228 470" />
+            </g>
+            <!-- Drei Stellungen für die ruhige Ansicht; mit Scroll-Animation bewegt sich nur der erste Arm -->
+            <g class="p-figure__arm" data-range-arm style="--a: -60deg">
+              <path d="M250 142 L256 222 L260 298" />
+              <circle class="p-joint" cx="256" cy="222" r="5" />
+              <circle class="p-hand" cx="260" cy="298" r="7" />
+            </g>
+            <g class="p-figure__arm p-figure__ghost" style="--a: -120deg">
+              <path d="M250 142 L256 222 L260 298" />
+              <circle class="p-joint" cx="256" cy="222" r="5" />
+              <circle class="p-hand" cx="260" cy="298" r="7" />
+            </g>
+            <g class="p-figure__arm p-figure__ghost" style="--a: -170deg">
+              <path d="M250 142 L256 222 L260 298" />
+              <circle class="p-joint" cx="256" cy="222" r="5" />
+              <circle class="p-hand" cx="260" cy="298" r="7" />
+            </g>
+            <g class="p-joints">
+              <circle cx="150" cy="142" r="5" /><circle cx="250" cy="142" r="6" /><circle cx="138" cy="222" r="5" />
+              <circle cx="180" cy="272" r="5" /><circle cx="220" cy="272" r="5" /><circle cx="176" cy="372" r="5" /><circle cx="224" cy="372" r="5" />
+            </g>
+            <text class="p-figure__deg" data-range-deg aria-hidden="true">60°</text>
+          </svg>
+          <ol class="p-range__steps">
+            <li data-range-step><p class="p-week">Woche 1</p><p class="p-deg"><b>60</b>°</p><p>Arm geführt seitlich anheben. Die Therapeutin bewegt mit, Sie spüren, wo es zieht.</p></li>
+            <li data-range-step><p class="p-week">Woche 4</p><p class="p-deg"><b>120</b>°</p><p>Eigene Übungen zu Hause, dazu zweimal pro Woche Training am Kabelzug.</p></li>
+            <li data-range-step><p class="p-week">Woche 8</p><p class="p-deg"><b>170</b>°</p><p>Über Kopf geht wieder: Regal einräumen, Haare föhnen, Kraul schwimmen.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="leistungen" class="p-services" data-colorway="kalk" tabindex="-1" aria-labelledby="leistungen-title">
+        <div class="wrap">
+          <h2 id="leistungen-title" class="p-title" data-split>Was wir machen</h2>
+          <table class="p-list">
+            <thead>
+              <tr><th scope="col">Leistung</th><th scope="col">Worum es geht</th><th scope="col">Mit Rezept</th><th scope="col">Selbst zahlen</th></tr>
+            </thead>
+            <tbody data-reveal-stagger>
+              <tr><th scope="row">Krankengymnastik</th><td>Kraft, Haltung und Beweglichkeit nach Verletzung oder OP</td><td>ja</td><td>49 € · 30 Min.</td></tr>
+              <tr><th scope="row">Manuelle Therapie</th><td>Blockierte Gelenke lösen, besonders Nacken, Rücken, Kiefer</td><td>ja</td><td>55 € · 30 Min.</td></tr>
+              <tr><th scope="row">KG am Gerät</th><td>Aufbautraining auf unserer Fläche, mit Plan für zu Hause</td><td>ja</td><td>39 € · 60 Min.</td></tr>
+              <tr><th scope="row">Lymphdrainage</th><td>Sanfte Griffe gegen Schwellungen, etwa nach Operationen</td><td>ja</td><td>52 € · 45 Min.</td></tr>
+              <tr><th scope="row">Sportphysio</th><td>Zurück in den Sport nach Bänderriss, Kreuzband, Achillessehne</td><td>teils</td><td>65 € · 45 Min.</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section class="p-feature" data-colorway="kalk" aria-labelledby="lauf-title">
+        <div class="wrap p-feature__grid">
+          <figure class="p-feature__img" data-reveal="clip">
+            <img src="/media/physio/laufanalyse.webp" srcset="/media/physio/laufanalyse-800.webp 800w, /media/physio/laufanalyse.webp 1600w" sizes="(min-width: 900px) 36vw, 100vw" width="1200" height="1600" alt="Läuferin auf dem Laufband, eine Physiotherapeutin kniet daneben und beobachtet den Fußaufsatz" loading="lazy" decoding="async" />
+          </figure>
+          <div class="p-feature__text">
+            <h2 id="lauf-title" class="p-title" data-split>Laufanalyse in Zeitlupe</h2>
+            <p data-reveal>
+              Zwei Kameras, ein Laufband, 45 Minuten. Danach wissen Sie, <span data-highlight>warum das Knie ab Kilometer acht zieht</span>,
+              und haben drei Übungen, die genau daran arbeiten.
+            </p>
+            <dl class="p-facts" data-reveal-stagger>
+              <div><dt>Dauer</dt><dd>45 Min.</dd></div>
+              <div><dt>Preis</dt><dd>89 €</dd></div>
+              <div><dt>Mitbringen</dt><dd>Laufschuhe, kurze Hose</dd></div>
+            </dl>
+          </div>
+        </div>
+      </section>
+
+      <section id="kurse" class="p-courses" data-colorway="signal" tabindex="-1" aria-labelledby="kurse-title">
+        <div class="wrap">
+          <div class="p-courses__head">
+            <h2 id="kurse-title" class="p-title" data-split>Kursplan</h2>
+            <p>Kleine Gruppen, höchstens acht Leute. Viele Krankenkassen zahlen einen Teil dazu (Präventionskurs nach § 20 SGB V).</p>
+          </div>
+          <div class="p-days" role="group" aria-label="Wochentag wählen" data-days hidden>
+            <button type="button" data-day="1">Mo</button>
+            <button type="button" data-day="2">Di</button>
+            <button type="button" data-day="3">Mi</button>
+            <button type="button" data-day="4">Do</button>
+            <button type="button" data-day="5">Fr</button>
+          </div>
+          <div class="p-schedule" data-week>
+            <section class="p-day" data-day="1" aria-labelledby="tag-1">
+              <h3 id="tag-1">Montag</h3>
+              <ul>
+                <li><time>07:00</time><strong>Rücken fit</strong><span>Lena · 50 Min.</span><em>3 Plätze frei</em></li>
+                <li><time>18:00</time><strong>Pilates</strong><span>Jana · 55 Min.</span><em class="is-full">ausgebucht</em></li>
+                <li><time>19:15</time><strong>Mobility</strong><span>Kai · 45 Min.</span><em>5 Plätze frei</em></li>
+              </ul>
+            </section>
+            <section class="p-day" data-day="2" aria-labelledby="tag-2">
+              <h3 id="tag-2">Dienstag</h3>
+              <ul>
+                <li><time>07:00</time><strong>Lauf-ABC</strong><span>Kai · 45 Min.</span><em>6 Plätze frei</em></li>
+                <li><time>12:15</time><strong>Mobility in der Mittagspause</strong><span>Lena · 30 Min.</span><em>4 Plätze frei</em></li>
+                <li><time>18:30</time><strong>Rücken fit</strong><span>Lena · 50 Min.</span><em>2 Plätze frei</em></li>
+              </ul>
+            </section>
+            <section class="p-day" data-day="3" aria-labelledby="tag-3">
+              <h3 id="tag-3">Mittwoch</h3>
+              <ul>
+                <li><time>07:00</time><strong>Pilates</strong><span>Jana · 55 Min.</span><em>1 Platz frei</em></li>
+                <li><time>19:00</time><strong>Knie-Schule nach OP</strong><span>Ole · 60 Min.</span><em>4 Plätze frei</em></li>
+              </ul>
+            </section>
+            <section class="p-day" data-day="4" aria-labelledby="tag-4">
+              <h3 id="tag-4">Donnerstag</h3>
+              <ul>
+                <li><time>12:15</time><strong>Mobility in der Mittagspause</strong><span>Kai · 30 Min.</span><em>7 Plätze frei</em></li>
+                <li><time>18:00</time><strong>Pilates</strong><span>Jana · 55 Min.</span><em>3 Plätze frei</em></li>
+                <li><time>19:15</time><strong>Rücken fit</strong><span>Lena · 50 Min.</span><em class="is-full">ausgebucht</em></li>
+              </ul>
+            </section>
+            <section class="p-day" data-day="5" aria-labelledby="tag-5">
+              <h3 id="tag-5">Freitag</h3>
+              <ul>
+                <li><time>07:00</time><strong>Mobility</strong><span>Kai · 45 Min.</span><em>5 Plätze frei</em></li>
+                <li><time>17:00</time><strong>Lauftreff mit Technik</strong><span>Kai · 60 Min.</span><em>9 Plätze frei</em></li>
+              </ul>
+            </section>
+          </div>
+          <figure class="p-courses__img" data-reveal="clip">
+            <img src="/media/physio/kurs.webp" srcset="/media/physio/kurs-800.webp 800w, /media/physio/kurs.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="1067" alt="Kleine Gruppe in der Kindhaltung auf Matten, eine Physiotherapeutin leitet an" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="preise" class="p-pay" data-colorway="kalk" tabindex="-1" aria-labelledby="preise-title">
+        <div class="wrap p-pay__grid">
+          <h2 id="preise-title" class="p-title" data-split>Mit Rezept oder ohne</h2>
+          <div class="p-pay__card p-pay__card--rezept" data-reveal>
+            <h3>Mit Rezept</h3>
+            <p>Ärztliche Verordnung mitbringen, wir rechnen direkt mit Ihrer Kasse ab.</p>
+            <p class="p-pay__price">10 % <small>der Kosten plus 10 € je Rezept Zuzahlung, Kinder frei</small></p>
+          </div>
+          <div class="p-pay__card" data-reveal data-reveal-delay="0.1">
+            <h3>Ohne Rezept</h3>
+            <p>Physio-Check: Befund, erste Behandlung und ein Plan, ob und wie es weitergeht.</p>
+            <p class="p-pay__price">69 € <small>45 Minuten, Rechnung für Ihre Zusatzversicherung</small></p>
+          </div>
+          <figure class="p-pay__img" data-reveal="clip">
+            <img src="/media/physio/behandlung.webp" srcset="/media/physio/behandlung-800.webp 800w, /media/physio/behandlung.webp 1600w" sizes="(min-width: 900px) 34vw, 100vw" width="1600" height="1067" alt="Physiotherapeut bewegt den Arm eines Patienten, der auf der Behandlungsliege liegt" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="kontakt" class="p-contact" data-colorway="nacht" tabindex="-1" aria-labelledby="kontakt-title">
+        <div class="wrap p-contact__grid">
+          <h2 id="kontakt-title" class="p-display p-display--m" data-split="words">Termin? Kurz anrufen.</h2>
+          <div class="p-contact__ways">
+            <a class="p-contact__phone" href="tel:+49400000000">040 000 00 00</a>
+            <p>Oder Rezept fotografieren und an <strong>termin@achse-physio.example</strong> schicken, wir melden uns am selben Tag.</p>
+            <a class="button button--big" href="mailto:termin@achse-physio.example" data-magnetic data-roll>Rezept per E-Mail senden</a>
+          </div>
+          <dl class="p-contact__facts">
+            <div><dt>Adresse</dt><dd>Am Hafenbecken 12 · 22765 Hamburg</dd></div>
+            <div><dt>Zeiten</dt><dd>Mo–Fr 7–21 Uhr · Sa 9–13 Uhr</dd></div>
+            <div><dt>Anreise</dt><dd>S-Bahn Altona, 8 Minuten zu Fuß · Fahrradbügel vor der Tür</dd></div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>Achse Physiotherapie · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>

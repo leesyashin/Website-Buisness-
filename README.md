@@ -8,7 +8,7 @@ Werkstatt für animierte Kunden-Websites: ein Starter mit Bewegungssystem, Video
 # Website-Starter (Demo aller Bewegungsmuster)
 cd starter && npm install && npm run dev        # http://localhost:5173
 
-# Beispielseiten pro Branche (Übersicht + Produkt, Baufirma, Restaurant)
+# Beispielseiten pro Branche (Übersicht + sieben Branchen)
 cd beispiele && npm install && npm run dev      # http://localhost:5173
 
 # Videos aus Code (Remotion Studio)
@@ -27,7 +27,7 @@ Für die Analyse am Mac einmalig `npx playwright install chromium` im Ordner `to
 | | |
 |---|---|
 | [`starter/`](starter) | Vite + GSAP (ScrollTrigger, SplitText) + Lenis + View Transitions. Bewegung per `data-`-Attribut, siehe [docs/ANIMATION.md](docs/ANIMATION.md) |
-| [`beispiele/`](beispiele) | Beispielseiten auf dem Starter: **perle** (Produkt, 3D-Dose, Colorway je Sorte), **Ruland Bau** (3D-Gebäude wächst, Bauplan-Ansicht), **Mara** (Restaurant, Mittag/Abend, Reservierung mit Zeitslots), Übersicht mit gestapelten Slides |
+| [`beispiele/`](beispiele) | Beispielseiten auf dem Starter: **perle** (Produkt, 3D-Dose, Colorway je Sorte), **Ruland Bau** (3D-Gebäude wächst, Bauplan-Ansicht), **Mara** (Restaurant, Mittag/Abend, Reservierung mit Zeitslots), **Hagedorn** (Schreinerei, 3D-Stuhl zerlegt sich, Maserung je Holzart), **Rosenplatz** (Zahnarztpraxis, leise Seite, Atemübung, Terminanfrage in Schritten), **Achse** (Physiotherapie, Bewegungsfigur am Scrollweg, Kursplan), **kessler vogt** (Architekturbüro, Projektleiste, View Transitions in Projektseiten), Übersicht mit gestapelten Slides |
 | [`video/`](video) | Remotion: `HeroLoop`, `SocialReel`, `CanReel` (3D-Dose als Produktvideo), `CanStill` (freigestellte Dose als PNG) |
 | [`referenzen/`](referenzen) | Vorbild-Websites: Liste, Messberichte, Screenshots, Vergleich |
 | [`tools/analyze/`](tools/analyze) | Playwright-Analyse: Technik, Schriften, Farben, Bewegung, Layout, Performance |

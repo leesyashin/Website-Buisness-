@@ -1,4 +1,11 @@
 /* Ruland Bau. Raster: Textspalte links (46 %), rechts steht das Gebäude. Schmale, hohe Versalien wie auf Bauschildern. */
+
+/* Starter-Stile zuerst, Seitenstile danach: als @import in einer Datei, damit die Reihenfolge auch im Build stimmt */
+@import '@starter/styles/tokens.css';
+@import '@starter/styles/base.css';
+@import '@starter/styles/sections.css';
+@import '../shared/example.css';
+
 :root {
   --font-sans: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Archivo Variable', ui-sans-serif, system-ui, sans-serif;

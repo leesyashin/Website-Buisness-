@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="de" data-colorway="morgen">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Zahnärzte am Rosenplatz · Münster</title>
+    <meta name="description" content="Beispielseite Zahnarztpraxis: ruhige Seite für Angstpatienten mit Atemübung, Ablauf des ersten Termins und Terminanfrage in drei Schritten." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/zahnarzt/main.js"></script>
+  </head>
+  <body class="zahnarzt">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="#inhalt"><svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><circle cx="16" cy="16" r="15" fill="none" stroke="currentColor" stroke-width="1.5" /><circle cx="16" cy="16" r="6" fill="currentColor" /></svg>Rosenplatz<span>Zahnärzte</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="#angst" data-roll>Angst</a></li>
+            <li><a href="#leistungen" data-roll>Leistungen</a></li>
+            <li><a href="#team" data-roll>Team</a></li>
+          </ul>
+        </nav>
+        <a class="button button--small" href="#termin" data-roll>Termin anfragen</a>
+      </div>
+    </header>
+
+    <main id="inhalt" tabindex="-1">
+      <section class="z-hero" data-colorway="morgen" aria-labelledby="hero-title">
+        <div class="wrap z-hero__grid">
+          <div class="z-hero__text">
+            <p class="z-status" data-status data-reveal="fade">Mo–Do 8–18 Uhr · Fr 8–14 Uhr</p>
+            <h1 id="hero-title" class="z-display" data-split data-split-now>Zahnmedizin, die sich Zeit nimmt.</h1>
+            <p class="z-lead" data-reveal="fade" data-reveal-delay="0.4">
+              Familienpraxis in Münster, mit viel Ruhe für Kinder, Angstpatienten und alle, die eigentlich lieber nicht kommen.
+            </p>
+            <div class="z-actions" data-reveal="fade" data-reveal-delay="0.55">
+              <a class="button" href="#termin" data-roll>Termin anfragen</a>
+              <a class="z-phone" href="tel:+492510000000">0251 000 00 00</a>
+            </div>
+          </div>
+          <figure class="z-hero__img" data-reveal="fade">
+            <img src="/media/zahnarzt/empfang.webp" srcset="/media/zahnarzt/empfang-800.webp 800w, /media/zahnarzt/empfang.webp 1600w" sizes="(min-width: 900px) 50vw, 100vw" width="1600" height="1067" alt="Heller Empfang mit Tresen aus hellem Holz, salbeigrünen Wänden, Pflanzen und zwei Sesseln" fetchpriority="high" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <aside class="z-urgent" data-colorway="morgen" aria-label="Akute Schmerzen">
+        <div class="wrap z-urgent__inner">
+          <p><strong>Akute Schmerzen?</strong> Wer bis 10 Uhr anruft, bekommt am selben Tag einen Termin.</p>
+          <a href="tel:+492510000000">0251 000 00 00</a>
+        </div>
+      </aside>
+
+      <section id="angst" class="z-calm" data-colorway="salbei" tabindex="-1" aria-labelledby="angst-title">
+        <div class="wrap z-calm__grid">
+          <div class="z-breathe" data-breathe>
+            <div class="z-breathe__circle" aria-hidden="true">
+              <span class="z-breathe__ring"></span>
+              <span class="z-breathe__core" data-breathe-core></span>
+              <span class="z-breathe__label" data-breathe-label>4 Sekunden ein,<br />6 Sekunden aus</span>
+            </div>
+            <p class="visually-hidden">Atemübung: vier Sekunden durch die Nase einatmen, sechs Sekunden langsam ausatmen, eine Minute lang.</p>
+            <button type="button" class="button button--ghost" data-breathe-start hidden>Eine Minute mitatmen</button>
+          </div>
+          <div class="z-calm__text">
+            <h2 id="angst-title" class="z-title" data-reveal="fade">Angst vor dem Zahnarzt ist nichts, wofür man sich schämen muss.</h2>
+            <p data-reveal="fade">Etwa jeder Dritte kennt sie. Deshalb arbeiten wir langsamer, erklären mehr und fangen nie an, bevor Sie bereit sind.</p>
+            <ul class="z-promises" data-reveal-stagger>
+              <li><strong>Erst reden, dann behandeln.</strong> Das erste Gespräch findet am Tisch statt, nicht im Behandlungsstuhl.</li>
+              <li><strong>Ein Handzeichen genügt.</strong> Sie heben die Hand, wir hören sofort auf.</li>
+              <li><strong>Kopfhörer und Decke.</strong> Liegen bereit, Sie müssen nicht fragen.</li>
+              <li><strong>Lachgas oder Narkose.</strong> Für größere Behandlungen, nach ausführlicher Beratung.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="z-first" data-colorway="morgen" aria-labelledby="first-title">
+        <div class="wrap">
+          <h2 id="first-title" class="z-title" data-reveal="fade">So läuft Ihr erster Termin</h2>
+          <ol class="z-timeline">
+            <li data-reveal="fade"><span class="z-min"><b>0</b> Min.</span><h3>Ankommen</h3><p>Kein Klemmbrett im Wartezimmer. Den Fragebogen füllen Sie vorher in Ruhe zu Hause aus.</p></li>
+            <li data-reveal="fade" data-reveal-delay="0.1"><span class="z-min"><b>5</b> Min.</span><h3>Gespräch</h3><p>Im Beratungszimmer, auf Augenhöhe. Was stört Sie, was ist früher passiert?</p></li>
+            <li data-reveal="fade" data-reveal-delay="0.2"><span class="z-min"><b>20</b> Min.</span><h3>Untersuchung</h3><p>Mit Spiegel in Ihrer Hand, wenn Sie mögen. Wir sagen jeden Schritt vorher an.</p></li>
+            <li data-reveal="fade" data-reveal-delay="0.3"><span class="z-min"><b>35</b> Min.</span><h3>Plan und Kosten</h3><p>Schriftlich, mit dem Anteil Ihrer Kasse. Sie entscheiden zu Hause.</p></li>
+            <li data-reveal="fade" data-reveal-delay="0.4"><span class="z-min"><b>45</b> Min.</span><h3>Fertig</h3><p>Beim ersten Termin wird nicht gebohrt. Versprochen.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="leistungen" class="z-services" data-colorway="morgen" tabindex="-1" aria-labelledby="leistungen-title">
+        <div class="wrap z-services__grid">
+          <div class="z-services__aside">
+            <h2 id="leistungen-title" class="z-title" data-reveal="fade">Leistungen</h2>
+            <figure class="z-services__img" data-reveal="fade">
+              <img src="/media/zahnarzt/behandlung.webp" srcset="/media/zahnarzt/behandlung-800.webp 800w, /media/zahnarzt/behandlung.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" width="1600" height="1067" alt="Ruhiges Behandlungszimmer mit Blick auf Baumkronen" loading="lazy" decoding="async" />
+            </figure>
+          </div>
+          <div class="z-accordion">
+            <details name="leistung" open>
+              <summary>Kontrolle und Zahnreinigung<span class="z-plus" aria-hidden="true"></span></summary>
+              <div class="z-panel">
+                <p>Halbjährliche Kontrolle und professionelle Zahnreinigung in einer Sitzung, bei Merve Yıldız mit Zeit für Fragen.</p>
+                <p class="z-cost">Kontrolle zahlt die Kasse · Reinigung 95 bis 120 €</p>
+              </div>
+            </details>
+            <details name="leistung">
+              <summary>Füllungen<span class="z-plus" aria-hidden="true"></span></summary>
+              <div class="z-panel">
+                <p>Zahnfarbene Füllungen aus Komposit, so schonend und klein wie möglich. Betäubung nur, wenn Sie sie möchten.</p>
+                <p class="z-cost">Kassenleistung im Seitenzahnbereich mit Zuzahlung</p>
+              </div>
+            </details>
+            <details name="leistung">
+              <summary>Wurzelbehandlung<span class="z-plus" aria-hidden="true"></span></summary>
+              <div class="z-panel">
+                <p>Unter dem Mikroskop, damit der Zahn erhalten bleibt. Meist in ein bis zwei Terminen.</p>
+                <p class="z-cost">Kasse übernimmt die Grundbehandlung</p>
+              </div>
+            </details>
+            <details name="leistung">
+              <summary>Implantate und Zahnersatz<span class="z-plus" aria-hidden="true"></span></summary>
+              <div class="z-panel">
+                <p>Kronen, Brücken und Implantate. Dr. Brökelmann plant mit 3D-Röntgen und erklärt jede Variante samt Kosten.</p>
+                <p class="z-cost">Festzuschuss der Kasse, Heil- und Kostenplan vorab</p>
+              </div>
+            </details>
+            <details name="leistung">
+              <summary>Kinder<span class="z-plus" aria-hidden="true"></span></summary>
+              <div class="z-panel">
+                <p>Ab dem ersten Zahn. Kinder dürfen erst gucken, dann Stuhl fahren, dann zählen wir zusammen die Zähne.</p>
+                <p class="z-cost">Vorsorge für Kinder zahlt die Kasse</p>
+              </div>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="z-team" data-colorway="morgen" tabindex="-1" aria-labelledby="team-title">
+        <div class="wrap">
+          <h2 id="team-title" class="z-title" data-reveal="fade">Wer Sie behandelt</h2>
+          <ul class="z-people">
+            <li class="z-person" data-reveal="fade">
+              <img src="/media/zahnarzt/team-albers.webp" srcset="/media/zahnarzt/team-albers-800.webp 800w, /media/zahnarzt/team-albers.webp 1600w" sizes="(min-width: 900px) 34vw, 100vw" width="1200" height="1600" alt="Porträt Dr. Henrike Albers" loading="lazy" decoding="async" />
+              <h3>Dr. Henrike Albers</h3>
+              <p>Zahnärztin, gründete die Praxis 2006. Schwerpunkt Angstpatienten und Hypnose.</p>
+            </li>
+            <li class="z-person" data-reveal="fade" data-reveal-delay="0.1">
+              <img src="/media/zahnarzt/team-broekelmann.webp" srcset="/media/zahnarzt/team-broekelmann-800.webp 800w, /media/zahnarzt/team-broekelmann.webp 1600w" sizes="(min-width: 900px) 26vw, 100vw" width="1200" height="1600" alt="Porträt Dr. Jonas Brökelmann" loading="lazy" decoding="async" />
+              <h3>Dr. Jonas Brökelmann</h3>
+              <p>Zahnarzt, Implantologie und Kinderzahnheilkunde. Vater von drei Kindern, die gern hier sind.</p>
+            </li>
+            <li class="z-person" data-reveal="fade" data-reveal-delay="0.2">
+              <img src="/media/zahnarzt/team-yildiz.webp" srcset="/media/zahnarzt/team-yildiz-800.webp 800w, /media/zahnarzt/team-yildiz.webp 1600w" sizes="(min-width: 900px) 26vw, 100vw" width="1200" height="1600" alt="Porträt Merve Yıldız" loading="lazy" decoding="async" />
+              <h3>Merve Yıldız</h3>
+              <p>Dentalhygienikerin. Erklärt Zahnseide so, dass man sie danach wirklich benutzt.</p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="termin" class="z-booking" data-colorway="tief" tabindex="-1" aria-labelledby="termin-title">
+        <div class="wrap z-booking__grid">
+          <div class="z-booking__intro">
+            <h2 id="termin-title" class="z-title" data-reveal="fade">Termin anfragen</h2>
+            <p data-reveal="fade">Drei kurze Fragen, dann rufen wir Sie innerhalb eines Werktags zurück und finden gemeinsam einen Termin.</p>
+            <p class="z-booking__phone" data-reveal="fade">Lieber sprechen? <a href="tel:+492510000000">0251 000 00 00</a></p>
+          </div>
+
+          <form class="z-form" data-termin novalidate>
+            <p class="z-progress" data-progress aria-live="polite"></p>
+
+            <fieldset class="z-step" data-step tabindex="-1">
+              <legend>Worum geht es?</legend>
+              <div class="z-choices">
+                <label class="z-choice"><input type="radio" name="anliegen" value="Kontrolle oder Reinigung" checked /><span><strong>Kontrolle oder Reinigung</strong><small>Untersuchung, professionelle Zahnreinigung</small></span></label>
+                <label class="z-choice"><input type="radio" name="anliegen" value="Schmerzen" data-pain-choice /><span><strong>Schmerzen oder etwas abgebrochen</strong><small>Wir suchen den nächsten freien Termin</small></span></label>
+                <label class="z-choice"><input type="radio" name="anliegen" value="Beratung Zahnersatz" /><span><strong>Beratung</strong><small>Implantat, Krone, Brücke, zweite Meinung</small></span></label>
+                <label class="z-choice"><input type="radio" name="anliegen" value="Termin für ein Kind" /><span><strong>Termin für ein Kind</strong><small>Ab dem ersten Zahn</small></span></label>
+                <label class="z-choice"><input type="radio" name="anliegen" value="Erst reden" /><span><strong>Ich möchte erst nur reden</strong><small>Kennenlernen ohne Behandlung, 30 Minuten</small></span></label>
+              </div>
+              <p class="z-hint" data-pain-hint hidden>Bei starken Schmerzen bitte direkt anrufen: <a href="tel:+492510000000">0251 000 00 00</a>. Wer bis 10 Uhr anruft, kommt heute noch dran.</p>
+              <div class="z-nav"><button type="button" class="button" data-next>Weiter</button></div>
+            </fieldset>
+
+            <fieldset class="z-step" data-step tabindex="-1">
+              <legend>Wann passt es Ihnen?</legend>
+              <div class="z-group">
+                <p class="z-sub" id="tage">Tage</p>
+                <div class="z-toggles" role="group" aria-labelledby="tage">
+                  <label class="z-toggle"><input type="checkbox" name="tag" value="Mo" /><span>Mo</span></label>
+                  <label class="z-toggle"><input type="checkbox" name="tag" value="Di" /><span>Di</span></label>
+                  <label class="z-toggle"><input type="checkbox" name="tag" value="Mi" /><span>Mi</span></label>
+                  <label class="z-toggle"><input type="checkbox" name="tag" value="Do" /><span>Do</span></label>
+                  <label class="z-toggle"><input type="checkbox" name="tag" value="Fr" /><span>Fr</span></label>
+                </div>
+              </div>
+              <div class="z-group">
+                <p class="z-sub" id="zeit">Tageszeit</p>
+                <div class="z-toggles" role="group" aria-labelledby="zeit">
+                  <label class="z-toggle z-toggle--wide"><input type="checkbox" name="zeit" value="früh" /><span>Früh<small>8–11 Uhr</small></span></label>
+                  <label class="z-toggle z-toggle--wide"><input type="checkbox" name="zeit" value="mittags" /><span>Mittags<small>11–14 Uhr</small></span></label>
+                  <label class="z-toggle z-toggle--wide"><input type="checkbox" name="zeit" value="nachmittags" /><span>Nachmittags<small>14–18 Uhr</small></span></label>
+                </div>
+              </div>
+              <label class="z-check"><input type="checkbox" name="mehrzeit" /> Bitte planen Sie etwas mehr Zeit ein, ich bin aufgeregt.</label>
+              <div class="z-nav"><button type="button" class="z-back" data-back>Zurück</button><button type="button" class="button" data-next>Weiter</button></div>
+            </fieldset>
+
+            <fieldset class="z-step" data-step tabindex="-1">
+              <legend>Wie erreichen wir Sie?</legend>
+              <div class="z-inputs">
+                <label>Name <input name="name" autocomplete="name" required /></label>
+                <label>Telefon <input name="tel" type="tel" autocomplete="tel" required /></label>
+                <label class="z-inputs__wide">E-Mail <span class="z-optional">optional</span> <input name="email" type="email" autocomplete="email" /></label>
+              </div>
+              <div class="z-segment" role="radiogroup" aria-label="Versicherung">
+                <label><input type="radio" name="kasse" value="gesetzlich" checked /><span>Gesetzlich</span></label>
+                <label><input type="radio" name="kasse" value="privat" /><span>Privat</span></label>
+              </div>
+              <p class="z-error" data-error hidden>Bitte Name und Telefonnummer angeben, damit wir zurückrufen können.</p>
+              <div class="z-nav"><button type="button" class="z-back" data-back>Zurück</button><button type="submit" class="button" data-roll>Anfrage senden</button></div>
+            </fieldset>
+
+            <div class="z-done" data-done hidden tabindex="-1">
+              <svg viewBox="0 0 52 52" width="52" height="52" aria-hidden="true"><circle cx="26" cy="26" r="24" fill="none" stroke="currentColor" stroke-width="2" /><path d="M15 27 L23 35 L38 18" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg>
+              <p class="z-done__title" data-done-title>Danke.</p>
+              <p data-done-line></p>
+              <p class="z-hint">Beispielseite: Es wurde nichts gesendet.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+
+      <section class="z-info" data-colorway="morgen" aria-labelledby="info-title">
+        <div class="wrap z-info__grid">
+          <h2 id="info-title" class="z-title" data-reveal="fade">Praxis</h2>
+          <table class="z-hours" data-hours>
+            <caption class="visually-hidden">Öffnungszeiten</caption>
+            <tbody>
+              <tr data-day="1"><th scope="row">Montag</th><td>8–18 Uhr</td></tr>
+              <tr data-day="2"><th scope="row">Dienstag</th><td>8–18 Uhr</td></tr>
+              <tr data-day="3"><th scope="row">Mittwoch</th><td>8–18 Uhr</td></tr>
+              <tr data-day="4"><th scope="row">Donnerstag</th><td>8–18 Uhr</td></tr>
+              <tr data-day="5"><th scope="row">Freitag</th><td>8–14 Uhr</td></tr>
+              <tr data-day="6"><th scope="row">Samstag</th><td>geschlossen</td></tr>
+              <tr data-day="0"><th scope="row">Sonntag</th><td>geschlossen</td></tr>
+            </tbody>
+          </table>
+          <dl class="z-facts">
+            <div><dt>Adresse</dt><dd>Rosenplatz 4 · 48143 Münster</dd></div>
+            <div><dt>Ohne Stufen</dt><dd>Ebenerdiger Eingang, Aufzug, rollstuhlgerechtes WC</dd></div>
+            <div><dt>Anreise</dt><dd>Bus 2 und 10 bis Rosenplatz, sechs Parkplätze im Hof</dd></div>
+            <div><dt>Notdienst</dt><dd>Abends und am Wochenende: zahnärztlicher Notdienst Westfalen-Lippe</dd></div>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>Zahnärzte am Rosenplatz · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>
