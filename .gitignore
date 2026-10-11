@@ -1,0 +1,12 @@
+node_modules/
+dist/
+out/
+.DS_Store
+
+# Impeccable Live-Server
+.impeccable/live/
+
+# Scroll-Videos der Referenz-Analyse (groß, jederzeit neu erzeugbar)
+referenzen/**/scroll.webm
+referenzen/**/.video/
+referenzen/**/error.txt

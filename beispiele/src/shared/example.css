@@ -1,0 +1,53 @@
+/* Gemeinsames für alle Beispielseiten. Farben kommen aus den Colorway-Variablen (--cw-*), die jede Seite selbst festlegt. */
+:root {
+  --c-bg: var(--cw-bg);
+  --c-ink: var(--cw-ink);
+  --c-ink-soft: var(--cw-soft);
+  --c-line: var(--cw-line);
+  --c-accent: var(--cw-accent);
+  --c-highlight: var(--cw-accent);
+}
+
+body {
+  background: var(--cw-bg);
+  color: var(--cw-ink);
+}
+
+/* Zurück zur Übersicht – auf jeder Beispielseite unten links */
+.back-to-hub {
+  position: fixed;
+  left: var(--gutter);
+  bottom: calc(var(--space-s) + env(safe-area-inset-bottom, 0px));
+  z-index: 60;
+  padding: 0.55em 1em;
+  border-radius: 999px;
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+  font-size: var(--step--1);
+  text-decoration: none;
+}
+
+/* 3D-Bühne hinter dem Inhalt */
+.stage {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.stage canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.stage-content {
+  position: relative;
+  z-index: 1;
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}

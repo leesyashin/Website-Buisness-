@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Motion-Baukasten · Starter</title>
+    <meta name="description" content="Grundgerüst für animierte Websites: alle Bewegungsmuster an einem Ort." />
+    <meta name="theme-color" content="#f7f4ee" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <!-- Vor dem ersten Bild: Startzustände für Bewegung nur setzen, wenn sie erwünscht ist.
+         Sicherheitsnetz: nach 3 s wird alles sichtbar, falls das Skript nicht lädt. -->
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/main.js"></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="/">Studio<span aria-hidden="true">.</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="#arbeiten">Arbeiten</a></li>
+            <li><a href="#ablauf">Ablauf</a></li>
+            <li><a href="#kontakt">Kontakt</a></li>
+          </ul>
+        </nav>
+        <a class="button button--small" href="#kontakt">Projekt anfragen</a>
+      </div>
+    </header>
+
+    <main id="inhalt" tabindex="-1">
+      <!-- HERO · data-split + data-split-now, Hintergrundvideo aus Remotion (video/) -->
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero__media" aria-hidden="true">
+          <video
+            src="/media/hero-loop.mp4"
+            poster="/media/hero-poster.jpg"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+          ></video>
+        </div>
+        <div class="wrap hero__content">
+          <p class="eyebrow" data-reveal="fade">Webdesign &amp; Entwicklung</p>
+          <h1 id="hero-title" class="display" data-split data-split-now>
+            Websites, die sich <em>bewegen</em> wie eine Marke.
+          </h1>
+          <div class="hero__foot" data-reveal>
+            <p>
+              Dieser Starter zeigt jedes Bewegungsmuster einmal. Jedes Muster hängt an einem
+              data-Attribut und funktioniert ohne JavaScript als ruhige, vollständige Seite.
+            </p>
+            <a class="button" href="#arbeiten" data-magnetic>Arbeiten ansehen</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- LAUFBAND · data-marquee -->
+      <div class="marquee" data-marquee aria-label="Leistungen">
+        <ul class="marquee__row">
+          <li>Strategie</li>
+          <li>Webdesign</li>
+          <li>Motion</li>
+          <li>Entwicklung</li>
+          <li>Video</li>
+          <li>SEO</li>
+        </ul>
+      </div>
+
+      <!-- STATEMENT · data-scrub-text -->
+      <section class="statement wrap" aria-label="Haltung">
+        <p class="statement__text" data-scrub-text>
+          Gute Seiten erzählen in Kapiteln. Jede Bewegung hat einen Grund: Sie lenkt den Blick, zeigt
+          Zusammenhang oder gibt Rückmeldung. Alles andere ist Dekoration und fliegt raus.
+        </p>
+      </section>
+
+      <!-- ARBEITEN · data-horizontal (Desktop angeheftet, Handy Wischleiste) -->
+      <section id="arbeiten" class="work" data-horizontal aria-labelledby="work-title">
+        <div class="work__head wrap">
+          <h2 id="work-title" class="section-title" data-split>Ausgewählte Arbeiten</h2>
+          <p class="eyebrow work__hint"><span class="only-desktop">Scrollen fährt seitwärts</span><span class="only-mobile">Wischen</span></p>
+        </div>
+        <ul class="work__track" data-horizontal-track>
+          <li class="card">
+            <a href="/projekt.html">
+              <div class="card__media frame" style="--hue: 38; view-transition-name: projekt-bild">
+                <span>Bild 4:5</span>
+              </div>
+              <h3>Weingut am Hang</h3>
+              <p class="card__meta">Markenauftritt · 2026</p>
+            </a>
+          </li>
+          <li class="card">
+            <a href="/projekt.html">
+              <div class="card__media frame" style="--hue: 160"><span>Bild 4:5</span></div>
+              <h3>Physiotherapie Nord</h3>
+              <p class="card__meta">Website · 2026</p>
+            </a>
+          </li>
+          <li class="card">
+            <a href="/projekt.html">
+              <div class="card__media frame" style="--hue: 250"><span>Bild 4:5</span></div>
+              <h3>Architekturbüro Kern</h3>
+              <p class="card__meta">Portfolio · 2025</p>
+            </a>
+          </li>
+          <li class="card">
+            <a href="/projekt.html">
+              <div class="card__media frame" style="--hue: 300"><span>Bild 4:5</span></div>
+              <h3>Café Stellwerk</h3>
+              <p class="card__meta">Landingpage · 2025</p>
+            </a>
+          </li>
+          <li class="card">
+            <a href="/projekt.html">
+              <div class="card__media frame" style="--hue: 90"><span>Bild 4:5</span></div>
+              <h3>Tischlerei Brandt</h3>
+              <p class="card__meta">Website · 2025</p>
+            </a>
+          </li>
+        </ul>
+      </section>
+
+      <!-- ZAHLEN · data-count-to + data-reveal-stagger -->
+      <section class="numbers wrap" aria-label="In Zahlen">
+        <dl class="numbers__grid" data-reveal-stagger>
+          <div>
+            <dt>Ladezeit Startseite</dt>
+            <dd><span data-count-to="0.9" data-count-decimals="1">0,9</span> s</dd>
+          </div>
+          <div>
+            <dt>Lighthouse Performance</dt>
+            <dd><span data-count-to="98">98</span></dd>
+          </div>
+          <div>
+            <dt>Mehr Anfragen nach Relaunch</dt>
+            <dd>+<span data-count-to="64">64</span> %</dd>
+          </div>
+        </dl>
+      </section>
+
+      <!-- PARALLAX · data-parallax im Rahmen -->
+      <section class="feature" aria-labelledby="feature-title">
+        <div class="feature__frame frame" style="--hue: 38">
+          <div class="feature__layer" data-parallax="0.25" aria-hidden="true"></div>
+        </div>
+        <div class="feature__text wrap">
+          <h2 id="feature-title" class="section-title" data-split>Tiefe statt Effekt.</h2>
+          <p data-reveal>
+            Parallax bewegt Ebenen unterschiedlich schnell. Sparsam eingesetzt entsteht Raum, zu viel
+            davon wirkt wie ein Template.
+          </p>
+        </div>
+      </section>
+
+      <!-- ABLAUF · data-reveal-stagger -->
+      <section id="ablauf" class="process wrap" aria-labelledby="process-title">
+        <h2 id="process-title" class="section-title" data-split>So arbeiten wir</h2>
+        <ol class="process__list" data-reveal-stagger>
+          <li>
+            <span class="process__no">01</span>
+            <h3>Verstehen</h3>
+            <p>Ziel, Publikum, Referenzen. Daraus entsteht ein Design-Read und eine Bewegungsidee.</p>
+          </li>
+          <li>
+            <span class="process__no">02</span>
+            <h3>Gestalten</h3>
+            <p>Tokens, Typografie, ein Schlüsselkapitel als Prototyp mit echter Bewegung.</p>
+          </li>
+          <li>
+            <span class="process__no">03</span>
+            <h3>Bauen</h3>
+            <p>Statisch, schnell, barrierearm. Animation nur auf transform und opacity.</p>
+          </li>
+          <li>
+            <span class="process__no">04</span>
+            <h3>Prüfen</h3>
+            <p>Audit mit Impeccable, Screenshots Desktop und Handy, reduzierte Bewegung.</p>
+          </li>
+        </ol>
+      </section>
+
+      <!-- ABSCHLUSS -->
+      <section id="kontakt" class="cta" tabindex="-1" aria-labelledby="cta-title">
+        <div class="wrap">
+          <p class="eyebrow">Kontakt</p>
+          <h2 id="cta-title" class="display" data-split="words">Lass uns etwas <em>bauen</em>.</h2>
+          <a class="button button--light" href="mailto:hallo@example.com" data-magnetic="0.4">
+            hallo@example.com
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>© 2026 Studio</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+  </body>
+</html>

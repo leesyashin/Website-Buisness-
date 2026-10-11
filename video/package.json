@@ -1,0 +1,32 @@
+{
+  "name": "website-video",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Remotion: Videos aus Code – Hero-Loops für Websites, Reels, Projekt-Showcases",
+  "scripts": {
+    "studio": "remotion studio",
+    "render:hero": "remotion render HeroLoop out/hero-loop.mp4 --codec=h264 --crf=27 && remotion still HeroLoop out/hero-poster.jpg --frame=0 --image-format=jpeg",
+    "render:reel": "remotion render SocialReel out/social-reel.mp4 --codec=h264",
+    "publish:hero": "npm run render:hero && cp out/hero-loop.mp4 out/hero-poster.jpg ../starter/public/media/",
+    "render:can": "remotion render CanReel out/can-reel.mp4 --codec=h264 --gl=swangle",
+    "render:can-stills": "for f in yuzu hibiskus minze; do remotion still CanStill out/can-$f.png --props=\"{\\\"flavor\\\":\\\"$f\\\"}\" --image-format=png --gl=swangle; done",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/fiber": "^9.8.1",
+    "@remotion/cli": "^4.0.534",
+    "@remotion/fonts": "^4.0.534",
+    "@remotion/player": "^4.0.534",
+    "@remotion/three": "^4.0.534",
+    "@remotion/transitions": "^4.0.534",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "remotion": "^4.0.534",
+    "three": "^0.186.1"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/three": "^0.186.0",
+    "typescript": "^7.0.2"
+  }
+}
