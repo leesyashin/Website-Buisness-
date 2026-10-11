@@ -3,3 +3,4 @@ dist/
 # Prototypen aus beispiele/, werden bei npm run build neu gebaut
 public/beispiele/
 .aufnahmen/
+artefakt/

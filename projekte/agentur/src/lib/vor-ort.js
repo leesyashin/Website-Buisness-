@@ -32,7 +32,7 @@ export function initPlzCheck(form) {
     }
     out.textContent = texte[status](input.value.trim());
     if (status !== 'nein') {
-      const a = Object.assign(document.createElement('a'), { href: `/neu.html?plz=${input.value.trim()}`, textContent: 'Im Fragebogen gleich mit anfragen →' });
+      const a = Object.assign(document.createElement('a'), { href: `neu.html?plz=${input.value.trim()}`, textContent: 'Im Fragebogen gleich mit anfragen →' });
       out.append(' ', a);
     }
   });

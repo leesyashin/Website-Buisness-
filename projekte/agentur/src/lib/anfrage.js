@@ -66,7 +66,7 @@ export function initAnfrage(form, { betreff, text }) {
     if (ok && danke) {
       if (perMail) {
         const p = danke.querySelector('p');
-        p.textContent = 'Ihr E-Mail-Programm hat sich mit allen Angaben geöffnet. Bitte dort noch auf „Senden“ klicken, dann melden wir uns persönlich.';
+        p.textContent = `Ihre Angaben sind als E-Mail vorbereitet. Falls sich Ihr E-Mail-Programm geöffnet hat, klicken Sie dort auf „Senden“. Sonst schreiben Sie uns direkt an ${site.email}.`;
       }
       form.dispatchEvent(new CustomEvent('anfrage:gesendet'));
       Array.from(form.children).forEach((el) => {

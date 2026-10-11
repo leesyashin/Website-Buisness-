@@ -6,6 +6,7 @@ Website der eigenen Agentur: Weiche **Neu bauen / Renovieren**, Fragebogen mit L
 npm install
 npm run build      # baut zuerst die Prototypen nach public/beispiele, dann die Seite
 npm run dev        # http://localhost:5173 (Referenz-Links brauchen einmal npm run beispiele)
+npm run artefakt   # Fassung als Claude-Artifact in artefakt/ (relative Pfade, Startseite ohne Dokumentgerüst)
 ```
 
 | Seite | Inhalt |
