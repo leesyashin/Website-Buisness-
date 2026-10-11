@@ -594,3 +594,64 @@ html[data-colorway='abend'] [data-when='mittag'] {
     grid-template-columns: 1fr;
   }
 }
+
+/* ---------- Fotos ---------- */
+.r-room {
+  display: grid;
+  gap: var(--space-s);
+  margin-block: 0 var(--space-xl);
+}
+
+.r-room__frame {
+  aspect-ratio: 21 / 9;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--cw-card);
+}
+
+.r-room__frame img,
+.r-dishes img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.r-room figcaption,
+.r-dishes figcaption {
+  color: var(--cw-soft);
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: var(--step-0);
+}
+
+.r-dishes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: var(--space-m);
+  max-width: 52rem;
+}
+
+.r-dishes figure {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.r-dishes img {
+  aspect-ratio: 4 / 5;
+  border-radius: var(--radius);
+  transition: transform 0.9s var(--ease-signature);
+}
+
+.r-dishes figure:hover img {
+  transform: scale(1.02);
+}
+
+@media (max-width: 899px) {
+  .r-room__frame {
+    aspect-ratio: 4 / 5;
+  }
+
+  .r-dishes {
+    gap: var(--space-s);
+  }
+}

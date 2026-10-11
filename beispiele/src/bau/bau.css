@@ -416,3 +416,77 @@ html:not(.colorway-live) [data-colorway='abend'] {
     scroll-snap-align: start;
   }
 }
+
+/* ---------- Fotos ---------- */
+.b-card__plan img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.9s var(--ease-signature);
+}
+
+.b-card:hover .b-card__plan img {
+  transform: scale(1.03);
+}
+
+.b-card__plan {
+  overflow: hidden;
+}
+
+.b-card__plan::after {
+  z-index: 1;
+  color: #fff;
+  text-shadow: 0 0.05em 0.4em rgb(0 0 0 / 0.35);
+}
+
+/* Fotoband zwischen Projekten und Ablauf: ein echter Moment Baustelle */
+.b-photo {
+  position: relative;
+}
+
+.b-photo__frame {
+  position: relative;
+  height: 100svh;
+  margin: 0;
+  overflow: hidden;
+  background: #2a2927;
+}
+
+.b-photo__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.b-photo__frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgb(0 0 0 / 0.55), transparent 45%);
+}
+
+.b-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: var(--space-xl);
+  z-index: 1;
+  display: grid;
+  gap: var(--space-xs);
+  color: #fff;
+}
+
+.b-photo figcaption .mono {
+  color: rgb(255 255 255 / 0.8);
+}
+
+.b-photo figcaption strong {
+  max-width: 16ch;
+  font-size: clamp(2.2rem, 1rem + 4vw, 5.5rem);
+  font-weight: 800;
+  font-stretch: 62%;
+  line-height: 0.9;
+  text-transform: uppercase;
+}

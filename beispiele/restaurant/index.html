@@ -52,10 +52,19 @@
         </div>
       </section>
 
+      <!-- Raumfoto wechselt mit der Tageszeit; Parallax im Rahmen -->
+      <figure class="r-room wrap" data-reveal="clip">
+        <div class="r-room__frame">
+          <img src="/media/restaurant/mittag-tisch.webp" srcset="/media/restaurant/mittag-tisch-800.webp 800w, /media/restaurant/mittag-tisch.webp 1600w" sizes="(min-width: 1440px) 1360px, 100vw" width="1600" height="1067" alt="Gedeckter Tisch am Fenster im Mittagslicht, salbeigrüne Wände" loading="lazy" decoding="async" data-when="mittag" data-parallax="0.12" />
+          <img src="/media/restaurant/abend-raum.webp" srcset="/media/restaurant/abend-raum-800.webp 800w, /media/restaurant/abend-raum.webp 1600w" sizes="(min-width: 1440px) 1360px, 100vw" width="1600" height="1067" alt="Speiseraum am Abend mit Kerzenlicht und Blick auf den Kanal" loading="lazy" decoding="async" data-when="abend" data-parallax="0.12" />
+        </div>
+        <figcaption><span data-when="mittag">Mittags: Fensterplätze zum Kanal</span><span data-when="abend">Abends: 34 Plätze, Kerzenlicht, Blick aufs Wasser</span></figcaption>
+      </figure>
+
       <div class="r-marquee" data-marquee data-marquee-speed="50" aria-label="Heute auf der Karte">
         <p>
           <span data-when="mittag">Linsensuppe mit Speck · Saibling, Gurke, Dill · Kürbis-Gnocchi · Apfel-Crumble ·&nbsp;</span>
-          <span data-when="abend">Rote Bete, Ziegenkäse · Kalbsbäckchen · Zander, Beurre blanc · Zwetschgen, Mohn ·&nbsp;</span>
+          <span data-when="abend">Rote Bete, Ziegenkäse · Kalbsrücken · Zander, Beurre blanc · Zwetschgen, Mohn ·&nbsp;</span>
         </p>
       </div>
 
@@ -67,6 +76,15 @@
           <p class="r-meta" data-when="mittag">Di–Fr · 11:30–14:30 · wechselt wöchentlich</p>
           <p class="r-meta" data-when="abend">Di–Sa · 17:30–23:00 · Küche bis 22:00</p>
         </header>
+
+        <div class="r-dishes" data-when="mittag" data-reveal-stagger>
+          <figure><img src="/media/restaurant/saibling.webp" srcset="/media/restaurant/saibling-800.webp 800w, /media/restaurant/saibling.webp 1600w" sizes="(min-width: 900px) 30vw, 50vw" width="1200" height="1600" alt="Saiblingsfilet mit Gurke, Dill und Kartoffelstampf" loading="lazy" decoding="async" /><figcaption>Saibling, Gurke, Dill</figcaption></figure>
+          <figure><img src="/media/restaurant/gnocchi.webp" srcset="/media/restaurant/gnocchi-800.webp 800w, /media/restaurant/gnocchi.webp 1600w" sizes="(min-width: 900px) 30vw, 50vw" width="1200" height="1600" alt="Kürbis-Gnocchi in Salbeibutter mit Haselnüssen und Parmesan" loading="lazy" decoding="async" /><figcaption>Kürbis-Gnocchi, Salbeibutter</figcaption></figure>
+        </div>
+        <div class="r-dishes" data-when="abend" data-reveal-stagger>
+          <figure><img src="/media/restaurant/kalbsbaeckchen.webp" srcset="/media/restaurant/kalbsbaeckchen-800.webp 800w, /media/restaurant/kalbsbaeckchen.webp 1600w" sizes="(min-width: 900px) 30vw, 50vw" width="1200" height="1600" alt="Kalbsrücken am Knochen mit Selleriepüree und Jus" loading="lazy" decoding="async" /><figcaption>Kalbsrücken, Sellerie, Jus</figcaption></figure>
+          <figure><img src="/media/restaurant/zwetschgen.webp" srcset="/media/restaurant/zwetschgen-800.webp 800w, /media/restaurant/zwetschgen.webp 1600w" sizes="(min-width: 900px) 30vw, 50vw" width="1200" height="1600" alt="Geschmorte Zwetschgen mit Mohn-Crumble und Buttermilcheis" loading="lazy" decoding="async" /><figcaption>Zwetschgen, Mohn, Buttermilch</figcaption></figure>
+        </div>
 
         <div class="r-courses" data-when="mittag">
           <section class="r-course">
@@ -105,7 +123,7 @@
             <h3>Hauptgang</h3>
             <ul data-reveal-stagger>
               <li><span class="r-dish">Zander</span><span class="r-desc">Beurre blanc, Lauch, Kartoffel</span><span class="r-price">28,00</span></li>
-              <li><span class="r-dish">Kalbsbäckchen</span><span class="r-desc">Sellerie, Petersilienwurzel, Jus</span><span class="r-price">29,00</span></li>
+              <li><span class="r-dish">Kalbsrücken</span><span class="r-desc">am Knochen gebraten, Sellerie, Petersilienwurzel, Jus</span><span class="r-price">29,00</span></li>
               <li><span class="r-dish">Pilzrisotto <i>vegetarisch</i></span><span class="r-desc">Steinpilz, Thymian, alter Gouda</span><span class="r-price">22,00</span></li>
             </ul>
           </section>
