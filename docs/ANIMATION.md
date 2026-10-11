@@ -51,6 +51,19 @@ Jedes Muster hängt an einem `data-`-Attribut im HTML. Ohne JavaScript oder bei 
 | `data-snap` · `="start end"` · `data-snap-steps="4"` + `<body data-snap-type="mandatory">` | Einrasten: nach dem Scrollen gleitet die Seite in Scrollrichtung zum nächsten Haltepunkt (Anfang/Ende eines Abschnitts, Zwischenhalte in angehefteten Strecken). `mandatory` nur am Desktop, sonst nur in der Nähe eines Haltepunkts | `motion/snap.js` |
 | `style="view-transition-name: x"` auf zwei Seiten | Element fliegt beim Seitenwechsel von A nach B | `styles/base.css` |
 
+### Muster der Agenturseite (`projekte/agentur/src/motion/`)
+
+| Attribut | Wirkung | Datei |
+|---|---|---|
+| `data-vergleich` (+ `data-vergleich-gefuehrt`) | Vorher/Nachher: altes Bild über neuem, Naht über `--pos`, unsichtbarer Regler für Maus, Finger, Tastatur; Naht fährt beim ersten Erscheinen von „alt“ zur Mitte | `motion/vergleich.js` |
+| `data-weiche` + `data-faecher` | Startseite: zwei Wege öffnen sich per `clip-path`, echte Seiten fliegen in einen 3D-Fächer, beim Zeigen fächert er weiter auf | `motion/weiche.js` |
+| `data-galerie` + `data-galerie-spur` | Referenzen angeheftet und seitwärts gefahren, in jeder Karte scrollt die lange Seitenansicht mit (`containerAnimation`); mobil Wischleiste | `motion/galerie.js` |
+| `data-ablauf` | Linie füllt sich beim Scrollen, Schritte leuchten nacheinander auf (Desktop waagerecht, Handy senkrecht) | `motion/ablauf.js` |
+| `data-karte-kreis` | Umkreis auf der Köln-Karte wächst aus der Mitte | `motion/karte.js` |
+| `data-vn` | Renovieren: angeheftete Szene in vier Schritten (Naht, Handy-Vergleich, Ladebalken, Ring um den Termin-Knopf) | `motion/szene.js` |
+| (Funktionen) | `schrittEin`, `auftauchen`, `puls`, `hakenZeichnen` für Fragebogen, Skizze, Danke | `motion/einblenden.js` |
+| (Funktion) | Messringe füllen sich, Zahl zählt mit | `motion/messwerte.js` |
+
 Neue Muster: eigene Datei unter `src/motion/`, in `motion/index.js` innerhalb von `gsap.matchMedia()` registrieren, eine Zeile in diese Tabelle.
 
 Eigene Anheftungen (`pin: true`) in Seiten-Skripten entstehen nach den Auslösern des Starters. Danach `ScrollTrigger.sort()` aufrufen, sonst rechnen Farbwelten und Reveals weiter unten ohne die Länge der Anheftung (Beispiel: `beispiele/src/physio/range.js`). Der Starter sortiert zusätzlich beim Laden von Schriften und Seite.

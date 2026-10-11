@@ -1,0 +1,171 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- include:head -->
+    <title>Webseite renovieren · {{name}}</title>
+    <meta name="description" content="Ihre Webseite ist in die Jahre gekommen? Kostenloser Schnell-Check für Ladezeit, Handy und Auffindbarkeit, danach machen wir sie moderner, schneller und besser." />
+    <script type="module" src="/src/pages/renovieren.js"></script>
+  </head>
+  <body class="seite-renovieren">
+    <!-- include:header -->
+
+    <main id="inhalt" tabindex="-1">
+      <!-- 1 · Adresse eingeben, Schnell-Check -->
+      <section class="bereich-kopf wrap" data-colorway="renovieren" aria-labelledby="ren-titel">
+        <h1 id="ren-titel" class="bereich-kopf__titel" data-split data-split-now>Was da ist, machen wir besser.</h1>
+        <p class="bereich-kopf__text" data-reveal data-reveal-delay="0.3">Geben Sie die Adresse Ihrer Seite ein. Wir messen in etwa 30 Sekunden, wie schnell sie lädt, wie gut sie auf dem Handy funktioniert und ob Google sie gut lesen kann.</p>
+
+        <form class="check-form" data-check novalidate>
+          <label for="ren-url" class="visually-hidden">Adresse Ihrer Webseite</label>
+          <div class="url-feld url-feld--gross">
+            <input id="ren-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.ihre-seite.de" required />
+            <button class="knopf" type="submit">Kostenlos prüfen</button>
+          </div>
+          <p class="check-form__hinweis" data-check-hinweis>Die Messung läuft über Google PageSpeed Insights. Dabei wird die Adresse Ihrer Seite an Google übermittelt (<a href="/datenschutz.html#pagespeed">Datenschutz</a>).</p>
+        </form>
+
+        <div class="check-ergebnis" data-check-ergebnis hidden aria-live="polite">
+          <p class="check-ergebnis__status" data-check-status></p>
+          <ul class="werte" data-check-werte>
+            <li data-wert="performance"><span class="werte__ring"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="grund" cx="20" cy="20" r="17" pathLength="100" /><circle class="wert" cx="20" cy="20" r="17" pathLength="100" /></svg><span class="werte__zahl"></span></span><span class="werte__name">Ladezeit und Leistung</span></li>
+            <li data-wert="accessibility"><span class="werte__ring"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="grund" cx="20" cy="20" r="17" pathLength="100" /><circle class="wert" cx="20" cy="20" r="17" pathLength="100" /></svg><span class="werte__zahl"></span></span><span class="werte__name">Barrierefreiheit</span></li>
+            <li data-wert="best-practices"><span class="werte__ring"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="grund" cx="20" cy="20" r="17" pathLength="100" /><circle class="wert" cx="20" cy="20" r="17" pathLength="100" /></svg><span class="werte__zahl"></span></span><span class="werte__name">Technik und Sicherheit</span></li>
+            <li data-wert="seo"><span class="werte__ring"><svg viewBox="0 0 40 40" aria-hidden="true"><circle class="grund" cx="20" cy="20" r="17" pathLength="100" /><circle class="wert" cx="20" cy="20" r="17" pathLength="100" /></svg><span class="werte__zahl"></span></span><span class="werte__name">Auffindbarkeit</span></li>
+          </ul>
+          <p class="check-ergebnis__deutung" data-check-deutung></p>
+          <a class="knopf" href="#anfrage">Sagen, was Sie stört</a>
+        </div>
+      </section>
+
+      <!-- 2 · Vorher / Nachher: Desktop angeheftet, vom Scrollen gesteuert -->
+      <section class="vn-szene" data-colorway="buehne" aria-labelledby="vn-titel" data-vn>
+        <div class="wrap vn-szene__kopf">
+          <p class="label">Vorher und Nachher</p>
+          <h2 id="vn-titel" class="titel" data-split>So sieht eine Renovierung aus.</h2>
+          <p class="einleitung" data-reveal>Die Zahnarztpraxis am Rosenplatz ist erfunden, ihre alte Seite gibt es tausendfach. Vier Schritte vom Stand 2010 bis heute.</p>
+        </div>
+        <div class="wrap vn-szene__innen" data-vn-innen>
+          <div class="vn-szene__buehne">
+            <figure class="vergleich" data-vergleich data-vn-vergleich>
+              <div class="vergleich__bild">
+                <img class="vergleich__nach" src="/media/referenzen/rosenplatz.webp" width="1440" height="900" alt="Nachher: die heutige Seite der Praxis mit großer Überschrift, Foto und Knopf „Termin anfragen“" loading="lazy" />
+                <img class="vergleich__vor" src="/media/vorher/rosenplatz-alt.webp" width="1440" height="900" alt="Vorher: die alte Seite mit Menü-Knöpfen, Laufschrift und Besucherzähler" loading="lazy" />
+                <span class="vergleich__naht" aria-hidden="true"></span>
+                <span class="vn-szene__lade" aria-hidden="true" data-vn-lade></span>
+                <span class="vn-ring" aria-hidden="true" data-vn-ring></span>
+                <input class="vergleich__regler" type="range" min="0" max="100" value="50" aria-label="Vorher und Nachher vergleichen" />
+              </div>
+              <figcaption class="vergleich__unterschrift"><span>2010</span><span>Heute</span></figcaption>
+            </figure>
+            <div class="vn-handys" data-vn-handys>
+              <figure>
+                <img src="/media/vorher/rosenplatz-alt-mobil.webp" width="480" height="1039" alt="Die alte Seite auf dem Handy: winzig, man muss zoomen" loading="lazy" />
+                <figcaption>Vorher auf dem Handy</figcaption>
+              </figure>
+              <figure>
+                <img src="/media/referenzen/rosenplatz-mobil.webp" width="480" height="1039" alt="Die neue Seite auf dem Handy: gut lesbar, großes Foto, klare Überschrift" loading="lazy" />
+                <figcaption>Nachher</figcaption>
+              </figure>
+            </div>
+          </div>
+          <ol class="vn-szene__schritte">
+            <li data-vn-schritt><h3>Klarer erster Eindruck</h3><p>Eine Aussage statt „Herzlich Willkommen“. Wer, was, wo, in einem Satz.</p></li>
+            <li data-vn-schritt><h3>Gebaut fürs Handy</h3><p>Die meisten Besucher kommen mit dem Smartphone. Texte, Knöpfe und Bilder passen sich an.</p></li>
+            <li data-vn-schritt><h3>Schnell geladen</h3><p>Bilder in modernen Formaten, kein Ballast. Die Seite steht, bevor jemand ungeduldig wird.</p></li>
+            <li data-vn-schritt><h3>Ein Weg zur Anfrage</h3><p>Ein deutlicher Knopf, überall erreichbar. Niemand muss suchen, wie er Sie erreicht.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 3 · Was wir renovieren -->
+      <section class="leistungen-ren wrap" data-colorway="buehne" aria-labelledby="lr-titel">
+        <div class="abschnitt-kopf">
+                    <h2 id="lr-titel" class="titel" data-split>Ausbessern, modernisieren, ergänzen.</h2>
+        </div>
+        <dl class="liste-zwei" data-reveal-stagger>
+          <div><dt>Design-Auffrischung</dt><dd>Neue Typografie, ruhigere Farben, bessere Bilder, im Rahmen Ihrer Marke.</dd></div>
+          <div><dt>Handy und Tablet</dt><dd>Jede Seite funktioniert auf kleinen Bildschirmen, mit Daumen bedienbar.</dd></div>
+          <div><dt>Ladezeit</dt><dd>Bilder, Schriften und Code werden schlank. Messbar vorher und nachher.</dd></div>
+          <div><dt>Auffindbarkeit</dt><dd>Saubere Technik, Titel und Beschreibungen, damit Google Ihre Seite versteht.</dd></div>
+          <div><dt>Neue Funktionen</dt><dd>Online-Termine, Anfrageformular, Galerie, Stellenangebote, was fehlt.</dd></div>
+          <div><dt>Recht und Barrierefreiheit</dt><dd>Impressum, Datenschutz, Einwilligung für externe Dienste, gut lesbar für alle.</dd></div>
+        </dl>
+        <p class="preis-zeile">Renovierung <strong>{{preis:renovieren}}</strong>, Pflege und Hosting <strong>{{preis:pflege}}</strong> im Monat</p>
+      </section>
+
+      <!-- 4 · Anfrage -->
+      <section id="anfrage" class="anfrage" data-colorway="renovieren" aria-labelledby="anfrage-titel">
+        <div class="wrap anfrage__innen">
+          <div class="anfrage__kopf">
+                        <h2 id="anfrage-titel" class="titel" data-split>Was stört Sie an Ihrer Seite?</h2>
+            <p>Kreuzen Sie an, was zutrifft. Wir schauen uns Ihre Seite an und melden uns mit einem Vorschlag.</p>
+          </div>
+
+          <form class="fb fb--offen" method="post" data-anfrage="renovieren" novalidate>
+            <div class="feld">
+              <label for="anf-url">Adresse Ihrer Seite</label>
+              <input id="anf-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.ihre-seite.de" required data-url-uebernahme />
+            </div>
+
+            <fieldset class="feld">
+              <legend>Was trifft zu? <span class="optional">mehrere möglich</span></legend>
+              <div class="kacheln">
+                <label class="kachel"><input type="checkbox" name="probleme" value="Sieht veraltet aus" /><span>Sieht veraltet aus</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Auf dem Handy schlecht" /><span>Auf dem Handy schlecht</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Lädt langsam" /><span>Lädt langsam</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Wird bei Google nicht gefunden" /><span>Bei Google kaum zu finden</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Bringt keine Anfragen" /><span>Bringt keine Anfragen</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Kann nichts selbst ändern" /><span>Kann nichts selbst ändern</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Funktion fehlt" /><span>Eine Funktion fehlt</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Rechtlich unsicher" /><span>Rechtlich unsicher</span></label>
+              </div>
+            </fieldset>
+
+            <div class="feld">
+              <label for="anf-text">Was fehlt oder stört genau? <span class="optional">optional</span></label>
+              <textarea id="anf-text" name="nachricht" rows="3" placeholder="z. B. Kunden sollen online Termine buchen können."></textarea>
+            </div>
+
+            <div class="feld">
+              <label for="anf-plz">Postleitzahl des Betriebs <span class="optional">optional</span></label>
+              <input id="anf-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" placeholder="z. B. 50667" data-plz />
+              <p class="feld__hinweis" data-plz-hinweis role="status" aria-live="polite">Für Foto- und Videoaufnahmen vor Ort in Köln und Umgebung.</p>
+            </div>
+            <label class="schalter" data-vor-ort>
+              <input type="checkbox" name="vorOrt" value="ja" />
+              <span><strong>Ja, neue Fotos und Videos vor Ort interessieren mich.</strong></span>
+            </label>
+
+            <div class="feld-reihe">
+              <div class="feld">
+                <label for="anf-name">Ihr Name</label>
+                <input id="anf-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="feld">
+                <label for="anf-email">E-Mail</label>
+                <input id="anf-email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="feld">
+              <label for="anf-tel">Telefon <span class="optional">optional</span></label>
+              <input id="anf-tel" name="telefon" type="tel" autocomplete="tel" />
+            </div>
+            <label class="schalter">
+              <input type="checkbox" name="einwilligung" value="ja" required />
+              <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Mehr dazu in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</span>
+            </label>
+            <button class="knopf knopf--gross" type="submit">Anfrage senden <span aria-hidden="true">→</span></button>
+
+            <div class="fb__danke" data-danke hidden tabindex="-1">
+              <svg class="fb__haken" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2.5" data-haken /><path d="M15 25 l6 6 l12 -13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-haken /></svg>
+              <h3 class="titel">Danke, Ihre Anfrage ist da.</h3>
+              <p>Wir schauen uns Ihre Seite an und melden uns persönlich, meist innerhalb von zwei Werktagen.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- include:footer -->
+  </body>
+</html>

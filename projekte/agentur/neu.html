@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- include:head -->
+    <title>Neue Webseite bauen · {{name}}</title>
+    <meta name="description" content="Von der Idee bis zum fertigen Ergebnis: In fünf kurzen Schritten zur Anfrage für Ihre neue Webseite, mit einer ersten Skizze, die beim Antworten entsteht." />
+    <script type="module" src="/src/pages/neu.js"></script>
+  </head>
+  <body class="seite-neu">
+    <!-- include:header -->
+
+    <main id="inhalt" tabindex="-1" data-colorway="neu">
+      <section class="bereich-kopf wrap" aria-labelledby="neu-titel">
+        <h1 id="neu-titel" class="bereich-kopf__titel" data-split data-split-now>Von der Idee bis zum fertigen Ergebnis.</h1>
+        <p class="bereich-kopf__text" data-reveal data-reveal-delay="0.3">Fünf kurze Schritte, etwa drei Minuten. Während Sie antworten, entsteht daneben schon eine erste Skizze Ihrer Seite. Am Ende sehen Sie alles noch einmal und schicken es uns.</p>
+      </section>
+
+      <div class="fragebogen wrap" data-fragebogen>
+        <form class="fb" id="fragebogen" method="post" data-anfrage="neubau" novalidate>
+          <ol class="fb__fortschritt" aria-label="Fortschritt" hidden>
+            <li data-schritt-marke="1"><button type="button">Betrieb</button></li>
+            <li data-schritt-marke="2"><button type="button">Stil</button></li>
+            <li data-schritt-marke="3"><button type="button">Funktionen</button></li>
+            <li data-schritt-marke="4"><button type="button">Umfang</button></li>
+            <li data-schritt-marke="5"><button type="button">Absenden</button></li>
+          </ol>
+
+          <!-- 1 · Betrieb & Ziel -->
+          <fieldset class="fb__schritt" data-schritt="1">
+            <legend><span class="fb__nr">1 / 5</span> Erzählen Sie kurz von Ihrem Betrieb.</legend>
+
+            <div class="feld">
+              <label for="betrieb">Name des Betriebs <span class="optional">optional</span></label>
+              <input id="betrieb" name="betrieb" type="text" autocomplete="organization" placeholder="z. B. Schreinerei Albers" />
+            </div>
+
+            <fieldset class="feld">
+              <legend>Branche</legend>
+              <div class="kacheln">
+                <label class="kachel"><input type="radio" name="branche" value="Handwerk & Bau" required /><span>Handwerk und Bau</span></label>
+                <label class="kachel"><input type="radio" name="branche" value="Gastronomie" /><span>Gastronomie</span></label>
+                <label class="kachel"><input type="radio" name="branche" value="Gesundheit & Praxis" /><span>Gesundheit und Praxis</span></label>
+                <label class="kachel"><input type="radio" name="branche" value="Handel & Laden" /><span>Handel und Laden</span></label>
+                <label class="kachel"><input type="radio" name="branche" value="Dienstleistung & Büro" /><span>Dienstleistung und Büro</span></label>
+                <label class="kachel"><input type="radio" name="branche" value="Etwas anderes" /><span>Etwas anderes</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="feld">
+              <legend>Was soll die Seite vor allem bringen? <span class="optional">mehrere möglich</span></legend>
+              <div class="kacheln">
+                <label class="kachel"><input type="checkbox" name="ziel" value="Mehr Anfragen" /><span>Mehr Anfragen</span></label>
+                <label class="kachel"><input type="checkbox" name="ziel" value="Termine & Buchungen" /><span>Termine und Buchungen</span></label>
+                <label class="kachel"><input type="checkbox" name="ziel" value="Online verkaufen" /><span>Online verkaufen</span></label>
+                <label class="kachel"><input type="checkbox" name="ziel" value="Personal finden" /><span>Personal finden</span></label>
+                <label class="kachel"><input type="checkbox" name="ziel" value="Vertrauen & Visitenkarte" /><span>Vertrauen und Visitenkarte</span></label>
+              </div>
+            </fieldset>
+          </fieldset>
+
+          <!-- 2 · Stil -->
+          <fieldset class="fb__schritt" data-schritt="2">
+            <legend><span class="fb__nr">2 / 5</span> Welcher Stil gefällt Ihnen?</legend>
+            <p class="fb__hilfe">Jede Karte ist eine echte Seite von uns. Wählen Sie die, die Ihnen am nächsten kommt.</p>
+            <div class="stile">
+              <!-- stile -->
+            </div>
+            <p class="fb__links">Alle Beispiele können Sie auf der <a href="/#referenzen" target="_blank" rel="noopener">Startseite</a> live ausprobieren.</p>
+          </fieldset>
+
+          <!-- 3 · Funktionen -->
+          <fieldset class="fb__schritt" data-schritt="3">
+            <legend><span class="fb__nr">3 / 5</span> Was soll die Seite können?</legend>
+            <p class="fb__hilfe">Mehrere möglich. Unsicher? Lassen Sie es frei, das klären wir im Gespräch.</p>
+            <div class="kacheln kacheln--funktionen">
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Kontaktformular" checked /><span>Kontaktformular</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Online-Termine" /><span>Online-Termine</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Reservierung" /><span>Tischreservierung</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Shop" /><span>Shop</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Galerie" /><span>Galerie und Referenzen</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Preisliste" /><span>Speisekarte / Preisliste</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Stellenangebote" /><span>Stellenangebote</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Neuigkeiten" /><span>Neuigkeiten / Blog</span></label>
+              <label class="kachel"><input type="checkbox" name="funktionen" value="Mehrsprachig" /><span>Mehrsprachig</span></label>
+            </div>
+          </fieldset>
+
+          <!-- 4 · Umfang, Inhalte, Standort -->
+          <fieldset class="fb__schritt" data-schritt="4">
+            <legend><span class="fb__nr">4 / 5</span> Umfang, Inhalte und Standort.</legend>
+
+            <fieldset class="feld">
+              <legend>Wie groß wird die Seite ungefähr?</legend>
+              <div class="kacheln">
+                <label class="kachel"><input type="radio" name="umfang" value="Eine Seite" /><span>Eine Seite<small>alles untereinander</small></span></label>
+                <label class="kachel"><input type="radio" name="umfang" value="Bis 5 Seiten" /><span>Bis 5 Seiten</span></label>
+                <label class="kachel"><input type="radio" name="umfang" value="6 bis 15 Seiten" /><span>6 bis 15 Seiten</span></label>
+                <label class="kachel"><input type="radio" name="umfang" value="Weiß ich noch nicht" /><span>Weiß ich noch nicht</span></label>
+              </div>
+            </fieldset>
+
+            <fieldset class="feld">
+              <legend>Was ist schon da? <span class="optional">mehrere möglich</span></legend>
+              <div class="kacheln">
+                <label class="kachel"><input type="checkbox" name="vorhanden" value="Logo" /><span>Logo</span></label>
+                <label class="kachel"><input type="checkbox" name="vorhanden" value="Texte" /><span>Texte</span></label>
+                <label class="kachel"><input type="checkbox" name="vorhanden" value="Fotos" /><span>Fotos</span></label>
+                <label class="kachel"><input type="checkbox" name="vorhanden" value="Domain" /><span>Domain</span></label>
+              </div>
+            </fieldset>
+
+            <div class="feld">
+              <label for="neu-plz">Postleitzahl des Betriebs</label>
+              <input id="neu-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" placeholder="z. B. 50667" data-plz />
+              <p class="feld__hinweis" data-plz-hinweis role="status" aria-live="polite">Für Foto- und Videoaufnahmen vor Ort in Köln und Umgebung.</p>
+            </div>
+
+            <label class="schalter" data-vor-ort>
+              <input type="checkbox" name="vorOrt" value="ja" />
+              <span><strong>Ja, Fotos und Videos vor Ort interessieren mich.</strong> Wir kommen zu Ihnen und machen Aufnahmen für die Seite.</span>
+            </label>
+
+            <fieldset class="feld">
+              <legend>Wann soll die Seite online sein?</legend>
+              <div class="kacheln">
+                <label class="kachel"><input type="radio" name="zeit" value="So bald wie möglich" /><span>So bald wie möglich</span></label>
+                <label class="kachel"><input type="radio" name="zeit" value="In 1 bis 3 Monaten" /><span>In 1 bis 3 Monaten</span></label>
+                <label class="kachel"><input type="radio" name="zeit" value="Flexibel" /><span>Flexibel</span></label>
+              </div>
+            </fieldset>
+          </fieldset>
+
+          <!-- 5 · Kontakt & Zusammenfassung -->
+          <fieldset class="fb__schritt" data-schritt="5">
+            <legend><span class="fb__nr">5 / 5</span> Fast geschafft. Wie erreichen wir Sie?</legend>
+
+            <div class="zusammenfassung" data-zusammenfassung hidden></div>
+
+            <div class="feld-reihe">
+              <div class="feld">
+                <label for="name">Ihr Name</label>
+                <input id="name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="feld">
+                <label for="email">E-Mail</label>
+                <input id="email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="feld">
+              <label for="telefon">Telefon <span class="optional">optional, für einen kurzen Rückruf</span></label>
+              <input id="telefon" name="telefon" type="tel" autocomplete="tel" />
+            </div>
+            <div class="feld">
+              <label for="nachricht">Noch etwas, das wir wissen sollten? <span class="optional">optional</span></label>
+              <textarea id="nachricht" name="nachricht" rows="3"></textarea>
+            </div>
+            <label class="schalter">
+              <input type="checkbox" name="einwilligung" value="ja" required />
+              <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Mehr dazu in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</span>
+            </label>
+            <button class="knopf knopf--gross" type="submit">Anfrage senden <span aria-hidden="true">→</span></button>
+          </fieldset>
+
+          <div class="fb__steuerung" data-steuerung hidden>
+            <button class="knopf knopf--zweit" type="button" data-zurueck>← Zurück</button>
+            <button class="knopf" type="button" data-weiter>Weiter <span aria-hidden="true">→</span></button>
+          </div>
+
+          <div class="fb__danke" data-danke hidden tabindex="-1">
+            <svg class="fb__haken" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="21" fill="none" stroke="currentColor" stroke-width="2.5" data-haken /><path d="M15 25 l6 6 l12 -13" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" data-haken /></svg>
+            <h2 class="titel">Danke, Ihre Anfrage ist da.</h2>
+            <p>Wir melden uns persönlich bei Ihnen, meist innerhalb von zwei Werktagen. Eine Kopie Ihrer Angaben haben Sie per E-Mail bekommen.</p>
+            <a class="knopf" href="/">Zur Startseite</a>
+          </div>
+        </form>
+
+        <aside class="skizze" aria-label="Skizze Ihrer Seite" data-skizze hidden>
+          <p class="skizze__label">Skizze Ihrer Seite <span>wächst mit Ihren Antworten</span></p>
+          <div class="browser skizze__browser">
+            <div class="browser__leiste" aria-hidden="true"><i></i><i></i><i></i><span data-skizze-adresse>ihr-betrieb.de</span></div>
+            <div class="skizze__seite" data-skizze-seite data-stil="" aria-hidden="true">
+              <div class="sz-nav"><b data-skizze-name>Ihr Betrieb</b><span></span><span></span><span></span></div>
+              <div class="sz-hero">
+                <p class="sz-hero__kicker" data-skizze-branche>Ihre Branche</p>
+                <p class="sz-hero__titel" data-skizze-titel>Willkommen bei Ihrem Betrieb</p>
+                <span class="sz-knopf" data-skizze-cta>Kontakt aufnehmen</span>
+              </div>
+              <div class="sz-bausteine" data-skizze-bausteine></div>
+              <div class="sz-fuss"><span></span><span></span></div>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <!-- include:footer -->
+  </body>
+</html>

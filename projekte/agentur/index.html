@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- include:head -->
+    <title>{{name}} · Webseiten neu bauen oder renovieren</title>
+    <meta name="description" content="Wir bauen Webseiten für Betriebe neu oder bringen die bestehende auf den Stand von heute: schnell, mobil, rechtssicher. Foto- und Videoaufnahmen vor Ort in Köln und Umgebung." />
+    <link rel="preload" as="image" href="/media/referenzen/hagedorn-800.webp" />
+    <script type="module" src="/src/pages/start.js"></script>
+  </head>
+  <body>
+    <!-- include:header -->
+
+    <main id="inhalt" tabindex="-1">
+      <!-- 1 · WEICHE: zwei Wege, direkt am Anfang -->
+      <section class="weiche" aria-labelledby="weiche-titel">
+        <h1 id="weiche-titel" class="weiche__titel wrap" data-split data-split-now>Ihre Webseite, auf dem Stand von heute.</h1>
+
+        <div class="weiche__wege" data-weiche>
+          <article class="weg weg--neu" aria-labelledby="weg-neu">
+            <div class="weg__text">
+              <h2 id="weg-neu" class="weg__titel">Neu bauen</h2>
+              <p class="weg__satz">Von der Idee bis zum fertigen Ergebnis. Fünf kurze Fragen, dabei entsteht schon eine Skizze.</p>
+              <a class="knopf" href="/neu.html" data-magnetic="0.2">Fragebogen starten</a>
+            </div>
+            <div class="faecher" data-faecher aria-hidden="true">
+              <img class="faecher__blatt" style="--i: 0" src="/media/referenzen/achse-800.webp" width="800" height="500" alt="" />
+              <img class="faecher__blatt" style="--i: 1" src="/media/referenzen/rosenplatz-800.webp" width="800" height="500" alt="" />
+              <img class="faecher__blatt" style="--i: 2" src="/media/referenzen/hagedorn-800.webp" width="800" height="500" alt="" fetchpriority="high" />
+              <img class="faecher__handy" src="/media/referenzen/perle-mobil.webp" width="480" height="1039" alt="" />
+            </div>
+          </article>
+
+          <article class="weg weg--renovieren" aria-labelledby="weg-renovieren">
+            <div class="weg__text">
+              <h2 id="weg-renovieren" class="weg__titel">Renovieren</h2>
+              <p class="weg__satz">Was da ist, machen wir besser. Geben Sie Ihre Adresse ein, wir messen sofort.</p>
+              <form class="url-feld" action="/renovieren.html" method="get">
+                <label class="visually-hidden" for="start-url">Adresse Ihrer Webseite</label>
+                <input id="start-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.ihre-seite.de" required />
+                <button class="knopf" type="submit">Seite prüfen</button>
+              </form>
+            </div>
+            <figure class="vergleich vergleich--klein" data-vergleich>
+              <div class="vergleich__bild">
+                <img class="vergleich__nach" src="/media/referenzen/rosenplatz-800.webp" width="800" height="500" alt="Nachher: heutige Seite der Zahnarztpraxis am Rosenplatz" />
+                <img class="vergleich__vor" src="/media/vorher/rosenplatz-alt-800.webp" width="800" height="500" alt="Vorher: alte Seite der Praxis mit Menü-Knöpfen und Besucherzähler" />
+                <span class="vergleich__naht" aria-hidden="true"></span>
+                <input class="vergleich__regler" type="range" min="0" max="100" value="50" aria-label="Vorher und Nachher vergleichen" />
+              </div>
+              <figcaption class="vergleich__unterschrift"><span>2010</span><span>Heute</span></figcaption>
+            </figure>
+          </article>
+        </div>
+      </section>
+
+      <!-- 2 · REFERENZEN: Seitwärts-Galerie -->
+      <section id="referenzen" class="referenzen" aria-labelledby="ref-titel">
+        <div class="wrap referenzen__kopf">
+          <p class="label">Referenzen</p>
+          <h2 id="ref-titel" class="titel" data-split>Sieben Branchen, sieben Handschriften.</h2>
+          <p class="einleitung" data-reveal>Echte Seiten von uns, die Sie live ausprobieren können. Gefällt Ihnen ein Stil, nehmen Sie ihn als Ausgangspunkt.</p>
+        </div>
+        <div class="galerie" data-galerie>
+          <ul class="galerie__spur" data-galerie-spur>
+            <!-- galerie -->
+          </ul>
+        </div>
+        <p class="wrap galerie__hinweis">Die Betriebe in den Beispielen sind erfunden.</p>
+      </section>
+
+      <!-- 3 · ABLAUF: Linie füllt sich beim Scrollen -->
+      <section id="ablauf" class="ablauf wrap" aria-labelledby="ablauf-titel" data-ablauf>
+        <h2 id="ablauf-titel" class="titel" data-split>So läuft es ab.</h2>
+        <div class="ablauf__bahn">
+        <div class="ablauf__linie" aria-hidden="true"><span data-ablauf-linie></span></div>
+        <ol class="ablauf__schritte">
+          <li data-ablauf-schritt>
+            <h3>Gespräch</h3>
+            <p>Unverbindlich, am Telefon oder bei Ihnen vor Ort. Wir hören zu und schauen uns Betrieb und bisherige Seite an.</p>
+          </li>
+          <li data-ablauf-schritt>
+            <h3>Entwurf</h3>
+            <p>Sie sehen Ihre Startseite als klickbaren Entwurf, bevor gebaut wird. Hier sind Änderungen am einfachsten.</p>
+          </li>
+          <li data-ablauf-schritt>
+            <h3>Bau und Inhalte</h3>
+            <p>Wir bauen die Seite, schreiben die Texte mit Ihnen und machen auf Wunsch Fotos und Videos vor Ort.</p>
+          </li>
+          <li data-ablauf-schritt>
+            <h3>Start und Pflege</h3>
+            <p>Die Seite geht online. Auf Wunsch kümmern wir uns danach um Hosting, Updates und kleine Änderungen.</p>
+          </li>
+        </ol>
+        </div>
+      </section>
+
+      <!-- 4 · PREISE: Kacheln -->
+      <section id="preise" class="preise wrap" aria-labelledby="preise-titel">
+        <h2 id="preise-titel" class="titel" data-split>Klare Preise, bevor es losgeht.</h2>
+        <div class="kacheln-preis" data-reveal-stagger>
+          <article class="preis preis--neu" aria-labelledby="preis-neu">
+            <h3 id="preis-neu">Neu bauen</h3>
+            <p class="preis__betrag">{{preis:neubau}}</p>
+            <p>Eine Seite, die zu Ihrem Betrieb passt, von der ersten Skizze bis zum Livegang.</p>
+            <ul>
+              <li>Konzept, Design und Texte mit Ihnen</li>
+              <li>Funktionen nach Bedarf: Anfrage, Termine, Shop</li>
+              <li>Domain und Postfach eingerichtet</li>
+            </ul>
+            <a class="knopf" href="/neu.html">Fragebogen starten</a>
+            <div class="preis__bilder" aria-hidden="true">
+              <img src="/media/referenzen/rosenplatz-mobil.webp" width="480" height="1039" alt="" loading="lazy" data-parallax="-0.08" />
+              <img src="/media/referenzen/hagedorn-mobil.webp" width="480" height="1039" alt="" loading="lazy" data-parallax="0.06" />
+              <img src="/media/referenzen/achse-mobil.webp" width="480" height="1039" alt="" loading="lazy" data-parallax="-0.04" />
+            </div>
+          </article>
+          <article class="preis preis--renovieren" aria-labelledby="preis-ren">
+            <h3 id="preis-ren">Renovieren</h3>
+            <p class="preis__betrag">{{preis:renovieren}}</p>
+            <p>Ihre bestehende Seite, gründlich überarbeitet: moderner, schneller, besser zu finden.</p>
+            <a class="knopf" href="/renovieren.html">Seite prüfen</a>
+          </article>
+          <article class="preis preis--pflege" aria-labelledby="preis-pflege">
+            <h3 id="preis-pflege">Pflege und Hosting</h3>
+            <p class="preis__betrag">{{preis:pflege}} <small>im Monat</small></p>
+            <p>Wir halten Ihre Seite online, sicher und aktuell. Sie schreiben uns, was sich ändern soll.</p>
+          </article>
+        </div>
+        <p class="preise__immer">Immer dabei: für Handy und Tablet gebaut, kurze Ladezeiten, barrierearm nach WCAG 2.1 AA, Schriften ohne Google-Server, Impressum und Datenschutz eingebunden. Nach dem Gespräch bekommen Sie ein festes Angebot.</p>
+      </section>
+
+      <!-- 5 · VOR ORT: großes Bild, darunter Text und Karte -->
+      <section id="vor-ort" class="vor-ort" aria-labelledby="vor-ort-titel">
+        <figure class="vor-ort__bild wrap">
+          <div class="vor-ort__rahmen">
+            <img src="/media/vor-ort/dreh-werkstatt.webp" srcset="/media/vor-ort/dreh-werkstatt-800.webp 800w, /media/vor-ort/dreh-werkstatt.webp 1600w" sizes="(min-width: 1440px) 1360px, 94vw" width="1600" height="900" alt="Eine Videografin filmt einen Tischler bei der Arbeit in einer hellen Werkstatt" loading="lazy" decoding="async" data-zoom="1.15" />
+          </div>
+          <figcaption>Symbolbild</figcaption>
+        </figure>
+        <div class="wrap vor-ort__innen">
+          <div class="vor-ort__text">
+            <p class="label">Nur in Köln und Umgebung</p>
+            <h2 id="vor-ort-titel" class="titel" data-split>Neue Fotos und Videos, direkt bei Ihnen.</h2>
+            <p data-reveal>Wir kommen mit Kamera vorbei: Team, Räume, Handwerk, Produkte. Die Aufnahmen fließen direkt in Ihre Seite, und Sie können sie auch für Social Media nutzen.</p>
+            <form class="plz-check" data-plz-check novalidate>
+              <label for="plz">Liegt Ihr Betrieb im Umkreis?</label>
+              <div class="plz-check__zeile">
+                <input id="plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" placeholder="z. B. 50667" />
+                <button class="knopf knopf--zweit" type="submit">Prüfen</button>
+              </div>
+              <p class="plz-check__ergebnis" role="status" aria-live="polite"></p>
+            </form>
+          </div>
+          <figure class="karte">
+            <svg viewBox="0 0 480 480" role="img" aria-labelledby="karte-titel">
+              <title id="karte-titel">Karte: Köln mit Umkreis. Innen Leverkusen, Bergisch Gladbach und Bonn, am äußeren Rand Düsseldorf.</title>
+              <path class="karte__rhein" d="M150 478 C190 420 230 400 225 350 C220 300 260 280 252 240 C244 200 210 185 222 140 C234 95 300 80 312 30 L318 0" data-draw="scrub" />
+              <circle class="karte__aussen" cx="240" cy="250" r="190" />
+              <circle class="karte__innen" cx="240" cy="250" r="120" data-karte-kreis />
+              <g class="karte__orte">
+                <circle cx="240" cy="250" r="7" /><text x="256" y="246">Köln</text>
+                <circle cx="268" cy="178" r="4" /><text x="280" y="176">Leverkusen</text>
+                <circle cx="318" cy="228" r="4" /><text x="330" y="232">Bergisch Gladbach</text>
+                <circle cx="256" cy="360" r="4" /><text x="270" y="366">Bonn</text>
+                <circle cx="282" cy="72" r="4" /><text x="296" y="70">Düsseldorf</text>
+              </g>
+            </svg>
+            <figcaption>Innerer Kreis: Anfahrt inklusive. Äußerer Kreis: auf Anfrage.</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- 6 · ÜBER UNS -->
+      <section id="ueber-uns" class="ueber wrap" aria-labelledby="ueber-titel">
+        <div class="ueber__bild" role="img" aria-label="Platzhalter für ein Foto von uns">Foto folgt</div>
+        <div class="ueber__text">
+          <h2 id="ueber-titel" class="titel" data-split>Ein Ansprechpartner, von Anfang bis Ende.</h2>
+          <p class="ueber__gross" data-scrub-text>Hinter {{name}} stehen ‹Namen›. Wir kommen aus Köln, bauen Webseiten und stehen selbst hinter der Kamera.</p>
+          <p data-reveal>Sie sprechen von der ersten Frage bis nach dem Livegang mit denselben Menschen. ‹Ein persönlicher Satz, warum wir das machen.›</p>
+        </div>
+      </section>
+
+      <!-- 7 · FRAGEN -->
+      <section id="faq" class="faq wrap" aria-labelledby="faq-titel">
+        <h2 id="faq-titel" class="titel faq__titel" data-split>Was Betriebe uns fragen.</h2>
+        <div class="faq__liste">
+          <details>
+            <summary>Was kostet eine neue Webseite?</summary>
+            <p>Das hängt vor allem vom Umfang und den Funktionen ab. Die Preise oben sind ein guter Anhaltspunkt. Nach Fragebogen und kurzem Gespräch bekommen Sie ein festes Angebot.</p>
+          </details>
+          <details>
+            <summary>Wie lange dauert es, bis die Seite online ist?</summary>
+            <p>Das hängt vom Umfang ab und davon, wie schnell Inhalte bereitstehen. Einen konkreten Zeitplan bekommen Sie mit dem Angebot.</p>
+          </details>
+          <details>
+            <summary>Ich habe keine Texte und keine guten Fotos. Ist das ein Problem?</summary>
+            <p>Nein. Wir schreiben die Texte gemeinsam mit Ihnen. In Köln und Umgebung machen wir auf Wunsch neue Fotos und Videos vor Ort.</p>
+          </details>
+          <details>
+            <summary>Renovieren oder neu bauen, was passt zu mir?</summary>
+            <p>Beim Renovieren behalten wir, was funktioniert: Adresse, Inhalte, Wiedererkennung. Neu bauen lohnt sich, wenn die alte Seite kaum zu retten ist oder Sie ganz neu anfangen.</p>
+          </details>
+          <details>
+            <summary>Ist meine Seite danach rechtssicher?</summary>
+            <p>Wir binden Impressum und Datenschutzerklärung ein, hosten Schriften selbst und laden externe Dienste erst nach Einwilligung. Was in die Texte gehört, sagen wir Ihnen.</p>
+          </details>
+          <details>
+            <summary>Kann ich die Seite später selbst ändern?</summary>
+            <p>Ja, wenn Sie möchten. Oder Sie schreiben uns, was sich ändern soll. Mit Pflege und Hosting sind kleine Änderungen inklusive.</p>
+          </details>
+          <details>
+            <summary>Gehört die Seite danach mir?</summary>
+            <p>Ja. Domain und Inhalte laufen auf Ihren Namen. Wenn Sie den Anbieter wechseln wollen, bekommen Sie alles mit.</p>
+          </details>
+        </div>
+      </section>
+
+      <!-- 8 · ABSCHLUSS -->
+      <section class="abschluss" aria-labelledby="abschluss-titel">
+        <div class="wrap abschluss__innen">
+          <h2 id="abschluss-titel" class="abschluss__titel" data-split>Womit fangen wir an?</h2>
+          <div class="abschluss__knoepfe">
+            <a class="knopf knopf--gross" href="/neu.html" data-magnetic="0.25">Fragebogen starten</a>
+            <a class="knopf knopf--gross knopf--zweit" href="/renovieren.html" data-magnetic="0.25">Seite prüfen</a>
+          </div>
+          <p class="abschluss__direkt">Lieber direkt sprechen? <a href="tel:{{telefonLink}}">{{telefon}}</a> oder <a href="mailto:{{email}}">{{email}}</a></p>
+        </div>
+      </section>
+    </main>
+
+    <!-- include:footer -->
+    <!-- include:vorschau -->
+  </body>
+</html>
