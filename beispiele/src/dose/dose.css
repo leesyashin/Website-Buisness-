@@ -1,4 +1,11 @@
 /* perle – Produktseite. Raster: Text auf einer Hälfte, die 3D-Dose auf der anderen; Kapitel je eine Bildschirmhöhe. */
+
+/* Starter-Stile zuerst, Seitenstile danach: als @import in einer Datei, damit die Reihenfolge auch im Build stimmt */
+@import '@starter/styles/tokens.css';
+@import '@starter/styles/base.css';
+@import '@starter/styles/sections.css';
+@import '../shared/example.css';
+
 :root {
   --font-sans: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;
   --font-display: 'Bricolage Grotesque Variable', ui-sans-serif, system-ui, sans-serif;

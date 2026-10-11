@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de" data-colorway="papier">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bootshaus Rodenkirchen · Ruderclub · Kessler Vogt Architekten</title>
+    <meta name="description" content="Beispielseite Architekturbüro, Projekt Bootshaus Rodenkirchen: Bild und Titel fliegen per View Transition aus der Projektleiste herüber." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/architektur/main.js"></script>
+  </head>
+  <body class="architektur">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="./">kessler vogt<span>architekten</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="./#projekte" data-roll>Projekte</a></li>
+            <li><a href="./#buero" data-roll>Büro</a></li>
+            <li><a href="./#kontakt" data-roll>Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inhalt" class="a-project" tabindex="-1">
+      <!-- Gleiche view-transition-names wie die Karte in der Projektleiste: Bild und Titel fliegen herüber -->
+      <div class="wrap a-project__head">
+        <a class="a-back" href="./#projekte" data-roll>Alle Projekte</a>
+        <h1 class="a-display a-display--m" style="view-transition-name: titel-bootshaus">Bootshaus Rodenkirchen</h1>
+        <dl class="a-facts" data-reveal-stagger>
+          <div><dt>Ort</dt><dd>Köln-Rodenkirchen</dd></div>
+          <div><dt>Fertig</dt><dd>2023</dd></div>
+          <div><dt>Nutzung</dt><dd>Ruderverein, 40 Boote</dd></div>
+          <div><dt>Fläche</dt><dd>640 m² BGF</dd></div>
+          <div><dt>Leistung</dt><dd>Phasen 2–8</dd></div>
+        </dl>
+      </div>
+
+      <figure class="a-project__hero" style="view-transition-name: projekt-bootshaus">
+        <img src="/media/architektur/bootshaus.webp" srcset="/media/architektur/bootshaus-800.webp 800w, /media/architektur/bootshaus.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Langgestrecktes Bootshaus aus senkrechten Holzlatten am Flussufer im Morgennebel" fetchpriority="high" decoding="async" data-zoom />
+      </figure>
+
+      <div class="wrap a-project__body">
+        <p class="a-project__lead" data-reveal>Eine lange Halle aus Brettschichtholz für 40 Ruderboote, darüber Umkleiden und ein Clubraum mit Blick auf den Rhein. Senkrechte Lärchenlatten lassen Licht und Luft herein.</p>
+        <div class="a-project__cols">
+          <p data-reveal>Bei Hochwasser steht das Erdgeschoss planmäßig unter Wasser. Alles ist so gebaut, dass es danach nur abgespritzt werden muss: Technik und Clubraum liegen oben, die Halle hat einen Boden aus Beton mit Gefälle.</p>
+          <p data-reveal>Das Tragwerk aus Fichte und Lärche kommt aus dem Sauerland, verbunden mit Stahlschuhen, die man bei Bedarf einzeln tauschen kann.</p>
+        </div>
+      </div>
+
+      <div class="wrap a-project__pair">
+        <figure class="a-project__inside" data-reveal="clip">
+          <img src="/media/architektur/bootshaus-innen.webp" srcset="/media/architektur/bootshaus-innen-800.webp 800w, /media/architektur/bootshaus-innen.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" width="1200" height="1600" alt="Bootshalle mit sichtbaren Holzbindern, Ruderbooten an der Wand und Licht durch Holzlatten" loading="lazy" decoding="async" />
+        </figure>
+        <blockquote class="a-quote">
+          <p data-scrub-text>„Beim ersten Hochwasser haben wir gezittert. Danach haben wir nur noch gefegt.“</p>
+          <footer>Vorstand des Rudervereins</footer>
+        </blockquote>
+      </div>
+
+      <a class="a-next" href="hof-ehrenfeld.html">
+        <span class="wrap a-next__inner">
+          <span class="a-next__label">Nächstes Projekt</span>
+          <strong style="view-transition-name: titel-hof-ehrenfeld">Hof Ehrenfeld</strong>
+          <span class="a-next__img" style="view-transition-name: projekt-hof-ehrenfeld"><img src="/media/architektur/hof-ehrenfeld-800.webp" width="800" height="533" alt="" loading="lazy" decoding="async" /></span>
+        </span>
+      </a>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>Kessler Vogt Architekten · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>

@@ -1,0 +1,856 @@
+/* Achse Physiotherapie. Sportlich und klar: breite, kräftige Schrift (Mona Sans, Breitenachse), Kalkweiß und Nachtblau,
+   Signalorange als Akzent. Die gezeichnete Figur ist das Bild der Seite. */
+
+/* Starter-Stile zuerst, Seitenstile danach: als @import in einer Datei, damit die Reihenfolge auch im Build stimmt */
+@import '@starter/styles/tokens.css';
+@import '@starter/styles/base.css';
+@import '@starter/styles/sections.css';
+@import '../shared/example.css';
+
+:root {
+  --font-sans: 'Mona Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Mona Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Mona Sans Variable', ui-sans-serif, sans-serif;
+  --radius: 0.5rem;
+}
+
+/* ---------- Colorways: Kalk (Grundton), Nacht (Figur, Kontakt), Signal (Kursplan) ---------- */
+html[data-colorway='kalk'],
+html:not(.colorway-live) [data-colorway='kalk'] {
+  --cw-bg: #ecedeb;
+  --cw-ink: #14202a;
+  --cw-soft: #545f69;
+  --cw-accent: #f0541c;
+  --cw-line: #14202a24;
+}
+
+html[data-colorway='nacht'],
+html:not(.colorway-live) [data-colorway='nacht'] {
+  --cw-bg: #14202a;
+  --cw-ink: #eef0ee;
+  --cw-soft: #9aa8b3;
+  --cw-accent: #ff6a33;
+  --cw-line: #eef0ee22;
+}
+
+html[data-colorway='signal'],
+html:not(.colorway-live) [data-colorway='signal'] {
+  --cw-bg: #ff5a1f;
+  --cw-ink: #14202a;
+  --cw-soft: #45200c;
+  --cw-accent: #14202a;
+  --cw-line: #14202a38;
+}
+
+[data-highlight] {
+  --c-on-highlight: #14202a;
+}
+
+/* ---------- Typo: Überschriften breit, Text normal ---------- */
+.p-display {
+  font-size: clamp(3.2rem, 0.8rem + 7vw, 8.6rem);
+  font-weight: 800;
+  font-stretch: 125%;
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+}
+
+.p-dot {
+  color: var(--cw-accent);
+}
+
+.p-display--m {
+  font-size: clamp(2.6rem, 0.8rem + 5.6vw, 7rem);
+}
+
+.p-title {
+  font-size: clamp(2rem, 1rem + 3vw, 4.2rem);
+  font-weight: 750;
+  font-stretch: 118%;
+  line-height: 0.98;
+  letter-spacing: -0.025em;
+}
+
+.p-lead {
+  font-size: var(--step-1);
+  line-height: 1.4;
+  max-width: 30ch;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: -0.02em;
+}
+
+.brand span {
+  margin-left: 0.45em;
+  color: var(--cw-soft);
+  font-weight: 450;
+  font-stretch: 100%;
+  letter-spacing: 0;
+}
+
+.button {
+  border-radius: var(--radius);
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+  font-weight: 650;
+}
+
+.button:hover {
+  background: var(--cw-accent);
+  color: #14202a;
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--cw-ink);
+}
+
+.button--big {
+  font-size: var(--step-1);
+  padding: 1em 1.6em;
+}
+
+/* ---------- Hero: Überschrift über die volle Breite, darunter Text und Foto ---------- */
+.p-hero {
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.p-hero__row {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--space-l);
+  align-items: start;
+  margin-top: var(--space-l);
+}
+
+.p-hero__text {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.p-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+}
+
+.p-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.p-status::before {
+  content: '';
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--cw-soft);
+}
+
+.p-status.is-open::before {
+  background: #2f9e5b;
+  box-shadow: 0 0 0 0.25em #2f9e5b33;
+}
+
+.p-hero__img {
+  aspect-ratio: 2 / 1;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--cw-ink) 8%, var(--cw-bg));
+}
+
+.p-hero__img img,
+.p-feature__img img,
+.p-courses__img img,
+.p-pay__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Bewegungsfigur ---------- */
+.p-range {
+  padding-block: calc(var(--header-h) + var(--space-m)) var(--space-xl);
+}
+
+.p-range__inner {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 4fr);
+  grid-template-areas:
+    'head  head'
+    'fig   steps';
+  gap: var(--space-l) var(--space-xl);
+  align-items: center;
+}
+
+.p-range__head {
+  grid-area: head;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: end;
+  gap: var(--space-s) var(--space-l);
+}
+
+.p-range__head .p-title {
+  max-width: 18ch;
+}
+
+.p-range__case {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.p-figure {
+  grid-area: fig;
+  justify-self: center;
+  width: 100%;
+  max-width: 30rem;
+  max-height: 62svh;
+  overflow: visible;
+}
+
+.p-figure__body,
+.p-figure__arm path {
+  stroke: var(--cw-ink);
+  stroke-width: 7;
+}
+
+.p-figure__body circle {
+  stroke-width: 6;
+}
+
+.p-figure__arm {
+  transform: rotate(var(--a));
+  transform-origin: 250px 142px;
+  transform-box: view-box;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.p-figure__ghost {
+  opacity: 0.45;
+}
+
+.p-figure__ghost + .p-figure__ghost {
+  opacity: 1;
+}
+
+.p-figure__arm[data-range-arm] {
+  opacity: 0.25;
+}
+
+.p-joint,
+.p-joints circle {
+  fill: var(--cw-bg);
+  stroke: var(--cw-accent);
+  stroke-width: 3;
+}
+
+.p-hand {
+  fill: var(--cw-accent);
+  stroke: none;
+}
+
+.p-figure__arc {
+  stroke: var(--cw-accent);
+  stroke-width: 3;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+}
+
+.p-figure__deg {
+  display: none;
+  fill: var(--cw-accent);
+  font-size: 30px;
+  font-weight: 800;
+  font-stretch: 125%;
+  text-anchor: middle;
+  dominant-baseline: middle;
+}
+
+.p-range__steps {
+  grid-area: steps;
+  display: grid;
+  gap: var(--space-m);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-range__steps li {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.1rem var(--space-m);
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--cw-line);
+  transition: opacity 0.5s var(--ease-signature);
+}
+
+.p-week {
+  grid-column: 1 / -1;
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.p-deg {
+  grid-row: 2 / 4;
+  color: var(--cw-accent);
+  font-size: var(--step-3);
+  font-weight: 800;
+  font-stretch: 125%;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.p-range__steps li > p:last-child {
+  color: var(--cw-soft);
+}
+
+/* Mit Scroll-Animation: nur ein Arm, durchgezogener Bogen, aktiver Schritt hervorgehoben */
+.p-range.is-live .p-figure__ghost {
+  display: none;
+}
+
+.p-range.is-live .p-figure__arm[data-range-arm] {
+  opacity: 1;
+}
+
+.p-range.is-live .p-figure__arc {
+  stroke-dasharray: none;
+}
+
+.p-range.is-live .p-figure__deg {
+  display: block;
+}
+
+.p-range.is-live .p-range__steps li:not(.is-active) {
+  opacity: 0.32;
+}
+
+/* ---------- Leistungen als Tabelle ---------- */
+.p-services {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.p-list {
+  width: 100%;
+  margin-top: var(--space-l);
+  border-collapse: collapse;
+}
+
+.p-list thead th {
+  padding-bottom: var(--space-xs);
+  border-bottom: 2px solid var(--cw-ink);
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+  font-weight: 500;
+  text-align: left;
+}
+
+.p-list tbody th,
+.p-list td {
+  padding: var(--space-m) var(--space-m) var(--space-m) 0;
+  border-bottom: 1px solid var(--cw-line);
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.p-list tbody th {
+  width: 30%;
+  font-size: var(--step-2);
+  font-weight: 750;
+  font-stretch: 118%;
+  letter-spacing: -0.02em;
+}
+
+.p-list td {
+  color: var(--cw-soft);
+}
+
+.p-list td:nth-child(3),
+.p-list td:last-child {
+  color: var(--cw-ink);
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+.p-list td:last-child {
+  padding-right: 0;
+  text-align: right;
+}
+
+.p-list thead th:last-child {
+  text-align: right;
+}
+
+/* ---------- Laufanalyse ---------- */
+.p-feature {
+  padding-block: var(--space-xl) var(--space-2xl);
+}
+
+.p-feature__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 6fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.p-feature__img {
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--cw-ink) 8%, var(--cw-bg));
+}
+
+.p-feature__text {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.p-feature__text > p {
+  font-size: var(--step-1);
+  line-height: 1.45;
+  max-width: 34ch;
+}
+
+.p-facts {
+  display: grid;
+  grid-template-columns: repeat(3, auto);
+  justify-content: start;
+  gap: var(--space-l);
+  margin: var(--space-s) 0 0;
+}
+
+.p-facts div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.p-facts dt {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.p-facts dd {
+  margin: 0;
+  font-size: var(--step-1);
+  font-weight: 700;
+}
+
+/* ---------- Kursplan auf Signalorange ---------- */
+.p-courses {
+  padding-block: var(--space-2xl);
+}
+
+.p-courses > .wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  grid-template-areas:
+    'head head'
+    'days days'
+    'week img';
+  gap: var(--space-l) var(--space-xl);
+  align-items: start;
+}
+
+.p-courses__head {
+  grid-area: head;
+  display: grid;
+  gap: var(--space-s);
+}
+
+.p-courses__head p {
+  max-width: 52ch;
+}
+
+.p-days {
+  grid-area: days;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.p-days button {
+  min-width: 3.6rem;
+  padding: 0.7em 1em;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--cw-ink);
+  font: inherit;
+  font-weight: 650;
+  box-shadow: inset 0 0 0 1.5px var(--cw-ink);
+  cursor: pointer;
+  transition: background-color 0.4s var(--ease-signature), color 0.4s var(--ease-signature);
+}
+
+.p-days button:hover {
+  background: color-mix(in oklch, var(--cw-ink) 12%, transparent);
+}
+
+.p-days button[aria-pressed='true'] {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.p-days button:focus-visible {
+  outline-color: var(--cw-ink);
+}
+
+.p-schedule {
+  grid-area: week;
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-m);
+}
+
+.p-courses:not(.is-filtered) > .wrap {
+  grid-template-areas:
+    'head head'
+    'week week'
+    'img  img';
+}
+
+.p-courses:not(.is-filtered) .p-courses__img {
+  max-width: 40rem;
+}
+
+.p-courses.is-filtered .p-schedule {
+  grid-template-columns: 1fr;
+}
+
+.p-day h3 {
+  padding-bottom: var(--space-2xs);
+  border-bottom: 2px solid var(--cw-ink);
+  font-size: var(--step-1);
+  font-weight: 750;
+  font-stretch: 118%;
+}
+
+.p-courses.is-filtered .p-day h3 {
+  display: none;
+}
+
+.p-day ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.p-day li {
+  display: grid;
+  grid-template-columns: 4.5rem 1fr auto;
+  gap: 0.1rem var(--space-m);
+  align-items: baseline;
+  padding-block: var(--space-s);
+  border-bottom: 1px solid var(--cw-line);
+}
+
+.p-day time {
+  grid-row: 1 / 3;
+  font-size: var(--step-1);
+  font-weight: 750;
+  font-variant-numeric: tabular-nums;
+}
+
+.p-day strong {
+  font-size: var(--step-1);
+  font-weight: 650;
+}
+
+.p-day span {
+  grid-column: 2;
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.p-day em {
+  grid-column: 3;
+  grid-row: 1 / 3;
+  align-self: center;
+  font-style: normal;
+  font-size: var(--step--1);
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.p-day em.is-full {
+  color: var(--cw-soft);
+  text-decoration: line-through;
+}
+
+/* Ohne Filter (ohne JS): fünf Spalten, kompakter */
+.p-courses:not(.is-filtered) .p-day li {
+  grid-template-columns: 1fr;
+}
+
+.p-courses:not(.is-filtered) .p-day time,
+.p-courses:not(.is-filtered) .p-day span,
+.p-courses:not(.is-filtered) .p-day em {
+  grid-column: 1;
+  grid-row: auto;
+}
+
+.p-courses:not(.is-filtered) .p-day time,
+.p-courses:not(.is-filtered) .p-day strong {
+  font-size: var(--step-0);
+}
+
+.p-courses__img {
+  grid-area: img;
+  aspect-ratio: 3 / 2;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--cw-ink) 12%, var(--cw-bg));
+}
+
+/* ---------- Rezept oder ohne ---------- */
+.p-pay {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.p-pay__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: var(--space-l) var(--space-m);
+  align-items: stretch;
+}
+
+.p-pay__grid > .p-title {
+  grid-column: 1 / -1;
+}
+
+.p-pay__card {
+  grid-column: span 4;
+  display: grid;
+  gap: var(--space-s);
+  align-content: start;
+  padding: var(--space-l) var(--space-m);
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 1.5px var(--cw-ink);
+}
+
+.p-pay__card--rezept {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.p-pay__card h3 {
+  font-size: var(--step-2);
+  font-weight: 750;
+  font-stretch: 118%;
+}
+
+.p-pay__card p {
+  color: inherit;
+  opacity: 0.85;
+}
+
+.p-pay__price {
+  display: grid;
+  margin-top: auto;
+  padding-top: var(--space-m);
+  font-size: var(--step-3);
+  font-weight: 800;
+  font-stretch: 125%;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  opacity: 1 !important;
+}
+
+.p-pay__price small {
+  margin-top: var(--space-2xs);
+  font-size: var(--step--1);
+  font-weight: 450;
+  font-stretch: 100%;
+  letter-spacing: 0;
+  line-height: 1.4;
+  opacity: 0.8;
+}
+
+.p-pay__img {
+  grid-column: span 4;
+  min-height: 18rem;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--cw-ink) 8%, var(--cw-bg));
+}
+
+/* ---------- Kontakt ---------- */
+.p-contact {
+  padding-block: var(--space-2xl);
+}
+
+.p-contact__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.p-contact__grid > .p-display {
+  grid-column: 1 / -1;
+}
+
+.p-contact__ways {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.p-contact__phone {
+  font-size: var(--step-3);
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: -0.02em;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.p-contact__phone:hover {
+  color: var(--cw-accent);
+}
+
+.p-contact__ways p {
+  color: var(--cw-soft);
+}
+
+.p-contact__ways strong {
+  color: var(--cw-ink);
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.p-contact__facts {
+  display: grid;
+  gap: var(--space-m);
+  margin: 0;
+}
+
+.p-contact__facts div {
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--cw-line);
+}
+
+.p-contact__facts dt {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.p-contact__facts dd {
+  margin: 0;
+}
+
+/* ---------- Tablet / Handy ---------- */
+@media (max-width: 899px) {
+  .p-hero__row,
+  .p-feature__grid,
+  .p-contact__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .p-hero__img {
+    order: -1;
+  }
+
+  .p-range__inner {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'head' 'fig' 'steps';
+  }
+
+  .p-figure {
+    max-width: 20rem;
+    max-height: none;
+  }
+
+  .p-list thead {
+    display: none;
+  }
+
+  .p-list,
+  .p-list tbody,
+  .p-list tr {
+    display: block;
+  }
+
+  .p-list tr {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 0.2rem var(--space-s);
+    padding-block: var(--space-m);
+    border-bottom: 1px solid var(--cw-line);
+  }
+
+  .p-list tbody th,
+  .p-list td {
+    width: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  .p-list tbody th {
+    grid-column: 1 / -1;
+  }
+
+  .p-list td:nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  .p-list td:nth-child(3)::before {
+    content: 'Rezept: ';
+    color: var(--cw-soft);
+  }
+
+  .p-list td:last-child {
+    text-align: right;
+  }
+
+  .p-courses > .wrap,
+  .p-courses:not(.is-filtered) > .wrap {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'head' 'days' 'week' 'img';
+  }
+
+  .p-schedule {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .p-pay__card,
+  .p-pay__img {
+    grid-column: 1 / -1;
+  }
+
+  .p-pay__img {
+    aspect-ratio: 3 / 2;
+    min-height: 0;
+  }
+}
+
+@media (max-width: 560px) {
+  .brand span {
+    display: none;
+  }
+
+  .p-day li {
+    grid-template-columns: 3.8rem 1fr;
+  }
+
+  .p-day em {
+    grid-column: 2;
+    grid-row: auto;
+  }
+
+  .p-facts {
+    grid-template-columns: 1fr 1fr;
+  }
+}

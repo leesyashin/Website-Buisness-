@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="de" data-colorway="papier">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Haus am Hang · Wohnhaus · Kessler Vogt Architekten</title>
+    <meta name="description" content="Beispielseite Architekturbüro, Projekt Haus am Hang: Bild und Titel fliegen per View Transition aus der Projektleiste herüber." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/architektur/main.js"></script>
+  </head>
+  <body class="architektur">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="./">kessler vogt<span>architekten</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="./#projekte" data-roll>Projekte</a></li>
+            <li><a href="./#buero" data-roll>Büro</a></li>
+            <li><a href="./#kontakt" data-roll>Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inhalt" class="a-project" tabindex="-1">
+      <!-- Gleiche view-transition-names wie die Karte in der Projektleiste: Bild und Titel fliegen herüber -->
+      <div class="wrap a-project__head">
+        <a class="a-back" href="./#projekte" data-roll>Alle Projekte</a>
+        <h1 class="a-display a-display--m" style="view-transition-name: titel-haus-am-hang">Haus am Hang</h1>
+        <dl class="a-facts" data-reveal-stagger>
+          <div><dt>Ort</dt><dd>Bergisch Gladbach</dd></div>
+          <div><dt>Fertig</dt><dd>2024</dd></div>
+          <div><dt>Nutzung</dt><dd>Wohnhaus, vier Personen</dd></div>
+          <div><dt>Fläche</dt><dd>212 m² Wohnfläche</dd></div>
+          <div><dt>Leistung</dt><dd>Phasen 1–9</dd></div>
+        </dl>
+      </div>
+
+      <figure class="a-project__hero" style="view-transition-name: projekt-haus-am-hang">
+        <img src="/media/architektur/haus-am-hang.webp" srcset="/media/architektur/haus-am-hang-800.webp 800w, /media/architektur/haus-am-hang.webp 1600w" sizes="100vw" width="1600" height="1067" alt="Wohnhaus am Waldhang: Sockel aus Sichtbeton, darüber ein Kubus aus Lärchenholz mit Fensterband" fetchpriority="high" decoding="async" data-zoom />
+      </figure>
+
+      <div class="wrap a-project__body">
+        <p class="a-project__lead" data-reveal>Ein Sockel aus Sichtbeton greift in den Hang, darüber sitzt ein Kubus aus unbehandelter Lärche. Unten liegen Eingang, Arbeitszimmer und Technik, oben ein einziger großer Raum mit einem Fensterband zum Buchenwald.</p>
+        <div class="a-project__cols">
+          <p data-reveal>Die Lärche wird in wenigen Jahren silbergrau und gleicht sich den Stämmen an. Gestrichen werden muss nichts, auch nicht in dreißig Jahren.</p>
+          <p data-reveal>Geheizt wird mit einer Erdwärmepumpe, das Dach sammelt Regenwasser für den Garten. Der Hang blieb fast unberührt: Gebaut wurde nur dort, wo vorher schon der alte Schuppen stand.</p>
+        </div>
+      </div>
+
+      <div class="wrap a-project__pair">
+        <figure class="a-project__inside" data-reveal="clip">
+          <img src="/media/architektur/haus-am-hang-innen.webp" srcset="/media/architektur/haus-am-hang-innen-800.webp 800w, /media/architektur/haus-am-hang-innen.webp 1600w" sizes="(min-width: 900px) 40vw, 100vw" width="1200" height="1600" alt="Wohnraum mit Sichtbetonwänden, Eichenboden und raumhohem Fenster zum Buchenwald" loading="lazy" decoding="async" />
+        </figure>
+        <blockquote class="a-quote">
+          <p data-scrub-text>„Wir sitzen jeden Morgen am Fenster und schauen, was der Wald macht.“</p>
+          <footer>Familie B., Bauherren</footer>
+        </blockquote>
+      </div>
+
+      <a class="a-next" href="bootshaus.html">
+        <span class="wrap a-next__inner">
+          <span class="a-next__label">Nächstes Projekt</span>
+          <strong style="view-transition-name: titel-bootshaus">Bootshaus Rodenkirchen</strong>
+          <span class="a-next__img" style="view-transition-name: projekt-bootshaus"><img src="/media/architektur/bootshaus-800.webp" width="800" height="533" alt="" loading="lazy" decoding="async" /></span>
+        </span>
+      </a>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>Kessler Vogt Architekten · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>

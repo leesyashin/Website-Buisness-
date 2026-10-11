@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Website-Beispiele</title>
-    <meta name="description" content="Drei Branchen, drei Bewegungssprachen: Produkt mit 3D-Dose, Baufirma mit wachsendem Gebäude, Restaurant mit Reservierung." />
+    <meta name="description" content="Sieben Branchen, sieben Bewegungssprachen: 3D-Dose, wachsendes Gebäude, Restaurant mit Reservierung, zerlegbarer 3D-Stuhl, leise Zahnarztpraxis, Physio mit Bewegungsfigur, Architekturbüro mit View Transitions." />
     <script>
       if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
         document.documentElement.classList.add('motion-pending');
@@ -19,7 +19,7 @@
     <main id="inhalt" tabindex="-1">
       <section class="h-intro wrap" aria-labelledby="intro-title">
         <p class="h-kicker" data-scramble>Werkstatt · Beispiele 2026</p>
-        <h1 id="intro-title" class="h-title" data-split data-split-now>Drei Branchen.<br />Drei Bewegungs&shy;sprachen.</h1>
+        <h1 id="intro-title" class="h-title" data-split data-split-now>Sieben Branchen.<br />Sieben Bewegungs&shy;sprachen.</h1>
         <p class="h-lead" data-reveal data-reveal-delay="0.5">
           Jede Seite hat ihre eigene Farbwelt, Schrift und Art sich zu bewegen. Darunter liegt dasselbe System:
           schnell, barrierearm und ohne JavaScript vollständig lesbar.
@@ -32,7 +32,7 @@
         <article class="h-slide h-slide--dose" aria-labelledby="s-dose">
           <div class="h-slide__inner">
             <div class="h-slide__text">
-              <p class="h-meta"><span>01 / 03</span><span>Produkt · Getränk</span></p>
+              <p class="h-meta"><span>01 / 07</span><span>Produkt · Getränk</span></p>
               <h2 id="s-dose" class="h-name">perle</h2>
               <p>Spritzige Limonade in drei Sorten. Die Dose ist echtes 3D im Browser: sie wandert mit, dreht sich beim Sortenwechsel und färbt die ganze Seite um.</p>
               <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
@@ -52,7 +52,7 @@
         <article class="h-slide h-slide--bau" aria-labelledby="s-bau">
           <div class="h-slide__inner">
             <div class="h-slide__text">
-              <p class="h-meta"><span>02 / 03</span><span>Handwerk · Bau</span></p>
+              <p class="h-meta"><span>02 / 07</span><span>Handwerk · Bau</span></p>
               <h2 id="s-bau" class="h-name">Ruland Bau</h2>
               <p>Ein Gebäude wächst beim Scrollen Geschoss für Geschoss. Im Kapitel Planung wird es zur Linienzeichnung, am Ende gehen die Lichter an.</p>
               <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
@@ -77,7 +77,7 @@
         <article class="h-slide h-slide--resto" aria-labelledby="s-resto">
           <div class="h-slide__inner">
             <div class="h-slide__text">
-              <p class="h-meta"><span>03 / 03</span><span>Gastronomie</span></p>
+              <p class="h-meta"><span>03 / 07</span><span>Gastronomie</span></p>
               <h2 id="s-resto" class="h-name">Mara</h2>
               <p>Mittags hell, abends dunkel: die Seite wechselt mit der Tageszeit Farbe, Karte und Zeitslots. Reservieren mit Tag, Personen und freier Uhrzeit.</p>
               <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
@@ -91,6 +91,85 @@
                 <span>17:30</span><span class="is-off">18:00</span><span>18:30</span><span class="is-on">19:00</span>
                 <span class="is-off">19:30</span><span>20:00</span><span>20:30</span><span>21:00</span>
               </div>
+            </div>
+          </div>
+        </article>
+
+        <!-- 04 Schreinerei -->
+        <article class="h-slide h-slide--holz" aria-labelledby="s-holz">
+          <div class="h-slide__inner">
+            <div class="h-slide__text">
+              <p class="h-meta"><span>04 / 07</span><span>Handwerk · Möbel</span></p>
+              <h2 id="s-holz" class="h-name">Hagedorn</h2>
+              <p>Ein Stuhl aus vierzehn Teilen, echtes 3D im Browser. Beim Scrollen zerlegt er sich in Sitz, Zargen und Zapfen, je Holzart wechselt die Maserung.</p>
+              <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
+                <li>3D-Stuhl (three.js)</li><li>Explosionsansicht</li><li>Maserung je Holzart</li><li>Zollstock zeichnet sich</li>
+              </ul>
+              <a class="h-open" href="schreinerei/" data-roll>Beispiel öffnen →</a>
+            </div>
+            <img class="h-visual h-chair" src="/media/schreinerei/stuhl-zerlegt.webp" alt="" width="800" height="915" loading="lazy" decoding="async" />
+          </div>
+        </article>
+
+        <!-- 05 Zahnarzt -->
+        <article class="h-slide h-slide--zahn" aria-labelledby="s-zahn">
+          <div class="h-slide__inner">
+            <div class="h-slide__text">
+              <p class="h-meta"><span>05 / 07</span><span>Gesundheit · Zahnarztpraxis</span></p>
+              <h2 id="s-zahn" class="h-name">Rosenplatz</h2>
+              <p>Die leise Seite: kaum Bewegung, viel Ruhe. Für Angstpatienten eine Atemübung auf Knopfdruck, dazu eine Terminanfrage in drei Schritten.</p>
+              <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
+                <li>Atemkreis</li><li>Terminanfrage in Schritten</li><li>Live-Öffnungsstatus</li><li>Fast nur Einblenden</li>
+              </ul>
+              <a class="h-open" href="zahnarzt/" data-roll>Beispiel öffnen →</a>
+            </div>
+            <div class="h-visual h-breathe" aria-hidden="true">
+              <span></span>
+              <p>Einatmen<b>4</b></p>
+            </div>
+          </div>
+        </article>
+
+        <!-- 06 Physio -->
+        <article class="h-slide h-slide--physio" aria-labelledby="s-physio">
+          <div class="h-slide__inner">
+            <div class="h-slide__text">
+              <p class="h-meta"><span>06 / 07</span><span>Gesundheit · Physiotherapie</span></p>
+              <h2 id="s-physio" class="h-name">Achse</h2>
+              <p>Eine gezeichnete Figur hebt beim Scrollen den Arm: 60, 120, 170 Grad. So kommt Beweglichkeit nach einer Schulter-OP zurück. Dazu ein Kursplan zum Filtern.</p>
+              <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
+                <li>Figur am Scrollweg</li><li>Angeheftetes Kapitel</li><li>Kursplan nach Tag</li><li>Breite Schrift</li>
+              </ul>
+              <a class="h-open" href="physio/" data-roll>Beispiel öffnen →</a>
+            </div>
+            <svg class="h-visual h-figure" viewBox="40 0 380 500" fill="none" aria-hidden="true">
+              <path class="h-figure__arc" d="M250 260 A120 120 0 0 0 270.8 21.8" />
+              <g stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="200" cy="74" r="30" />
+                <path d="M200 106 V272 M150 142 H250 M172 272 H228 M150 142 L138 222 L132 298 M180 272 L176 372 L172 470 M220 272 L224 372 L228 470" />
+                <path class="h-figure__arm" style="--a: -60deg; opacity: 0.3" d="M250 142 L256 222 L260 298" />
+                <path class="h-figure__arm" style="--a: -120deg; opacity: 0.55" d="M250 142 L256 222 L260 298" />
+                <path class="h-figure__arm" style="--a: -170deg" d="M250 142 L256 222 L260 298" />
+              </g>
+            </svg>
+          </div>
+        </article>
+
+        <!-- 07 Architektur -->
+        <article class="h-slide h-slide--arch" aria-labelledby="s-arch">
+          <div class="h-slide__inner">
+            <div class="h-slide__text">
+              <p class="h-meta"><span>07 / 07</span><span>Planung · Architekturbüro</span></p>
+              <h2 id="s-arch" class="h-name">kessler vogt</h2>
+              <p>Projektleiste zum Wischen und Ziehen. Ein Klick, und Bild und Titel fliegen per View Transition in die Projektseite, ganz ohne Framework.</p>
+              <ul class="h-chips" aria-label="Bewegung auf dieser Seite">
+                <li>View Transitions</li><li>Wischleiste mit Einrasten</li><li>Bild-Zoom beim Scrollen</li><li>Leistungsphasen als Diagramm</li>
+              </ul>
+              <a class="h-open" href="architektur/" data-roll>Beispiel öffnen →</a>
+            </div>
+            <div class="h-visual h-photos" aria-hidden="true">
+              <img src="/media/architektur/speicher-7-800.webp" alt="" width="800" height="533" loading="lazy" decoding="async" />
+              <img src="/media/architektur/bootshaus-800.webp" alt="" width="800" height="533" loading="lazy" decoding="async" />
             </div>
           </div>
         </article>

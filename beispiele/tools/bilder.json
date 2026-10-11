@@ -1,5 +1,5 @@
 {
-  "_hinweis": "Mit Higgsfield (Soul 2.0) generierte Fotos für die Beispielseiten. Laden: python3 tools/bilder-laden.py (braucht Zugriff auf d8j0ntlcm91z4.cloudfront.net).",
+  "_hinweis": "Mit Higgsfield (Soul 2.0) generierte Fotos für die Beispielseiten. Laden: python3 tools/bilder-laden.py (braucht Zugriff auf d8j0ntlcm91z4.cloudfront.net). Objekte mit \"zuschnitt\"/\"flicken\" werden nachbearbeitet, siehe Skript.",
   "restaurant/abend-raum": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_144621_8076d7cf-2414-4e35-986b-a1ff7e648502.png",
   "restaurant/saibling": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_144737_91f293dc-aee7-4341-a3ba-f7835e4f24b4.png",
   "restaurant/gnocchi": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_144809_d6805c6f-e2b8-43d0-9963-0ba51b075274.png",
@@ -11,5 +11,79 @@
   "bau/grundschule": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_145043_1b3221fa-de02-4881-b8a6-60f4f76e620f.png",
   "bau/kontorhaus": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_145111_6284335f-37e8-44d6-8ea7-d7d8fb4c8994.png",
   "bau/tiefgarage": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_145145_eaa44afd-c49d-4cd2-adb1-ed174a6e33ee.png",
-  "bau/logistikhalle": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_145217_e2a7ceee-eb39-49d0-83a3-55011922a337.png"
+  "bau/logistikhalle": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_145217_e2a7ceee-eb39-49d0-83a3-55011922a337.png",
+  "schreinerei/werkstatt": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152109_d7f8318d-f2bb-42d6-a06d-cb7f548144e7.png",
+  "schreinerei/esstisch": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152311_6cc0eb67-8319-423d-b180-26fd8edbfe50.png",
+  "schreinerei/sideboard": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152346_973d3bd7-b2b3-4e10-afad-19dfdaad8336.png",
+  "schreinerei/regal": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152420_5f0f5e36-ce75-4fd8-a2b9-f103a44879ff.png",
+  "schreinerei/zinken": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152502_725743b4-a467-43d3-bdc0-08c417158378.png",
+  "zahnarzt/behandlung": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152601_9d2b1686-4528-4b04-954b-b715310f09ff.png",
+  "zahnarzt/empfang": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152624_2d86410f-0eec-48ee-8890-fd4e56117d81.png",
+  "zahnarzt/team-broekelmann": {
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152754_e1eeac2e-d4d1-45da-8f12-272292320418.png",
+    "flicken": [
+      [
+        [
+          380,
+          1465,
+          675,
+          1570
+        ],
+        [
+          0,
+          115
+        ]
+      ]
+    ]
+  },
+  "zahnarzt/team-albers": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152709_2f14444a-6668-491d-906c-1f60b088f339.png",
+  "zahnarzt/team-yildiz": {
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_152950_2e0ac9dd-db6e-4859-b07c-d609b0047969.png",
+    "flicken": [
+      [
+        [
+          515,
+          1340,
+          705,
+          1505
+        ],
+        [
+          0,
+          -160
+        ]
+      ],
+      [
+        [
+          1383,
+          1418,
+          1447,
+          1558
+        ],
+        [
+          0,
+          -145
+        ]
+      ]
+    ]
+  },
+  "physio/training": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153106_17891cd4-1abb-4082-9347-10c3509b37b9.png",
+  "physio/behandlung": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153132_55270b6a-1e85-4d07-b909-13b4aac8a8de.png",
+  "physio/kurs": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153208_d1f96018-c187-4ad3-aa39-c187bde0ebd8.png",
+  "physio/laufanalyse": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153359_6631e94f-4032-4346-9742-9c234a40a7cd.png",
+  "architektur/haus-am-hang": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153441_a29f6465-f0c6-4a43-bf22-8aa462057566.png",
+  "architektur/haus-am-hang-innen": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153512_16a043f0-7525-4897-8e36-989619fbe328.png",
+  "architektur/speicher-7": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153548_cf01dd55-9839-427b-873e-6e742b93cc9e.png",
+  "architektur/speicher-7-innen": {
+    "url": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153622_fac0d87a-3eaa-424e-b86b-3526d6ae01b7.png",
+    "zuschnitt": [
+      0,
+      0,
+      1536,
+      1948
+    ]
+  },
+  "architektur/bootshaus": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153707_9a3aa0da-2c92-41c2-8cbd-ff795cda254f.png",
+  "architektur/bootshaus-innen": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153813_6127dcb0-dd22-4ba8-ae76-75ae02bc505c.png",
+  "architektur/hof-ehrenfeld": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_153902_2cfbc2cb-c08b-4ae0-bee6-bd9ac87880ad.png",
+  "architektur/hof-ehrenfeld-laubengang": "https://d8j0ntlcm91z4.cloudfront.net/user_3GGMCNsCNWmqjEB9ll47gBlKqfi/hf_20261011_154023_d47729ea-9752-49b6-ab24-ddba6b2c0ff5.png"
 }

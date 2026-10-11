@@ -1,0 +1,201 @@
+<!doctype html>
+<html lang="de" data-colorway="kreide">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hagedorn · Möbelwerkstatt Dresden</title>
+    <meta name="description" content="Beispielseite Schreinerei: 3D-Stuhl zerlegt sich beim Scrollen in seine 14 Teile, Maserung wechselt je Holzart." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/schreinerei/main.js"></script>
+  </head>
+  <body class="schreinerei" data-snap-type="mandatory">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="#inhalt">Hagedorn<span>Möbelwerkstatt</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="#zerlegt" data-roll>Bauweise</a></li>
+            <li><a href="#holz" data-roll>Holz</a></li>
+            <li><a href="#arbeiten" data-roll>Arbeiten</a></li>
+          </ul>
+        </nav>
+        <a class="button button--small" href="#kontakt" data-roll>Werkstatt besuchen</a>
+      </div>
+    </header>
+
+    <!-- 3D-Bühne: der Stuhl (src/schreinerei/scene.js). Rein dekorativ, alle Inhalte stehen im HTML. -->
+    <div class="stage" data-stage aria-hidden="true"></div>
+    <img class="chair-fallback" src="/media/schreinerei/stuhl-ganz.webp" alt="" width="700" height="910" />
+
+    <main id="inhalt" class="stage-content" tabindex="-1">
+      <section class="s-hero" data-chair="hero" data-colorway="kreide" data-snap="start end" aria-labelledby="hero-title">
+        <div class="wrap s-col">
+          <p class="mono" data-scramble>Möbelwerkstatt · Dresden-Neustadt · seit 1994</p>
+          <h1 id="hero-title" class="s-display" data-split data-split-now>Vierzehn Teile.<br />Keine Schraube.</h1>
+          <p class="s-lead" data-reveal data-reveal-delay="0.5">
+            Massivholzmöbel nach Maß, gebaut mit Verbindungen, die man reparieren kann statt wegzuwerfen.
+          </p>
+          <div class="s-actions" data-reveal data-reveal-delay="0.65">
+            <a class="button" href="#kontakt" data-roll>Werkstatt besuchen</a>
+            <a class="button button--ghost" href="#zerlegt" data-roll>So ist der Stuhl gebaut</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="zerlegt" class="s-parts" data-chair="zerlegt" data-colorway="kreide" data-snap="start end" tabindex="-1" aria-labelledby="zerlegt-title">
+        <div class="wrap s-col s-col--right">
+          <h2 id="zerlegt-title" class="s-display s-display--m" data-split>Gehalten von Holz, nicht von Metall.</h2>
+          <p>
+            Jede Zarge endet in einem Zapfen, der stramm im Bein sitzt. Verleimt hält das ein Leben lang. Und wenn doch
+            einmal etwas bricht, ersetzen wir genau dieses eine Teil.
+          </p>
+          <table class="s-bom" data-reveal>
+            <caption>Stückliste Stuhl „Neustadt“</caption>
+            <thead>
+              <tr><th scope="col">Pos.</th><th scope="col">Stück</th><th scope="col">Teil</th><th scope="col">Maß in mm</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>1</td><td>1</td><th scope="row">Sitz</th><td>440 × 370 × 24</td></tr>
+              <tr><td>2</td><td>2</td><th scope="row">Hinterbein</th><td>860 × 36 × 36</td></tr>
+              <tr><td>3</td><td>2</td><th scope="row">Vorderbein</th><td>425 × 36 × 36</td></tr>
+              <tr><td>4</td><td>4</td><th scope="row">Zarge</th><td>364 × 60 × 20</td></tr>
+              <tr><td>5</td><td>3</td><th scope="row">Fußstrebe</th><td>364 × 26 × 18</td></tr>
+              <tr><td>6</td><td>2</td><th scope="row">Lehne, Sprosse</th><td>364 × 75 × 22</td></tr>
+            </tbody>
+          </table>
+          <dl class="s-sum" data-reveal-stagger>
+            <div><dt>Teile</dt><dd data-count-to="14">14</dd></div>
+            <div><dt>Zapfen</dt><dd data-count-to="18">18</dd></div>
+            <div><dt>Schrauben</dt><dd>0</dd></div>
+          </dl>
+        </div>
+      </section>
+
+      <section id="holz" class="s-woods" data-chair="holz" tabindex="-1" aria-labelledby="holz-title">
+        <h2 id="holz-title" class="visually-hidden">Drei Hölzer</h2>
+
+        <article class="s-wood" data-colorway="eiche" data-snap="start end" aria-labelledby="w-eiche">
+          <div class="wrap s-col">
+            <h3 id="w-eiche" class="s-display s-display--m" data-split>Eiche</h3>
+            <p class="s-latin">Quercus robur</p>
+            <p>Der Klassiker für Tische und Stühle: schwer, zäh und mit den hellen Spiegeln, an denen man Eiche sofort erkennt.</p>
+            <dl class="s-facts">
+              <div><dt>Herkunft</dt><dd>Sachsen, Thüringen</dd></div>
+              <div><dt>Härte nach Brinell</dt><dd>34 N/mm²</dd></div>
+              <div><dt>Gut für</dt><dd>Tische, Stühle, Treppen</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="s-wood" data-colorway="nuss" data-snap="start end" aria-labelledby="w-nuss">
+          <div class="wrap s-col">
+            <h3 id="w-nuss" class="s-display s-display--m" data-split>Nussbaum</h3>
+            <p class="s-latin">Juglans regia</p>
+            <p>Dunkel, lebhaft gemasert und warm in der Hand. Wird mit den Jahren heller und goldener. Für Möbel, die man gern ansieht.</p>
+            <dl class="s-facts">
+              <div><dt>Herkunft</dt><dd>Rheinland, Burgund</dd></div>
+              <div><dt>Härte nach Brinell</dt><dd>25 N/mm²</dd></div>
+              <div><dt>Gut für</dt><dd>Sideboards, Schreibtische</dd></div>
+            </dl>
+          </div>
+        </article>
+
+        <article class="s-wood" data-colorway="esche" data-snap="start end" aria-labelledby="w-esche">
+          <div class="wrap s-col">
+            <h3 id="w-esche" class="s-display s-display--m" data-split>Esche</h3>
+            <p class="s-latin">Fraxinus excelsior</p>
+            <p>Hell, elastisch und kräftig gezeichnet. Früher Holz für Leitern und Werkzeugstiele, heute für leichte Stühle und Regale.</p>
+            <dl class="s-facts">
+              <div><dt>Herkunft</dt><dd>Elbtal, Erzgebirge</dd></div>
+              <div><dt>Härte nach Brinell</dt><dd>38 N/mm²</dd></div>
+              <div><dt>Gut für</dt><dd>Stühle, Regale, Fronten</dd></div>
+            </dl>
+          </div>
+        </article>
+      </section>
+
+      <section class="s-shop" data-colorway="kreide" data-snap="start end" aria-labelledby="shop-title">
+        <div class="wrap s-shop__grid">
+          <figure class="s-shop__main" data-reveal="clip">
+            <img src="/media/schreinerei/werkstatt.webp" srcset="/media/schreinerei/werkstatt-800.webp 800w, /media/schreinerei/werkstatt.webp 1600w" sizes="(min-width: 900px) 60vw, 100vw" width="1600" height="1067" alt="Ein Schreiner passt mit dem Stemmeisen ein Bein in ein Gestell aus Eiche ein, Späne auf der Werkbank" loading="lazy" decoding="async" />
+          </figure>
+          <div class="s-shop__text">
+            <h2 id="shop-title" class="s-title" data-split>Die Maschine sägt vor. Das Stemmeisen macht es passend.</h2>
+            <p data-reveal>Zapfen und Zinken passen wir von Hand an, auf den Zehntelmillimeter. Darum wackelt bei uns auch nach zwanzig Jahren nichts.</p>
+          </div>
+          <figure class="s-shop__detail" data-reveal="clip" data-reveal-delay="0.15">
+            <img src="/media/schreinerei/zinken.webp" srcset="/media/schreinerei/zinken-800.webp 800w, /media/schreinerei/zinken.webp 1600w" sizes="(min-width: 900px) 26vw, 60vw" width="1600" height="1200" alt="Eckverbindung an einem Korpus aus Nussbaum, die Maserung läuft über die Kante" loading="lazy" decoding="async" />
+          </figure>
+        </div>
+      </section>
+
+      <section id="arbeiten" class="s-works" data-colorway="kreide" data-snap="start end" tabindex="-1" aria-labelledby="arbeiten-title">
+        <div class="wrap">
+          <h2 id="arbeiten-title" class="s-title" data-split>Aus der Werkstatt</h2>
+          <div class="s-works__grid">
+            <figure class="s-work s-work--tall">
+              <div class="s-work__img" data-reveal="clip"><img src="/media/schreinerei/esstisch.webp" srcset="/media/schreinerei/esstisch-800.webp 800w, /media/schreinerei/esstisch.webp 1600w" sizes="(min-width: 900px) 38vw, 100vw" width="1200" height="1600" alt="Wangentisch aus geölter Eiche mit passenden Stühlen in einer hellen Altbauwohnung" loading="lazy" decoding="async" /></div>
+              <figcaption><strong>Esstisch Elbe</strong><span>Eiche geölt · 220 × 95 cm</span><span class="s-price">ab 3.900 €</span></figcaption>
+            </figure>
+            <figure class="s-work s-work--wide">
+              <div class="s-work__img" data-reveal="clip"><img src="/media/schreinerei/regal.webp" srcset="/media/schreinerei/regal-800.webp 800w, /media/schreinerei/regal.webp 1600w" sizes="(min-width: 900px) 54vw, 100vw" width="1600" height="1067" alt="Einbauregal aus Esche, das eine Altbautür umrahmt" loading="lazy" decoding="async" /></div>
+              <figcaption><strong>Einbauregal Königsbrücker</strong><span>Esche weiß geölt · nach Aufmaß</span><span class="s-price">ab 6.200 €</span></figcaption>
+            </figure>
+            <figure class="s-work s-work--small">
+              <div class="s-work__img" data-reveal="clip"><img src="/media/schreinerei/sideboard.webp" srcset="/media/schreinerei/sideboard-800.webp 800w, /media/schreinerei/sideboard.webp 1600w" sizes="(min-width: 900px) 26vw, 100vw" width="1200" height="1600" alt="Sideboard aus Nussbaum auf schlankem Gestell vor einer graublauen Wand" loading="lazy" decoding="async" /></div>
+              <figcaption><strong>Sideboard Loschwitz</strong><span>Nussbaum · 180 × 48 cm</span><span class="s-price">ab 4.600 €</span></figcaption>
+            </figure>
+            <p class="s-works__note" data-reveal>
+              Jedes Stück entsteht genau einmal. Die Preise sind Richtwerte, das verbindliche Angebot kommt nach dem Aufmaß.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section id="ablauf" class="s-steps" data-colorway="kreide" data-snap="start end" aria-labelledby="ablauf-title">
+        <div class="wrap">
+          <h2 id="ablauf-title" class="s-title" data-split>Vom Aufmaß bis zum Aufbau</h2>
+          <!-- Zollstock: zeichnet sich beim Scrollen von links nach rechts -->
+          <svg class="s-ruler" data-draw="scrub" viewBox="0 0 1200 44" fill="none" aria-hidden="true">
+            <path d="M0 1 H1200" stroke="currentColor" stroke-width="2" />
+            <path stroke="currentColor" stroke-width="1.5" d="M1 1 V30 M25 1 V9 M50 1 V15 M75 1 V9 M100 1 V22 M125 1 V9 M150 1 V15 M175 1 V9 M200 1 V22 M225 1 V9 M250 1 V15 M275 1 V9 M300 1 V30 M325 1 V9 M350 1 V15 M375 1 V9 M400 1 V22 M425 1 V9 M450 1 V15 M475 1 V9 M500 1 V22 M525 1 V9 M550 1 V15 M575 1 V9 M600 1 V30 M625 1 V9 M650 1 V15 M675 1 V9 M700 1 V22 M725 1 V9 M750 1 V15 M775 1 V9 M800 1 V22 M825 1 V9 M850 1 V15 M875 1 V9 M900 1 V30 M925 1 V9 M950 1 V15 M975 1 V9 M1000 1 V22 M1025 1 V9 M1050 1 V15 M1075 1 V9 M1100 1 V22 M1125 1 V9 M1150 1 V15 M1175 1 V9 M1199 1 V30" />
+          </svg>
+          <ol class="s-steps__list" data-reveal-stagger>
+            <li><p class="mono">Woche 1</p><h3>Aufmaß bei Ihnen</h3><p>Wir messen, fotografieren und hören zu. Danach gibt es eine Skizze und einen Preisrahmen.</p></li>
+            <li><p class="mono">Woche 2–3</p><h3>Entwurf und Holz</h3><p>Zeichnung im Maßstab, Holzmuster zum Anfassen und ein Angebot, das gilt.</p></li>
+            <li><p class="mono">Woche 4–10</p><h3>Fertigung</h3><p>Zuschnitt, Verbindungen, Oberfläche. Wer mag, schaut zwischendurch in der Werkstatt vorbei.</p></li>
+            <li><p class="mono">Ein Tag</p><h3>Lieferung und Aufbau</h3><p>Wir bringen, bauen auf, richten aus und nehmen die Verpackung wieder mit.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <section id="kontakt" class="s-contact" data-chair="kontakt" data-colorway="eiche" data-snap="start end" tabindex="-1" aria-labelledby="kontakt-title">
+        <div class="wrap s-col">
+          <p class="mono">Offene Werkstatt · donnerstags 15–19 Uhr</p>
+          <h2 id="kontakt-title" class="s-display s-display--m" data-split>Holz riecht man am besten vor Ort.</h2>
+          <p class="s-lead">Bringen Sie eine Skizze, ein Foto oder nur eine Idee mit. Wir zeigen Muster und sagen ehrlich, was es kostet.</p>
+          <address class="s-address">
+            <span>Werkstatthof 3 · 01099 Dresden</span>
+            <span>Telefon <strong>0351 000 00 00</strong></span>
+            <span>werkstatt@hagedorn-moebel.example</span>
+          </address>
+          <a class="button button--big" href="mailto:werkstatt@hagedorn-moebel.example" data-magnetic data-roll>Termin per E-Mail anfragen</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap stage-content">
+      <p>Hagedorn Möbelwerkstatt · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>
