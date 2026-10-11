@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- include:head -->
+    <title>Impressum · {{name}}</title>
+    <meta name="robots" content="noindex" />
+    <script type="module" src="/src/pages/einfach.js"></script>
+  </head>
+  <body>
+    <!-- include:header -->
+    <main id="inhalt" tabindex="-1" class="recht wrap" data-colorway="buehne">
+      <p class="label"><a href="/">Start</a> · Impressum</p>
+      <h1 class="titel">Impressum</h1>
+      <p class="recht__hinweis">Platzhalter: Vor dem Livegang mit den echten Angaben füllen und prüfen lassen.</p>
+      <h2>Angaben gemäß § 5 DDG</h2>
+      <p>{{name}}<br />{{inhaber}}<br />{{strasse}}<br />{{ort}}</p>
+      <h2>Kontakt</h2>
+      <p>Telefon: <a href="tel:{{telefonLink}}">{{telefon}}</a><br />E-Mail: <a href="mailto:{{email}}">{{email}}</a></p>
+      <h2>Umsatzsteuer</h2>
+      <p>‹Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG oder Hinweis auf Kleinunternehmerregelung›</p>
+      <h2>Verantwortlich für den Inhalt</h2>
+      <p>{{inhaber}}, Anschrift wie oben</p>
+    </main>
+    <!-- include:footer -->
+  </body>
+</html>

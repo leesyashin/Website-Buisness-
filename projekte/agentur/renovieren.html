@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- include:head -->
+    <title>Webseite renovieren · {{name}}</title>
+    <meta name="description" content="Ihre Webseite ist in die Jahre gekommen? Kostenloser Schnell-Check für Ladezeit, Handy und Auffindbarkeit, danach machen wir sie moderner, schneller und besser." />
+    <script type="module" src="/src/pages/renovieren.js"></script>
+  </head>
+  <body class="seite-renovieren">
+    <!-- include:header -->
+
+    <main id="inhalt" tabindex="-1">
+      <!-- 1 · Adresse eingeben -->
+      <section class="bereich-kopf wrap" data-colorway="renovieren" aria-labelledby="ren-titel">
+        <p class="label"><a href="/">Start</a> · Renovieren</p>
+        <h1 id="ren-titel" class="bereich-kopf__titel" data-split data-split-now>Was da ist, machen wir besser.</h1>
+        <p class="bereich-kopf__text" data-reveal data-reveal-delay="0.3">Geben Sie die Adresse Ihrer Seite ein. Wir messen in etwa 30 Sekunden, wie schnell sie lädt, wie gut sie auf dem Handy funktioniert und ob Google sie gut lesen kann.</p>
+
+        <form class="check-form" data-check novalidate>
+          <label for="ren-url" class="visually-hidden">Adresse Ihrer Webseite</label>
+          <div class="url-feld url-feld--gross">
+            <input id="ren-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.ihre-seite.de" required />
+            <button class="knopf knopf--hell" type="submit">Kostenlos prüfen <span aria-hidden="true">→</span></button>
+          </div>
+          <p class="check-form__hinweis">Die Messung läuft über Google PageSpeed Insights. Dabei wird die Adresse Ihrer Seite an Google übermittelt. <a href="/datenschutz.html#pagespeed">Datenschutz</a></p>
+        </form>
+
+        <div class="check-ergebnis" data-check-ergebnis hidden aria-live="polite">
+          <p class="check-ergebnis__status" data-check-status></p>
+          <ul class="werte" data-check-werte>
+            <li data-wert="performance"><span class="werte__zahl">–</span><span class="werte__name">Ladezeit &amp; Leistung</span></li>
+            <li data-wert="accessibility"><span class="werte__zahl">–</span><span class="werte__name">Barrierefreiheit</span></li>
+            <li data-wert="best-practices"><span class="werte__zahl">–</span><span class="werte__name">Technik &amp; Sicherheit</span></li>
+            <li data-wert="seo"><span class="werte__zahl">–</span><span class="werte__name">Auffindbarkeit</span></li>
+          </ul>
+          <p class="check-ergebnis__deutung" data-check-deutung></p>
+          <a class="knopf knopf--hell" href="#anfrage">Jetzt sagen, was Sie stört <span aria-hidden="true">↓</span></a>
+        </div>
+      </section>
+
+      <!-- 2 · Vorher / Nachher -->
+      <section class="vorher-nachher-teil" data-colorway="buehne" aria-labelledby="vn-titel">
+        <div class="wrap abschnitt-kopf">
+          <p class="label">Vorher / Nachher</p>
+          <h2 id="vn-titel" class="titel" data-split>So sieht eine Renovierung aus.</h2>
+          <p class="abschnitt-kopf__text" data-reveal>Ein erfundener Malerbetrieb, wie es ihn tausendfach gibt. Vier Schritte, und aus der Seite von 2012 wird eine, die Anfragen bringt.</p>
+        </div>
+
+        <div class="wrap vn" data-vn>
+          <div class="vn__paar">
+            <figure>
+              <figcaption>Vorher</figcaption>
+              <div class="browser">
+                <div class="browser__leiste" aria-hidden="true"><i></i><i></i><i></i><span>maler-hoffmann-koeln.de</span></div>
+                <div class="vn__seite vn__seite--alt">
+                  <div class="alt alt--gross">
+                    <p class="alt__titel">Malerbetrieb Hoffmann – Ihr Maler in Köln!!!</p>
+                    <div class="alt__menue"><span>Home</span><span>Über uns</span><span>Leistungen</span><span>Galerie</span><span>Kontakt</span><span>Impressum</span></div>
+                    <div class="alt__inhalt"><div class="alt__bild"></div><p>Herzlich Willkommen auf unserer Homepage! Wir sind ein Meisterbetrieb mit langjähriger Erfahrung. Wir führen alle Maler- und Lackierarbeiten aus. Rufen Sie uns an oder schreiben Sie uns eine E-Mail. Diese Seite ist optimiert für 1024 × 768.</p></div>
+                    <p class="alt__zaehler">Sie sind Besucher Nr. 018342</p>
+                  </div>
+                </div>
+              </div>
+            </figure>
+            <figure>
+              <figcaption>Nachher</figcaption>
+              <div class="browser">
+                <div class="browser__leiste" aria-hidden="true"><i></i><i></i><i></i><span>maler-hoffmann-koeln.de</span></div>
+                <div class="vn__seite vn__seite--neu">
+                  <div class="nach">
+                    <div class="nach__nav"><b>Hoffmann</b><span>Leistungen</span><span>Projekte</span><span class="nach__cta">Angebot anfragen</span></div>
+                    <p class="nach__kicker">Malermeister in Köln-Ehrenfeld</p>
+                    <p class="nach__titel">Frische Wände in einer Woche.</p>
+                    <p class="nach__satz">Innen, Fassade, Lack. Festes Angebot nach dem Vor-Ort-Termin.</p>
+                    <div class="nach__reihe"><span>Innenräume</span><span>Fassaden</span><span>Lackierung</span></div>
+                  </div>
+                </div>
+              </div>
+            </figure>
+          </div>
+          <ol class="vn__schritte">
+            <li><h3>Klarer erster Eindruck</h3><p>Eine Aussage statt „Herzlich Willkommen“. Wer, was, wo, in einem Satz.</p></li>
+            <li><h3>Gebaut fürs Handy</h3><p>Die meisten Besucher kommen mit dem Smartphone. Texte, Knöpfe und Bilder passen sich an.</p></li>
+            <li><h3>Schnell geladen</h3><p>Bilder in modernen Formaten, kein Ballast. Die Seite steht, bevor jemand ungeduldig wird.</p></li>
+            <li><h3>Ein Weg zur Anfrage</h3><p>Ein deutlicher Knopf, überall erreichbar. Besucher müssen nicht suchen, wie sie Sie erreichen.</p></li>
+          </ol>
+        </div>
+      </section>
+
+      <!-- 3 · Was wir renovieren -->
+      <section class="leistungen-ren wrap" data-colorway="buehne" aria-labelledby="lr-titel">
+        <div class="abschnitt-kopf">
+          <p class="label">Was wir renovieren</p>
+          <h2 id="lr-titel" class="titel" data-split>Ausbessern, modernisieren, ergänzen.</h2>
+        </div>
+        <dl class="liste-zwei" data-reveal-stagger>
+          <div><dt>Design-Auffrischung</dt><dd>Neue Typografie, ruhigere Farben, bessere Bilder, im Rahmen Ihrer Marke.</dd></div>
+          <div><dt>Handy &amp; Tablet</dt><dd>Jede Seite funktioniert auf kleinen Bildschirmen, mit Daumen bedienbar.</dd></div>
+          <div><dt>Ladezeit</dt><dd>Bilder, Schriften und Code werden schlank. Messbar vorher und nachher.</dd></div>
+          <div><dt>Auffindbarkeit</dt><dd>Saubere Technik, Titel und Beschreibungen, damit Google Ihre Seite versteht.</dd></div>
+          <div><dt>Neue Funktionen</dt><dd>Online-Termine, Anfrageformular, Galerie, Stellenangebote, was fehlt.</dd></div>
+          <div><dt>Recht &amp; Barrierefreiheit</dt><dd>Impressum, Datenschutz, Einwilligung für externe Dienste, gut lesbar für alle.</dd></div>
+        </dl>
+        <p class="preis-zeile">Renovierung <strong>{{preis:renovieren}}</strong> · Pflege &amp; Hosting <strong>{{preis:pflege}}</strong> im Monat</p>
+      </section>
+
+      <!-- 4 · Anfrage -->
+      <section id="anfrage" class="anfrage" data-colorway="renovieren" aria-labelledby="anfrage-titel">
+        <div class="wrap anfrage__innen">
+          <div class="anfrage__kopf">
+            <p class="label">Anfrage</p>
+            <h2 id="anfrage-titel" class="titel" data-split>Was stört Sie an Ihrer Seite?</h2>
+            <p>Kreuzen Sie an, was zutrifft. Wir schauen uns Ihre Seite an und melden uns mit einem Vorschlag.</p>
+          </div>
+
+          <form class="fb fb--offen" method="post" data-anfrage="renovieren" novalidate>
+            <div class="feld">
+              <label for="anf-url">Adresse Ihrer Seite</label>
+              <input id="anf-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.ihre-seite.de" required data-url-uebernahme />
+            </div>
+
+            <fieldset class="feld">
+              <legend>Was trifft zu? <span class="optional">mehrere möglich</span></legend>
+              <div class="kacheln">
+                <label class="kachel"><input type="checkbox" name="probleme" value="Sieht veraltet aus" /><span>Sieht veraltet aus</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Auf dem Handy schlecht" /><span>Auf dem Handy schlecht</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Lädt langsam" /><span>Lädt langsam</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Wird bei Google nicht gefunden" /><span>Bei Google kaum zu finden</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Bringt keine Anfragen" /><span>Bringt keine Anfragen</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Kann nichts selbst ändern" /><span>Kann nichts selbst ändern</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Funktion fehlt" /><span>Eine Funktion fehlt</span></label>
+                <label class="kachel"><input type="checkbox" name="probleme" value="Rechtlich unsicher" /><span>Rechtlich unsicher</span></label>
+              </div>
+            </fieldset>
+
+            <div class="feld">
+              <label for="anf-text">Was fehlt oder stört genau? <span class="optional">optional</span></label>
+              <textarea id="anf-text" name="nachricht" rows="3" placeholder="z. B. Kunden sollen online Termine buchen können."></textarea>
+            </div>
+
+            <div class="feld">
+              <label for="anf-plz">Postleitzahl des Betriebs <span class="optional">optional</span></label>
+              <input id="anf-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" pattern="[0-9]{5}" maxlength="5" placeholder="z. B. 50667" data-plz />
+              <p class="feld__hinweis" data-plz-hinweis role="status" aria-live="polite">Für Foto- und Videoaufnahmen vor Ort in Köln und Umgebung.</p>
+            </div>
+            <label class="schalter" data-vor-ort>
+              <input type="checkbox" name="vorOrt" value="ja" />
+              <span><strong>Ja, neue Fotos und Videos vor Ort interessieren mich.</strong></span>
+            </label>
+
+            <div class="feld-reihe">
+              <div class="feld">
+                <label for="anf-name">Ihr Name</label>
+                <input id="anf-name" name="name" type="text" autocomplete="name" required />
+              </div>
+              <div class="feld">
+                <label for="anf-email">E-Mail</label>
+                <input id="anf-email" name="email" type="email" autocomplete="email" required />
+              </div>
+            </div>
+            <div class="feld">
+              <label for="anf-tel">Telefon <span class="optional">optional</span></label>
+              <input id="anf-tel" name="telefon" type="tel" autocomplete="tel" />
+            </div>
+            <label class="schalter">
+              <input type="checkbox" name="einwilligung" value="ja" required />
+              <span>Ich bin einverstanden, dass meine Angaben zur Bearbeitung der Anfrage gespeichert werden. Mehr dazu in der <a href="/datenschutz.html">Datenschutzerklärung</a>.</span>
+            </label>
+            <button class="knopf knopf--gross" type="submit">Anfrage senden <span aria-hidden="true">→</span></button>
+
+            <div class="fb__danke" data-danke hidden tabindex="-1">
+              <h3 class="titel">Danke, Ihre Anfrage ist da.</h3>
+              <p>Wir schauen uns Ihre Seite an und melden uns persönlich, meist innerhalb von zwei Werktagen.</p>
+            </div>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <!-- include:footer -->
+  </body>
+</html>
