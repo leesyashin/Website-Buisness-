@@ -1,0 +1,611 @@
+/* Hagedorn Möbelwerkstatt. Raster: Text auf einer Hälfte, der 3D-Stuhl auf der anderen.
+   Kühles Kreidegrau, Holz als einzige warme Farbe, Zimmermannsbleistift-Rot als Akzent. */
+
+/* Starter-Stile zuerst, Seitenstile danach: als @import in einer Datei, damit die Reihenfolge auch im Build stimmt */
+@import '@starter/styles/tokens.css';
+@import '@starter/styles/base.css';
+@import '@starter/styles/sections.css';
+@import '../shared/example.css';
+
+:root {
+  --font-sans: 'Funnel Sans Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Funnel Display Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Fragment Mono', ui-monospace, monospace;
+  --radius: 3px;
+}
+
+/* ---------- Colorways: Kreide (Werkstatt) + je Holzart eine Welt ---------- */
+html[data-colorway='kreide'],
+html:not(.colorway-live) [data-colorway='kreide'] {
+  --cw-bg: #dde2e0;
+  --cw-ink: #1c2321;
+  --cw-soft: #535d5a;
+  --cw-accent: #c4432a;
+  --cw-line: #1c232129;
+}
+
+html[data-colorway='eiche'],
+html:not(.colorway-live) [data-colorway='eiche'] {
+  --cw-bg: #e2e6da;
+  --cw-ink: #1f261c;
+  --cw-soft: #545e50;
+  --cw-accent: #9c5520;
+  --cw-line: #1f261c26;
+}
+
+html[data-colorway='nuss'],
+html:not(.colorway-live) [data-colorway='nuss'] {
+  --cw-bg: #1c2021;
+  --cw-ink: #ece6da;
+  --cw-soft: #a19d93;
+  --cw-accent: #e3915a;
+  --cw-line: #ece6da24;
+}
+
+html[data-colorway='esche'],
+html:not(.colorway-live) [data-colorway='esche'] {
+  --cw-bg: #263642;
+  --cw-ink: #e9eff1;
+  --cw-soft: #a3b4bd;
+  --cw-accent: #f2c38e;
+  --cw-line: #e9eff126;
+}
+
+[data-highlight] {
+  --c-on-highlight: var(--cw-bg);
+}
+
+/* ---------- Typo ---------- */
+.s-display {
+  font-family: var(--font-display);
+  font-size: clamp(2.8rem, 1rem + 5.2vw, 7rem);
+  font-weight: 700;
+  line-height: 0.94;
+  letter-spacing: -0.035em;
+}
+
+.s-display--m {
+  font-size: clamp(2.4rem, 1rem + 3.8vw, 5.4rem);
+}
+
+.s-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.1rem, 1rem + 3vw, 4.4rem);
+  font-weight: 650;
+  line-height: 0.98;
+  letter-spacing: -0.03em;
+}
+
+.s-lead {
+  font-size: var(--step-1);
+  line-height: 1.38;
+  max-width: 34ch;
+}
+
+.brand {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--step-1);
+  letter-spacing: -0.02em;
+}
+
+.brand span {
+  margin-left: 0.4em;
+  color: var(--cw-soft);
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.mono {
+  color: var(--cw-soft);
+}
+
+.button {
+  border-radius: var(--radius);
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.button:hover {
+  background: var(--cw-accent);
+  color: #fff;
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--cw-ink);
+}
+
+.button--big {
+  font-size: var(--step-1);
+  padding: 1em 1.7em;
+}
+
+/* ---------- Kapitel mit Stuhl: eine Bildschirmhöhe, Text in einer Hälfte ---------- */
+.s-hero,
+.s-parts,
+.s-wood,
+.s-contact {
+  position: relative;
+  display: grid;
+  min-height: 100svh;
+  align-items: center;
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.s-col {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.s-col > * {
+  max-width: 44%;
+}
+
+.s-hero .s-display {
+  max-width: 60%;
+}
+
+.s-col--right {
+  padding-left: 54%;
+}
+
+.s-col--right > * {
+  max-width: none;
+}
+
+.s-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-xs);
+  margin-top: var(--space-2xs);
+}
+
+/* Zerlegt: Überschrift kleiner, damit Stückliste und Summe auf einen Bildschirm passen */
+.s-parts .s-col {
+  gap: var(--space-s);
+}
+
+.s-parts .s-display--m {
+  font-size: clamp(2.2rem, 1rem + 2.8vw, 4.2rem);
+}
+
+/* Stückliste: wie ein Ausdruck aus der Werkstatt */
+.s-bom {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+  font-variant-numeric: tabular-nums;
+}
+
+.s-bom caption {
+  padding-bottom: var(--space-2xs);
+  color: var(--cw-soft);
+  text-align: left;
+}
+
+.s-bom th,
+.s-bom td {
+  padding: 0.32rem 0.6rem 0.32rem 0;
+  border-bottom: 1px solid var(--cw-line);
+  font-weight: 400;
+  text-align: left;
+}
+
+.s-bom thead th {
+  border-bottom: 1.5px solid var(--cw-ink);
+  color: var(--cw-soft);
+}
+
+.s-bom td:last-child {
+  padding-right: 0;
+  text-align: right;
+}
+
+.s-bom thead th:last-child {
+  text-align: right;
+}
+
+.s-sum {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-m);
+  width: 100%;
+  margin: 0;
+}
+
+.s-sum div {
+  display: flex;
+  flex-direction: column-reverse;
+  gap: var(--space-2xs);
+  padding-top: var(--space-xs);
+  border-top: 3px solid var(--cw-ink);
+}
+
+.s-sum div:last-child {
+  border-top-color: var(--cw-accent);
+}
+
+.s-sum dd {
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: var(--step-4);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.s-sum dt {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+/* Holzarten */
+.s-latin {
+  margin-top: calc(var(--space-m) * -0.6);
+  color: var(--cw-soft);
+  font-family: var(--font-mono);
+  font-size: var(--step--1);
+}
+
+.s-facts {
+  display: grid;
+  gap: 0;
+  width: 100%;
+  margin: var(--space-2xs) 0 0;
+}
+
+.s-facts div {
+  display: grid;
+  grid-template-columns: 11rem 1fr;
+  gap: var(--space-s);
+  padding-block: var(--space-xs);
+  border-top: 1px solid var(--cw-line);
+}
+
+.s-facts dt {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.s-facts dd {
+  margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ---------- Deckende Kapitel: verdecken die Stuhl-Bühne ---------- */
+.s-shop,
+.s-works,
+.s-steps {
+  position: relative;
+  background: var(--cw-bg);
+}
+
+/* Werkstatt: großes Foto, Text, Detailfoto versetzt */
+.s-shop {
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.s-shop__grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  grid-template-rows: auto auto;
+  gap: var(--space-m) var(--space-l);
+  align-items: start;
+}
+
+.s-shop__main {
+  grid-column: 1 / 8;
+  grid-row: 1 / 3;
+  aspect-ratio: 3 / 2;
+}
+
+.s-shop__text {
+  grid-column: 8 / 13;
+  grid-row: 1;
+  display: grid;
+  gap: var(--space-m);
+  align-self: end;
+}
+
+.s-shop__detail {
+  grid-column: 9 / 13;
+  grid-row: 2;
+  aspect-ratio: 4 / 3;
+}
+
+.s-shop figure,
+.s-work__img {
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: color-mix(in oklch, var(--cw-ink) 8%, var(--cw-bg));
+}
+
+.s-shop img,
+.s-work__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Arbeiten: hohes Bild links, breites rechts, darunter klein + Notiz */
+.s-works {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.s-works .s-title {
+  margin-bottom: var(--space-l);
+}
+
+.s-works__grid {
+  display: grid;
+  grid-template-columns: 5fr 3.5fr 3.5fr;
+  grid-template-areas:
+    'tall wide wide'
+    'tall small note';
+  gap: var(--space-l) var(--space-m);
+  align-items: start;
+}
+
+.s-work {
+  display: grid;
+  gap: var(--space-xs);
+}
+
+.s-work--tall {
+  grid-area: tall;
+}
+
+.s-work--tall .s-work__img {
+  aspect-ratio: 3 / 4;
+}
+
+.s-work--wide {
+  grid-area: wide;
+}
+
+.s-work--wide .s-work__img {
+  aspect-ratio: 2 / 1;
+}
+
+.s-work--small {
+  grid-area: small;
+}
+
+.s-work--small .s-work__img {
+  aspect-ratio: 1 / 1;
+}
+
+.s-work__img img {
+  transition: transform 0.9s var(--ease-signature);
+}
+
+.s-work:hover .s-work__img img {
+  transform: scale(1.03);
+}
+
+.s-work figcaption {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 0.1rem var(--space-s);
+  font-size: var(--step--1);
+}
+
+.s-work figcaption strong {
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+.s-work figcaption span {
+  grid-column: 1;
+  color: var(--cw-soft);
+}
+
+.s-work .s-price {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: end;
+  color: var(--cw-ink);
+  font-family: var(--font-mono);
+}
+
+.s-works__note {
+  grid-area: note;
+  align-self: end;
+  color: var(--cw-soft);
+  max-width: 30ch;
+}
+
+/* Ablauf: Zollstock zeichnet sich, vier Schritte darunter. Volle Höhe, damit der Kontakt nicht hereinschaut */
+.s-steps {
+  display: grid;
+  align-items: center;
+  min-height: 100svh;
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.s-ruler {
+  width: 100%;
+  margin-block: var(--space-l) var(--space-m);
+  color: var(--cw-accent);
+}
+
+.s-steps__list {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-l);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.s-steps__list li {
+  display: grid;
+  gap: var(--space-2xs);
+  align-content: start;
+}
+
+.s-steps__list h3 {
+  font-family: var(--font-display);
+  font-size: var(--step-2);
+  font-weight: 650;
+  letter-spacing: -0.02em;
+}
+
+.s-steps__list li > p:last-child {
+  color: var(--cw-soft);
+}
+
+/* Kontakt */
+.s-address {
+  display: grid;
+  gap: 0.2rem;
+  font-style: normal;
+}
+
+.s-address strong {
+  font-weight: 600;
+  user-select: all;
+}
+
+/* ---------- Beschriftungen an der zerlegten Ansicht (gesetzt von scene.js) ---------- */
+.chair-tags {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+
+.chair-tag {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.55em;
+  translate: -4px -50%;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  white-space: nowrap;
+  color: var(--cw-ink);
+}
+
+.chair-tag::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--cw-accent);
+  box-shadow: 0 0 0 4px color-mix(in oklch, var(--cw-accent) 22%, transparent);
+}
+
+/* Kein WebGL: statt des 3D-Stuhls ein Rendering aus der Szene (zusammengebaut) */
+.chair-fallback {
+  display: none;
+}
+
+.no-webgl .stage {
+  display: none;
+}
+
+.no-webgl .chair-fallback {
+  position: fixed;
+  right: 8vw;
+  top: 50%;
+  z-index: 0;
+  display: block;
+  width: min(30vw, 26rem);
+  height: auto;
+  transform: translateY(-50%);
+}
+
+@media (max-width: 899px) {
+  .no-webgl .chair-fallback {
+    left: 50%;
+    right: auto;
+    top: calc(var(--header-h) + 1rem);
+    width: min(56vw, 15rem);
+    transform: translateX(-50%);
+  }
+}
+
+/* ---------- Handy: Stuhl oben, Text darunter auf Abschnittsfarbe ---------- */
+@media (max-width: 899px) {
+  .s-hero,
+  .s-parts,
+  .s-wood,
+  .s-contact {
+    align-items: start;
+    padding-top: 52svh;
+    background: linear-gradient(to bottom, transparent calc(52svh - 5rem), var(--cw-bg) calc(52svh - 1rem));
+  }
+
+  .s-col > *,
+  .s-hero .s-display {
+    max-width: 100%;
+  }
+
+  .s-col--right {
+    padding-left: 0;
+  }
+
+  .s-shop__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-m);
+  }
+
+  .s-shop__main {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .s-shop__text {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .s-shop__detail {
+    grid-column: 2;
+    grid-row: auto;
+  }
+
+  .s-works__grid {
+    grid-template-columns: 1fr;
+    grid-template-areas: 'tall' 'wide' 'small' 'note';
+  }
+
+  .s-work--small .s-work__img {
+    aspect-ratio: 4 / 3;
+  }
+
+  .s-steps__list {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-l) var(--space-m);
+  }
+
+  .s-facts div {
+    grid-template-columns: 1fr;
+    gap: 0.1rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .brand span {
+    display: none;
+  }
+
+  .s-steps__list {
+    grid-template-columns: 1fr;
+  }
+
+  .s-sum dd {
+    font-size: var(--step-3);
+  }
+}

@@ -13,6 +13,13 @@ body {
   color: var(--cw-ink);
 }
 
+/* Ohne JavaScript wechselt die Seite ihre Farbwelt nicht: die feste Kopfzeile behält die Farben der ersten
+   Farbwelt und bekommt deshalb eine eigene Fläche, sonst stünde dunkle Schrift über dunklen Abschnitten. */
+html:not(.colorway-live) .site-header {
+  background: var(--cw-bg);
+  box-shadow: 0 1px 0 var(--cw-line);
+}
+
 /* Zurück zur Übersicht – auf jeder Beispielseite unten links */
 .back-to-hub {
   position: fixed;

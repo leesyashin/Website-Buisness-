@@ -1,10 +1,6 @@
 import '@fontsource-variable/archivo/standard.css';
 import '@fontsource/ibm-plex-mono/400.css';
 import '@fontsource/ibm-plex-mono/500.css';
-import '@starter/styles/tokens.css';
-import '@starter/styles/base.css';
-import '@starter/styles/sections.css';
-import '../shared/example.css';
 import './bau.css';
 import { initMotion } from '@starter/motion/index.js';
 

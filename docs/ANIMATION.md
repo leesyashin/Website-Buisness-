@@ -35,6 +35,7 @@ Jedes Muster hängt an einem `data-`-Attribut im HTML. Ohne JavaScript oder bei 
 | `data-split` · `="words"` · `="chars"` + `data-split-now` | Überschrift steigt zeilen-/wort-/zeichenweise aus einer Maske | `motion/split.js` |
 | `data-scrub-text` | Absatz hellt sich beim Scrollen Wort für Wort auf | `motion/scrub-text.js` |
 | `data-parallax="0.2"` | Ebene wandert langsamer/schneller (−0.3 … 0.3) | `motion/parallax.js` |
+| `data-zoom` · `="1.2"` | Bild im Rahmen startet vergrößert und zoomt beim Scrollen auf Normalgröße (große Projekt-/Hero-Bilder) | `motion/zoom.js` |
 | `data-horizontal` + `data-horizontal-track` | Abschnitt anheften, Spur fährt seitwärts (nur Desktop) | `motion/horizontal.js` |
 | `data-marquee` · `data-marquee-speed` | Laufband, reagiert auf Scrolltempo | `motion/marquee.js` |
 | `data-magnetic="0.3"` | Knopf folgt der Maus (nur feiner Zeiger) | `motion/magnetic.js` |
@@ -52,6 +53,8 @@ Jedes Muster hängt an einem `data-`-Attribut im HTML. Ohne JavaScript oder bei 
 
 Neue Muster: eigene Datei unter `src/motion/`, in `motion/index.js` innerhalb von `gsap.matchMedia()` registrieren, eine Zeile in diese Tabelle.
 
+Eigene Anheftungen (`pin: true`) in Seiten-Skripten entstehen nach den Auslösern des Starters. Danach `ScrollTrigger.sort()` aufrufen, sonst rechnen Farbwelten und Reveals weiter unten ohne die Länge der Anheftung (Beispiel: `beispiele/src/physio/range.js`). Der Starter sortiert zusätzlich beim Laden von Schriften und Seite.
+
 ### Regeln, damit es hochwertig wirkt (und nicht nach Template)
 
 1. **Jede Bewegung hat einen Grund:** Blick lenken, Zusammenhang zeigen (Bild fliegt in die Detailseite), Rückmeldung geben. Fünf gute Momente schlagen zwanzig Effekte.
@@ -61,6 +64,7 @@ Neue Muster: eigene Datei unter `src/motion/`, in `motion/index.js` innerhalb vo
 5. **Reduzierte Bewegung ist Pflicht:** `gsap.matchMedia` schaltet alles ab, Inhalte stehen statisch und vollständig da, Videos pausieren.
 6. **Mobil ist eigene Regie,** kein geschrumpfter Desktop: keine Pins mit Seitwärtsfahrt, stattdessen Wischleisten; kein Magnet-Cursor.
 7. **Kein Layout-Springen:** Startzustände nur über die Klasse `motion-pending` (Inline-Skript im `<head>`), mit Sicherheitsnetz nach 3 s.
+8. **Dauerschleifen sparsam:** Was länger als 5 Sekunden läuft, startet besser auf Knopfdruck, lässt sich anhalten und endet von allein (WCAG 2.2.2), z. B. die Atemübung in `beispiele/src/zahnarzt/breathe.js`. Laufbänder (`data-marquee`) tragen deshalb nie Inhalt, der sonst auf der Seite fehlt.
 
 ### Farbwelten (Colorways)
 
@@ -68,7 +72,7 @@ Jede Farbwelt ist ein CSS-Block mit fünf Variablen (`--cw-bg`, `--cw-ink`, `--c
 
 ### 3D im Browser (three.js)
 
-Beispiele in `beispiele/src/dose/scene.js` (Produkt) und `beispiele/src/bau/building.js` (Gebäude). Muster:
+Beispiele in `beispiele/src/dose/scene.js` (Produkt), `beispiele/src/bau/building.js` (Gebäude) und `beispiele/src/schreinerei/scene.js` (Stuhl mit Explosionsansicht). Muster:
 
 - **Bühne fest hinter dem Inhalt** (`.stage`), Inhalt scrollt darüber; Haltung pro Kapitel als Tabelle (`POSES`), Übergänge per ScrollTrigger mit `scrub`.
 - **Haltung endet genau dort, wo die Seite einrastet** (`end: 'top top'` + `data-snap` am Kapitel): kein Zwischenzustand bleibt stehen.
@@ -77,7 +81,10 @@ Beispiele in `beispiele/src/dose/scene.js` (Produkt) und `beispiele/src/bau/buil
 - **three.js nachladen** (`import()`), damit Text und Layout sofort stehen. ~150 KB gzip.
 - **Spiegelungen statt vieler Lichter:** `RoomEnvironment` als Umgebung + ein Streiflicht. Kontaktschatten als weicher Verlauf statt echter Schatten (Produkt) oder Schatten mit `ShadowMaterial` (Gebäude).
 - **Etiketten/Texturen auf Canvas malen** (`label.js`): eine Quelle für Website und Video.
-- **Fallback:** ohne WebGL ein gerendertes Standbild (Remotion `CanStill`), bei reduzierter Bewegung eine feste Haltung.
+- **Explosionsansicht:** jedes Teil ist eine eigene Gruppe mit Ruheposition und Richtung; ein Wert `e` (0 = zusammen, 1 = zerlegt) steht in der Haltungstabelle wie Position und Drehung. Teile starten versetzt, Zapfen stecken im Ruhezustand unsichtbar im Nachbarteil. Beschriftungen sind HTML, per `Vector3.project()` an die Teile gehängt (nur Desktop, `aria-hidden`), die Stückliste steht als Tabelle im Text.
+- **Material per Colorway:** Holzart = Colorway-Name, die Maserung kommt von einem Canvas (`schreinerei/wood.js`), der Wechsel passiert mitten in einer halben Drehung.
+- **Nicht rendern, wenn verdeckt:** liegen deckende Abschnitte über der Bühne, pausiert das Rendern (`schreinerei/scene.js`, Prüfung der Kapitel-Rechtecke im Takt).
+- **Fallback:** ohne WebGL ein gerendertes Standbild (Remotion `CanStill`, beim Stuhl ein Screenshot der Szene mit transparentem Hintergrund), bei reduzierter Bewegung eine feste Haltung.
 - **Mobil:** Objekt in der oberen Bildhälfte, Text gleitet darunter über eine Farbfläche.
 
 ### Wann mehr als GSAP?

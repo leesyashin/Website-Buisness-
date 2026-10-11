@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="de" data-colorway="papier">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Kessler Vogt Architekten · Köln</title>
+    <meta name="description" content="Beispielseite Architekturbüro: Projektleiste, Seitenwechsel per View Transition in die Projektseite, Leistungsphasen nach HOAI." />
+    <script>
+      if (matchMedia('(prefers-reduced-motion: no-preference)').matches) {
+        document.documentElement.classList.add('motion-pending');
+        setTimeout(() => document.documentElement.classList.remove('motion-pending'), 3000);
+      }
+    </script>
+    <script type="module" src="/src/architektur/main.js"></script>
+  </head>
+  <body class="architektur">
+    <a class="skip-link" href="#inhalt">Zum Inhalt</a>
+
+    <header class="site-header" data-header>
+      <div class="wrap site-header__inner">
+        <a class="brand" href="./">kessler vogt<span>architekten</span></a>
+        <nav aria-label="Hauptnavigation">
+          <ul class="nav">
+            <li><a href="#projekte" data-roll>Projekte</a></li>
+            <li><a href="#buero" data-roll>Büro</a></li>
+            <li><a href="#kontakt" data-roll>Kontakt</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <main id="inhalt" tabindex="-1">
+      <section class="a-hero" data-colorway="papier" aria-labelledby="hero-title">
+        <div class="wrap a-hero__grid">
+          <h1 id="hero-title" class="a-display" data-split data-split-now>Bauen mit dem, was schon da ist.</h1>
+          <p class="a-lead" data-reveal="fade" data-reveal-delay="0.5">
+            Architekturbüro in Köln-Ehrenfeld. Wir bauen um, weiter und neu: Wohnhäuser, Bildung, Arbeit.
+          </p>
+        </div>
+      </section>
+
+      <section id="projekte" class="a-work" data-colorway="papier" tabindex="-1" aria-labelledby="projekte-title">
+        <div class="wrap a-work__head">
+          <h2 id="projekte-title" class="a-label">Projekte</h2>
+          <div class="a-rail__nav" data-rail-nav hidden>
+            <button type="button" data-rail-prev aria-label="Vorheriges Projekt">←</button>
+            <button type="button" data-rail-next aria-label="Nächstes Projekt">→</button>
+          </div>
+        </div>
+        <ul class="a-rail" data-rail>
+          <li class="a-card">
+            <a href="speicher-7.html">
+              <figure class="a-card__img" style="view-transition-name: projekt-speicher-7" data-reveal="clip">
+                <img src="/media/architektur/speicher-7.webp" srcset="/media/architektur/speicher-7-800.webp 800w, /media/architektur/speicher-7.webp 1600w" sizes="(min-width: 900px) 44vw, 84vw" width="1600" height="1067" alt="Backsteinspeicher mit neuen schwarzen Stahlfenstern und gläsernem Dachaufbau" decoding="async" />
+              </figure>
+              <h3 style="view-transition-name: titel-speicher-7">Speicher 7</h3>
+              <p>Umbau zu Ateliers · Köln-Deutz · 2025</p>
+            </a>
+          </li>
+          <li class="a-card">
+            <a href="haus-am-hang.html">
+              <figure class="a-card__img" style="view-transition-name: projekt-haus-am-hang" data-reveal="clip" data-reveal-delay="0.1">
+                <img src="/media/architektur/haus-am-hang.webp" srcset="/media/architektur/haus-am-hang-800.webp 800w, /media/architektur/haus-am-hang.webp 1600w" sizes="(min-width: 900px) 44vw, 84vw" width="1600" height="1067" alt="Wohnhaus am Waldhang: Sockel aus Sichtbeton, darüber ein Kubus aus Lärchenholz mit Fensterband" decoding="async" />
+              </figure>
+              <h3 style="view-transition-name: titel-haus-am-hang">Haus am Hang</h3>
+              <p>Wohnhaus · Bergisch Gladbach · 2024</p>
+            </a>
+          </li>
+          <li class="a-card">
+            <a href="bootshaus.html">
+              <figure class="a-card__img" style="view-transition-name: projekt-bootshaus" data-reveal="clip" data-reveal-delay="0.2">
+                <img src="/media/architektur/bootshaus.webp" srcset="/media/architektur/bootshaus-800.webp 800w, /media/architektur/bootshaus.webp 1600w" sizes="(min-width: 900px) 44vw, 84vw" width="1600" height="1067" alt="Langgestrecktes Bootshaus aus senkrechten Holzlatten am Flussufer im Morgennebel" loading="lazy" decoding="async" />
+              </figure>
+              <h3 style="view-transition-name: titel-bootshaus">Bootshaus Rodenkirchen</h3>
+              <p>Ruderclub · Köln-Rodenkirchen · 2023</p>
+            </a>
+          </li>
+          <li class="a-card">
+            <a href="hof-ehrenfeld.html">
+              <figure class="a-card__img" style="view-transition-name: projekt-hof-ehrenfeld" data-reveal="clip" data-reveal-delay="0.3">
+                <img src="/media/architektur/hof-ehrenfeld.webp" srcset="/media/architektur/hof-ehrenfeld-800.webp 800w, /media/architektur/hof-ehrenfeld.webp 1600w" sizes="(min-width: 900px) 44vw, 84vw" width="1600" height="1067" alt="Wohnhaus mit hellem Kalkputz und hölzernen Laubengängen um einen grünen Innenhof" loading="lazy" decoding="async" />
+              </figure>
+              <h3 style="view-transition-name: titel-hof-ehrenfeld">Hof Ehrenfeld</h3>
+              <p>38 Wohnungen · Köln-Ehrenfeld · 2022</p>
+            </a>
+          </li>
+        </ul>
+        <div class="wrap"><div class="a-rail__progress" data-rail-progress aria-hidden="true"><span></span></div></div>
+      </section>
+
+      <section class="a-stance" data-colorway="papier" aria-label="Haltung">
+        <div class="wrap">
+          <p class="a-statement" data-scrub-text>
+            Das nachhaltigste Haus ist das, das schon steht. Deshalb fragen wir zuerst, was bleiben kann: Mauern, Decken,
+            Geschichten. Und planen das Neue so, dass man es in fünfzig Jahren wieder umbauen kann.
+          </p>
+        </div>
+      </section>
+
+      <section id="buero" class="a-office" data-colorway="papier" tabindex="-1" aria-labelledby="buero-title">
+        <div class="wrap a-office__grid">
+          <div class="a-office__text">
+            <h2 id="buero-title" class="a-title" data-split>Büro</h2>
+            <p data-reveal>
+              Vierzehn Menschen in einer alten Druckerei in Ehrenfeld. Wir begleiten Projekte durch alle neun
+              Leistungsphasen, vom ersten Gespräch bis zur Gewährleistung, und bleiben dabei Ihr einziger Ansprechpartner.
+            </p>
+            <dl class="a-numbers" data-reveal-stagger>
+              <div><dt>Jahre</dt><dd data-count-to="17">17</dd></div>
+              <div><dt>Menschen</dt><dd data-count-to="14">14</dd></div>
+              <div><dt>gebaut</dt><dd data-count-to="63">63</dd></div>
+            </dl>
+          </div>
+          <figure class="a-phases" aria-labelledby="phasen-title">
+            <figcaption id="phasen-title">Leistungsphasen nach HOAI und ihr Anteil am Honorar</figcaption>
+            <ol class="a-phases__bars">
+              <li style="--p: 2"><span class="a-bar" data-reveal="clip"></span><b>2 %</b><span>Grund&shy;lagen</span></li>
+              <li style="--p: 7"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.05"></span><b>7 %</b><span>Vor&shy;planung</span></li>
+              <li style="--p: 15"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.1"></span><b>15 %</b><span>Entwurf</span></li>
+              <li style="--p: 3"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.15"></span><b>3 %</b><span>Geneh&shy;migung</span></li>
+              <li style="--p: 25"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.2"></span><b>25 %</b><span>Aus&shy;führung</span></li>
+              <li style="--p: 10"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.25"></span><b>10 %</b><span>Vergabe vor&shy;bereiten</span></li>
+              <li style="--p: 4"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.3"></span><b>4 %</b><span>Vergabe</span></li>
+              <li style="--p: 32"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.35"></span><b>32 %</b><span>Bau&shy;über&shy;wachung</span></li>
+              <li style="--p: 2"><span class="a-bar" data-reveal="clip" data-reveal-delay="0.4"></span><b>2 %</b><span>Betreu&shy;ung</span></li>
+            </ol>
+          </figure>
+        </div>
+      </section>
+
+      <section id="kontakt" class="a-contact" data-colorway="nacht" tabindex="-1" aria-labelledby="kontakt-title">
+        <div class="wrap a-contact__grid">
+          <h2 id="kontakt-title" class="a-display a-display--m" data-split>Erzählen Sie uns von Ihrem Grundstück oder Gebäude.</h2>
+          <address class="a-contact__ways">
+            <a href="mailto:buero@kesslervogt.example">buero@kesslervogt.example</a>
+            <a href="tel:+492210000000">0221 000 00 00</a>
+            <span>Hinter dem Güterbahnhof 4 · 50823 Köln</span>
+          </address>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer wrap">
+      <p>Kessler Vogt Architekten · fiktives Beispiel</p>
+      <p><a href="#inhalt">Nach oben</a></p>
+    </footer>
+
+    <a class="back-to-hub" href="../">← Alle Beispiele</a>
+  </body>
+</html>

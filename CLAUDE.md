@@ -7,7 +7,7 @@ Hier entstehen Websites für Kunden: animiert, schnell, barrierearm, rechtssiche
 | Ordner | Inhalt |
 |---|---|
 | `starter/` | Grundgerüst jeder Kundenseite: Vite, GSAP (ScrollTrigger, SplitText), Lenis, View Transitions, Bewegung per `data-`-Attribut |
-| `beispiele/` | Beispielseiten pro Branche (Produkt/3D-Dose, Baufirma/3D-Gebäude, Restaurant/Reservierung), nutzen `@starter/…` direkt |
+| `beispiele/` | Beispielseiten pro Branche (Produkt/3D-Dose, Baufirma/3D-Gebäude, Restaurant/Reservierung, Schreinerei/3D-Stuhl, Zahnarzt/Terminanfrage, Physio/Bewegungsfigur, Architektur/View Transitions), nutzen `@starter/…` direkt |
 | `video/` | Remotion: Hero-Loops, Reels, 3D-Produktvideo (`@remotion/three`, gleicher Dosen-Code wie `beispiele/`) |
 | `projekte/<kunde>/` | Kundenprojekte, jeweils Kopie von `starter/` mit eigener `PRODUCT.md` und `DESIGN.md` |
 | `referenzen/` | vermessene Vorbild-Websites (`sites.txt`, Berichte, `VERGLEICH.md`) |

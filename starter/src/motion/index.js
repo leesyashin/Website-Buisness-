@@ -22,6 +22,7 @@ import { initHighlight } from './highlight.js';
 import { initRoll } from './roll.js';
 import { initStack } from './stack.js';
 import { initSnap } from './snap.js';
+import { initZoom } from './zoom.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, CustomEase);
 CustomEase.create('signature', signatureCurve);
@@ -49,6 +50,7 @@ export function initMotion() {
     cleanups.push(initSnap(window.lenis));
     initReveal();
     initParallax();
+    initZoom();
     initCounter();
     initScramble();
     initDraw();
@@ -60,9 +62,15 @@ export function initMotion() {
     html.classList.remove('motion-pending');
     html.classList.add('motion-ready');
 
-    // Nach dem Laden von Schriften und Bildern ändern sich Höhen – Szenen neu vermessen
-    document.fonts?.ready.then(() => ScrollTrigger.refresh());
-    window.addEventListener('load', () => ScrollTrigger.refresh(), { once: true });
+    // Nach dem Laden von Schriften und Bildern ändern sich Höhen – Szenen neu vermessen.
+    // sort() bringt alle Auslöser in Seitenreihenfolge: Anheftungen (Pins), die erst später entstehen
+    // (Seitwärts-Strecke, Seiten-Skripte), verschieben dann auch früher erstellte Auslöser darunter richtig.
+    const refresh = () => {
+      ScrollTrigger.sort();
+      ScrollTrigger.refresh();
+    };
+    document.fonts?.ready.then(refresh);
+    window.addEventListener('load', refresh, { once: true });
 
     return () => {
       cleanups.forEach((c) => c?.());

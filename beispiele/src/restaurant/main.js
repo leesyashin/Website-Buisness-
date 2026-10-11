@@ -1,10 +1,6 @@
 import '@fontsource-variable/fraunces/full.css';
 import '@fontsource-variable/fraunces/full-italic.css';
 import '@fontsource-variable/hanken-grotesk';
-import '@starter/styles/tokens.css';
-import '@starter/styles/base.css';
-import '@starter/styles/sections.css';
-import '../shared/example.css';
 import './restaurant.css';
 import { initMotion } from '@starter/motion/index.js';
 import { setColorway } from '@starter/motion/colorway.js';

@@ -1,0 +1,1003 @@
+/* Zahnärzte am Rosenplatz. Leise Seite: viel Weißraum, weiche Ecken, Bewegung kaum spürbar (nur Einblenden).
+   Warmes Weiß, tiefes Grün als Schrift, Apricot als einziger Akzent. */
+
+/* Starter-Stile zuerst, Seitenstile danach: als @import in einer Datei, damit die Reihenfolge auch im Build stimmt */
+@import '@starter/styles/tokens.css';
+@import '@starter/styles/base.css';
+@import '@starter/styles/sections.css';
+@import '../shared/example.css';
+
+:root {
+  --font-sans: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-display: 'Figtree Variable', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'Figtree Variable', ui-sans-serif, sans-serif;
+  --radius: 1.25rem;
+}
+
+/* ---------- Colorways: Morgen (Grundton), Salbei (Angst), Tief (Termin) ---------- */
+html[data-colorway='morgen'],
+html:not(.colorway-live) [data-colorway='morgen'] {
+  --cw-bg: #f3f5f1;
+  --cw-ink: #1d3430;
+  --cw-soft: #546763;
+  --cw-accent: #d4703f;
+  --cw-line: #1d343021;
+  --cw-card: #e6ebe5;
+}
+
+html[data-colorway='salbei'],
+html:not(.colorway-live) [data-colorway='salbei'] {
+  --cw-bg: #dde7e0;
+  --cw-ink: #1d3430;
+  --cw-soft: #4b5f5a;
+  --cw-accent: #c4612f;
+  --cw-line: #1d343024;
+  --cw-card: #d0ddd5;
+}
+
+html[data-colorway='tief'],
+html:not(.colorway-live) [data-colorway='tief'] {
+  --cw-bg: #1d3430;
+  --cw-ink: #eef1ec;
+  --cw-soft: #b4c4bf;
+  --cw-accent: #f3a57e;
+  --cw-line: #eef1ec24;
+  --cw-card: #25403b;
+}
+
+/* ---------- Typo ---------- */
+body {
+  font-size: calc(var(--step-0) * 1.04);
+}
+
+.z-display {
+  font-size: clamp(2.8rem, 1.2rem + 4.4vw, 5.8rem);
+  font-weight: 500;
+  line-height: 1.02;
+  letter-spacing: -0.035em;
+}
+
+.z-title {
+  font-size: clamp(2rem, 1.2rem + 2.4vw, 3.6rem);
+  font-weight: 500;
+  line-height: 1.06;
+  letter-spacing: -0.03em;
+}
+
+.z-lead {
+  font-size: var(--step-1);
+  line-height: 1.45;
+  max-width: 32ch;
+  color: var(--cw-soft);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  font-family: var(--font-display);
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.brand__mark {
+  width: 1.4em;
+  height: 1.4em;
+  color: var(--cw-accent);
+}
+
+.brand span {
+  color: var(--cw-soft);
+  font-weight: 400;
+}
+
+.button {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+  font-weight: 600;
+}
+
+/* Hover leise: Schrift bleibt hell, die Fläche wird nur etwas weicher (Kontrast bleibt über 4,5:1) */
+.button:hover {
+  background: color-mix(in oklch, var(--cw-ink) 84%, var(--cw-bg));
+  color: var(--cw-bg);
+}
+
+.button--ghost {
+  background: transparent;
+  color: var(--cw-ink);
+}
+
+:focus-visible {
+  outline-color: var(--cw-accent);
+}
+
+/* ---------- Hero ---------- */
+.z-hero {
+  padding-block: calc(var(--header-h) + var(--space-l)) var(--space-xl);
+}
+
+.z-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.z-hero__text {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: start;
+}
+
+.z-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.4em 0.9em;
+  border-radius: 999px;
+  background: var(--cw-card);
+  font-size: var(--step--1);
+}
+
+/* Punkt nur als echter Zustand: grün = gerade geöffnet */
+.z-status::before {
+  content: '';
+  width: 0.55em;
+  height: 0.55em;
+  border-radius: 50%;
+  background: var(--cw-soft);
+}
+
+.z-status.is-open::before {
+  background: #3a9a63;
+  box-shadow: 0 0 0 0.25em #3a9a6333;
+}
+
+.z-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-s) var(--space-m);
+  margin-top: var(--space-2xs);
+}
+
+.z-phone {
+  font-weight: 600;
+  text-decoration-color: var(--cw-accent);
+  text-decoration-thickness: 2px;
+}
+
+.z-hero__img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--cw-card);
+}
+
+.z-hero__img img,
+.z-services__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Akute Schmerzen: schmales Band ---------- */
+.z-urgent {
+  border-block: 1px solid var(--cw-line);
+}
+
+.z-urgent__inner {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-xs) var(--space-l);
+  padding-block: var(--space-m);
+}
+
+.z-urgent p {
+  max-width: none;
+}
+
+.z-urgent a {
+  font-size: var(--step-1);
+  font-weight: 600;
+  text-decoration-color: var(--cw-accent);
+  text-decoration-thickness: 2px;
+}
+
+/* ---------- Angst: Atemkreis + Versprechen ---------- */
+.z-calm {
+  padding-block: var(--space-2xl);
+}
+
+.z-calm__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+  gap: var(--space-xl);
+  align-items: center;
+}
+
+.z-breathe {
+  display: grid;
+  gap: var(--space-m);
+  justify-items: center;
+}
+
+.z-breathe__circle {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: min(100%, 26rem);
+  aspect-ratio: 1;
+}
+
+.z-breathe__ring,
+.z-breathe__core {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.z-breathe__ring {
+  box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--cw-ink) 22%, transparent);
+}
+
+.z-breathe__core {
+  background: radial-gradient(circle at 50% 40%, color-mix(in oklch, var(--cw-accent) 30%, var(--cw-bg)), color-mix(in oklch, var(--cw-accent) 48%, var(--cw-bg)));
+  transform: scale(0.62);
+}
+
+.z-breathe__label {
+  position: relative;
+  font-size: var(--step-1);
+  line-height: 1.3;
+  text-align: center;
+}
+
+.z-breathe__label b {
+  display: block;
+  font-size: var(--step-3);
+  font-weight: 300;
+  font-variant-numeric: tabular-nums;
+}
+
+.z-calm__text {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.z-promises {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-m) var(--space-l);
+  margin: var(--space-s) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.z-promises li {
+  padding-top: var(--space-s);
+  border-top: 1px solid var(--cw-line);
+  color: var(--cw-soft);
+}
+
+.z-promises strong {
+  display: block;
+  margin-bottom: 0.2rem;
+  color: var(--cw-ink);
+  font-weight: 600;
+}
+
+/* ---------- Erster Termin: Zeitstrahl in Minuten ---------- */
+.z-first {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.z-timeline {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: var(--space-m);
+  margin: var(--space-l) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.z-timeline li {
+  position: relative;
+  display: grid;
+  gap: var(--space-2xs);
+  align-content: start;
+  padding-top: var(--space-m);
+  border-top: 1px solid var(--cw-line);
+}
+
+.z-timeline li::before {
+  content: '';
+  position: absolute;
+  top: -0.4rem;
+  left: 0;
+  width: 0.8rem;
+  height: 0.8rem;
+  border-radius: 50%;
+  background: var(--cw-bg);
+  box-shadow: inset 0 0 0 2px var(--cw-accent);
+}
+
+.z-timeline li:last-child::before {
+  background: var(--cw-accent);
+}
+
+.z-min {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.z-min b {
+  margin-right: 0.15em;
+  color: var(--cw-ink);
+  font-size: var(--step-4);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.z-timeline h3 {
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.z-timeline p {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+  line-height: 1.5;
+}
+
+/* ---------- Leistungen: Bild links, Akkordeon rechts ---------- */
+.z-services {
+  padding-block: var(--space-xl) var(--space-2xl);
+}
+
+.z-services__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.z-services__aside {
+  position: sticky;
+  top: calc(var(--header-h) + var(--space-m));
+  display: grid;
+  gap: var(--space-l);
+}
+
+.z-services__img {
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--cw-card);
+}
+
+.z-accordion details {
+  border-top: 1px solid var(--cw-line);
+}
+
+.z-accordion details:last-child {
+  border-bottom: 1px solid var(--cw-line);
+}
+
+.z-accordion summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-m);
+  padding-block: var(--space-m);
+  font-size: var(--step-2);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+  list-style: none;
+  cursor: pointer;
+}
+
+.z-accordion summary::-webkit-details-marker {
+  display: none;
+}
+
+.z-plus {
+  position: relative;
+  flex: 0 0 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  background: var(--cw-card);
+  transition: transform 0.6s var(--ease-signature), background-color 0.4s var(--ease-signature);
+}
+
+.z-plus::before,
+.z-plus::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 0.9rem;
+  height: 1.5px;
+  background: currentColor;
+  translate: -50% -50%;
+}
+
+.z-plus::after {
+  rotate: 90deg;
+}
+
+details[open] .z-plus {
+  transform: rotate(45deg);
+  background: color-mix(in oklch, var(--cw-accent) 30%, var(--cw-bg));
+}
+
+summary:hover .z-plus {
+  background: color-mix(in oklch, var(--cw-accent) 22%, var(--cw-bg));
+}
+
+.z-panel {
+  display: grid;
+  gap: var(--space-xs);
+  padding-bottom: var(--space-m);
+  color: var(--cw-soft);
+}
+
+.z-cost {
+  color: var(--cw-ink);
+  font-size: var(--step--1);
+  font-weight: 600;
+}
+
+/* ---------- Team: drei Porträts, treppenartig versetzt ---------- */
+.z-team {
+  padding-block: var(--space-xl) var(--space-2xl);
+}
+
+.z-people {
+  display: grid;
+  grid-template-columns: 4fr 3fr 3fr;
+  gap: var(--space-l);
+  align-items: start;
+  margin: var(--space-l) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.z-person {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.z-person:nth-child(2) {
+  margin-top: var(--space-xl);
+}
+
+.z-person:nth-child(3) {
+  margin-top: calc(var(--space-xl) * 2);
+}
+
+.z-person img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  margin-bottom: var(--space-2xs);
+  border-radius: var(--radius);
+  object-fit: cover;
+  background: var(--cw-card);
+}
+
+.z-person h3 {
+  font-size: var(--step-1);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.z-person p {
+  color: var(--cw-soft);
+  max-width: 34ch;
+}
+
+/* ---------- Terminanfrage ---------- */
+.z-booking {
+  padding-block: var(--space-2xl);
+}
+
+.z-booking__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.z-booking__intro {
+  display: grid;
+  gap: var(--space-m);
+}
+
+.z-booking__intro p {
+  color: var(--cw-soft);
+}
+
+.z-booking__phone a {
+  color: var(--cw-ink);
+  font-weight: 600;
+}
+
+.z-form {
+  --progress: 1;
+  display: grid;
+  gap: var(--space-l);
+  padding: var(--space-l);
+  border-radius: var(--radius);
+  background: var(--cw-card);
+}
+
+.z-progress {
+  display: grid;
+  gap: var(--space-2xs);
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.z-progress:empty {
+  display: none;
+}
+
+/* Fortschrittsbalken: zeigt den Schritt, kein Vergleich */
+.z-progress::after {
+  content: '';
+  height: 3px;
+  border-radius: 3px;
+  background: var(--cw-accent);
+  transform: scaleX(var(--progress));
+  transform-origin: 0 50%;
+  transition: transform 0.6s var(--ease-signature);
+}
+
+.z-step {
+  display: grid;
+  gap: var(--space-m);
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.z-step:focus {
+  outline: none;
+}
+
+.z-step legend {
+  margin-bottom: var(--space-s);
+  font-size: var(--step-2);
+  font-weight: 500;
+  letter-spacing: -0.02em;
+}
+
+.z-form:not(.is-stepped) .z-step + .z-step {
+  padding-top: var(--space-l);
+  border-top: 1px solid var(--cw-line);
+}
+
+.z-form:not(.is-stepped) [data-next],
+.z-form:not(.is-stepped) [data-back] {
+  display: none;
+}
+
+.z-choices {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.z-choice {
+  display: flex;
+  gap: var(--space-s);
+  align-items: flex-start;
+  padding: var(--space-s) var(--space-m);
+  border-radius: calc(var(--radius) * 0.7);
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+  cursor: pointer;
+  transition: box-shadow 0.3s var(--ease-signature), background-color 0.3s var(--ease-signature);
+}
+
+.z-choice:hover {
+  box-shadow: inset 0 0 0 1px var(--cw-soft);
+}
+
+.z-choice:has(input:checked) {
+  background: color-mix(in oklch, var(--cw-ink) 7%, var(--cw-card));
+  box-shadow: inset 0 0 0 1.5px var(--cw-ink);
+}
+
+.z-choice:has(input:focus-visible) {
+  outline: 2px solid var(--cw-accent);
+  outline-offset: 2px;
+}
+
+.z-choice input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.2rem 0 0;
+  accent-color: var(--cw-accent);
+}
+
+.z-choice span {
+  display: grid;
+}
+
+.z-choice strong {
+  font-weight: 600;
+}
+
+.z-choice small {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.z-hint {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.z-hint a {
+  color: var(--cw-ink);
+  font-weight: 600;
+}
+
+[data-pain-hint] {
+  padding: var(--space-s) var(--space-m);
+  border-radius: calc(var(--radius) * 0.7);
+  background: color-mix(in oklch, var(--cw-accent) 22%, var(--cw-card));
+  color: var(--cw-ink);
+}
+
+.z-group {
+  display: grid;
+  gap: var(--space-2xs);
+}
+
+.z-sub {
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.z-toggles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2xs);
+}
+
+.z-toggle {
+  position: relative;
+  cursor: pointer;
+}
+
+.z-toggle input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.z-toggle span {
+  display: grid;
+  min-width: 3.4rem;
+  padding: 0.65rem 1rem;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+  text-align: center;
+  transition: background-color 0.3s var(--ease-signature), color 0.3s var(--ease-signature);
+}
+
+.z-toggle--wide span {
+  min-width: 8rem;
+  border-radius: calc(var(--radius) * 0.7);
+}
+
+.z-toggle small {
+  color: var(--cw-soft);
+  font-size: 0.78rem;
+}
+
+.z-toggle:hover span {
+  box-shadow: inset 0 0 0 1px var(--cw-soft);
+}
+
+.z-toggle input:checked + span {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.z-toggle input:checked + span small {
+  color: inherit;
+  opacity: 0.75;
+}
+
+.z-toggle input:focus-visible + span {
+  outline: 2px solid var(--cw-accent);
+  outline-offset: 2px;
+}
+
+.z-check {
+  display: flex;
+  gap: var(--space-xs);
+  align-items: flex-start;
+  color: var(--cw-soft);
+  cursor: pointer;
+}
+
+.z-check input {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  margin: 0.2rem 0 0;
+  accent-color: var(--cw-accent);
+}
+
+.z-inputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-s);
+}
+
+.z-inputs label {
+  display: grid;
+  gap: 0.3rem;
+  color: var(--cw-soft);
+  font-size: var(--step--1);
+}
+
+.z-inputs__wide {
+  grid-column: 1 / -1;
+}
+
+.z-optional {
+  opacity: 0.7;
+}
+
+.z-inputs input {
+  padding: 0.85em 1em;
+  border: 0;
+  border-radius: calc(var(--radius) * 0.6);
+  background: var(--cw-bg);
+  color: var(--cw-ink);
+  font: inherit;
+  font-size: var(--step-0);
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+}
+
+.z-inputs input:focus-visible {
+  outline: 2px solid var(--cw-accent);
+  outline-offset: 1px;
+}
+
+.z-segment {
+  display: inline-flex;
+  justify-self: start;
+  padding: 0.25rem;
+  border-radius: 999px;
+  box-shadow: inset 0 0 0 1px var(--cw-line);
+}
+
+.z-segment label {
+  position: relative;
+  cursor: pointer;
+}
+
+.z-segment input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.z-segment span {
+  display: block;
+  padding: 0.5em 1.2em;
+  border-radius: 999px;
+  font-size: var(--step--1);
+  transition: background-color 0.3s var(--ease-signature), color 0.3s var(--ease-signature);
+}
+
+.z-segment input:checked + span {
+  background: var(--cw-ink);
+  color: var(--cw-bg);
+}
+
+.z-segment input:focus-visible + span {
+  outline: 2px solid var(--cw-accent);
+  outline-offset: 2px;
+}
+
+.z-error {
+  color: var(--cw-accent);
+  font-weight: 600;
+}
+
+.z-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: var(--space-s);
+}
+
+.z-nav .button {
+  margin-left: auto;
+}
+
+.z-back {
+  padding: 0.6em 0;
+  border: 0;
+  background: none;
+  color: var(--cw-soft);
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.z-back:hover {
+  color: var(--cw-ink);
+}
+
+.z-done {
+  display: grid;
+  gap: var(--space-s);
+  justify-items: start;
+}
+
+.z-done:focus {
+  outline: none;
+}
+
+.z-done svg {
+  color: var(--cw-accent);
+}
+
+.z-done__title {
+  font-size: var(--step-3);
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+/* ---------- Praxis-Infos ---------- */
+.z-info {
+  padding-block: var(--space-2xl) var(--space-xl);
+}
+
+.z-info__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 5fr);
+  gap: var(--space-xl);
+  align-items: start;
+}
+
+.z-hours {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.z-hours th,
+.z-hours td {
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--cw-line);
+  font-weight: 400;
+  text-align: left;
+}
+
+.z-hours td {
+  text-align: right;
+  color: var(--cw-soft);
+}
+
+.z-hours tr.is-today th,
+.z-hours tr.is-today td {
+  color: var(--cw-ink);
+  font-weight: 600;
+}
+
+.z-hours tr.is-today th::after {
+  content: ' · heute';
+  color: var(--cw-accent);
+  font-weight: 500;
+}
+
+.z-facts {
+  display: grid;
+  gap: var(--space-m);
+  margin: 0;
+}
+
+.z-facts dt {
+  font-weight: 600;
+}
+
+.z-facts dd {
+  margin: 0;
+  color: var(--cw-soft);
+}
+
+/* ---------- Tablet / Handy ---------- */
+@media (max-width: 899px) {
+  .z-hero__grid,
+  .z-calm__grid,
+  .z-services__grid,
+  .z-booking__grid,
+  .z-info__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+  }
+
+  .z-hero__img {
+    order: -1;
+  }
+
+  .z-services__aside {
+    position: static;
+  }
+
+  .z-timeline {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .z-timeline li {
+    grid-template-columns: 6.5rem 1fr;
+    gap: 0.2rem var(--space-s);
+    padding-block: var(--space-m);
+  }
+
+  .z-timeline li > :not(.z-min) {
+    grid-column: 2;
+  }
+
+  .z-timeline .z-min {
+    grid-row: 1 / 3;
+  }
+
+  .z-min b {
+    font-size: var(--step-3);
+  }
+
+  .z-people {
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-l) var(--space-m);
+  }
+
+  .z-person:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .z-person:nth-child(2),
+  .z-person:nth-child(3) {
+    margin-top: 0;
+  }
+
+  .z-form {
+    padding: var(--space-m);
+  }
+}
+
+@media (max-width: 560px) {
+  .brand span {
+    display: none;
+  }
+
+  .z-promises,
+  .z-inputs {
+    grid-template-columns: 1fr;
+  }
+
+  .z-breathe__circle {
+    width: min(100%, 18rem);
+  }
+}

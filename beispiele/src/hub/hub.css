@@ -1,4 +1,9 @@
 /* Übersicht. Grafitgrund als neutrale Werkbank; jede Slide trägt die Farben und Schrift ihres Beispiels. */
+
+/* Starter-Stile zuerst, Seitenstile danach: als @import in einer Datei, damit die Reihenfolge auch im Build stimmt */
+@import '@starter/styles/tokens.css';
+@import '@starter/styles/base.css';
+
 :root {
   --font-sans: 'Geist Variable', ui-sans-serif, system-ui, sans-serif;
   --font-mono: 'Geist Mono Variable', ui-monospace, monospace;
@@ -237,6 +242,149 @@ body {
   background: #d9b26a;
   color: #1d1216;
   font-weight: 600;
+}
+
+/* Schreinerei */
+.h-slide--holz {
+  --s-bg: #dde2e0;
+  --s-ink: #1c2321;
+}
+
+.h-slide--holz .h-name {
+  font-family: 'Funnel Display Variable', sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+}
+
+.h-slide--holz .h-open {
+  border-radius: 3px;
+}
+
+.h-chair {
+  max-width: 30rem;
+  height: auto;
+}
+
+/* Zahnarzt */
+.h-slide--zahn {
+  --s-bg: #dde7e0;
+  --s-ink: #1d3430;
+}
+
+.h-slide--zahn .h-name {
+  font-family: 'Figtree Variable', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+}
+
+.h-breathe {
+  position: relative;
+  display: grid;
+  place-items: center;
+  max-width: 24rem;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1px #1d343038;
+}
+
+.h-breathe span {
+  position: absolute;
+  inset: 12%;
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 40%, #ecc3ab, #e3a585);
+}
+
+.h-breathe p {
+  position: relative;
+  display: grid;
+  font-family: 'Figtree Variable', sans-serif;
+  font-size: var(--step-1);
+  text-align: center;
+}
+
+.h-breathe b {
+  font-size: var(--step-4);
+  font-weight: 300;
+  line-height: 1;
+}
+
+/* Physio */
+.h-slide--physio {
+  --s-bg: #14202a;
+  --s-ink: #eef0ee;
+}
+
+.h-slide--physio .h-name {
+  font-family: 'Mona Sans Variable', sans-serif;
+  font-weight: 800;
+  font-stretch: 125%;
+  letter-spacing: -0.03em;
+}
+
+.h-slide--physio .h-open {
+  border-radius: 0.5rem;
+}
+
+.h-figure {
+  max-width: 22rem;
+  overflow: visible;
+}
+
+.h-figure g {
+  stroke: #eef0ee;
+  stroke-width: 7;
+}
+
+.h-figure__arm {
+  transform: rotate(var(--a));
+  transform-origin: 250px 142px;
+  transform-box: view-box;
+}
+
+.h-figure__arc {
+  stroke: #ff6a33;
+  stroke-width: 3;
+  stroke-dasharray: 2 9;
+  stroke-linecap: round;
+}
+
+/* Architektur */
+.h-slide--arch {
+  --s-bg: #f1f0ec;
+  --s-ink: #171716;
+}
+
+.h-slide--arch .h-name {
+  font-family: 'Host Grotesk Variable', sans-serif;
+  font-weight: 360;
+  letter-spacing: -0.06em;
+}
+
+.h-slide--arch .h-open {
+  border-radius: 0;
+}
+
+.h-photos {
+  position: relative;
+  aspect-ratio: 1;
+}
+
+.h-photos img {
+  position: absolute;
+  width: 72%;
+  height: auto;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+}
+
+.h-photos img:first-child {
+  top: 4%;
+  left: 0;
+}
+
+.h-photos img:last-child {
+  right: 0;
+  bottom: 6%;
 }
 
 /* ---------- System ---------- */
