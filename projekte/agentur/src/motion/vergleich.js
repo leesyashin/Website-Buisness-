@@ -21,18 +21,25 @@ export function initVergleich() {
   });
 }
 
-// Auftritt: Die Naht fährt einmal von „ganz alt“ zur Mitte, sobald der Vergleich ins Bild kommt.
+// Auftritt: Die Naht fährt einmal von „ganz alt“ zur Mitte.
+export function vergleichAuftritt(el, verzoegerung = 0.6, scrollTrigger = null) {
+  const stand = { pos: 100 };
+  setzePos(el, 100);
+  gsap.to(stand, {
+    pos: 50,
+    duration: 1.8,
+    delay: verzoegerung,
+    ease: 'signature',
+    onUpdate: () => setzePos(el, stand.pos),
+    scrollTrigger,
+  });
+}
+
+// Für alle Vergleiche außerhalb der Wegwahl: Auftritt, sobald sie ins Bild kommen.
+// (In einem Weg-Bereich startet ihn motion/weg.js, wenn der Weg gewählt wird.)
 export function initVergleichAuftritt() {
   document.querySelectorAll('[data-vergleich]:not([data-vergleich-gefuehrt])').forEach((el) => {
-    const stand = { pos: 100 };
-    setzePos(el, 100);
-    gsap.to(stand, {
-      pos: 50,
-      duration: 1.8,
-      delay: 0.6,
-      ease: 'signature',
-      onUpdate: () => setzePos(el, stand.pos),
-      scrollTrigger: { trigger: el, start: 'top 85%', once: true },
-    });
+    if (el.closest('[data-weg-panel]')) return;
+    vergleichAuftritt(el, 0.6, { trigger: el, start: 'top 85%', once: true });
   });
 }

@@ -3,8 +3,11 @@ import { gsap } from 'gsap';
 // [data-ablauf]   Ablauf: Die Linie füllt sich mit dem Scrollen, jeder Schritt leuchtet auf, sobald sie ihn erreicht.
 //                 Desktop waagerecht (scaleX), Handy senkrecht (scaleY). Ohne Bewegung stehen alle Schritte voll da.
 export function initAblauf({ desktop }) {
-  const box = document.querySelector('[data-ablauf]');
-  const linie = box?.querySelector('[data-ablauf-linie]');
+  document.querySelectorAll('[data-ablauf]').forEach((box) => ablauf(box, desktop));
+}
+
+function ablauf(box, desktop) {
+  const linie = box.querySelector('[data-ablauf-linie]');
   if (!linie) return;
   const schritte = Array.from(box.querySelectorAll('[data-ablauf-schritt]'));
   const achse = desktop ? 'scaleX' : 'scaleY';

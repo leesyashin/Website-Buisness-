@@ -14,7 +14,7 @@ const galerie = () =>
   referenzen
     .map(
       (r) => `
-          <li class="ref-karte" data-ref="${r.key}">
+          <li class="ref-karte" id="ref-${r.key}" data-ref="${r.key}">
             <div class="ref-karte__rahmen">
               <img src="/media/referenzen/${r.key}-lang.webp" width="900" height="1688" alt="Seite von ${esc(r.name)}, ${esc(r.branche)}" loading="lazy" decoding="async" />
             </div>
@@ -26,6 +26,21 @@ const galerie = () =>
                 <a class="link" href="/neu.html?stil=${r.key}">Stil wählen</a>
               </p>
             </div>
+          </li>`,
+    )
+    .join('');
+
+// Ausblick auf der Startseite: kleine Karten, verlinkt auf die Referenzen-Seite
+const ausblick = () =>
+  referenzen
+    .map(
+      (r) => `
+          <li class="ausblick__karte">
+            <a href="/referenzen.html#ref-${r.key}">
+              <img src="/media/referenzen/${r.key}-800.webp" width="800" height="500" alt="" loading="lazy" decoding="async" />
+              <span class="ausblick__name">${esc(r.name)}</span>
+              <span class="ausblick__branche">${esc(r.branche)}</span>
+            </a>
           </li>`,
     )
     .join('');
@@ -49,6 +64,7 @@ function partials() {
     html
       .replace('<!-- galerie -->', galerie)
       .replace('<!-- stile -->', stile)
+      .replace('<!-- ausblick -->', ausblick)
       .replace(/<!--\s*include:([\w-]+)\s*-->/g, (_, name) => readFileSync(here(`src/partials/${name}.html`), 'utf8'))
       .replace(/\{\{preis:(\w+)\}\}/g, (_, key) => preis(key))
       .replace(/\{\{(\w+)\}\}/g, (m, key) => (key in site ? site[key] : m));
@@ -71,6 +87,7 @@ export default defineConfig({
         index: here('index.html'),
         neu: here('neu.html'),
         renovieren: here('renovieren.html'),
+        referenzen: here('referenzen.html'),
         impressum: here('impressum.html'),
         datenschutz: here('datenschutz.html'),
       },

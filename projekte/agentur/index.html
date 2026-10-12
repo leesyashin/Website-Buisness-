@@ -4,129 +4,149 @@
     <!-- include:head -->
     <title>{{name}} · Webseiten neu bauen oder renovieren</title>
     <meta name="description" content="Wir bauen Webseiten für Betriebe neu oder bringen die bestehende auf den Stand von heute: schnell, mobil, rechtssicher. Foto- und Videoaufnahmen vor Ort in Köln und Umgebung." />
-    <link rel="preload" as="image" href="/media/referenzen/hagedorn-800.webp" />
-    <script type="module" src="/src/pages/start.js"></script>
+        <script type="module" src="/src/pages/start.js"></script>
   </head>
   <body>
     <!-- include:header -->
 
     <main id="inhalt" tabindex="-1">
-      <!-- 1 · WEICHE: zwei Wege, direkt am Anfang -->
-      <section class="weiche" aria-labelledby="weiche-titel">
-        <h1 id="weiche-titel" class="weiche__titel wrap" data-split data-split-now>Ihre Webseite, auf dem Stand von heute.</h1>
-
-        <div class="weiche__wege" data-weiche>
-          <article class="weg weg--neu" aria-labelledby="weg-neu">
-            <div class="weg__text">
-              <h2 id="weg-neu" class="weg__titel">Neu bauen</h2>
-              <p class="weg__satz">Von der Idee bis zum fertigen Ergebnis. Fünf kurze Fragen, dabei entsteht schon eine Skizze.</p>
-              <a class="knopf" href="/neu.html" data-magnetic="0.2">Fragebogen starten</a>
-            </div>
-            <div class="faecher" data-faecher aria-hidden="true">
-              <img class="faecher__blatt" style="--i: 0" src="/media/referenzen/achse-800.webp" width="800" height="500" alt="" />
-              <img class="faecher__blatt" style="--i: 1" src="/media/referenzen/rosenplatz-800.webp" width="800" height="500" alt="" />
-              <img class="faecher__blatt" style="--i: 2" src="/media/referenzen/hagedorn-800.webp" width="800" height="500" alt="" fetchpriority="high" />
-              <img class="faecher__handy" src="/media/referenzen/perle-mobil.webp" width="480" height="1039" alt="" />
-            </div>
-          </article>
-
-          <article class="weg weg--renovieren" aria-labelledby="weg-renovieren">
-            <div class="weg__text">
-              <h2 id="weg-renovieren" class="weg__titel">Renovieren</h2>
-              <p class="weg__satz">Was da ist, machen wir besser. Geben Sie Ihre Adresse ein, wir messen sofort.</p>
-              <form class="url-feld" action="/renovieren.html" method="get">
-                <label class="visually-hidden" for="start-url">Adresse Ihrer Webseite</label>
-                <input id="start-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.ihre-seite.de" required />
-                <button class="knopf" type="submit">Seite prüfen</button>
-              </form>
-            </div>
-            <figure class="vergleich vergleich--klein" data-vergleich>
-              <div class="vergleich__bild">
-                <img class="vergleich__nach" src="/media/referenzen/rosenplatz-800.webp" width="800" height="500" alt="Nachher: heutige Seite der Zahnarztpraxis am Rosenplatz" />
-                <img class="vergleich__vor" src="/media/vorher/rosenplatz-alt-800.webp" width="800" height="500" alt="Vorher: alte Seite der Praxis mit Menü-Knöpfen und Besucherzähler" />
-                <span class="vergleich__naht" aria-hidden="true"></span>
-                <input class="vergleich__regler" type="range" min="0" max="100" value="50" aria-label="Vorher und Nachher vergleichen" />
-              </div>
-              <figcaption class="vergleich__unterschrift"><span>2010</span><span>Heute</span></figcaption>
-            </figure>
-          </article>
+      <!-- EINSTIEG: Aussage, kurzer Film „So läuft es“, dann die Wahl -->
+      <section class="einstieg wrap" aria-labelledby="einstieg-titel">
+        <div class="einstieg__kopf">
+          <h1 id="einstieg-titel" class="einstieg__titel" data-split data-split-now>Ihre Webseite, auf dem Stand von heute.</h1>
+          <p class="einstieg__satz" data-reveal data-reveal-delay="0.3">Wir bauen neue Webseiten für Betriebe oder machen bestehende besser. So läuft es ab:</p>
         </div>
-      </section>
 
-      <!-- 2 · REFERENZEN: Seitwärts-Galerie -->
-      <section id="referenzen" class="referenzen" aria-labelledby="ref-titel">
-        <div class="wrap referenzen__kopf">
-          <p class="label">Referenzen</p>
-          <h2 id="ref-titel" class="titel" data-split>Sieben Branchen, sieben Handschriften.</h2>
-          <p class="einleitung" data-reveal>Echte Seiten von uns, die Sie live ausprobieren können. Gefällt Ihnen ein Stil, nehmen Sie ihn als Ausgangspunkt.</p>
-        </div>
-        <div class="galerie" data-galerie>
-          <ul class="galerie__spur" data-galerie-spur>
-            <!-- galerie -->
-          </ul>
-        </div>
-        <p class="wrap galerie__hinweis">Die Betriebe in den Beispielen sind erfunden.</p>
-      </section>
-
-      <!-- 3 · ABLAUF: Linie füllt sich beim Scrollen -->
-      <section id="ablauf" class="ablauf wrap" aria-labelledby="ablauf-titel" data-ablauf>
-        <h2 id="ablauf-titel" class="titel" data-split>So läuft es ab.</h2>
-        <div class="ablauf__bahn">
-        <div class="ablauf__linie" aria-hidden="true"><span data-ablauf-linie></span></div>
-        <ol class="ablauf__schritte">
-          <li data-ablauf-schritt>
-            <h3>Gespräch</h3>
-            <p>Unverbindlich, am Telefon oder bei Ihnen vor Ort. Wir hören zu und schauen uns Betrieb und bisherige Seite an.</p>
+        <ol class="film" data-film aria-label="So läuft es ab">
+          <li class="film__bild">
+            <div class="film__szene film__szene--wahl" aria-hidden="true">
+              <span class="film__pille ist-an" data-film-pille><span data-film-fuellung></span><b>Neue Seite</b></span>
+              <span class="film__pille"><b>Bestehende Seite</b></span>
+              <span class="film__zeiger" data-film-zeiger></span>
+            </div>
+            <p><strong>Weg wählen</strong> <span>Neue Seite oder bestehende Seite.</span></p>
           </li>
-          <li data-ablauf-schritt>
-            <h3>Entwurf</h3>
-            <p>Sie sehen Ihre Startseite als klickbaren Entwurf, bevor gebaut wird. Hier sind Änderungen am einfachsten.</p>
+          <li class="film__bild">
+            <div class="film__szene film__szene--fragen" aria-hidden="true">
+              <span class="film__balken"><span data-film-balken></span></span>
+              <span class="film__zeile"><i data-film-haken></i><s></s></span>
+              <span class="film__zeile"><i data-film-haken></i><s></s></span>
+              <span class="film__zeile"><i data-film-haken></i><s></s></span>
+            </div>
+            <p><strong>Kurz beschreiben</strong> <span>Drei Minuten Fragebogen oder ein kostenloser Seiten-Check.</span></p>
           </li>
-          <li data-ablauf-schritt>
-            <h3>Bau und Inhalte</h3>
-            <p>Wir bauen die Seite, schreiben die Texte mit Ihnen und machen auf Wunsch Fotos und Videos vor Ort.</p>
-          </li>
-          <li data-ablauf-schritt>
-            <h3>Start und Pflege</h3>
-            <p>Die Seite geht online. Auf Wunsch kümmern wir uns danach um Hosting, Updates und kleine Änderungen.</p>
+          <li class="film__bild">
+            <div class="film__szene film__szene--angebot" aria-hidden="true">
+              <span class="film__blatt"><s></s><s></s><s></s><span class="film__summe">Festpreis</span></span>
+              <span class="film__stempel" data-film-stempel></span>
+            </div>
+            <p><strong>Festes Angebot</strong> <span>Nach einem kurzen Gespräch, ohne Überraschungen.</span></p>
           </li>
         </ol>
+
+        <fieldset class="wahl" data-wahl>
+          <legend class="wahl__frage">Wo stehen Sie?</legend>
+          <div class="wahl__optionen">
+            <input class="wahl__eingabe" type="radio" name="weg" id="wahl-neu" value="neu" />
+            <label class="wahl__knopf" for="wahl-neu">
+              <span class="wahl__titel">Ich brauche eine neue Seite</span>
+              <span class="wahl__satz">Von der Idee bis zum fertigen Ergebnis</span>
+            </label>
+            <input class="wahl__eingabe" type="radio" name="weg" id="wahl-renovieren" value="renovieren" />
+            <label class="wahl__knopf" for="wahl-renovieren">
+              <span class="wahl__titel">Ich habe schon eine Seite</span>
+              <span class="wahl__satz">Was da ist, machen wir besser</span>
+            </label>
+          </div>
+          <p class="wahl__hinweis">Erst mal nur umsehen? Scrollen Sie einfach weiter.</p>
+        </fieldset>
+      </section>
+
+      <!-- WEG: NEUE SEITE (nur sichtbar, wenn gewählt) -->
+      <section class="weg-panel" id="neu" data-weg-panel="neu" aria-labelledby="neu-titel">
+        <div class="wrap weg-panel__oben">
+          <div class="weg-panel__text">
+            <h2 id="neu-titel" class="titel">Von der Idee bis zum fertigen Ergebnis.</h2>
+            <p class="einleitung">Sie beantworten ein paar kurze Fragen, dabei entsteht schon eine erste Skizze Ihrer Seite. Danach sprechen wir kurz, und Sie bekommen ein festes Angebot.</p>
+            <a class="knopf knopf--gross" href="/neu.html" data-magnetic="0.2">Fragebogen starten</a>
+          </div>
+          <div class="faecher" data-faecher aria-hidden="true">
+            <img class="faecher__blatt" style="--i: 0" src="/media/referenzen/achse-800.webp" width="800" height="500" alt="" loading="lazy" />
+            <img class="faecher__blatt" style="--i: 1" src="/media/referenzen/rosenplatz-800.webp" width="800" height="500" alt="" loading="lazy" />
+            <img class="faecher__blatt" style="--i: 2" src="/media/referenzen/hagedorn-800.webp" width="800" height="500" alt="" loading="lazy" />
+            <img class="faecher__handy" src="/media/referenzen/perle-mobil.webp" width="480" height="1039" alt="" loading="lazy" />
+          </div>
+        </div>
+        <div class="wrap ablauf" data-ablauf>
+          <h3 class="ablauf__titel">So geht es weiter</h3>
+          <div class="ablauf__bahn">
+            <div class="ablauf__linie" aria-hidden="true"><span data-ablauf-linie></span></div>
+            <ol class="ablauf__schritte">
+              <li data-ablauf-schritt><h4>Fragebogen</h4><p>Fünf kurze Schritte, etwa drei Minuten. Daneben wächst eine Skizze Ihrer Seite.</p></li>
+              <li data-ablauf-schritt><h4>Gespräch</h4><p>Unverbindlich am Telefon oder bei Ihnen vor Ort. Danach bekommen Sie ein festes Angebot.</p></li>
+              <li data-ablauf-schritt><h4>Entwurf</h4><p>Sie sehen Ihre Startseite als klickbaren Entwurf, bevor gebaut wird.</p></li>
+              <li data-ablauf-schritt><h4>Bau und Start</h4><p>Wir bauen, schreiben die Texte mit Ihnen und stellen die Seite online.</p></li>
+            </ol>
+          </div>
+        </div>
+        <div class="wrap weg-panel__preis">
+          <p class="weg-panel__betrag">Neue Webseite <strong>{{preis:neubau}}</strong></p>
+          <p>Pflege und Hosting auf Wunsch {{preis:pflege}} im Monat. Immer dabei: für Handy gebaut, schnell geladen, barrierearm, Impressum und Datenschutz eingebunden.</p>
+          <p class="weg-panel__links"><a class="knopf" href="/neu.html">Fragebogen starten</a> <a class="link" href="/referenzen.html">Beispiele ansehen</a></p>
         </div>
       </section>
 
-      <!-- 4 · PREISE: Kacheln -->
-      <section id="preise" class="preise wrap" aria-labelledby="preise-titel">
-        <h2 id="preise-titel" class="titel" data-split>Klare Preise, bevor es losgeht.</h2>
-        <div class="kacheln-preis" data-reveal-stagger>
-          <article class="preis preis--neu" aria-labelledby="preis-neu">
-            <h3 id="preis-neu">Neu bauen</h3>
-            <p class="preis__betrag">{{preis:neubau}}</p>
-            <p>Eine Seite, die zu Ihrem Betrieb passt, von der ersten Skizze bis zum Livegang.</p>
-            <ul>
-              <li>Konzept, Design und Texte mit Ihnen</li>
-              <li>Funktionen nach Bedarf: Anfrage, Termine, Shop</li>
-              <li>Domain und Postfach eingerichtet</li>
-            </ul>
-            <a class="knopf" href="/neu.html">Fragebogen starten</a>
-            <div class="preis__bilder" aria-hidden="true">
-              <img src="/media/referenzen/rosenplatz-mobil.webp" width="480" height="1039" alt="" loading="lazy" data-parallax="-0.08" />
-              <img src="/media/referenzen/hagedorn-mobil.webp" width="480" height="1039" alt="" loading="lazy" data-parallax="0.06" />
-              <img src="/media/referenzen/achse-mobil.webp" width="480" height="1039" alt="" loading="lazy" data-parallax="-0.04" />
+      <!-- WEG: BESTEHENDE SEITE (nur sichtbar, wenn gewählt) -->
+      <section class="weg-panel" id="renovieren" data-weg-panel="renovieren" aria-labelledby="ren-titel">
+        <div class="wrap weg-panel__oben">
+          <div class="weg-panel__text">
+            <h2 id="ren-titel" class="titel">Was da ist, machen wir besser.</h2>
+            <p class="einleitung">Geben Sie Ihre Adresse ein. Wir messen kostenlos, wie gut Ihre Seite heute ist, und zeigen Ihnen, was sich verbessern lässt.</p>
+            <form class="url-feld url-feld--gross" action="/renovieren.html" method="get">
+              <label class="visually-hidden" for="start-url">Adresse Ihrer Webseite</label>
+              <input id="start-url" name="url" type="text" inputmode="url" autocomplete="url" placeholder="www.ihre-seite.de" required />
+              <button class="knopf" type="submit">Seite prüfen</button>
+            </form>
+          </div>
+          <figure class="vergleich" data-vergleich>
+            <div class="vergleich__bild">
+              <img class="vergleich__nach" src="/media/referenzen/rosenplatz-800.webp" width="800" height="500" alt="Nachher: heutige Seite der Zahnarztpraxis am Rosenplatz" loading="lazy" />
+              <img class="vergleich__vor" src="/media/vorher/rosenplatz-alt-800.webp" width="800" height="500" alt="Vorher: alte Seite der Praxis mit Menü-Knöpfen und Besucherzähler" loading="lazy" />
+              <span class="vergleich__naht" aria-hidden="true"></span>
+              <input class="vergleich__regler" type="range" min="0" max="100" value="50" aria-label="Vorher und Nachher vergleichen" />
             </div>
-          </article>
-          <article class="preis preis--renovieren" aria-labelledby="preis-ren">
-            <h3 id="preis-ren">Renovieren</h3>
-            <p class="preis__betrag">{{preis:renovieren}}</p>
-            <p>Ihre bestehende Seite, gründlich überarbeitet: moderner, schneller, besser zu finden.</p>
-            <a class="knopf" href="/renovieren.html">Seite prüfen</a>
-          </article>
-          <article class="preis preis--pflege" aria-labelledby="preis-pflege">
-            <h3 id="preis-pflege">Pflege und Hosting</h3>
-            <p class="preis__betrag">{{preis:pflege}} <small>im Monat</small></p>
-            <p>Wir halten Ihre Seite online, sicher und aktuell. Sie schreiben uns, was sich ändern soll.</p>
-          </article>
+            <figcaption class="vergleich__unterschrift"><span>2010</span><span>Heute</span></figcaption>
+          </figure>
         </div>
-        <p class="preise__immer">Immer dabei: für Handy und Tablet gebaut, kurze Ladezeiten, barrierearm nach WCAG 2.1 AA, Schriften ohne Google-Server, Impressum und Datenschutz eingebunden. Nach dem Gespräch bekommen Sie ein festes Angebot.</p>
+        <div class="wrap ablauf" data-ablauf>
+          <h3 class="ablauf__titel">So geht es weiter</h3>
+          <div class="ablauf__bahn">
+            <div class="ablauf__linie" aria-hidden="true"><span data-ablauf-linie></span></div>
+            <ol class="ablauf__schritte">
+              <li data-ablauf-schritt><h4>Seite prüfen</h4><p>Kostenloser Schnell-Check: Ladezeit, Handy, Auffindbarkeit. Dazu sagen Sie, was Sie stört.</p></li>
+              <li data-ablauf-schritt><h4>Gespräch</h4><p>Wir schauen uns Ihre Seite genau an und schlagen vor, was sich lohnt. Dann gibt es ein festes Angebot.</p></li>
+              <li data-ablauf-schritt><h4>Renovierung</h4><p>Neues Design im Rahmen Ihrer Marke, schneller, fürs Handy gebaut, fehlende Funktionen ergänzt.</p></li>
+              <li data-ablauf-schritt><h4>Start und Pflege</h4><p>Die Seite geht unter der gewohnten Adresse online. Auf Wunsch kümmern wir uns weiter.</p></li>
+            </ol>
+          </div>
+        </div>
+        <div class="wrap weg-panel__preis">
+          <p class="weg-panel__betrag">Renovierung <strong>{{preis:renovieren}}</strong></p>
+          <p>Pflege und Hosting auf Wunsch {{preis:pflege}} im Monat. Ihre Adresse, Inhalte und Wiedererkennung bleiben erhalten.</p>
+          <p class="weg-panel__links"><a class="knopf" href="/renovieren.html">Seite prüfen</a> <a class="link" href="/renovieren.html#vorher-nachher">Vorher und Nachher ansehen</a></p>
+        </div>
+      </section>
+
+      <!-- AUSBLICK: Beispiele, ganze Galerie auf eigener Seite -->
+      <section class="ausblick" aria-labelledby="ausblick-titel">
+        <div class="wrap ausblick__kopf">
+          <h2 id="ausblick-titel" class="titel" data-split>Sieben Branchen, sieben Handschriften.</h2>
+          <p class="einleitung" data-reveal>Echte Seiten von uns, alle live zum Ausprobieren. Die Betriebe darin sind erfunden.</p>
+        </div>
+        <ul class="ausblick__leiste">
+          <!-- ausblick -->
+        </ul>
+        <p class="wrap"><a class="knopf knopf--zweit" href="/referenzen.html">Alle Beispiele ansehen</a></p>
       </section>
 
       <!-- 5 · VOR ORT: großes Bild, darunter Text und Karte -->
@@ -186,7 +206,7 @@
         <div class="faq__liste">
           <details>
             <summary>Was kostet eine neue Webseite?</summary>
-            <p>Das hängt vor allem vom Umfang und den Funktionen ab. Die Preise oben sind ein guter Anhaltspunkt. Nach Fragebogen und kurzem Gespräch bekommen Sie ein festes Angebot.</p>
+            <p>Das hängt vor allem vom Umfang und den Funktionen ab. Den Ab-Preis sehen Sie, sobald Sie oben Ihren Weg wählen. Nach Fragebogen und kurzem Gespräch bekommen Sie ein festes Angebot.</p>
           </details>
           <details>
             <summary>Wie lange dauert es, bis die Seite online ist?</summary>
@@ -220,8 +240,8 @@
         <div class="wrap abschluss__innen">
           <h2 id="abschluss-titel" class="abschluss__titel" data-split>Womit fangen wir an?</h2>
           <div class="abschluss__knoepfe">
-            <a class="knopf knopf--gross" href="/neu.html" data-magnetic="0.25">Fragebogen starten</a>
-            <a class="knopf knopf--gross knopf--zweit" href="/renovieren.html" data-magnetic="0.25">Seite prüfen</a>
+            <a class="knopf knopf--gross" href="/#neu" data-wahl-link="neu">Neue Seite</a>
+            <a class="knopf knopf--gross knopf--zweit" href="/#renovieren" data-wahl-link="renovieren">Bestehende Seite</a>
           </div>
           <p class="abschluss__direkt">Lieber direkt sprechen? <a href="tel:{{telefonLink}}">{{telefon}}</a> oder <a href="mailto:{{email}}">{{email}}</a></p>
         </div>
@@ -229,6 +249,5 @@
     </main>
 
     <!-- include:footer -->
-    <!-- include:vorschau -->
-  </body>
+      </body>
 </html>

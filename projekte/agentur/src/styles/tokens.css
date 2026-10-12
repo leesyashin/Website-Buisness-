@@ -1,32 +1,42 @@
-/* Design-Tokens der Agenturseite. Ruhige Bühne: Kalkweiß und Marine-Tinte; die beiden Bereiche haben eigene
-   Flächenfarben (Neu bauen = Marine, Renovieren = Tannengrün). Messing ist die einzige Akzentfarbe: alle
-   Hauptknöpfe, Fortschritt, aktive Zustände. Farben in OKLCH. */
+/* Design-Tokens der Agenturseite: Racing Green und Creme (Wunsch von Vincent). Tannengrün ist die Hauptfarbe
+   (Knöpfe, Flächen, die dunkle Welt „Bestehende Seite“), Creme der Grund, Gold nur für feine Linien und
+   Markierungen, nie als Fläche. */
 :root {
   /* Grundfarben */
-  --c-kalk: oklch(0.968 0.004 240);
-  --c-kalk-2: oklch(0.935 0.007 240);
-  --c-tinte: oklch(0.22 0.045 262);
-  --c-tinte-soft: oklch(0.45 0.025 262);
-  --c-marine: oklch(0.29 0.075 264);
-  --c-marine-tief: oklch(0.21 0.055 264);
-  --c-tanne: oklch(0.36 0.07 163);
-  --c-tanne-tief: oklch(0.27 0.055 163);
-  --c-messing: oklch(0.78 0.09 80);
-  --c-messing-hell: oklch(0.84 0.08 84);
-  --c-messing-tief: oklch(0.55 0.08 75);
-  --c-hell: oklch(0.975 0.004 240);
-  --c-schatten: oklch(0.2 0.05 263 / 0.28);
+  --c-creme: #f4f1e8;
+  --c-creme-2: #eae5d7;
+  --c-weiss: #fbf9f3;
+  --c-tinte: #1a1a17;
+  --c-tinte-soft: #5c5b52;
+  --c-gruen: #0b3d2e;
+  --c-gruen-hell: #165743;
+  --c-gruen-tief: #072a20;
+  --c-gruen-soft: #c8cfc1; /* Nebentext auf Grün */
+  --c-gold: #b8975a;
+  --c-gold-tief: #876a35; /* Gold für kleine Schrift auf Creme */
+  --c-schatten: rgb(7 42 32 / 0.22);
 
   /* Rollen (vom Starter erwartet) */
-  --c-bg: var(--c-kalk);
-  --c-surface: var(--c-kalk-2);
+  --c-bg: var(--c-creme);
+  --c-surface: var(--c-creme-2);
   --c-ink: var(--c-tinte);
   --c-ink-soft: var(--c-tinte-soft);
-  --c-line: oklch(0.24 0.055 263 / 0.14);
-  --c-accent: var(--c-messing);
-  --c-on-accent: var(--c-tinte);
-  --c-dark: var(--c-marine-tief);
-  --c-on-dark: var(--c-hell);
+  --c-line: rgb(26 26 23 / 0.14);
+  --c-accent: var(--c-gruen);
+  --c-on-accent: var(--c-creme);
+  --c-dark: var(--c-gruen);
+  --c-on-dark: var(--c-creme);
+
+  /* Aktuelle Farbwelt (Standard: hell). Die Welten unten und die Wegwahl der Startseite überschreiben sie. */
+  --cw-bg: var(--c-creme);
+  --cw-ink: var(--c-tinte);
+  --cw-soft: var(--c-tinte-soft);
+  --cw-accent: var(--c-gruen);
+  --cw-line: rgb(26 26 23 / 0.14);
+  --cw-knopf: var(--c-gruen);
+  --cw-knopf-text: var(--c-creme);
+  --cw-knopf-hover: var(--c-gruen-hell);
+  --cw-markierung: var(--c-gold-tief);
 
   /* Schrift: Schibsted Grotesk (selbst gehostet) für Überschriften und Text */
   --font-sans: 'Schibsted Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
@@ -66,30 +76,33 @@
   --dur-slow: 900ms;
 }
 
-/* Farbwelten (motion/colorway.js) */
+/* Farbwelten (motion/colorway.js): hell (Start, Neue Seite) und dunkel (Bestehende Seite).
+   Auf der Startseite schaltet die Wegwahl die ganze Seite um, rein per CSS (:has), damit es auch ohne JS geht. */
 html[data-colorway='buehne'],
-html:not(.colorway-live) [data-colorway='buehne'] {
-  --cw-bg: var(--c-kalk);
-  --cw-ink: var(--c-tinte);
-  --cw-soft: var(--c-tinte-soft);
-  --cw-accent: var(--c-marine);
-  --cw-line: oklch(0.24 0.055 263 / 0.14);
-}
-
+html:not(.colorway-live) [data-colorway='buehne'],
 html[data-colorway='neu'],
 html:not(.colorway-live) [data-colorway='neu'] {
-  --cw-bg: var(--c-marine);
-  --cw-ink: var(--c-hell);
-  --cw-soft: oklch(0.8 0.025 264);
-  --cw-accent: var(--c-messing);
-  --cw-line: oklch(0.97 0.006 240 / 0.18);
+  --cw-bg: var(--c-creme);
+  --cw-ink: var(--c-tinte);
+  --cw-soft: var(--c-tinte-soft);
+  --cw-accent: var(--c-gruen);
+  --cw-line: rgb(26 26 23 / 0.14);
+  --cw-knopf: var(--c-gruen);
+  --cw-knopf-text: var(--c-creme);
+  --cw-knopf-hover: var(--c-gruen-hell);
+  --cw-markierung: var(--c-gold-tief);
 }
 
 html[data-colorway='renovieren'],
-html:not(.colorway-live) [data-colorway='renovieren'] {
-  --cw-bg: var(--c-tanne);
-  --cw-ink: var(--c-hell);
-  --cw-soft: oklch(0.83 0.03 163);
-  --cw-accent: var(--c-messing);
-  --cw-line: oklch(0.97 0.006 240 / 0.18);
+html:not(.colorway-live) [data-colorway='renovieren'],
+html:has(#wahl-renovieren:checked) {
+  --cw-bg: var(--c-gruen);
+  --cw-ink: var(--c-creme);
+  --cw-soft: var(--c-gruen-soft);
+  --cw-accent: var(--c-gold);
+  --cw-line: rgb(244 241 232 / 0.18);
+  --cw-knopf: var(--c-creme);
+  --cw-knopf-text: var(--c-gruen);
+  --cw-knopf-hover: var(--c-weiss);
+  --cw-markierung: var(--c-gold);
 }

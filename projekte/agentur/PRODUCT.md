@@ -38,8 +38,10 @@ Wir bauen animierte, schnelle, rechtssichere Seiten wie die eigenen Prototypen, 
 ## Brand Commitments
 
 - Tonalität: Mischung aus nahbar-direkt und ruhig-hochwertig.
-- Farben: ruhig, seriös, vertrauensvoll (Vorbild: Ralph-Lauren-Marineblau, Rolex-Grün). Kein Orange, nichts Knalliges.
-- Design-Richtung „Ruhige Bühne“: Die Agenturseite ist zurückhaltend, die Prototypen bringen die Farbe. Die beiden Bereiche haben eigene Farbwelten (Marine, Tannengrün), Messing ist der einzige Akzent.
+- Farben: Racing Green und Creme (von Vincent gewählt): Tannengrün als Hauptfarbe, Creme als Grund, Gold nur als feine Linie. Ruhig, seriös, vertrauensvoll. Kein Orange, nichts Knalliges.
+- Design-Richtung „Ruhige Bühne“: Die Agenturseite ist zurückhaltend, die Prototypen bringen die Farbe.
+- „Neue Seite“ und „Bestehende Seite“ klar getrennt: Beim Betreten erklärt ein kurzer Film den Ablauf, erst die eigene Wahl öffnet den passenden Weg; es ist immer nur ein Weg sichtbar, die Seite wechselt dabei die Farbwelt (hell / tiefgrün).
+- Beispiele auf eigener Referenzen-Seite, auf der Startseite nur ein Ausblick.
 - Gestaltung nach Taste-Skill: Sans-Schrift statt Serife, echte Bilder, sparsame Labels (Wunsch von Vincent nach dem ersten Zwischenstand).
 - Viel Bewegung, aber dosiert: 3–4 Signature-Sequenzen, sonst ruhige Reveals. 3D, wo es Sinn ergibt. Keine eingebetteten Videodateien.
 

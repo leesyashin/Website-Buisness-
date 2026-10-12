@@ -56,8 +56,10 @@ Jedes Muster hängt an einem `data-`-Attribut im HTML. Ohne JavaScript oder bei 
 | Attribut | Wirkung | Datei |
 |---|---|---|
 | `data-vergleich` (+ `data-vergleich-gefuehrt`) | Vorher/Nachher: altes Bild über neuem, Naht über `--pos`, unsichtbarer Regler für Maus, Finger, Tastatur; Naht fährt beim ersten Erscheinen von „alt“ zur Mitte | `motion/vergleich.js` |
-| `data-weiche` + `data-faecher` | Startseite: zwei Wege öffnen sich per `clip-path`, echte Seiten fliegen in einen 3D-Fächer, beim Zeigen fächert er weiter auf | `motion/weiche.js` |
-| `data-galerie` + `data-galerie-spur` | Referenzen angeheftet und seitwärts gefahren, in jeder Karte scrollt die lange Seitenansicht mit (`containerAnimation`); mobil Wischleiste | `motion/galerie.js` |
+| `data-film` | Startseite: „So läuft es ab“ in drei Bildern (Zeiger wählt, Haken erscheinen, Stempel), läuft einmal durch; Ruhezustand ist das Endbild | `motion/film.js` |
+| Ereignis `wegwahl` | Gewählter Weg (Neue Seite / Bestehende Seite) tritt auf: Texte steigen auf, Fächer fliegt ein bzw. Naht fährt durch; Anzeige selbst rein per CSS `:has` | `motion/weg.js`, Logik `lib/wegwahl.js` |
+| `data-faecher` | Echte Seiten als 3D-Fächer, fächert beim Zeigen weiter auf | `motion/faecher.js` |
+| `data-galerie` + `data-galerie-spur` | Referenzen-Seite: angeheftet und seitwärts gefahren, in jeder Karte scrollt die lange Seitenansicht mit (`containerAnimation`); mobil Wischleiste | `motion/galerie.js` |
 | `data-ablauf` | Linie füllt sich beim Scrollen, Schritte leuchten nacheinander auf (Desktop waagerecht, Handy senkrecht) | `motion/ablauf.js` |
 | `data-karte-kreis` | Umkreis auf der Köln-Karte wächst aus der Mitte | `motion/karte.js` |
 | `data-vn` | Renovieren: angeheftete Szene in vier Schritten (Naht, Handy-Vergleich, Ladebalken, Ring um den Termin-Knopf) | `motion/szene.js` |

@@ -25,7 +25,9 @@ import { initSnap } from './snap.js';
 import { initZoom } from './zoom.js';
 // Muster der Agenturseite (nur aktiv, wo ihre Elemente stehen)
 import { initVergleich, initVergleichAuftritt } from './vergleich.js';
-import { initWeiche } from './weiche.js';
+import { initFaecher } from './faecher.js';
+import { initFilm } from './film.js';
+import { initWeg } from './weg.js';
 import { initGalerie } from './galerie.js';
 import { initAblauf } from './ablauf.js';
 import { initKarte } from './karte.js';
@@ -68,7 +70,7 @@ export function initMotion() {
     if (finePointer) cleanups.push(initMagnetic());
     if (desktop) cleanups.push(initSzene());
     initVergleichAuftritt();
-    cleanups.push(initWeiche({ finePointer }));
+    cleanups.push(initFilm(), initFaecher({ finePointer }), initWeg());
     if (desktop) cleanups.push(initGalerie());
     initAblauf({ desktop });
     initKarte();

@@ -11,15 +11,16 @@ npm run artefakt   # Fassung als Claude-Artifact in artefakt/ (relative Pfade, S
 
 | Seite | Inhalt |
 |---|---|
-| `index.html` | Weiche (geteilter Hero), Referenzen (Stapel), Ablauf, Preise, Köln vor Ort, Über uns, FAQ, Abschluss |
+| `index.html` | Aussage, Film „So läuft es ab“ (3 Bilder), Frage „Wo stehen Sie?“ mit zwei Schaltern. Erst nach der Wahl erscheint der passende Weg (Ablauf, Bild, Preis, Knopf), die ganze Seite wird hell (Neue Seite) oder tiefgrün (Bestehende Seite). Danach Beispiele-Ausblick, Köln vor Ort, Über uns, Fragen |
 | `neu.html` | Fragebogen in 5 Schritten + Live-Skizze, Zusammenfassung, Anfrage |
-| `renovieren.html` | URL-Schnell-Check (PageSpeed), Vorher/Nachher, Leistungen, Anfrage „Was stört Sie?“ |
+| `renovieren.html` | URL-Schnell-Check (PageSpeed), Vorher/Nachher-Szene, Leistungen, Anfrage „Was stört Sie?“ |
+| `referenzen.html` | Alle sieben Prototypen als angeheftete Seitwärts-Galerie mit Live-Vorschau |
 | `impressum.html`, `datenschutz.html` | Gliederung mit Platzhaltern |
 
 - **Stammdaten** (Name, Telefon, Preise, Mail-Endpunkt, PLZ-Umkreis): `site.config.js`. In HTML als `{{name}}`, `{{preis:neubau}}` usw., eingesetzt von `vite.config.js`.
 - **Kopf, Fuß, Head:** `src/partials/`, eingebunden per `<!-- include:header -->`.
-- **Referenzen:** die sieben Prototypen stehen in `site.config.js` (`referenzen`). Daraus entstehen beim Build die Galerie (`<!-- galerie -->`) und die Stilkarten im Fragebogen (`<!-- stile -->`). Bilder neu erzeugen: `node tools/aufnehmen.mjs` (siehe Kopf der Datei), Herkunft in `public/media/HERKUNFT.md`.
-- **Farben und Schrift:** `src/styles/tokens.css`. Kalkweiß und Marine-Tinte, Bereich Neu bauen = Marine, Renovieren = Tannengrün, **Messing ist die einzige Akzentfarbe** (alle Hauptknöpfe). Schibsted Grotesk, selbst gehostet. Rundungen: 6 px für Anklickbares, 14 px für Bilder und Flächen.
+- **Referenzen:** die sieben Prototypen stehen in `site.config.js` (`referenzen`). Daraus entstehen beim Build die Galerie (`<!-- galerie -->`, Referenzen-Seite), der Ausblick (`<!-- ausblick -->`, Startseite) und die Stilkarten im Fragebogen (`<!-- stile -->`). Bilder neu erzeugen: `node tools/aufnehmen.mjs` (siehe Kopf der Datei), Herkunft in `public/media/HERKUNFT.md`.
+- **Farben und Schrift:** `src/styles/tokens.css`. Racing Green und Creme: Tannengrün ist die Hauptfarbe, Creme der Grund, Gold nur für feine Linien. Zwei Farbwelten (`--cw-*`): hell für Start und „Neue Seite“, tiefgrün für „Bestehende Seite“; die Wegwahl schaltet sie per CSS `:has` um. Schibsted Grotesk, selbst gehostet. Rundungen: 6 px für Anklickbares, 14 px für Bilder und Flächen.
 - **Bewegung:** nur über `src/motion/`. Agentur-Muster stehen in `docs/ANIMATION.md` unter „Muster der Agenturseite“.
 
 ## Stand: Design überarbeitet, Animationen ausgebaut

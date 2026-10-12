@@ -1,10 +1,10 @@
 import '../main.js';
 import { initPlzCheck } from '../lib/vor-ort.js';
-import { initVorschau } from '../lib/vorschau.js';
+import { initWegwahl } from '../lib/wegwahl.js';
 import { normUrl } from '../lib/url.js';
 
 initPlzCheck(document.querySelector('[data-plz-check]'));
-initVorschau();
+initWegwahl();
 
 // Adresse aus der Weiche normalisieren, bevor es zur Renovieren-Seite geht
 document.querySelectorAll('.url-feld').forEach((form) => {

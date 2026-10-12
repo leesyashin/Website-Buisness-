@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <!-- include:head -->
+    <title>Referenzen · {{name}}</title>
+    <meta name="description" content="Sieben Beispielseiten aus sieben Branchen: Möbelwerkstatt, Zahnarztpraxis, Physiotherapie, Architekturbüro, Bauunternehmen, Restaurant und Getränkemarke. Alle live zum Ausprobieren." />
+    <script type="module" src="/src/pages/referenzen.js"></script>
+  </head>
+  <body>
+    <!-- include:header -->
+
+    <main id="inhalt" tabindex="-1">
+      <section class="referenzen" aria-labelledby="ref-titel">
+        <div class="wrap referenzen__kopf">
+          <h1 id="ref-titel" class="bereich-kopf__titel" data-split data-split-now>Sieben Branchen, sieben Handschriften.</h1>
+          <p class="einleitung" data-reveal data-reveal-delay="0.3">Echte Seiten von uns. Öffnen Sie jede live, scrollen Sie hinein, probieren Sie Reservierung, Terminanfrage oder 3D aus. Gefällt Ihnen ein Stil, nehmen Sie ihn als Ausgangspunkt für Ihre neue Seite.</p>
+        </div>
+        <div class="galerie" data-galerie>
+          <ul class="galerie__spur" data-galerie-spur>
+            <!-- galerie -->
+          </ul>
+        </div>
+        <p class="wrap galerie__hinweis">Die Betriebe in den Beispielen sind erfunden. Texte und Bilder dienen nur der Vorführung.</p>
+      </section>
+
+      <section class="abschluss" aria-labelledby="ref-weiter">
+        <div class="wrap abschluss__innen">
+          <h2 id="ref-weiter" class="abschluss__titel" data-split>Welcher Weg passt zu Ihnen?</h2>
+          <div class="abschluss__knoepfe">
+            <a class="knopf knopf--gross" href="/#neu">Neue Seite</a>
+            <a class="knopf knopf--gross knopf--zweit" href="/#renovieren">Bestehende Seite</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- include:footer -->
+    <!-- include:vorschau -->
+  </body>
+</html>

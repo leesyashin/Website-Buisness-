@@ -4,10 +4,9 @@
     <a class="marke" href="/" aria-label="{{name}}, zur Startseite">{{name}}</a>
     <nav class="kopf__nav" aria-label="Hauptnavigation">
       <ul>
-        <li><a href="/neu.html" data-roll>Neu bauen</a></li>
-        <li><a href="/renovieren.html" data-roll>Renovieren</a></li>
-        <li><a href="/#referenzen" data-roll>Referenzen</a></li>
-        <li><a href="/#preise" data-roll>Preise</a></li>
+        <li><a href="/#neu" data-roll data-wahl-link="neu">Neue Seite</a></li>
+        <li><a href="/#renovieren" data-roll data-wahl-link="renovieren">Bestehende Seite</a></li>
+        <li><a href="/referenzen.html" data-roll>Referenzen</a></li>
         <li><a href="/#faq" data-roll>Fragen</a></li>
       </ul>
     </nav>
@@ -15,11 +14,10 @@
     <details class="kopf__menue">
       <summary>Menü</summary>
       <ul>
-        <li><a href="/neu.html">Neu bauen</a></li>
-        <li><a href="/renovieren.html">Renovieren</a></li>
-        <li><a href="/#referenzen">Referenzen</a></li>
-        <li><a href="/#ablauf">Ablauf</a></li>
-        <li><a href="/#preise">Preise</a></li>
+        <li><a href="/#neu" data-wahl-link="neu">Neue Seite</a></li>
+        <li><a href="/#renovieren" data-wahl-link="renovieren">Bestehende Seite</a></li>
+        <li><a href="/referenzen.html">Referenzen</a></li>
+        <li><a href="/#vor-ort">Fotos und Videos in Köln</a></li>
         <li><a href="/#faq">Fragen</a></li>
         <li><a href="tel:{{telefonLink}}">Anrufen: {{telefon}}</a></li>
       </ul>
