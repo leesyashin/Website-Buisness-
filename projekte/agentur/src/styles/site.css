@@ -15,7 +15,7 @@ h3 {
 }
 
 ::selection {
-  background: var(--c-gold);
+  background: var(--c-blush);
   color: var(--c-tinte);
 }
 
@@ -220,7 +220,7 @@ h3 {
   min-width: 15rem;
   padding: var(--space-2xs);
   border-radius: var(--radius-l);
-  background: var(--c-creme);
+  background: var(--c-grund);
   color: var(--c-tinte);
   box-shadow: 0 1.5rem 3rem -1rem var(--c-schatten);
 }
@@ -233,7 +233,7 @@ h3 {
 }
 
 .kopf__menue li a:hover {
-  background: var(--c-creme-2);
+  background: var(--c-grund-2);
 }
 
 @media (max-width: 899px) {
@@ -327,7 +327,7 @@ main > section {
   border-radius: var(--radius-l);
   background: var(--c-weiss);
   color: var(--c-tinte);
-  box-shadow: 0 0 0 1px rgb(26 26 23 / 0.08);
+  box-shadow: 0 0 0 1px rgb(54 50 55 / 0.08);
   font-size: clamp(0.62rem, 0.5rem + 0.3vw, 0.8rem);
 }
 
@@ -338,7 +338,7 @@ main > section {
   padding: 0.6em 1em;
   overflow: hidden;
   border-radius: var(--radius);
-  box-shadow: inset 0 0 0 1.5px rgb(26 26 23 / 0.2);
+  box-shadow: inset 0 0 0 1.5px rgb(54 50 55 / 0.2);
 }
 
 .film__pille b {
@@ -350,12 +350,12 @@ main > section {
 .film__pille [data-film-fuellung] {
   position: absolute;
   inset: 0;
-  background: var(--c-gruen);
+  background: var(--c-indigo);
   transform-origin: left center;
 }
 
 .film__pille.ist-an b {
-  color: var(--c-creme);
+  color: var(--c-grund);
 }
 
 .film__zeiger {
@@ -365,7 +365,7 @@ main > section {
   width: 1.4em;
   height: 1.4em;
   border-radius: 50%;
-  background: rgb(251 249 243 / 0.7);
+  background: rgb(252 249 247 / 0.7);
   box-shadow: 0 0 0 2px var(--c-tinte);
 }
 
@@ -376,13 +376,13 @@ main > section {
   margin-bottom: 0.3em;
   overflow: hidden;
   border-radius: 3px;
-  background: rgb(26 26 23 / 0.1);
+  background: rgb(54 50 55 / 0.1);
 }
 
 .film__balken span {
   display: block;
   height: 100%;
-  background: var(--c-gruen);
+  background: var(--c-indigo);
   transform-origin: left center;
 }
 
@@ -399,7 +399,7 @@ main > section {
   width: 1.1em;
   height: 1.1em;
   border-radius: 3px;
-  background: var(--c-gruen);
+  background: var(--c-indigo);
 }
 
 .film__zeile i::after {
@@ -409,7 +409,7 @@ main > section {
   top: 0.16em;
   width: 0.28em;
   height: 0.55em;
-  border: solid var(--c-creme);
+  border: solid var(--c-grund);
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 }
@@ -418,7 +418,7 @@ main > section {
   flex: 1;
   height: 0.5em;
   border-radius: 3px;
-  background: rgb(26 26 23 / 0.12);
+  background: rgb(54 50 55 / 0.12);
 }
 
 .film__blatt {
@@ -427,14 +427,14 @@ main > section {
   width: 13em;
   padding: 1em 1.1em;
   border-radius: 4px;
-  background: var(--c-creme);
+  background: var(--c-grund);
   box-shadow: 0 0.4em 1.2em -0.4em var(--c-schatten);
 }
 
 .film__blatt s {
   height: 0.45em;
   border-radius: 3px;
-  background: rgb(26 26 23 / 0.12);
+  background: rgb(54 50 55 / 0.12);
 }
 
 .film__blatt s:nth-child(2) {
@@ -444,7 +444,7 @@ main > section {
 .film__summe {
   margin-top: 0.3em;
   padding-top: 0.45em;
-  border-top: 1.5px solid var(--c-gold);
+  border-top: 1.5px solid var(--c-blush);
   font-weight: 700;
 }
 
@@ -455,7 +455,7 @@ main > section {
   width: 2.8em;
   height: 2.8em;
   border-radius: 50%;
-  box-shadow: inset 0 0 0 2px var(--c-gruen);
+  box-shadow: inset 0 0 0 2px var(--c-indigo);
   rotate: -12deg;
 }
 
@@ -466,7 +466,7 @@ main > section {
   top: 0.62em;
   width: 0.55em;
   height: 1.05em;
-  border: solid var(--c-gruen);
+  border: solid var(--c-indigo);
   border-width: 0 2.5px 2.5px 0;
   transform: rotate(45deg);
 }
@@ -556,7 +556,7 @@ main > section {
 }
 
 .wahl__eingabe:checked + .wahl__knopf::after {
-  background: radial-gradient(circle, var(--c-gold) 0 42%, transparent 46%);
+  background: radial-gradient(circle, var(--c-blush) 0 42%, transparent 46%);
 }
 
 .wahl__eingabe:focus-visible + .wahl__knopf {
@@ -709,7 +709,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 .url-feld:focus-within {
   box-shadow:
     inset 0 0 0 1px color-mix(in oklch, currentColor 30%, transparent),
-    0 0 0 2px var(--c-gold);
+    0 0 0 2px var(--c-blush);
 }
 
 .url-feld--gross {
@@ -728,7 +728,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 .faecher__handy {
   position: absolute;
   border-radius: 10px;
-  box-shadow: 0 1.5rem 3rem -1rem oklch(0.1 0.04 160 / 0.6);
+  box-shadow: 0 1.5rem 3rem -1rem oklch(0.1 0.04 300 / 0.6);
   backface-visibility: hidden;
 }
 
@@ -774,8 +774,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: var(--radius-l);
-  background: var(--c-creme-2);
-  box-shadow: 0 1.5rem 3rem -1rem oklch(0.1 0.04 160 / 0.5);
+  background: var(--c-grund-2);
+  box-shadow: 0 1.5rem 3rem -1rem oklch(0.1 0.04 300 / 0.5);
 }
 
 .vergleich__bild img {
@@ -798,7 +798,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   left: var(--pos);
   width: 2px;
   margin-left: -1px;
-  background: var(--c-gold);
+  background: var(--c-blush);
   pointer-events: none;
 }
 
@@ -814,8 +814,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
   background:
     conic-gradient(from 45deg at 30% 50%, var(--c-tinte) 0 90deg, transparent 0) 0.65rem 50% / 0.5rem 0.5rem no-repeat,
     conic-gradient(from 225deg at 70% 50%, var(--c-tinte) 0 90deg, transparent 0) calc(100% - 0.65rem) 50% / 0.5rem 0.5rem no-repeat,
-    var(--c-gold);
-  box-shadow: 0 0.4rem 1rem oklch(0.1 0.04 160 / 0.35);
+    var(--c-blush);
+  box-shadow: 0 0.4rem 1rem oklch(0.1 0.04 300 / 0.35);
 }
 
 .ist-am-rand .vergleich__naht {
@@ -833,7 +833,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 }
 
 .vergleich__bild:has(.vergleich__regler:focus-visible) {
-  outline: 2px solid var(--c-gold);
+  outline: 2px solid var(--c-blush);
   outline-offset: 3px;
 }
 
@@ -890,7 +890,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   aspect-ratio: 16 / 10;
   overflow: hidden;
   border-radius: var(--radius-l);
-  background: var(--c-creme-2);
+  background: var(--c-grund-2);
   box-shadow:
     0 0 0 1px var(--cw-line),
     0 1.5rem 3rem -1.5rem var(--c-schatten);
@@ -956,10 +956,10 @@ html:has(#wahl-renovieren:checked) #renovieren {
   padding: 0;
   border: 0;
   border-radius: var(--radius-l);
-  background: var(--c-creme);
+  background: var(--c-grund);
   color: var(--c-tinte);
   overflow: hidden;
-  box-shadow: 0 2rem 6rem oklch(0.1 0.04 160 / 0.5);
+  box-shadow: 0 2rem 6rem oklch(0.1 0.04 300 / 0.5);
 }
 
 .vorschau[open] {
@@ -969,7 +969,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 }
 
 .vorschau::backdrop {
-  background: oklch(0.18 0.04 160 / 0.7);
+  background: oklch(0.18 0.04 300 / 0.7);
 }
 
 @keyframes vorschau-auf {
@@ -998,7 +998,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   border: 0;
   border-radius: var(--radius);
   background: var(--c-tinte);
-  color: var(--c-creme);
+  color: var(--c-grund);
   font: inherit;
   font-weight: 600;
   cursor: pointer;
@@ -1008,7 +1008,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   width: 100%;
   height: 100%;
   border: 0;
-  background: var(--c-creme);
+  background: var(--c-grund);
 }
 
 .lenis.lenis-smooth .vorschau__rahmen {
@@ -1192,7 +1192,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   aspect-ratio: 16 / 8;
   overflow: hidden;
   border-radius: var(--radius-l);
-  background: var(--c-creme-2);
+  background: var(--c-grund-2);
 }
 
 .vor-ort__rahmen img {
@@ -1253,11 +1253,11 @@ html:has(#wahl-renovieren:checked) #renovieren {
 .plz-check__ergebnis {
   padding: var(--space-s);
   border-radius: var(--radius);
-  background: var(--c-creme-2);
+  background: var(--c-grund-2);
 }
 
 .plz-check[data-status='inklusive'] .plz-check__ergebnis {
-  box-shadow: inset 3px 0 0 var(--c-gruen);
+  box-shadow: inset 3px 0 0 var(--c-indigo);
 }
 
 .karte {
@@ -1274,7 +1274,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 
 .karte__rhein {
   fill: none;
-  stroke: oklch(0.29 0.075 160 / 0.16);
+  stroke: oklch(0.29 0.075 300 / 0.16);
   stroke-width: 12;
   stroke-linecap: round;
 }
@@ -1287,8 +1287,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
 }
 
 .karte__innen {
-  fill: oklch(0.36 0.07 163 / 0.1);
-  stroke: var(--c-gruen);
+  fill: color-mix(in srgb, var(--c-blush) 22%, transparent);
+  stroke: var(--cw-accent);
   stroke-width: 1.5;
 }
 
@@ -1332,8 +1332,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
   aspect-ratio: 4 / 5;
   border-radius: var(--radius-l);
   background:
-    repeating-linear-gradient(135deg, transparent 0 14px, oklch(0.22 0.045 160 / 0.05) 14px 15px),
-    var(--c-creme-2);
+    repeating-linear-gradient(135deg, transparent 0 14px, oklch(0.22 0.045 300 / 0.05) 14px 15px),
+    var(--c-grund-2);
   color: var(--cw-soft);
   font-weight: 600;
 }
@@ -1445,12 +1445,12 @@ html:has(#wahl-renovieren:checked) #renovieren {
 
 /* ---------- 8 · ABSCHLUSS ---------- */
 .abschluss {
-  --cw-knopf: var(--c-creme);
-  --cw-knopf-text: var(--c-gruen);
-  --cw-knopf-hover: var(--c-weiss);
-  --cw-soft: var(--c-gruen-soft);
-  background: var(--c-gruen-tief);
-  color: var(--c-creme);
+  --cw-knopf: var(--c-blush);
+  --cw-knopf-text: var(--c-purple);
+  --cw-knopf-hover: var(--c-blush-hell);
+  --cw-soft: var(--c-purple-soft);
+  background: var(--c-purple);
+  color: var(--c-grund);
 }
 
 .abschluss__innen {
@@ -1475,14 +1475,14 @@ html:has(#wahl-renovieren:checked) #renovieren {
 
 .abschluss__direkt {
   max-width: none;
-  color: oklch(0.86 0.02 92);
+  color: oklch(0.86 0.02 40);
 }
 
 /* ---------- FUSSZEILE ---------- */
 .fuss {
   padding-block: var(--space-xl) var(--space-l);
-  background: var(--c-gruen-tief);
-  color: oklch(0.86 0.015 92);
+  background: var(--c-nacht);
+  color: oklch(0.86 0.015 40);
 }
 
 .fuss__innen {
@@ -1493,7 +1493,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 
 .fuss .marke {
   display: block;
-  color: var(--c-creme);
+  color: var(--c-grund);
   font-size: var(--step-2);
   margin-bottom: var(--space-2xs);
 }
@@ -1539,18 +1539,18 @@ html:has(#wahl-renovieren:checked) #renovieren {
 .fb {
   /* Formulare sind immer helle Karten, auch in der grünen Welt */
   --cw-soft: var(--c-tinte-soft);
-  --cw-line: rgb(26 26 23 / 0.14);
-  --cw-knopf: var(--c-gruen);
-  --cw-knopf-text: var(--c-creme);
-  --cw-knopf-hover: var(--c-gruen-hell);
-  --cw-markierung: var(--c-gold-tief);
+  --cw-line: rgb(54 50 55 / 0.14);
+  --cw-knopf: var(--c-indigo);
+  --cw-knopf-text: var(--c-grund);
+  --cw-knopf-hover: var(--c-indigo-hell);
+  --cw-markierung: var(--c-blush-tief);
   display: grid;
   gap: var(--space-l);
   padding: var(--space-l);
   border-radius: var(--radius-l);
   background: var(--c-weiss);
   color: var(--c-tinte);
-  box-shadow: 0 0 0 1px rgb(26 26 23 / 0.08), 0 1.5rem 3rem -2rem var(--c-schatten);
+  box-shadow: 0 0 0 1px rgb(54 50 55 / 0.08), 0 1.5rem 3rem -2rem var(--c-schatten);
 }
 
 .fb fieldset {
@@ -1628,9 +1628,9 @@ html:has(#wahl-renovieren:checked) #renovieren {
   width: 100%;
   min-height: 3rem;
   padding: 0.7rem 0.9rem;
-  border: 1px solid oklch(0.22 0.045 160 / 0.3);
+  border: 1px solid oklch(0.22 0.045 300 / 0.3);
   border-radius: var(--radius);
-  background: var(--c-creme);
+  background: var(--c-grund);
   color: var(--c-tinte);
   font: inherit;
 }
@@ -1649,7 +1649,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 
 .fb ::placeholder,
 .plz-check ::placeholder {
-  color: oklch(0.45 0.025 160 / 0.85);
+  color: oklch(0.45 0.025 300 / 0.85);
 }
 
 /* Auswahl-Kacheln */
@@ -1680,8 +1680,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
   min-height: 3.4rem;
   padding: 0.65rem 0.9rem 0.65rem 2.6rem;
   border-radius: var(--radius);
-  background: var(--c-creme);
-  box-shadow: inset 0 0 0 1px oklch(0.22 0.045 160 / 0.2);
+  background: var(--c-grund);
+  box-shadow: inset 0 0 0 1px oklch(0.22 0.045 300 / 0.2);
   font-weight: 550;
   line-height: 1.25;
   transition:
@@ -1705,8 +1705,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
   height: 1.05rem;
   margin-top: -0.525rem;
   border-radius: 3px;
-  box-shadow: inset 0 0 0 1.5px oklch(0.22 0.045 160 / 0.45);
-  background: var(--c-creme);
+  box-shadow: inset 0 0 0 1.5px oklch(0.22 0.045 300 / 0.45);
+  background: var(--c-grund);
 }
 
 .kachel input[type='radio'] + span::before {
@@ -1718,17 +1718,17 @@ html:has(#wahl-renovieren:checked) #renovieren {
 }
 
 .kachel input:checked + span {
-  background: var(--c-gruen);
-  color: var(--c-creme);
+  background: var(--c-indigo);
+  color: var(--c-grund);
   box-shadow: none;
 }
 
 .kachel input:checked + span small {
-  color: oklch(0.85 0.02 92);
+  color: oklch(0.85 0.02 40);
 }
 
 .kachel input:checked + span::before {
-  background: var(--c-gold);
+  background: var(--c-blush);
   box-shadow: none;
 }
 
@@ -1764,8 +1764,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
   align-content: start;
   padding: 0.5rem 0.5rem 0.9rem;
   border-radius: var(--radius-l);
-  background: var(--c-creme);
-  box-shadow: inset 0 0 0 1px oklch(0.22 0.045 160 / 0.18);
+  background: var(--c-grund);
+  box-shadow: inset 0 0 0 1px oklch(0.22 0.045 300 / 0.18);
   cursor: pointer;
   transition: box-shadow var(--dur-fast) var(--ease-out);
 }
@@ -1805,7 +1805,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 .stil:has(input:checked) {
   box-shadow:
     inset 0 0 0 2px var(--c-tinte),
-    0 0 0 4px var(--c-gold);
+    0 0 0 4px var(--c-blush);
 }
 
 .stil:has(input:checked) .stil__name::after {
@@ -1842,8 +1842,8 @@ html:has(#wahl-renovieren:checked) #renovieren {
 [data-vor-ort] {
   padding: var(--space-s);
   border-radius: var(--radius);
-  background: oklch(0.36 0.07 163 / 0.09);
-  box-shadow: inset 3px 0 0 var(--c-gruen);
+  background: oklch(0.36 0.07 300 / 0.09);
+  box-shadow: inset 3px 0 0 var(--c-indigo);
 }
 
 /* Fortschritt und Steuerung */
@@ -1882,7 +1882,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   right: 0;
   height: 3px;
   border-radius: 2px;
-  background: oklch(0.22 0.045 160 / 0.12);
+  background: oklch(0.22 0.045 300 / 0.12);
 }
 
 .fb__fortschritt button::after {
@@ -1931,7 +1931,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 .zusammenfassung {
   padding: var(--space-m);
   border-radius: var(--radius);
-  background: var(--c-creme);
+  background: var(--c-grund);
   box-shadow: inset 0 0 0 1px var(--cw-line);
 }
 
@@ -1981,7 +1981,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 .fb__haken {
   width: 3.5rem;
   height: 3.5rem;
-  color: var(--c-gruen);
+  color: var(--c-indigo);
 }
 
 @media (max-width: 899px) {
@@ -2054,9 +2054,9 @@ html:has(#wahl-renovieren:checked) #renovieren {
   margin: 0;
   overflow: hidden;
   border-radius: var(--radius-l);
-  background: var(--c-creme);
+  background: var(--c-grund);
   color: var(--c-tinte);
-  box-shadow: 0 2rem 4rem -1.5rem oklch(0.1 0.04 160 / 0.55);
+  box-shadow: 0 2rem 4rem -1.5rem oklch(0.1 0.04 300 / 0.55);
 }
 
 .browser__leiste {
@@ -2065,7 +2065,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   gap: 0.4rem;
   height: 2.2rem;
   padding-inline: 0.85rem;
-  background: var(--c-creme-2);
+  background: var(--c-grund-2);
   font-size: var(--step--2);
   color: var(--c-tinte-soft);
 }
@@ -2074,14 +2074,14 @@ html:has(#wahl-renovieren:checked) #renovieren {
   width: 0.6rem;
   height: 0.6rem;
   border-radius: 50%;
-  background: oklch(0.22 0.045 160 / 0.18);
+  background: oklch(0.22 0.045 300 / 0.18);
 }
 
 .browser__leiste span {
   margin-left: 0.75rem;
   padding: 0.15rem 0.75rem;
   border-radius: 999px;
-  background: var(--c-creme);
+  background: var(--c-grund);
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -2107,9 +2107,9 @@ html:has(#wahl-renovieren:checked) #renovieren {
 /* Die skizzierte Seite. Maße in em, damit sie mit der Schriftgröße skaliert. Farben setzt fragebogen/skizze.js
    aus den Farben des gewählten Prototyps (site.config.js), die Form hier je Stil. */
 .skizze__seite {
-  --sz-bg: var(--c-creme);
+  --sz-bg: var(--c-grund);
   --sz-ink: var(--c-tinte);
-  --sz-accent: var(--c-gold);
+  --sz-accent: var(--c-blush);
   --sz-soft: color-mix(in oklch, var(--sz-ink) 14%, transparent);
   --sz-gewicht: 650;
   --sz-trans: none;
@@ -2431,18 +2431,18 @@ html:has(#wahl-renovieren:checked) #renovieren {
 }
 
 .werte__ring .wert {
-  stroke: var(--ring, var(--c-gold));
+  stroke: var(--ring, var(--c-blush));
   stroke-linecap: round;
   stroke-dasharray: 100;
   stroke-dashoffset: 100;
 }
 
 .werte [data-stufe='gut'] {
-  --ring: oklch(0.8 0.13 155);
+  --ring: oklch(0.8 0.13 40);
 }
 
 .werte [data-stufe='mittel'] {
-  --ring: var(--c-gold);
+  --ring: var(--c-blush);
 }
 
 .werte [data-stufe='schlecht'] {
@@ -2551,7 +2551,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   height: 8%;
   border-radius: 999px;
   box-shadow:
-    0 0 0 3px var(--c-gold),
+    0 0 0 3px var(--c-blush),
     0 0 0 9px oklch(0.78 0.09 80 / 0.3);
   pointer-events: none;
 }
@@ -2589,7 +2589,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   right: 0;
   top: 0;
   height: 4px;
-  background: var(--c-gold);
+  background: var(--c-blush);
   transform-origin: left center;
   z-index: 2;
 }

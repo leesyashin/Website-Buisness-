@@ -38,9 +38,9 @@ Wir bauen animierte, schnelle, rechtssichere Seiten wie die eigenen Prototypen, 
 ## Brand Commitments
 
 - Tonalität: Mischung aus nahbar-direkt und ruhig-hochwertig.
-- Farben: Racing Green und Creme (von Vincent gewählt): Tannengrün als Hauptfarbe, Creme als Grund, Gold nur als feine Linie. Ruhig, seriös, vertrauensvoll. Kein Orange, nichts Knalliges.
+- Farben: Vincents Farbkarte (verbindlich): Deep Purple #363237, Indigo #2D4262, Taupe #73605B, Blush #D09683; heller Grund #F7F1EE daraus abgeleitet. Ruhig, warm, vertrauensvoll. Kein Orange, nichts Knalliges.
 - Design-Richtung „Ruhige Bühne“: Die Agenturseite ist zurückhaltend, die Prototypen bringen die Farbe.
-- „Neue Seite“ und „Bestehende Seite“ klar getrennt: Beim Betreten erklärt ein kurzer Film den Ablauf, erst die eigene Wahl öffnet den passenden Weg; es ist immer nur ein Weg sichtbar, die Seite wechselt dabei die Farbwelt (hell / tiefgrün).
+- „Neue Seite“ und „Bestehende Seite“ klar getrennt: Beim Betreten erklärt ein kurzer Film den Ablauf, erst die eigene Wahl öffnet den passenden Weg; es ist immer nur ein Weg sichtbar, die Seite wechselt dabei die Farbwelt (hell / Indigo).
 - Beispiele auf eigener Referenzen-Seite, auf der Startseite nur ein Ausblick.
 - Gestaltung nach Taste-Skill: Sans-Schrift statt Serife, echte Bilder, sparsame Labels (Wunsch von Vincent nach dem ersten Zwischenstand).
 - Viel Bewegung, aber dosiert: 3–4 Signature-Sequenzen, sonst ruhige Reveals. 3D, wo es Sinn ergibt. Keine eingebetteten Videodateien.

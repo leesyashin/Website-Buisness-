@@ -1,42 +1,49 @@
-/* Design-Tokens der Agenturseite: Racing Green und Creme (Wunsch von Vincent). Tannengrün ist die Hauptfarbe
-   (Knöpfe, Flächen, die dunkle Welt „Bestehende Seite“), Creme der Grund, Gold nur für feine Linien und
-   Markierungen, nie als Fläche. */
+/* Design-Tokens der Agenturseite nach Vincents Farbkarte: Deep Purple #363237, Indigo #2D4262, Taupe #73605B,
+   Blush #D09683. Indigo ist die Hauptfarbe (Knöpfe, die dunkle Welt „Bestehende Seite“), Deep Purple trägt Schrift
+   und dunkle Flächen, Taupe den Nebentext, Blush Linien, Markierungen und Knöpfe auf dunklem Grund.
+   Der helle Grund ist aus Blush abgeleitet (die Karte hat keinen hellen Ton). */
 :root {
-  /* Grundfarben */
-  --c-creme: #f4f1e8;
-  --c-creme-2: #eae5d7;
-  --c-weiss: #fbf9f3;
-  --c-tinte: #1a1a17;
-  --c-tinte-soft: #5c5b52;
-  --c-gruen: #0b3d2e;
-  --c-gruen-hell: #165743;
-  --c-gruen-tief: #072a20;
-  --c-gruen-soft: #c8cfc1; /* Nebentext auf Grün */
-  --c-gold: #b8975a;
-  --c-gold-tief: #876a35; /* Gold für kleine Schrift auf Creme */
-  --c-schatten: rgb(7 42 32 / 0.22);
+  /* Farbkarte */
+  --c-purple: #363237;
+  --c-indigo: #2d4262;
+  --c-taupe: #73605b;
+  --c-blush: #d09683;
+
+  /* abgeleitet */
+  --c-grund: #f7f1ee; /* heller Grund, Blush stark aufgehellt */
+  --c-grund-2: #ede3de; /* Flächen auf hellem Grund */
+  --c-weiss: #fcf9f7; /* Karten, Formulare */
+  --c-tinte: var(--c-purple);
+  --c-tinte-soft: var(--c-taupe);
+  --c-nacht: #2a272b; /* Fußzeile, etwas dunkler als Deep Purple */
+  --c-indigo-hell: #3b5478; /* Hover auf Indigo */
+  --c-indigo-soft: #c3c8d6; /* Nebentext auf Indigo */
+  --c-purple-soft: #cdc4c6; /* Nebentext auf Deep Purple */
+  --c-blush-hell: #dcab9b; /* Hover auf Blush */
+  --c-blush-tief: #9c5a47; /* Blush für kleine Schrift auf hellem Grund */
+  --c-schatten: rgb(54 50 55 / 0.22);
 
   /* Rollen (vom Starter erwartet) */
-  --c-bg: var(--c-creme);
-  --c-surface: var(--c-creme-2);
+  --c-bg: var(--c-grund);
+  --c-surface: var(--c-grund-2);
   --c-ink: var(--c-tinte);
   --c-ink-soft: var(--c-tinte-soft);
-  --c-line: rgb(26 26 23 / 0.14);
-  --c-accent: var(--c-gruen);
-  --c-on-accent: var(--c-creme);
-  --c-dark: var(--c-gruen);
-  --c-on-dark: var(--c-creme);
+  --c-line: rgb(54 50 55 / 0.14);
+  --c-accent: var(--c-indigo);
+  --c-on-accent: var(--c-grund);
+  --c-dark: var(--c-purple);
+  --c-on-dark: var(--c-grund);
 
   /* Aktuelle Farbwelt (Standard: hell). Die Welten unten und die Wegwahl der Startseite überschreiben sie. */
-  --cw-bg: var(--c-creme);
+  --cw-bg: var(--c-grund);
   --cw-ink: var(--c-tinte);
   --cw-soft: var(--c-tinte-soft);
-  --cw-accent: var(--c-gruen);
-  --cw-line: rgb(26 26 23 / 0.14);
-  --cw-knopf: var(--c-gruen);
-  --cw-knopf-text: var(--c-creme);
-  --cw-knopf-hover: var(--c-gruen-hell);
-  --cw-markierung: var(--c-gold-tief);
+  --cw-accent: var(--c-indigo);
+  --cw-line: rgb(54 50 55 / 0.14);
+  --cw-knopf: var(--c-indigo);
+  --cw-knopf-text: var(--c-grund);
+  --cw-knopf-hover: var(--c-indigo-hell);
+  --cw-markierung: var(--c-blush-tief);
 
   /* Schrift: Schibsted Grotesk (selbst gehostet) für Überschriften und Text */
   --font-sans: 'Schibsted Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
@@ -76,33 +83,33 @@
   --dur-slow: 900ms;
 }
 
-/* Farbwelten (motion/colorway.js): hell (Start, Neue Seite) und dunkel (Bestehende Seite).
+/* Farbwelten (motion/colorway.js): hell (Start, Neue Seite) und Indigo (Bestehende Seite).
    Auf der Startseite schaltet die Wegwahl die ganze Seite um, rein per CSS (:has), damit es auch ohne JS geht. */
 html[data-colorway='buehne'],
 html:not(.colorway-live) [data-colorway='buehne'],
 html[data-colorway='neu'],
 html:not(.colorway-live) [data-colorway='neu'] {
-  --cw-bg: var(--c-creme);
+  --cw-bg: var(--c-grund);
   --cw-ink: var(--c-tinte);
   --cw-soft: var(--c-tinte-soft);
-  --cw-accent: var(--c-gruen);
-  --cw-line: rgb(26 26 23 / 0.14);
-  --cw-knopf: var(--c-gruen);
-  --cw-knopf-text: var(--c-creme);
-  --cw-knopf-hover: var(--c-gruen-hell);
-  --cw-markierung: var(--c-gold-tief);
+  --cw-accent: var(--c-indigo);
+  --cw-line: rgb(54 50 55 / 0.14);
+  --cw-knopf: var(--c-indigo);
+  --cw-knopf-text: var(--c-grund);
+  --cw-knopf-hover: var(--c-indigo-hell);
+  --cw-markierung: var(--c-blush-tief);
 }
 
 html[data-colorway='renovieren'],
 html:not(.colorway-live) [data-colorway='renovieren'],
 html:has(#wahl-renovieren:checked) {
-  --cw-bg: var(--c-gruen);
-  --cw-ink: var(--c-creme);
-  --cw-soft: var(--c-gruen-soft);
-  --cw-accent: var(--c-gold);
-  --cw-line: rgb(244 241 232 / 0.18);
-  --cw-knopf: var(--c-creme);
-  --cw-knopf-text: var(--c-gruen);
-  --cw-knopf-hover: var(--c-weiss);
-  --cw-markierung: var(--c-gold);
+  --cw-bg: var(--c-indigo);
+  --cw-ink: var(--c-grund);
+  --cw-soft: var(--c-indigo-soft);
+  --cw-accent: var(--c-blush);
+  --cw-line: rgb(247 241 238 / 0.18);
+  --cw-knopf: var(--c-blush);
+  --cw-knopf-text: var(--c-purple);
+  --cw-knopf-hover: var(--c-blush-hell);
+  --cw-markierung: var(--c-blush);
 }

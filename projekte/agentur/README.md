@@ -11,7 +11,7 @@ npm run artefakt   # Fassung als Claude-Artifact in artefakt/ (relative Pfade, S
 
 | Seite | Inhalt |
 |---|---|
-| `index.html` | Aussage, Film „So läuft es ab“ (3 Bilder), Frage „Wo stehen Sie?“ mit zwei Schaltern. Erst nach der Wahl erscheint der passende Weg (Ablauf, Bild, Preis, Knopf), die ganze Seite wird hell (Neue Seite) oder tiefgrün (Bestehende Seite). Danach Beispiele-Ausblick, Köln vor Ort, Über uns, Fragen |
+| `index.html` | Aussage, Film „So läuft es ab“ (3 Bilder), Frage „Wo stehen Sie?“ mit zwei Schaltern. Erst nach der Wahl erscheint der passende Weg (Ablauf, Bild, Preis, Knopf), die ganze Seite wird hell (Neue Seite) oder Indigo (Bestehende Seite). Danach Beispiele-Ausblick, Köln vor Ort, Über uns, Fragen |
 | `neu.html` | Fragebogen in 5 Schritten + Live-Skizze, Zusammenfassung, Anfrage |
 | `renovieren.html` | URL-Schnell-Check (PageSpeed), Vorher/Nachher-Szene, Leistungen, Anfrage „Was stört Sie?“ |
 | `referenzen.html` | Alle sieben Prototypen als angeheftete Seitwärts-Galerie mit Live-Vorschau |
@@ -20,7 +20,7 @@ npm run artefakt   # Fassung als Claude-Artifact in artefakt/ (relative Pfade, S
 - **Stammdaten** (Name, Telefon, Preise, Mail-Endpunkt, PLZ-Umkreis): `site.config.js`. In HTML als `{{name}}`, `{{preis:neubau}}` usw., eingesetzt von `vite.config.js`.
 - **Kopf, Fuß, Head:** `src/partials/`, eingebunden per `<!-- include:header -->`.
 - **Referenzen:** die sieben Prototypen stehen in `site.config.js` (`referenzen`). Daraus entstehen beim Build die Galerie (`<!-- galerie -->`, Referenzen-Seite), der Ausblick (`<!-- ausblick -->`, Startseite) und die Stilkarten im Fragebogen (`<!-- stile -->`). Bilder neu erzeugen: `node tools/aufnehmen.mjs` (siehe Kopf der Datei), Herkunft in `public/media/HERKUNFT.md`.
-- **Farben und Schrift:** `src/styles/tokens.css`. Racing Green und Creme: Tannengrün ist die Hauptfarbe, Creme der Grund, Gold nur für feine Linien. Zwei Farbwelten (`--cw-*`): hell für Start und „Neue Seite“, tiefgrün für „Bestehende Seite“; die Wegwahl schaltet sie per CSS `:has` um. Schibsted Grotesk, selbst gehostet. Rundungen: 6 px für Anklickbares, 14 px für Bilder und Flächen.
+- **Farben und Schrift:** `src/styles/tokens.css`. Vincents Farbkarte: Deep Purple `#363237` (Schrift, dunkle Flächen), Indigo `#2D4262` (Hauptfarbe, Knöpfe), Taupe `#73605B` (Nebentext), Blush `#D09683` (Linien, Markierungen, Knöpfe auf dunklem Grund), heller Grund `#F7F1EE` abgeleitet. Zwei Farbwelten (`--cw-*`): hell für Start und „Neue Seite“, Indigo für „Bestehende Seite“; die Wegwahl schaltet sie per CSS `:has` um. Schibsted Grotesk, selbst gehostet. Rundungen: 6 px für Anklickbares, 14 px für Bilder und Flächen.
 - **Bewegung:** nur über `src/motion/`. Agentur-Muster stehen in `docs/ANIMATION.md` unter „Muster der Agenturseite“.
 
 ## Stand: Design überarbeitet, Animationen ausgebaut
