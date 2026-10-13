@@ -168,8 +168,7 @@ h3 {
   margin-left: auto;
 }
 
-.kopf__nav ul,
-.kopf__menue ul {
+.kopf__nav ul {
   display: flex;
   gap: var(--space-m);
   margin: 0;
@@ -195,45 +194,203 @@ h3 {
 
 .kopf__menue {
   display: none;
-  position: relative;
 }
 
-.kopf__menue summary {
+/* Knopf: zwei Striche, die beim Öffnen zum Kreuz werden */
+.kopf__menue-knopf {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 2.75rem;
+  padding: 0 1em 0 0.85em;
+  border-radius: var(--radius);
+  background: var(--cw-knopf);
+  color: var(--cw-knopf-text);
+  font-size: var(--step--1);
+  font-weight: 650;
   list-style: none;
   cursor: pointer;
-  font-weight: 650;
-  padding: 0.55em 0.9em;
-  border-radius: var(--radius);
-  box-shadow: inset 0 0 0 1.5px currentColor;
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    color var(--dur-base) var(--ease-out);
 }
 
-.kopf__menue summary::-webkit-details-marker {
+.kopf__menue-knopf::-webkit-details-marker {
   display: none;
 }
 
-.kopf__menue ul {
+.kopf__burger {
+  position: relative;
+  width: 1.05rem;
+  height: 0.7rem;
+}
+
+.kopf__burger i {
   position: absolute;
-  right: 0;
-  top: calc(100% + 0.5rem);
+  left: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background: currentColor;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.kopf__burger i:first-child {
+  top: 0;
+}
+
+.kopf__burger i:last-child {
+  bottom: 0;
+  transform: scaleX(0.6);
+  transform-origin: left center;
+}
+
+.kopf__menue-knopf:hover .kopf__burger i:last-child {
+  transform: none;
+}
+
+.kopf__menue-wort[data-auf],
+.kopf__menue[open] .kopf__menue-wort[data-zu] {
+  display: none;
+}
+
+.kopf__menue[open] .kopf__menue-wort[data-auf] {
+  display: inline;
+}
+
+.kopf__menue[open] .kopf__menue-knopf {
+  background: var(--c-blush);
+  color: var(--c-purple);
+}
+
+.kopf__menue[open] .kopf__burger i:first-child {
+  transform: translateY(0.29rem) rotate(45deg);
+}
+
+.kopf__menue[open] .kopf__burger i:last-child {
+  transform-origin: center;
+  transform: translateY(-0.29rem) rotate(-45deg);
+}
+
+/* Fläche: ganzer Bildschirm, dunkel, große Wörter. Liegt im Kopf unter Marke und Knopf. */
+.menue {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  display: flex;
   flex-direction: column;
-  gap: 0;
-  min-width: 15rem;
-  padding: var(--space-2xs);
-  border-radius: var(--radius-l);
-  background: var(--c-grund);
-  color: var(--c-tinte);
-  box-shadow: 0 1.5rem 3rem -1rem var(--c-schatten);
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: var(--abschluss-bg);
+  color: var(--c-grund);
 }
 
-.kopf__menue li a {
-  display: block;
-  padding: 0.75rem 0.9rem;
+.menue__innen {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: var(--space-l);
+  flex: 1 0 auto;
+  padding-block: calc(var(--header-h) + var(--space-m)) calc(var(--space-l) + env(safe-area-inset-bottom, 0px));
+}
+
+.menue__liste {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menue__liste li {
+  border-top: 1px solid rgb(247 241 238 / 0.14);
+}
+
+.menue__liste li:last-child {
+  border-bottom: 1px solid rgb(247 241 238 / 0.14);
+}
+
+.menue__liste a {
+  display: grid;
+  grid-template-columns: 2.2rem 1fr;
+  align-items: baseline;
+  column-gap: var(--space-2xs);
+  padding-block: 0.85rem;
   text-decoration: none;
-  border-radius: var(--radius);
 }
 
-.kopf__menue li a:hover {
-  background: var(--c-grund-2);
+.menue__nr {
+  grid-row: span 2;
+  font-size: var(--step--2);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  color: var(--c-blush);
+}
+
+.menue__maske {
+  display: block;
+  overflow: clip;
+  padding-bottom: 0.08em;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+
+.menue__wort {
+  display: block;
+  font-size: clamp(1.9rem, 1.2rem + 3.4vw, 2.6rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.menue__liste small {
+  grid-column: 2;
+  margin-top: 0.3em;
+  font-size: var(--step--1);
+  color: var(--c-purple-soft);
+}
+
+.menue__liste a:hover .menue__maske,
+.menue__liste a:focus-visible .menue__maske {
+  transform: translateX(0.3rem);
+}
+
+.menue__fuss {
+  --cw-knopf: var(--c-blush);
+  --cw-knopf-text: var(--c-purple);
+  --cw-knopf-hover: var(--c-blush-hell);
+  display: grid;
+  gap: var(--space-m);
+}
+
+.menue__fuss .knopf {
+  justify-self: stretch;
+  min-height: 3.25rem;
+}
+
+.menue__kontakt {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-2xs) var(--space-m);
+  margin: 0;
+  font-size: var(--step--1);
+  color: var(--c-purple-soft);
+}
+
+.menue__kontakt a {
+  text-decoration: none;
+}
+
+/* Offen: Seite steht still, Kopf wird Teil der dunklen Fläche (geht auch ohne JavaScript) */
+html:has(.kopf__menue[open]) {
+  overflow: hidden;
+}
+
+.kopf:has(.kopf__menue[open]) {
+  transform: none;
+  background: transparent;
+  color: var(--c-grund);
+  border-color: transparent;
 }
 
 @media (max-width: 899px) {
@@ -1015,8 +1172,12 @@ html:has(#wahl-renovieren:checked) #renovieren {
   pointer-events: auto;
 }
 
-/* ---------- ABLAUF (je Weg) ---------- */
+/* ---------- ABLAUF (je Weg): S-Kurve mit Mini-Szenen ----------
+   Handy: Schritte untereinander, die Spur wechselt von Schritt zu Schritt die Seite (links, rechts, links …),
+   motion/ablauf.js zeichnet die geschwungene Linie dazwischen. Desktop: vier Spalten, versetzt, die Linie
+   läuft als Welle darüber. Ohne JavaScript steht an der Spur eine gerade Linie. */
 .ablauf {
+  --spur: 1.5rem; /* Breite der Spur; ablauf.js setzt die Punkte in ihre Mitte (12 px) */
   display: grid;
   gap: var(--space-l);
 }
@@ -1028,22 +1189,68 @@ html:has(#wahl-renovieren:checked) #renovieren {
 }
 
 .ablauf__bahn {
-  display: grid;
+  position: relative;
 }
 
-.ablauf__linie {
-  height: 2px;
-  background: var(--cw-line);
-}
-
-.ablauf__linie span {
-  display: block;
+.ablauf__kurve {
+  position: absolute;
+  inset: 0;
+  width: 100%;
   height: 100%;
-  background: var(--cw-markierung);
-  transform-origin: left center;
+  overflow: visible;
+  pointer-events: none;
+}
+
+.ablauf__spur,
+.ablauf__strich {
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+}
+
+.ablauf__spur {
+  stroke: var(--cw-line);
+}
+
+.ablauf__strich {
+  stroke: var(--cw-accent);
+}
+
+.ablauf__punkt {
+  fill: var(--cw-bg);
+  stroke: var(--cw-line);
+  stroke-width: 2;
+  transition:
+    fill var(--dur-base) var(--ease-out),
+    stroke var(--dur-base) var(--ease-out);
+}
+
+.ablauf__punkt.is-an {
+  fill: var(--cw-accent);
+  stroke: var(--cw-accent);
+}
+
+/* Läufer: wandert beim Scrollen die Linie entlang */
+.ablauf__laeufer {
+  position: absolute;
+  top: -9px;
+  left: -9px;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--cw-accent);
+  box-shadow: 0 0 0 6px color-mix(in srgb, var(--cw-accent) 22%, transparent);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.motion-ready .ist-kurve .ablauf__laeufer {
+  opacity: 1;
 }
 
 .ablauf__schritte {
+  position: relative;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: var(--space-l);
@@ -1052,74 +1259,481 @@ html:has(#wahl-renovieren:checked) #renovieren {
   list-style: none;
 }
 
-.ablauf__schritte li {
-  position: relative;
+.ablauf__schritt {
   display: grid;
-  gap: var(--space-xs);
+  gap: var(--space-s);
   align-content: start;
-  padding-top: var(--space-l);
-  transition: opacity var(--dur-base) var(--ease-out);
+  padding-top: calc(var(--spur) + var(--space-s));
 }
 
-.ablauf__schritte li::before {
-  content: '';
-  position: absolute;
-  top: -7px;
-  left: 0;
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background: var(--cw-bg);
-  box-shadow: inset 0 0 0 2px var(--cw-markierung);
-  transition: background-color var(--dur-base) var(--ease-out);
+.ablauf__schritt:nth-child(even) {
+  margin-top: 4rem; /* Versatz der Welle; größer, und sie schneidet die Ecken der Karten */
 }
 
-.ablauf__schritte li.is-an::before {
-  background: var(--cw-markierung);
-}
-
-.motion-ready [data-ablauf] .ablauf__schritte li:not(.is-an) {
-  opacity: 0.35;
+.ablauf__text {
+  display: grid;
+  gap: var(--space-2xs);
 }
 
 .ablauf h4 {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6em;
   font-size: var(--step-1);
   font-weight: 650;
   line-height: 1.1;
+}
+
+.ablauf__nr {
+  font-size: var(--step--2);
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--cw-markierung);
 }
 
 .ablauf p {
   color: var(--cw-soft);
 }
 
+.ablauf__schritt > * {
+  transition: opacity var(--dur-slow) var(--ease-out);
+}
+
+.motion-ready .ist-kurve .ablauf__schritt:not(.is-an) > * {
+  opacity: 0.45;
+}
+
+/* Ohne JavaScript: gerade Linie an der Spur */
+.ablauf:not(.ist-kurve) .ablauf__schritt {
+  border-top: 2px solid var(--cw-line);
+}
+
 @media (max-width: 899px) {
-  .ablauf__bahn {
-    grid-template-columns: 2px 1fr;
-    column-gap: var(--space-m);
-  }
-
-  .ablauf__linie {
-    width: 2px;
-    height: auto;
-  }
-
-  .ablauf__linie span {
-    transform-origin: center top;
-  }
-
   .ablauf__schritte {
-    grid-template-columns: 1fr;
-    gap: var(--space-l);
+    grid-template-columns: minmax(0, 1fr);
+    gap: var(--space-xl);
   }
 
-  .ablauf__schritte li {
+  .ablauf__schritt,
+  .ablauf__schritt:nth-child(even) {
+    margin-top: 0;
     padding-top: 0;
   }
 
-  .ablauf__schritte li::before {
-    top: 0.45em;
-    left: calc(-1 * var(--space-m) - 7px);
+  .ablauf__schritt:nth-child(odd) {
+    padding-left: calc(var(--spur) + var(--space-s));
   }
+
+  .ablauf__schritt:nth-child(even) {
+    padding-right: calc(var(--spur) + var(--space-s));
+  }
+
+  .ablauf:not(.ist-kurve) .ablauf__schritt {
+    border-top: 0;
+  }
+
+  .ablauf:not(.ist-kurve) .ablauf__schritt:nth-child(odd) {
+    border-left: 2px solid var(--cw-line);
+  }
+
+  .ablauf:not(.ist-kurve) .ablauf__schritt:nth-child(even) {
+    border-right: 2px solid var(--cw-line);
+  }
+}
+
+/* Mini-Szenen: kleine Oberflächen aus Code, je Schritt eine. Ruhezustand = Endbild der Animation. */
+.sz {
+  --sz-flaeche: color-mix(in srgb, var(--cw-ink) 5%, var(--cw-bg));
+  --sz-teil: color-mix(in srgb, var(--cw-ink) 15%, transparent);
+  --sz-rand: color-mix(in srgb, var(--cw-ink) 12%, transparent);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  height: clamp(8.75rem, 7.5rem + 3vw, 10.5rem);
+  padding: 1rem;
+  overflow: clip;
+  border-radius: var(--radius-l);
+  background: var(--sz-flaeche);
+  box-shadow: inset 0 0 0 1px var(--sz-rand);
+  font-size: var(--step--2);
+  font-weight: 600;
+  line-height: 1;
+}
+
+.sz__strich {
+  display: block;
+  flex: none;
+  width: var(--b, 100%);
+  height: 0.45rem;
+  border-radius: 99px;
+  background: var(--sz-teil);
+}
+
+.sz__zeiger {
+  position: absolute;
+  width: 1rem;
+  height: 1.25rem;
+  background: var(--cw-ink);
+  clip-path: polygon(0 0, 100% 70%, 55% 72%, 75% 100%, 60% 100%, 42% 76%, 0 100%);
+}
+
+/* Fragebogen: Fortschritt, Frage, drei Kacheln, eine wird gewählt */
+.sz__balken {
+  display: block;
+  height: 0.3rem;
+  border-radius: 99px;
+  background: var(--sz-teil);
+  overflow: clip;
+}
+
+.sz__balken i {
+  display: block;
+  width: 40%;
+  height: 100%;
+  background: var(--cw-accent);
+  transform-origin: left center;
+}
+
+.sz__kacheln {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.45rem;
+  margin-top: auto;
+}
+
+.sz__kacheln b {
+  position: relative;
+  height: 2.4rem;
+  border-radius: var(--radius);
+  box-shadow: inset 0 0 0 1.5px var(--sz-rand);
+}
+
+.sz__kacheln i {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: var(--cw-accent);
+}
+
+.sz__kacheln i::after {
+  content: '';
+  position: absolute;
+  left: calc(50% - 0.2rem);
+  top: calc(50% - 0.45rem);
+  width: 0.4rem;
+  height: 0.75rem;
+  border: solid var(--cw-knopf-text);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.sz--fragebogen .sz__zeiger {
+  left: 55%;
+  bottom: 0.6rem;
+}
+
+/* Gespräch: zwei Sprechblasen, dann der Stempel */
+.sz--gespraech {
+  justify-content: center;
+}
+
+.sz__blase {
+  display: grid;
+  gap: 0.4rem;
+  width: 62%;
+  padding: 0.65rem 0.75rem;
+  border-radius: 0.75rem 0.75rem 0.75rem 0.2rem;
+  background: var(--sz-teil);
+}
+
+.sz__blase--ich {
+  align-self: flex-end;
+  width: 46%;
+  border-radius: 0.75rem 0.75rem 0.2rem 0.75rem;
+  background: var(--cw-accent);
+}
+
+.sz__blase--ich .sz__strich {
+  background: color-mix(in srgb, var(--cw-knopf-text) 40%, transparent);
+}
+
+.sz__marke {
+  position: absolute;
+  right: 0.9rem;
+  top: 0.9rem;
+  padding: 0.35rem 0.6rem;
+  border-radius: 99px;
+  box-shadow: inset 0 0 0 1.5px var(--cw-accent);
+  color: var(--cw-accent);
+  rotate: 6deg;
+}
+
+/* Entwurf: kleines Browserfenster baut sich auf */
+.sz--entwurf {
+  padding-bottom: 0;
+}
+
+.sz__fenster {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 0.5rem;
+  height: 100%;
+  padding: 0.55rem 0.6rem 0.6rem;
+  border-radius: var(--radius) var(--radius) 0 0;
+  background: var(--cw-bg);
+  box-shadow: inset 0 0 0 1px var(--sz-rand);
+}
+
+.sz__leiste {
+  display: flex;
+  gap: 0.25rem;
+}
+
+.sz__leiste i {
+  width: 0.4rem;
+  height: 0.4rem;
+  border-radius: 50%;
+  background: var(--sz-teil);
+}
+
+.sz__buehne {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.5rem;
+  border-radius: 0.3rem;
+  background: var(--sz-flaeche);
+}
+
+.sz__knopf {
+  display: block;
+  width: 2.6rem;
+  height: 0.9rem;
+  margin-top: 0.15rem;
+  border-radius: 0.25rem;
+  background: var(--cw-accent);
+}
+
+.sz__spalten {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.4rem;
+}
+
+.sz__spalten span {
+  height: 1.6rem;
+  border-radius: 0.3rem;
+  background: var(--sz-teil);
+}
+
+.sz--entwurf .sz__zeiger {
+  left: calc(1.6rem + 2.4rem);
+  top: 58%;
+}
+
+/* Bau und Start: Adresse tippt sich, Online, Besucher steigen */
+.sz__adresse {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.7rem;
+  border-radius: 99px;
+  background: var(--cw-bg);
+  box-shadow: inset 0 0 0 1px var(--sz-rand);
+  color: var(--cw-soft);
+  font-weight: 550;
+}
+
+.sz__adresse::before {
+  content: '';
+  width: 0.45rem;
+  height: 0.45rem;
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 1.5px currentColor;
+}
+
+.sz__online {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  gap: 0.4rem;
+}
+
+.sz__online i {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  background: var(--cw-accent);
+  animation: sz-puls 1.8s var(--ease-out) infinite;
+}
+
+@keyframes sz-puls {
+  50% {
+    transform: scale(1.6);
+    opacity: 0.5;
+  }
+}
+
+.sz__saeulen {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.35rem;
+  flex: 1;
+}
+
+.sz__saeulen i {
+  flex: 1;
+  height: var(--h);
+  border-radius: 0.2rem 0.2rem 0 0;
+  background: var(--sz-teil);
+  transform-origin: center bottom;
+}
+
+.sz__saeulen i:last-child {
+  background: var(--cw-accent);
+}
+
+/* Seite prüfen: drei Werte laufen hoch, alle zu niedrig */
+.sz__wert {
+  display: grid;
+  grid-template-columns: 3.4rem 1fr;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--cw-soft);
+}
+
+.sz__skala {
+  height: 0.45rem;
+  border-radius: 99px;
+  background: var(--sz-teil);
+  overflow: clip;
+}
+
+.sz__skala i {
+  display: block;
+  width: var(--w);
+  height: 100%;
+  border-radius: inherit;
+  background: var(--cw-accent);
+  transform-origin: left center;
+}
+
+/* Renovierung: neue Seite schiebt sich über die alte */
+.sz--renovierung {
+  padding: 0;
+}
+
+.sz__alt,
+.sz__neu {
+  position: absolute;
+  inset: 0;
+  padding: 1rem;
+}
+
+.sz__alt {
+  display: grid;
+  grid-template-columns: 1fr 1.6fr;
+  grid-template-rows: 0.9rem 1fr 1.4rem;
+  gap: 0.35rem;
+  background: color-mix(in srgb, var(--cw-ink) 9%, var(--cw-bg));
+}
+
+.sz__alt b {
+  border-radius: 1px;
+  background: color-mix(in srgb, var(--cw-ink) 22%, transparent);
+}
+
+.sz__alt b:nth-child(2) {
+  background: repeating-linear-gradient(-45deg, color-mix(in srgb, var(--cw-ink) 26%, transparent) 0 3px, transparent 3px 7px);
+}
+
+.sz__alt b:first-child {
+  grid-column: span 2;
+}
+
+.sz__alt b:last-child {
+  grid-column: span 2;
+  width: 70%;
+}
+
+.sz__neu {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0.45rem;
+  padding-left: calc(45% + 1rem);
+  background: var(--cw-bg);
+  clip-path: inset(0 0 0 45%);
+}
+
+.sz__naht {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 45%;
+  width: 2px;
+  margin-left: -1px;
+  background: var(--cw-accent);
+}
+
+/* Start und Pflege: Kreis dreht sich, Aufgaben werden abgehakt */
+.sz--pflege {
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
+
+.sz__kreis {
+  flex: none;
+  width: 3rem;
+  height: 3rem;
+  fill: none;
+  stroke: var(--cw-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.sz__liste {
+  display: grid;
+  gap: 0.55rem;
+  flex: 1;
+}
+
+.sz__liste span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--sz-rand);
+}
+
+.sz__liste span:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.sz__liste i {
+  position: relative;
+  flex: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 0.25rem;
+  background: var(--cw-accent);
+}
+
+.sz__liste i::after {
+  content: '';
+  position: absolute;
+  left: 0.33rem;
+  top: 0.15rem;
+  width: 0.28rem;
+  height: 0.5rem;
+  border: solid var(--cw-knopf-text);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
 }
 
 /* ---------- AUSBLICK auf die Referenzen ---------- */
@@ -1449,7 +2063,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
   --cw-knopf-text: var(--c-purple);
   --cw-knopf-hover: var(--c-blush-hell);
   --cw-soft: var(--c-purple-soft);
-  background: var(--c-purple);
+  background: var(--abschluss-bg);
   color: var(--c-grund);
 }
 
@@ -1481,7 +2095,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 /* ---------- FUSSZEILE ---------- */
 .fuss {
   padding-block: var(--space-xl) var(--space-l);
-  background: var(--c-nacht);
+  background: var(--fuss-bg);
   color: oklch(0.86 0.015 40);
 }
 
@@ -1537,7 +2151,7 @@ html:has(#wahl-renovieren:checked) #renovieren {
 
 /* ---------- FORMULARE ---------- */
 .fb {
-  /* Formulare sind immer helle Karten, auch in der grünen Welt */
+  /* Formulare sind immer helle Karten, auch in der dunklen Welt */
   --cw-soft: var(--c-tinte-soft);
   --cw-line: rgb(54 50 55 / 0.14);
   --cw-knopf: var(--c-indigo);

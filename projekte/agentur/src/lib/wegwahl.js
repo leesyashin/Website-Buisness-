@@ -40,7 +40,6 @@ export function initWegwahl() {
     a.addEventListener('click', (e) => {
       e.preventDefault();
       waehle(a.dataset.wahlLink);
-      document.querySelector('.kopf__menue[open]')?.removeAttribute('open');
     }),
   );
 

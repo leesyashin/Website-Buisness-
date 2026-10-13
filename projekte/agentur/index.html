@@ -80,12 +80,44 @@
         <div class="wrap ablauf" data-ablauf>
           <h3 class="ablauf__titel">So geht es weiter</h3>
           <div class="ablauf__bahn">
-            <div class="ablauf__linie" aria-hidden="true"><span data-ablauf-linie></span></div>
             <ol class="ablauf__schritte">
-              <li data-ablauf-schritt><h4>Fragebogen</h4><p>Fünf kurze Schritte, etwa drei Minuten. Daneben wächst eine Skizze Ihrer Seite.</p></li>
-              <li data-ablauf-schritt><h4>Gespräch</h4><p>Unverbindlich am Telefon oder bei Ihnen vor Ort. Danach bekommen Sie ein festes Angebot.</p></li>
-              <li data-ablauf-schritt><h4>Entwurf</h4><p>Sie sehen Ihre Startseite als klickbaren Entwurf, bevor gebaut wird.</p></li>
-              <li data-ablauf-schritt><h4>Bau und Start</h4><p>Wir bauen, schreiben die Texte mit Ihnen und stellen die Seite online.</p></li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--fragebogen" aria-hidden="true" data-szene="fragebogen">
+                  <span class="sz__balken"><i data-sz="fuellung"></i></span>
+                  <span class="sz__strich" style="--b: 72%"></span>
+                  <span class="sz__strich" style="--b: 48%"></span>
+                  <span class="sz__kacheln"><b></b><b><i data-sz="wahl"></i></b><b></b></span>
+                  <span class="sz__zeiger" data-sz="zeiger"></span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">01</span>Fragebogen</h4><p>Fünf kurze Schritte, etwa drei Minuten. Daneben wächst eine Skizze Ihrer Seite.</p></div>
+              </li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--gespraech" aria-hidden="true" data-szene="gespraech">
+                  <span class="sz__blase" data-sz="blase"><span class="sz__strich" style="--b: 90%"></span><span class="sz__strich" style="--b: 60%"></span></span>
+                  <span class="sz__blase sz__blase--ich" data-sz="blase"><span class="sz__strich" style="--b: 80%"></span></span>
+                  <span class="sz__marke" data-sz="marke">Festes Angebot</span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">02</span>Gespräch</h4><p>Unverbindlich am Telefon oder bei Ihnen vor Ort. Danach bekommen Sie ein festes Angebot.</p></div>
+              </li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--entwurf" aria-hidden="true" data-szene="entwurf">
+                  <span class="sz__fenster">
+                    <span class="sz__leiste"><i></i><i></i><i></i></span>
+                    <span class="sz__buehne" data-sz="teil"><span class="sz__strich" style="--b: 62%"></span><span class="sz__strich" style="--b: 40%"></span><span class="sz__knopf" data-sz="knopf"></span></span>
+                    <span class="sz__spalten"><span data-sz="teil"></span><span data-sz="teil"></span><span data-sz="teil"></span></span>
+                  </span>
+                  <span class="sz__zeiger" data-sz="zeiger"></span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">03</span>Entwurf</h4><p>Sie sehen Ihre Startseite als klickbaren Entwurf, bevor gebaut wird.</p></div>
+              </li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--start" aria-hidden="true" data-szene="start">
+                  <span class="sz__adresse"><span data-sz="tippen">ihre-seite.de</span></span>
+                  <span class="sz__online" data-sz="online"><i></i>Online</span>
+                  <span class="sz__saeulen"><i style="--h: 28%"></i><i style="--h: 40%"></i><i style="--h: 36%"></i><i style="--h: 58%"></i><i style="--h: 70%"></i><i style="--h: 92%"></i></span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">04</span>Bau und Start</h4><p>Wir bauen, schreiben die Texte mit Ihnen und stellen die Seite online.</p></div>
+              </li>
             </ol>
           </div>
         </div>
@@ -121,12 +153,39 @@
         <div class="wrap ablauf" data-ablauf>
           <h3 class="ablauf__titel">So geht es weiter</h3>
           <div class="ablauf__bahn">
-            <div class="ablauf__linie" aria-hidden="true"><span data-ablauf-linie></span></div>
             <ol class="ablauf__schritte">
-              <li data-ablauf-schritt><h4>Seite prüfen</h4><p>Kostenloser Schnell-Check: Ladezeit, Handy, Auffindbarkeit. Dazu sagen Sie, was Sie stört.</p></li>
-              <li data-ablauf-schritt><h4>Gespräch</h4><p>Wir schauen uns Ihre Seite genau an und schlagen vor, was sich lohnt. Dann gibt es ein festes Angebot.</p></li>
-              <li data-ablauf-schritt><h4>Renovierung</h4><p>Neues Design im Rahmen Ihrer Marke, schneller, fürs Handy gebaut, fehlende Funktionen ergänzt.</p></li>
-              <li data-ablauf-schritt><h4>Start und Pflege</h4><p>Die Seite geht unter der gewohnten Adresse online. Auf Wunsch kümmern wir uns weiter.</p></li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--pruefen" aria-hidden="true" data-szene="pruefen">
+                  <span class="sz__adresse"><span data-sz="tippen">ihre-seite.de</span></span>
+                  <span class="sz__wert">Tempo<span class="sz__skala"><i style="--w: 34%" data-sz="wert"></i></span></span>
+                  <span class="sz__wert">Handy<span class="sz__skala"><i style="--w: 48%" data-sz="wert"></i></span></span>
+                  <span class="sz__wert">Google<span class="sz__skala"><i style="--w: 61%" data-sz="wert"></i></span></span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">01</span>Seite prüfen</h4><p>Kostenloser Schnell-Check: Ladezeit, Handy, Auffindbarkeit. Dazu sagen Sie, was Sie stört.</p></div>
+              </li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--gespraech" aria-hidden="true" data-szene="gespraech">
+                  <span class="sz__blase" data-sz="blase"><span class="sz__strich" style="--b: 90%"></span><span class="sz__strich" style="--b: 60%"></span></span>
+                  <span class="sz__blase sz__blase--ich" data-sz="blase"><span class="sz__strich" style="--b: 80%"></span></span>
+                  <span class="sz__marke" data-sz="marke">Festes Angebot</span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">02</span>Gespräch</h4><p>Wir schauen uns Ihre Seite genau an und schlagen vor, was sich lohnt. Dann gibt es ein festes Angebot.</p></div>
+              </li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--renovierung" aria-hidden="true" data-szene="renovierung">
+                  <span class="sz__alt"><b></b><b></b><b></b><b></b></span>
+                  <span class="sz__neu" data-sz="neu"><span class="sz__strich" style="--b: 70%"></span><span class="sz__strich" style="--b: 45%"></span><span class="sz__knopf"></span></span>
+                  <span class="sz__naht" data-sz="naht"></span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">03</span>Renovierung</h4><p>Neues Design im Rahmen Ihrer Marke, schneller, fürs Handy gebaut, fehlende Funktionen ergänzt.</p></div>
+              </li>
+              <li class="ablauf__schritt" data-ablauf-schritt>
+                <div class="sz sz--pflege" aria-hidden="true" data-szene="pflege">
+                  <svg class="sz__kreis" data-sz="kreis" viewBox="0 0 24 24"><path d="M20 12a8 8 0 1 1-2.34-5.66M20 4v4.5h-4.5" /></svg>
+                  <span class="sz__liste"><span><i data-sz="haken"></i>Update</span><span><i data-sz="haken"></i>Sicherung</span><span><i data-sz="haken"></i>Kleine Änderung</span></span>
+                </div>
+                <div class="ablauf__text"><h4><span class="ablauf__nr">04</span>Start und Pflege</h4><p>Die Seite geht unter der gewohnten Adresse online. Auf Wunsch kümmern wir uns weiter.</p></div>
+              </li>
             </ol>
           </div>
         </div>

@@ -29,9 +29,10 @@ import { initFaecher } from './faecher.js';
 import { initFilm } from './film.js';
 import { initWeg } from './weg.js';
 import { initGalerie } from './galerie.js';
-import { initAblauf } from './ablauf.js';
+import { initAblauf, initAblaufKurve } from './ablauf.js';
 import { initKarte } from './karte.js';
 import { initSzene } from './szene.js';
+import { initMenue } from './menue.js';
 
 gsap.registerPlugin(ScrollTrigger, SplitText, ScrambleTextPlugin, DrawSVGPlugin, CustomEase);
 CustomEase.create('signature', signatureCurve);
@@ -43,9 +44,11 @@ export function initMotion() {
   const html = document.documentElement;
   // Unabhängig von „Bewegung reduzieren“: Zustände, keine Bewegung (Übergänge schaltet base.css dann ab)
   initHeader();
+  initMenue();
   initColorway();
   initRoll();
   initVergleich();
+  initAblaufKurve();
 
   const mm = gsap.matchMedia();
   mm.add(media, (ctx) => {
@@ -72,7 +75,7 @@ export function initMotion() {
     initVergleichAuftritt();
     cleanups.push(initFilm(), initFaecher({ finePointer }), initWeg());
     if (desktop) cleanups.push(initGalerie());
-    initAblauf({ desktop });
+    cleanups.push(initAblauf());
     initKarte();
 
     html.classList.remove('motion-pending');

@@ -11,16 +11,26 @@
       </ul>
     </nav>
     <a class="kopf__tel" href="tel:{{telefonLink}}"><span class="visually-hidden">Anrufen: </span>{{telefon}}</a>
-    <details class="kopf__menue">
-      <summary>Menü</summary>
-      <ul>
-        <li><a href="/#neu" data-wahl-link="neu">Neue Seite</a></li>
-        <li><a href="/#renovieren" data-wahl-link="renovieren">Bestehende Seite</a></li>
-        <li><a href="/referenzen.html">Referenzen</a></li>
-        <li><a href="/#vor-ort">Fotos und Videos in Köln</a></li>
-        <li><a href="/#faq">Fragen</a></li>
-        <li><a href="tel:{{telefonLink}}">Anrufen: {{telefon}}</a></li>
-      </ul>
+    <details class="kopf__menue" data-menue>
+      <summary class="kopf__menue-knopf">
+        <span class="kopf__burger" aria-hidden="true"><i></i><i></i></span>
+        <span class="kopf__menue-wort" data-zu>Menü</span><span class="kopf__menue-wort" data-auf>Schließen</span>
+      </summary>
+      <div class="menue" data-menue-flaeche>
+        <nav class="wrap menue__innen" aria-label="Menü">
+          <ol class="menue__liste">
+            <li><a href="/#neu" data-wahl-link="neu"><span class="menue__nr" aria-hidden="true">01</span><span class="menue__maske"><span class="menue__wort">Neue Seite</span></span><small>Fragebogen, Skizze, festes Angebot</small></a></li>
+            <li><a href="/#renovieren" data-wahl-link="renovieren"><span class="menue__nr" aria-hidden="true">02</span><span class="menue__maske"><span class="menue__wort">Bestehende Seite</span></span><small>Kostenloser Check, dann renovieren</small></a></li>
+            <li><a href="/referenzen.html"><span class="menue__nr" aria-hidden="true">03</span><span class="menue__maske"><span class="menue__wort">Referenzen</span></span><small>Sieben Beispielseiten zum Ausprobieren</small></a></li>
+            <li><a href="/#vor-ort"><span class="menue__nr" aria-hidden="true">04</span><span class="menue__maske"><span class="menue__wort">Fotos und Videos</span></span><small>Wir drehen bei Ihnen in Köln</small></a></li>
+            <li><a href="/#faq"><span class="menue__nr" aria-hidden="true">05</span><span class="menue__maske"><span class="menue__wort">Fragen</span></span><small>Preise, Dauer, Pflege</small></a></li>
+          </ol>
+          <div class="menue__fuss">
+            <a class="knopf" href="/neu.html">Fragebogen starten</a>
+            <p class="menue__kontakt"><a href="tel:{{telefonLink}}">{{telefon}}</a><a href="mailto:{{email}}">{{email}}</a></p>
+          </div>
+        </nav>
+      </div>
     </details>
   </div>
 </header>

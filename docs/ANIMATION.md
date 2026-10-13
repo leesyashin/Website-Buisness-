@@ -60,7 +60,9 @@ Jedes Muster hängt an einem `data-`-Attribut im HTML. Ohne JavaScript oder bei 
 | Ereignis `wegwahl` | Gewählter Weg (Neue Seite / Bestehende Seite) tritt auf: Texte steigen auf, Fächer fliegt ein bzw. Naht fährt durch; Anzeige selbst rein per CSS `:has` | `motion/weg.js`, Logik `lib/wegwahl.js` |
 | `data-faecher` | Echte Seiten als 3D-Fächer, fächert beim Zeigen weiter auf | `motion/faecher.js` |
 | `data-galerie` + `data-galerie-spur` | Referenzen-Seite: angeheftet und seitwärts gefahren, in jeder Karte scrollt die lange Seitenansicht mit (`containerAnimation`); mobil Wischleiste | `motion/galerie.js` |
-| `data-ablauf` | Linie füllt sich beim Scrollen, Schritte leuchten nacheinander auf (Desktop waagerecht, Handy senkrecht) | `motion/ablauf.js` |
+| `data-ablauf` | Ablauf als S-Kurve: Linie zeichnet sich beim Scrollen, ein Läufer wandert mit, erreichte Schritte leuchten auf (Handy: Spur wechselt die Seite, Desktop: Welle über versetzten Spalten). Kurve steht auch bei reduzierter Bewegung | `motion/ablauf.js` |
+| `data-szene` | Mini-Szenen je Ablauf-Schritt (Fragebogen, Gespräch, Entwurf, Start, Prüfen, Renovierung, Pflege), spielen einmal beim Erreichen; Ruhezustand = Endbild | `motion/ablauf-szenen.js` |
+| `data-menue` | Handy-Menü: Fläche wächst als Kreis aus dem Knopf, Wörter steigen aus Masken; Escape und Links schließen, Lenis steht still | `motion/menue.js` |
 | `data-karte-kreis` | Umkreis auf der Köln-Karte wächst aus der Mitte | `motion/karte.js` |
 | `data-vn` | Renovieren: angeheftete Szene in vier Schritten (Naht, Handy-Vergleich, Ladebalken, Ring um den Termin-Knopf) | `motion/szene.js` |
 | (Funktionen) | `schrittEin`, `auftauchen`, `puls`, `hakenZeichnen` für Fragebogen, Skizze, Danke | `motion/einblenden.js` |

@@ -1,6 +1,6 @@
 /* Design-Tokens der Agenturseite nach Vincents Farbkarte: Deep Purple #363237, Indigo #2D4262, Taupe #73605B,
-   Blush #D09683. Indigo ist die Hauptfarbe (Knöpfe, die dunkle Welt „Bestehende Seite“), Deep Purple trägt Schrift
-   und dunkle Flächen, Taupe den Nebentext, Blush Linien, Markierungen und Knöpfe auf dunklem Grund.
+   Blush #D09683. Indigo ist die Hauptfarbe der hellen Welt (Knöpfe, Auswahl), Deep Purple trägt Schrift und die
+   dunkle Welt „Bestehende Seite“, Taupe den Nebentext, Blush Linien, Markierungen und Knöpfe auf dunklem Grund.
    Der helle Grund ist aus Blush abgeleitet (die Karte hat keinen hellen Ton). */
 :root {
   /* Farbkarte */
@@ -15,7 +15,8 @@
   --c-weiss: #fcf9f7; /* Karten, Formulare */
   --c-tinte: var(--c-purple);
   --c-tinte-soft: var(--c-taupe);
-  --c-nacht: #2a272b; /* Fußzeile, etwas dunkler als Deep Purple */
+  --c-nacht: #2a272b; /* etwas dunkler als Deep Purple */
+  --c-nacht-tief: #1f1d20; /* Fußzeile in der dunklen Welt */
   --c-indigo-hell: #3b5478; /* Hover auf Indigo */
   --c-indigo-soft: #c3c8d6; /* Nebentext auf Indigo */
   --c-purple-soft: #cdc4c6; /* Nebentext auf Deep Purple */
@@ -44,6 +45,10 @@
   --cw-knopf-text: var(--c-grund);
   --cw-knopf-hover: var(--c-indigo-hell);
   --cw-markierung: var(--c-blush-tief);
+
+  /* Abschluss und Fußzeile setzen sich immer vom Seitengrund ab */
+  --abschluss-bg: var(--c-purple);
+  --fuss-bg: var(--c-nacht);
 
   /* Schrift: Schibsted Grotesk (selbst gehostet) für Überschriften und Text */
   --font-sans: 'Schibsted Grotesk Variable', ui-sans-serif, system-ui, sans-serif;
@@ -83,7 +88,7 @@
   --dur-slow: 900ms;
 }
 
-/* Farbwelten (motion/colorway.js): hell (Start, Neue Seite) und Indigo (Bestehende Seite).
+/* Farbwelten (motion/colorway.js): hell (Start, Neue Seite) und Deep Purple (Bestehende Seite).
    Auf der Startseite schaltet die Wegwahl die ganze Seite um, rein per CSS (:has), damit es auch ohne JS geht. */
 html[data-colorway='buehne'],
 html:not(.colorway-live) [data-colorway='buehne'],
@@ -103,13 +108,15 @@ html:not(.colorway-live) [data-colorway='neu'] {
 html[data-colorway='renovieren'],
 html:not(.colorway-live) [data-colorway='renovieren'],
 html:has(#wahl-renovieren:checked) {
-  --cw-bg: var(--c-indigo);
+  --cw-bg: var(--c-purple);
   --cw-ink: var(--c-grund);
-  --cw-soft: var(--c-indigo-soft);
+  --cw-soft: var(--c-purple-soft);
   --cw-accent: var(--c-blush);
   --cw-line: rgb(247 241 238 / 0.18);
   --cw-knopf: var(--c-blush);
   --cw-knopf-text: var(--c-purple);
   --cw-knopf-hover: var(--c-blush-hell);
   --cw-markierung: var(--c-blush);
+  --abschluss-bg: var(--c-nacht);
+  --fuss-bg: var(--c-nacht-tief);
 }
